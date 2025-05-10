@@ -1,0 +1,25 @@
+#ifndef THRUST_CONTROL_THRUST_CONTROL_NODE_HPP_
+#define THRUST_CONTROL_THRUST_CONTROL_NODE_HPP_
+
+#include <functional>
+#include <memory>
+
+#include "rclcpp/rclcpp.hpp"
+#include "std_msgs/msg/int32_multi_array.hpp"
+
+namespace thrust_control
+{
+
+class ThrustControlNode : public rclcpp::Node
+{
+public:
+  ThrustControlNode();
+
+private:
+  void topic_callback(const std_msgs::msg::Int32MultiArray::SharedPtr msg) const;
+  rclcpp::Subscription<std_msgs::msg::Int32MultiArray>::SharedPtr subscription_;
+};
+
+}  // namespace thrust_control
+
+#endif  // THRUST_CONTROL_THRUST_CONTROL_NODE_HPP_

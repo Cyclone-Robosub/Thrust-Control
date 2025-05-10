@@ -1,0 +1,10 @@
+/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/CMakeFiles/uninstall.dir
+/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/CMakeFiles/thrust_control_uninstall.dir
+/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/CMakeFiles/thrust_control.dir
+/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/CMakeFiles/test.dir
+/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/CMakeFiles/edit_cache.dir
+/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/CMakeFiles/rebuild_cache.dir
+/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/CMakeFiles/list_install_components.dir
+/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/CMakeFiles/install.dir
+/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/CMakeFiles/install/local.dir
+/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/CMakeFiles/install/strip.dir
