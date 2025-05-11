@@ -1,8 +1,8 @@
-# Install script for directory: /home/propulsion/Thrust_Control_Clone/Thrust-Control
+# Install script for directory: /home/zenyn/Thrust-Control
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/propulsion/Thrust_Control_Clone/Thrust-Control/install/thrust_control")
+  set(CMAKE_INSTALL_PREFIX "/home/zenyn/Thrust-Control/install/thrust_control")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -49,7 +49,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/thrust_control/thrust_control"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/thrust_control" TYPE EXECUTABLE FILES "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/thrust_control")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/thrust_control" TYPE EXECUTABLE FILES "/home/zenyn/Thrust-Control/build/thrust_control/thrust_control")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/thrust_control/thrust_control" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/thrust_control/thrust_control")
     file(RPATH_CHANGE
@@ -63,19 +63,19 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/CMakeFiles/thrust_control.dir/install-cxx-module-bmi-noconfig.cmake" OPTIONAL)
+  include("/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles/thrust_control.dir/install-cxx-module-bmi-noconfig.cmake" OPTIONAL)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/propulsion/Thrust_Control_Clone/Thrust-Control/include/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/zenyn/Thrust-Control/include/")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/thrust_control")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/zenyn/Thrust-Control/build/thrust_control/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/thrust_control")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/thrust_control")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/zenyn/Thrust-Control/build/thrust_control/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/thrust_control")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -83,7 +83,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control/environment" TYPE FILE FILES "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control/environment" TYPE FILE FILES "/home/zenyn/Thrust-Control/build/thrust_control/ament_cmake_environment_hooks/ament_prefix_path.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -91,50 +91,50 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control/environment" TYPE FILE FILES "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/ament_cmake_environment_hooks/path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control/environment" TYPE FILE FILES "/home/zenyn/Thrust-Control/build/thrust_control/ament_cmake_environment_hooks/path.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control" TYPE FILE FILES "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/ament_cmake_environment_hooks/local_setup.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control" TYPE FILE FILES "/home/zenyn/Thrust-Control/build/thrust_control/ament_cmake_environment_hooks/local_setup.bash")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control" TYPE FILE FILES "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/ament_cmake_environment_hooks/local_setup.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control" TYPE FILE FILES "/home/zenyn/Thrust-Control/build/thrust_control/ament_cmake_environment_hooks/local_setup.sh")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control" TYPE FILE FILES "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/ament_cmake_environment_hooks/local_setup.zsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control" TYPE FILE FILES "/home/zenyn/Thrust-Control/build/thrust_control/ament_cmake_environment_hooks/local_setup.zsh")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control" TYPE FILE FILES "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/ament_cmake_environment_hooks/local_setup.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control" TYPE FILE FILES "/home/zenyn/Thrust-Control/build/thrust_control/ament_cmake_environment_hooks/local_setup.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control" TYPE FILE FILES "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/ament_cmake_environment_hooks/package.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control" TYPE FILE FILES "/home/zenyn/Thrust-Control/build/thrust_control/ament_cmake_environment_hooks/package.dsv")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/ament_cmake_index/share/ament_index/resource_index/packages/thrust_control")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/zenyn/Thrust-Control/build/thrust_control/ament_cmake_index/share/ament_index/resource_index/packages/thrust_control")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control/cmake" TYPE FILE FILES "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/ament_cmake_export_include_directories/ament_cmake_export_include_directories-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control/cmake" TYPE FILE FILES "/home/zenyn/Thrust-Control/build/thrust_control/ament_cmake_export_include_directories/ament_cmake_export_include_directories-extras.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control/cmake" TYPE FILE FILES "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control/cmake" TYPE FILE FILES "/home/zenyn/Thrust-Control/build/thrust_control/ament_cmake_export_dependencies/ament_cmake_export_dependencies-extras.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control/cmake" TYPE FILE FILES
-    "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/ament_cmake_core/thrust_controlConfig.cmake"
-    "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/ament_cmake_core/thrust_controlConfig-version.cmake"
+    "/home/zenyn/Thrust-Control/build/thrust_control/ament_cmake_core/thrust_controlConfig.cmake"
+    "/home/zenyn/Thrust-Control/build/thrust_control/ament_cmake_core/thrust_controlConfig-version.cmake"
     )
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control" TYPE FILE FILES "/home/propulsion/Thrust_Control_Clone/Thrust-Control/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thrust_control" TYPE FILE FILES "/home/zenyn/Thrust-Control/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -145,5 +145,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/zenyn/Thrust-Control/build/thrust_control/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/propulsion/Thrust_Control_Clone/Thrust-Control
+CMAKE_SOURCE_DIR = /home/zenyn/Thrust-Control
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control
+CMAKE_BINARY_DIR = /home/zenyn/Thrust-Control/build/thrust_control
 
 # Utility rule file for thrust_control_uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/thrust_control_uninstall.dir/compiler_depend.make
 include CMakeFiles/thrust_control_uninstall.dir/progress.make
 
 CMakeFiles/thrust_control_uninstall:
-	/usr/bin/cmake -P /home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/zenyn/Thrust-Control/build/thrust_control/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 thrust_control_uninstall: CMakeFiles/thrust_control_uninstall
 thrust_control_uninstall: CMakeFiles/thrust_control_uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/thrust_control_uninstall.dir/clean:
 .PHONY : CMakeFiles/thrust_control_uninstall.dir/clean
 
 CMakeFiles/thrust_control_uninstall.dir/depend:
-	cd /home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/propulsion/Thrust_Control_Clone/Thrust-Control /home/propulsion/Thrust_Control_Clone/Thrust-Control /home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control /home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control /home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control/CMakeFiles/thrust_control_uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/zenyn/Thrust-Control/build/thrust_control && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/zenyn/Thrust-Control /home/zenyn/Thrust-Control /home/zenyn/Thrust-Control/build/thrust_control /home/zenyn/Thrust-Control/build/thrust_control /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles/thrust_control_uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/thrust_control_uninstall.dir/depend
 

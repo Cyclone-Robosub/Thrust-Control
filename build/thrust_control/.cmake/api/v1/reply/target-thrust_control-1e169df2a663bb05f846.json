@@ -608,7 +608,7 @@
 			[
 				{
 					"backtrace" : 95,
-					"path" : "/home/propulsion/Thrust_Control_Clone/Thrust-Control/include"
+					"path" : "/home/zenyn/Thrust-Control/include"
 				},
 				{
 					"backtrace" : 96,
@@ -773,7 +773,7 @@
 		],
 		"prefix" : 
 		{
-			"path" : "/home/propulsion/Thrust_Control_Clone/Thrust-Control/install/thrust_control"
+			"path" : "/home/zenyn/Thrust-Control/install/thrust_control"
 		}
 	},
 	"link" : 

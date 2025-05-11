@@ -1,0 +1,6 @@
+[0.014s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
+[0.024s] [0mCMake Error: The current CMakeCache.txt directory /home/zenyn/Thrust-Control/build/thrust_control/CMakeCache.txt is different than the directory /home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt[0m
+[0.041s] [0mCMake Error: The source directory "/home/propulsion/Thrust_Control_Clone/Thrust-Control" does not exist.
+[0.041s] Specify --help for usage, or press the help button on the CMake GUI.[0m
+[0.042s] gmake: *** [Makefile:267: cmake_check_build_system] Error 1
+[0.045s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '2': /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12

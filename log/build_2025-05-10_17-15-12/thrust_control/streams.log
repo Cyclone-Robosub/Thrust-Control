@@ -1,0 +1,32 @@
+[0.006s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': /usr/bin/cmake /home/zenyn/Thrust-Control -DCMAKE_INSTALL_PREFIX=/home/zenyn/Thrust-Control/install/thrust_control
+[0.131s] -- The C compiler identification is GNU 13.3.0
+[0.229s] -- The CXX compiler identification is GNU 13.3.0
+[0.255s] -- Detecting C compiler ABI info
+[0.378s] -- Detecting C compiler ABI info - done
+[0.386s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.387s] -- Detecting C compile features
+[0.388s] -- Detecting C compile features - done
+[0.398s] -- Detecting CXX compiler ABI info
+[0.518s] -- Detecting CXX compiler ABI info - done
+[0.527s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.527s] -- Detecting CXX compile features
+[0.527s] -- Detecting CXX compile features - done
+[0.534s] [31mCMake Error at CMakeLists.txt:14 (find_package):
+[0.534s]   By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project
+[0.534s]   has asked CMake to find a package configuration file provided by
+[0.534s]   "ament_cmake", but CMake did not find one.
+[0.535s] 
+[0.535s]   Could not find a package configuration file provided by "ament_cmake" with
+[0.535s]   any of the following names:
+[0.535s] 
+[0.535s]     ament_cmakeConfig.cmake
+[0.535s]     ament_cmake-config.cmake
+[0.535s] 
+[0.535s]   Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set
+[0.535s]   "ament_cmake_DIR" to a directory containing one of the above files.  If
+[0.535s]   "ament_cmake" provides a separate development package or SDK, be sure it
+[0.536s]   has been installed.
+[0.536s] 
+[0.536s] [0m
+[0.536s] -- Configuring incomplete, errors occurred!
+[0.537s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '1': /usr/bin/cmake /home/zenyn/Thrust-Control -DCMAKE_INSTALL_PREFIX=/home/zenyn/Thrust-Control/install/thrust_control

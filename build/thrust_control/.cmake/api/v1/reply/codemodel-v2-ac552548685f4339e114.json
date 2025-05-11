@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "thrust_control::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-thrust_control-1ef90ceadba68864a88d.json",
+					"jsonFile" : "target-thrust_control-1e169df2a663bb05f846.json",
 					"name" : "thrust_control",
 					"projectIndex" : 0
 				},
@@ -68,8 +68,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/propulsion/Thrust_Control_Clone/Thrust-Control/build/thrust_control",
-		"source" : "/home/propulsion/Thrust_Control_Clone/Thrust-Control"
+		"build" : "/home/zenyn/Thrust-Control/build/thrust_control",
+		"source" : "/home/zenyn/Thrust-Control"
 	},
 	"version" : 
 	{

@@ -1,0 +1,89 @@
+[0.006s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/zenyn/Thrust-Control -DCMAKE_INSTALL_PREFIX=/home/zenyn/Thrust-Control/install/thrust_control
+[0.023s] -- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.171s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.284s] -- Found rclcpp: 28.1.8 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.320s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.330s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.343s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.357s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.417s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.419s] -- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.506s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[0.540s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[0.571s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.636s] -- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)
+[0.660s] -- Found ament_lint_auto: 0.17.2 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[0.756s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.764s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.764s] -- Configured cppcheck include dirs: /home/zenyn/Thrust-Control/include
+[0.764s] -- Configured cppcheck exclude dirs and/or files: 
+[0.772s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[0.773s] -- Configured cpplint exclude dirs and/or files: 
+[0.774s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.774s] -- Configured 'flake8' exclude dirs and/or files: 
+[0.776s] -- Added test 'lint_cmake' to check CMake code style
+[0.777s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.784s] -- Added test 'uncrustify' to check C / C++ code style
+[0.784s] -- Configured uncrustify additional arguments: 
+[0.785s] -- Added test 'xmllint' to check XML markup files
+[0.787s] -- Configuring done (0.8s)
+[0.794s] -- Generating done (0.0s)
+[0.796s] -- Build files have been written to: /home/zenyn/Thrust-Control/build/thrust_control
+[0.803s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/zenyn/Thrust-Control -DCMAKE_INSTALL_PREFIX=/home/zenyn/Thrust-Control/install/thrust_control
+[0.804s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
+[0.861s] [ 50%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o[0m
+[5.930s] [100%] [32m[1mLinking CXX executable thrust_control[0m
+[6.153s] [100%] Built target thrust_control
+[6.165s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
+[6.173s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/zenyn/Thrust-Control/build/thrust_control
+[6.180s] -- Install configuration: ""
+[6.181s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/lib/thrust_control/thrust_control
+[6.186s] -- Set non-toolchain portion of runtime path of "/home/zenyn/Thrust-Control/install/thrust_control/lib/thrust_control/thrust_control" to ""
+[6.186s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include
+[6.187s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/build
+[6.187s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/build/COLCON_IGNORE
+[6.187s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/build/.built_by
+[6.187s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/log
+[6.187s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/log/build_2025-05-09_17-30-57
+[6.187s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/log/build_2025-05-09_17-30-57/events.log
+[6.188s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/log/build_2025-05-09_17-30-57/logger_all.log
+[6.188s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/log/build_2025-05-09_18-05-17
+[6.188s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/log/build_2025-05-09_18-05-17/events.log
+[6.188s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/log/build_2025-05-09_18-05-17/logger_all.log
+[6.188s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/log/latest_build
+[6.188s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/log/COLCON_IGNORE
+[6.188s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/log/latest
+[6.189s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/thrust_control
+[6.189s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/thrust_control/thrust_control_supervisor.hpp
+[6.189s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/thrust_control/thrust_control_node.hpp
+[6.189s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/install
+[6.189s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/install/local_setup.ps1
+[6.189s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/install/setup.ps1
+[6.189s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/install/setup.sh
+[6.189s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/install/setup.zsh
+[6.190s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/install/local_setup.bash
+[6.190s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/install/COLCON_IGNORE
+[6.190s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/install/setup.bash
+[6.190s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/install/.colcon_install_layout
+[6.190s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/install/local_setup.sh
+[6.190s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/install/_local_setup_util_ps1.py
+[6.190s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/install/local_setup.zsh
+[6.190s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/install/_local_setup_util_sh.py
+[6.190s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/package_run_dependencies/thrust_control
+[6.191s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/parent_prefix_path/thrust_control
+[6.191s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/ament_prefix_path.sh
+[6.191s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/ament_prefix_path.dsv
+[6.191s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/path.sh
+[6.191s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/path.dsv
+[6.191s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.bash
+[6.191s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.sh
+[6.191s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.zsh
+[6.191s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.dsv
+[6.191s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/package.dsv
+[6.191s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/packages/thrust_control
+[6.192s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/ament_cmake_export_include_directories-extras.cmake
+[6.192s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/ament_cmake_export_dependencies-extras.cmake
+[6.192s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/thrust_controlConfig.cmake
+[6.192s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/thrust_controlConfig-version.cmake
+[6.192s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/package.xml
+[6.192s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/zenyn/Thrust-Control/build/thrust_control

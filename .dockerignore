@@ -1,0 +1,24 @@
+# Git
+.git
+.gitignore
+
+# Build artifacts
+build/
+install/
+log/
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Temporary files
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# IDE files
+.vscode/
+.idea/ 

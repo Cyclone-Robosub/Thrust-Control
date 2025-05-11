@@ -1,0 +1,2 @@
+Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
+Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '2': /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
