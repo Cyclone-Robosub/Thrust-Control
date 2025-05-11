@@ -69,28 +69,44 @@ include CMakeFiles/thrust_control.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/thrust_control.dir/flags.make
 
-CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o: CMakeFiles/thrust_control.dir/flags.make
-CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o: /home/zenyn/Thrust-Control/src/thrust_control_node.cpp
-CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o: CMakeFiles/thrust_control.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o -MF CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o.d -o CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o -c /home/zenyn/Thrust-Control/src/thrust_control_node.cpp
+CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o: CMakeFiles/thrust_control.dir/flags.make
+CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o: /home/zenyn/Thrust-Control/thrust_control_node.cpp
+CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o: CMakeFiles/thrust_control.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o -MF CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o.d -o CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o -c /home/zenyn/Thrust-Control/thrust_control_node.cpp
 
-CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zenyn/Thrust-Control/src/thrust_control_node.cpp > CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.i
+CMakeFiles/thrust_control.dir/thrust_control_node.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/thrust_control.dir/thrust_control_node.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zenyn/Thrust-Control/thrust_control_node.cpp > CMakeFiles/thrust_control.dir/thrust_control_node.cpp.i
 
-CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zenyn/Thrust-Control/src/thrust_control_node.cpp -o CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.s
+CMakeFiles/thrust_control.dir/thrust_control_node.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/thrust_control.dir/thrust_control_node.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zenyn/Thrust-Control/thrust_control_node.cpp -o CMakeFiles/thrust_control.dir/thrust_control_node.cpp.s
+
+CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o: CMakeFiles/thrust_control.dir/flags.make
+CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o: /home/zenyn/Thrust-Control/thrust_control_supervisor.cpp
+CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o: CMakeFiles/thrust_control.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o -MF CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o.d -o CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o -c /home/zenyn/Thrust-Control/thrust_control_supervisor.cpp
+
+CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zenyn/Thrust-Control/thrust_control_supervisor.cpp > CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.i
+
+CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zenyn/Thrust-Control/thrust_control_supervisor.cpp -o CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.s
 
 # Object files for target thrust_control
 thrust_control_OBJECTS = \
-"CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o"
+"CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o" \
+"CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o"
 
 # External object files for target thrust_control
 thrust_control_EXTERNAL_OBJECTS =
 
-thrust_control: CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o
+thrust_control: CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o
+thrust_control: CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o
 thrust_control: CMakeFiles/thrust_control.dir/build.make
 thrust_control: /opt/ros/jazzy/lib/librclcpp.so
 thrust_control: /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so
@@ -167,7 +183,7 @@ thrust_control: /opt/ros/jazzy/lib/librcpputils.so
 thrust_control: /opt/ros/jazzy/lib/librosidl_runtime_c.so
 thrust_control: /opt/ros/jazzy/lib/librcutils.so
 thrust_control: CMakeFiles/thrust_control.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable thrust_control"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable thrust_control"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/thrust_control.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

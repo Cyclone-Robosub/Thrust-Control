@@ -15,22 +15,20 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
-# Include directories
-include_directories(include)
+# Include current directory for headers (option 2)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 # Add thrust control node executable
-add_executable(thrust_control src/thrust_control_node.cpp)
+add_executable(thrust_control 
+  thrust_control_node.cpp
+  thrust_control_supervisor.cpp
+)
 ament_target_dependencies(thrust_control rclcpp std_msgs)
 
-# In the install targets section, add:
+# Install targets
 install(TARGETS
   thrust_control
   DESTINATION lib/${PROJECT_NAME}
-)
-
-# Install include directory
-install(DIRECTORY include/
-  DESTINATION include
 )
 
 # Testing
@@ -40,7 +38,7 @@ if(BUILD_TESTING)
 endif()
 
 # Export package dependencies
-ament_export_include_directories(include)
+ament_export_include_directories(.)
 ament_export_dependencies(rclcpp std_msgs)
 
 ament_package()

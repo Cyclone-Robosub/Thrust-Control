@@ -210,29 +210,53 @@ thrust_control/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/build
 .PHONY : thrust_control/fast
 
-src/thrust_control_node.o: src/thrust_control_node.cpp.o
-.PHONY : src/thrust_control_node.o
+thrust_control_node.o: thrust_control_node.cpp.o
+.PHONY : thrust_control_node.o
 
 # target to build an object file
-src/thrust_control_node.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o
-.PHONY : src/thrust_control_node.cpp.o
+thrust_control_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o
+.PHONY : thrust_control_node.cpp.o
 
-src/thrust_control_node.i: src/thrust_control_node.cpp.i
-.PHONY : src/thrust_control_node.i
+thrust_control_node.i: thrust_control_node.cpp.i
+.PHONY : thrust_control_node.i
 
 # target to preprocess a source file
-src/thrust_control_node.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.i
-.PHONY : src/thrust_control_node.cpp.i
+thrust_control_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/thrust_control_node.cpp.i
+.PHONY : thrust_control_node.cpp.i
 
-src/thrust_control_node.s: src/thrust_control_node.cpp.s
-.PHONY : src/thrust_control_node.s
+thrust_control_node.s: thrust_control_node.cpp.s
+.PHONY : thrust_control_node.s
 
 # target to generate assembly for a file
-src/thrust_control_node.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.s
-.PHONY : src/thrust_control_node.cpp.s
+thrust_control_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/thrust_control_node.cpp.s
+.PHONY : thrust_control_node.cpp.s
+
+thrust_control_supervisor.o: thrust_control_supervisor.cpp.o
+.PHONY : thrust_control_supervisor.o
+
+# target to build an object file
+thrust_control_supervisor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o
+.PHONY : thrust_control_supervisor.cpp.o
+
+thrust_control_supervisor.i: thrust_control_supervisor.cpp.i
+.PHONY : thrust_control_supervisor.i
+
+# target to preprocess a source file
+thrust_control_supervisor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.i
+.PHONY : thrust_control_supervisor.cpp.i
+
+thrust_control_supervisor.s: thrust_control_supervisor.cpp.s
+.PHONY : thrust_control_supervisor.s
+
+# target to generate assembly for a file
+thrust_control_supervisor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.s
+.PHONY : thrust_control_supervisor.cpp.s
 
 # Help Target
 help:
@@ -250,9 +274,12 @@ help:
 	@echo "... thrust_control_uninstall"
 	@echo "... uninstall"
 	@echo "... thrust_control"
-	@echo "... src/thrust_control_node.o"
-	@echo "... src/thrust_control_node.i"
-	@echo "... src/thrust_control_node.s"
+	@echo "... thrust_control_node.o"
+	@echo "... thrust_control_node.i"
+	@echo "... thrust_control_node.s"
+	@echo "... thrust_control_supervisor.o"
+	@echo "... thrust_control_supervisor.i"
+	@echo "... thrust_control_supervisor.s"
 .PHONY : help
 
 

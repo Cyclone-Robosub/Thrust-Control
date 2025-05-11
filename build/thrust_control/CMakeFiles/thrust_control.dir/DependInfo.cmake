@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/zenyn/Thrust-Control/src/thrust_control_node.cpp" "CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o" "gcc" "CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o.d"
+  "/home/zenyn/Thrust-Control/thrust_control_node.cpp" "CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o" "gcc" "CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o.d"
+  "/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp" "CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o" "gcc" "CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
