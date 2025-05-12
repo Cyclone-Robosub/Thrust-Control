@@ -210,6 +210,30 @@ thrust_control/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/build
 .PHONY : thrust_control/fast
 
+main.o: main.cpp.o
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/main.cpp.s
+.PHONY : main.cpp.s
+
 thrust_control_node.o: thrust_control_node.cpp.o
 .PHONY : thrust_control_node.o
 
@@ -274,6 +298,9 @@ help:
 	@echo "... thrust_control_uninstall"
 	@echo "... uninstall"
 	@echo "... thrust_control"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... thrust_control_node.o"
 	@echo "... thrust_control_node.i"
 	@echo "... thrust_control_node.s"

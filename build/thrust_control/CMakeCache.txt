@@ -268,6 +268,15 @@ PKG_CONFIG_ARGN:STRING=
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
+//Value Computed by CMake
+Project_BINARY_DIR:STATIC=/home/zenyn/Thrust-Control/build/thrust_control
+
+//Value Computed by CMake
+Project_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Project_SOURCE_DIR:STATIC=/home/zenyn/Thrust-Control
+
 //Name of the computer/site where compile is being run
 SITE:STRING=Zenyn-Linux
 
@@ -510,6 +519,9 @@ thrust_control_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 thrust_control_SOURCE_DIR:STATIC=/home/zenyn/Thrust-Control
+
+//Dependencies for the target
+thrust_control_lib_LIB_DEPENDS:STATIC=general;rclcpp::rclcpp;general;std_msgs::std_msgs__rosidl_generator_c;general;std_msgs::std_msgs__rosidl_typesupport_fastrtps_c;general;std_msgs::std_msgs__rosidl_typesupport_fastrtps_cpp;general;std_msgs::std_msgs__rosidl_typesupport_introspection_c;general;std_msgs::std_msgs__rosidl_typesupport_c;general;std_msgs::std_msgs__rosidl_typesupport_introspection_cpp;general;std_msgs::std_msgs__rosidl_typesupport_cpp;general;std_msgs::std_msgs__rosidl_generator_py;
 
 //The directory containing a CMake configuration file for tracetools.
 tracetools_DIR:PATH=/opt/ros/jazzy/share/tracetools/cmake

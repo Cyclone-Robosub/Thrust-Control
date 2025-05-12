@@ -1,0 +1,59 @@
+-- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found rclcpp: 28.1.8 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)
+-- Found ament_lint_auto: 0.17.2 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: 
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'cpplint' to check C / C++ code against the Google style
+-- Configured cpplint exclude dirs and/or files: 
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Configured 'flake8' exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/zenyn/Thrust-Control/build/thrust_control
+[ 25%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o[0m
+[01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:[m[K In member function ‘[01m[Kvoid thrust_control::ThrustControlSupervisor::[01;32m[Kfeed_forward_pwm[m[K(std::array<int, 8>)[m[K’:
+[01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:38:67:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kpwm[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   38 | void ThrustControlSupervisor::feed_forward_pwm([01;35m[Kstd::array<int, 8> pwm[m[K)
+      |                                                [01;35m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:[m[K In member function ‘[01m[Kvoid thrust_control::ThrustControlSupervisor::[01;32m[Kpid_pwm[m[K(std::array<int, 8>)[m[K’:
+[01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:43:58:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kpwm[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   43 | void ThrustControlSupervisor::pid_pwm([01;35m[Kstd::array<int, 8> pwm[m[K)
+      |                                       [01;35m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[ 75%] [32m[1mLinking CXX executable thrust_control[0m
+[100%] Built target thrust_control
+-- Install configuration: ""
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/lib/thrust_control/thrust_control
+-- Set non-toolchain portion of runtime path of "/home/zenyn/Thrust-Control/install/thrust_control/lib/thrust_control/thrust_control" to ""
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/package_run_dependencies/thrust_control
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/parent_prefix_path/thrust_control
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/ament_prefix_path.sh
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/ament_prefix_path.dsv
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/path.sh
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/path.dsv
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.bash
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.sh
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.zsh
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.dsv
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/package.dsv
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/packages/thrust_control
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/thrust_controlConfig.cmake
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/thrust_controlConfig-version.cmake
+-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/package.xml
