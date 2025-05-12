@@ -529,3 +529,45 @@ events:
       
       
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/usr/share/cmake-3.28/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "build/thrust_control/_deps/googletest-src/googletest/cmake/internal_utils.cmake:66 (find_package)"
+      - "build/thrust_control/_deps/googletest-src/googletest/CMakeLists.txt:83 (config_compiler_and_linker)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles/CMakeScratch/TryCompile-omhKxn"
+      binary: "/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles/CMakeScratch/TryCompile-omhKxn"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles/CMakeScratch/TryCompile-omhKxn'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a69b6/fast
+        gmake[1]: Entering directory '/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles/CMakeScratch/TryCompile-omhKxn'
+        /usr/bin/gmake  -f CMakeFiles/cmTC_a69b6.dir/build.make CMakeFiles/cmTC_a69b6.dir/build
+        gmake[2]: Entering directory '/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles/CMakeScratch/TryCompile-omhKxn'
+        Building C object CMakeFiles/cmTC_a69b6.dir/src.c.o
+        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_a69b6.dir/src.c.o -c /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles/CMakeScratch/TryCompile-omhKxn/src.c
+        Linking C executable cmTC_a69b6
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a69b6.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_a69b6.dir/src.c.o -o cmTC_a69b6 
+        gmake[2]: Leaving directory '/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles/CMakeScratch/TryCompile-omhKxn'
+        gmake[1]: Leaving directory '/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles/CMakeScratch/TryCompile-omhKxn'
+        
+      exitCode: 0
+...

@@ -64,17 +64,89 @@ CMAKE_BINARY_DIR = /home/zenyn/Thrust-Control/build/thrust_control
 
 # The main recursive "all" target.
 all: CMakeFiles/thrust_control.dir/all
+all: Command-Interpreter/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: Command-Interpreter/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/uninstall.dir/clean
 clean: CMakeFiles/thrust_control_uninstall.dir/clean
 clean: CMakeFiles/thrust_control.dir/clean
+clean: Command-Interpreter/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory Command-Interpreter
+
+# Recursive "all" directory target.
+Command-Interpreter/all: Command-Interpreter/CMakeFiles/propulsion_test.dir/all
+Command-Interpreter/all: Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/all
+Command-Interpreter/all: _deps/googletest-build/all
+.PHONY : Command-Interpreter/all
+
+# Recursive "preinstall" directory target.
+Command-Interpreter/preinstall: _deps/googletest-build/preinstall
+.PHONY : Command-Interpreter/preinstall
+
+# Recursive "clean" directory target.
+Command-Interpreter/clean: Command-Interpreter/CMakeFiles/propulsion_test.dir/clean
+Command-Interpreter/clean: Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/clean
+Command-Interpreter/clean: _deps/googletest-build/clean
+.PHONY : Command-Interpreter/clean
+
+#=============================================================================
+# Directory level rules for directory _deps/googletest-build
+
+# Recursive "all" directory target.
+_deps/googletest-build/all: _deps/googletest-build/googlemock/all
+.PHONY : _deps/googletest-build/all
+
+# Recursive "preinstall" directory target.
+_deps/googletest-build/preinstall: _deps/googletest-build/googlemock/preinstall
+.PHONY : _deps/googletest-build/preinstall
+
+# Recursive "clean" directory target.
+_deps/googletest-build/clean: _deps/googletest-build/googlemock/clean
+.PHONY : _deps/googletest-build/clean
+
+#=============================================================================
+# Directory level rules for directory _deps/googletest-build/googlemock
+
+# Recursive "all" directory target.
+_deps/googletest-build/googlemock/all: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
+_deps/googletest-build/googlemock/all: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
+_deps/googletest-build/googlemock/all: _deps/googletest-build/googletest/all
+.PHONY : _deps/googletest-build/googlemock/all
+
+# Recursive "preinstall" directory target.
+_deps/googletest-build/googlemock/preinstall: _deps/googletest-build/googletest/preinstall
+.PHONY : _deps/googletest-build/googlemock/preinstall
+
+# Recursive "clean" directory target.
+_deps/googletest-build/googlemock/clean: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean
+_deps/googletest-build/googlemock/clean: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean
+_deps/googletest-build/googlemock/clean: _deps/googletest-build/googletest/clean
+.PHONY : _deps/googletest-build/googlemock/clean
+
+#=============================================================================
+# Directory level rules for directory _deps/googletest-build/googletest
+
+# Recursive "all" directory target.
+_deps/googletest-build/googletest/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+_deps/googletest-build/googletest/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
+.PHONY : _deps/googletest-build/googletest/all
+
+# Recursive "preinstall" directory target.
+_deps/googletest-build/googletest/preinstall:
+.PHONY : _deps/googletest-build/googletest/preinstall
+
+# Recursive "clean" directory target.
+_deps/googletest-build/googletest/clean: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean
+_deps/googletest-build/googletest/clean: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean
+.PHONY : _deps/googletest-build/googletest/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/uninstall.dir
@@ -132,15 +204,15 @@ CMakeFiles/thrust_control_uninstall.dir/clean:
 # Target rules for target CMakeFiles/thrust_control.dir
 
 # All Build rule for target.
-CMakeFiles/thrust_control.dir/all:
+CMakeFiles/thrust_control.dir/all: Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles --progress-num=1,2,3,4 "Built target thrust_control"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles --progress-num=18,19,20,21 "Built target thrust_control"
 .PHONY : CMakeFiles/thrust_control.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/thrust_control.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/thrust_control.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 0
 .PHONY : CMakeFiles/thrust_control.dir/rule
@@ -153,6 +225,164 @@ thrust_control: CMakeFiles/thrust_control.dir/rule
 CMakeFiles/thrust_control.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/clean
 .PHONY : CMakeFiles/thrust_control.dir/clean
+
+#=============================================================================
+# Target rules for target Command-Interpreter/CMakeFiles/propulsion_test.dir
+
+# All Build rule for target.
+Command-Interpreter/CMakeFiles/propulsion_test.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+Command-Interpreter/CMakeFiles/propulsion_test.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
+	$(MAKE) $(MAKESILENT) -f Command-Interpreter/CMakeFiles/propulsion_test.dir/build.make Command-Interpreter/CMakeFiles/propulsion_test.dir/depend
+	$(MAKE) $(MAKESILENT) -f Command-Interpreter/CMakeFiles/propulsion_test.dir/build.make Command-Interpreter/CMakeFiles/propulsion_test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles --progress-num=13,14,15,16,17 "Built target propulsion_test"
+.PHONY : Command-Interpreter/CMakeFiles/propulsion_test.dir/all
+
+# Build rule for subdir invocation for target.
+Command-Interpreter/CMakeFiles/propulsion_test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Command-Interpreter/CMakeFiles/propulsion_test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 0
+.PHONY : Command-Interpreter/CMakeFiles/propulsion_test.dir/rule
+
+# Convenience name for target.
+propulsion_test: Command-Interpreter/CMakeFiles/propulsion_test.dir/rule
+.PHONY : propulsion_test
+
+# clean rule for target.
+Command-Interpreter/CMakeFiles/propulsion_test.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Command-Interpreter/CMakeFiles/propulsion_test.dir/build.make Command-Interpreter/CMakeFiles/propulsion_test.dir/clean
+.PHONY : Command-Interpreter/CMakeFiles/propulsion_test.dir/clean
+
+#=============================================================================
+# Target rules for target Command-Interpreter/CMakeFiles/PropulsionFunctions.dir
+
+# All Build rule for target.
+Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/all:
+	$(MAKE) $(MAKESILENT) -f Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/build.make Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/depend
+	$(MAKE) $(MAKESILENT) -f Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/build.make Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles --progress-num=1,2,3,4 "Built target PropulsionFunctions"
+.PHONY : Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/all
+
+# Build rule for subdir invocation for target.
+Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 0
+.PHONY : Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/rule
+
+# Convenience name for target.
+PropulsionFunctions: Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/rule
+.PHONY : PropulsionFunctions
+
+# clean rule for target.
+Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/build.make Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/clean
+.PHONY : Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/googletest-build/googlemock/CMakeFiles/gmock.dir
+
+# All Build rule for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles --progress-num=5,6 "Built target gmock"
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 0
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule
+
+# Convenience name for target.
+gmock: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule
+.PHONY : gmock
+
+# clean rule for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir
+
+# All Build rule for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
+_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles --progress-num=7,8 "Built target gmock_main"
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 0
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule
+
+# Convenience name for target.
+gmock_main: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule
+.PHONY : gmock_main
+
+# clean rule for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/googletest-build/googletest/CMakeFiles/gtest.dir
+
+# All Build rule for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest.dir/all:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles --progress-num=9,10 "Built target gtest"
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 0
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/rule
+
+# Convenience name for target.
+gtest: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/rule
+.PHONY : gtest
+
+# clean rule for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir
+
+# All Build rule for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles --progress-num=11,12 "Built target gtest_main"
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 0
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule
+
+# Convenience name for target.
+gtest_main: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule
+.PHONY : gtest_main
+
+# clean rule for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

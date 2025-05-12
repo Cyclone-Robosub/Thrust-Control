@@ -15,8 +15,13 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
-# Include current directory for headers
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+add_subdirectory(Command-Interpreter)
+
+#Include current directory for headers
+include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
 
 # Create the executable
 add_executable(thrust_control 
@@ -26,6 +31,9 @@ add_executable(thrust_control
 )
 
 ament_target_dependencies(thrust_control rclcpp std_msgs)
+target_link_libraries(thrust_control
+    PropulsionFunctions
+)
 
 # Install targets - this is important!
 install(TARGETS

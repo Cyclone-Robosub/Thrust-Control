@@ -1,0 +1,3 @@
+[submodule "Command-Interpreter"]
+	path = Command-Interpreter
+	url = https://github.com/ZenynEthridge/Command-Interpreter.git

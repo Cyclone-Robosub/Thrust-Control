@@ -131,6 +131,7 @@ thrust_control: /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_introspection
 thrust_control: /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_introspection_cpp.so
 thrust_control: /opt/ros/jazzy/lib/libstd_msgs__rosidl_typesupport_cpp.so
 thrust_control: /opt/ros/jazzy/lib/libstd_msgs__rosidl_generator_py.so
+thrust_control: Command-Interpreter/libPropulsionFunctions.a
 thrust_control: /opt/ros/jazzy/lib/liblibstatistics_collector.so
 thrust_control: /opt/ros/jazzy/lib/librcl.so
 thrust_control: /opt/ros/jazzy/lib/librmw_implementation.so

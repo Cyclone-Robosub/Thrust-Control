@@ -1,0 +1,2 @@
+/usr/bin/ar qc libPropulsionFunctions.a CMakeFiles/PropulsionFunctions.dir/lib/Command_Interpreter.cpp.o CMakeFiles/PropulsionFunctions.dir/lib/Wiring.cpp.o CMakeFiles/PropulsionFunctions.dir/lib/Serial.cpp.o
+/usr/bin/ranlib libPropulsionFunctions.a
