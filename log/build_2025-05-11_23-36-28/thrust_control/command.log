@@ -1,0 +1,2 @@
+Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': /usr/bin/cmake /home/zenyn/Thrust-Control -DCMAKE_INSTALL_PREFIX=/home/zenyn/Thrust-Control/install/thrust_control
+Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '1': /usr/bin/cmake /home/zenyn/Thrust-Control -DCMAKE_INSTALL_PREFIX=/home/zenyn/Thrust-Control/install/thrust_control
