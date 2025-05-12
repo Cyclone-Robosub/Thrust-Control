@@ -7,7 +7,7 @@ ThrustControlSupervisor::ThrustControlSupervisor(
         rclcpp::Logger logger,
         std::unique_ptr<Command_Interpreter_RPi5> interpreter)
   : logger_(logger),
-    interpreter_(std::move(interpreter))
+    command_manager_(std::move(interpreter))
 
 {
 }
@@ -31,21 +31,21 @@ void ThrustControlSupervisor::step(
 
 void ThrustControlSupervisor::process_pwm_command(std::array<int, 8> pwm)
 {
-  // process_pwm_command implementation
   if (this->control_mode_ == FEED_FORWARD) { this->feed_forward_pwm(pwm); }
   if (this->control_mode_ == PID){ this->pid_pwm(pwm); }
-
-
-}  // namespace thrust_control
+}  
 
 
 void ThrustControlSupervisor::feed_forward_pwm(std::array<int, 8> pwm)  
 {
-  // feed_forward_pwm implementation
+    CommandComponent commandComponent;
+
+  
 }
 
 void ThrustControlSupervisor::pid_pwm(std::array<int, 8> pwm)
 {
-  // pid_pwm implementation
+
 }
 }
+

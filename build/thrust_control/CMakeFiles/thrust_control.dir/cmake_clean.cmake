@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/thrust_control.dir/command_manager.cpp.o"
+  "CMakeFiles/thrust_control.dir/command_manager.cpp.o.d"
   "CMakeFiles/thrust_control.dir/main.cpp.o"
   "CMakeFiles/thrust_control.dir/main.cpp.o.d"
   "CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o"

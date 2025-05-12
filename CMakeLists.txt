@@ -28,6 +28,7 @@ add_executable(thrust_control
   main.cpp
   thrust_control_node.cpp
   thrust_control_supervisor.cpp
+  command_manager.cpp
 )
 
 ament_target_dependencies(thrust_control rclcpp std_msgs)

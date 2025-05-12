@@ -7,6 +7,7 @@
 #include <vector>
 #include "rclcpp/rclcpp.hpp"
 #include "Command-Interpreter/lib/Command_Interpreter.h"
+#include "command_manager.hpp"
 
 namespace thrust_control
 {
@@ -44,7 +45,7 @@ private:
   std::array<float, 6> current_position_;
   std::array<float, 6> waypoint_;
   
-  std::unique_ptr<Command_Interpreter_RPi5> interpreter_;
+  CommandManager command_manager_;
   rclcpp::Logger logger_;
 };
 

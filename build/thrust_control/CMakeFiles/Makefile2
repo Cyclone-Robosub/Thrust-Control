@@ -207,12 +207,12 @@ CMakeFiles/thrust_control_uninstall.dir/clean:
 CMakeFiles/thrust_control.dir/all: Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles --progress-num=18,19,20,21 "Built target thrust_control"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles --progress-num=18,19,20,21,22 "Built target thrust_control"
 .PHONY : CMakeFiles/thrust_control.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/thrust_control.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/thrust_control.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zenyn/Thrust-Control/build/thrust_control/CMakeFiles 0
 .PHONY : CMakeFiles/thrust_control.dir/rule

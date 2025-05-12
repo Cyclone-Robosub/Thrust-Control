@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/zenyn/Thrust-Control/command_manager.cpp" "CMakeFiles/thrust_control.dir/command_manager.cpp.o" "gcc" "CMakeFiles/thrust_control.dir/command_manager.cpp.o.d"
   "/home/zenyn/Thrust-Control/main.cpp" "CMakeFiles/thrust_control.dir/main.cpp.o" "gcc" "CMakeFiles/thrust_control.dir/main.cpp.o.d"
   "/home/zenyn/Thrust-Control/thrust_control_node.cpp" "CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o" "gcc" "CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o.d"
   "/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp" "CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o" "gcc" "CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o.d"

@@ -705,4 +705,6 @@ CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o: \
  /usr/include/c++/13/fstream \
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
- /usr/include/c++/13/bits/fstream.tcc
+ /usr/include/c++/13/bits/fstream.tcc \
+ /home/zenyn/Thrust-Control/command_manager.hpp \
+ /home/zenyn/Thrust-Control/Pwm_Command.hpp

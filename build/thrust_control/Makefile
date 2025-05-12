@@ -288,6 +288,30 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+command_manager.o: command_manager.cpp.o
+.PHONY : command_manager.o
+
+# target to build an object file
+command_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/command_manager.cpp.o
+.PHONY : command_manager.cpp.o
+
+command_manager.i: command_manager.cpp.i
+.PHONY : command_manager.i
+
+# target to preprocess a source file
+command_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/command_manager.cpp.i
+.PHONY : command_manager.cpp.i
+
+command_manager.s: command_manager.cpp.s
+.PHONY : command_manager.s
+
+# target to generate assembly for a file
+command_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/thrust_control.dir/build.make CMakeFiles/thrust_control.dir/command_manager.cpp.s
+.PHONY : command_manager.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -382,6 +406,9 @@ help:
 	@echo "... gtest_main"
 	@echo "... propulsion_test"
 	@echo "... thrust_control"
+	@echo "... command_manager.o"
+	@echo "... command_manager.i"
+	@echo "... command_manager.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
