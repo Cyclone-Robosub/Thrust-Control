@@ -1,0 +1,43 @@
+[0.008s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
+[0.035s] -- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.232s] -- Found rclcpp: 28.1.8 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.251s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.258s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.266s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.276s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.320s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.321s] -- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.401s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.456s] -- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)
+[0.466s] -- Found ament_lint_auto: 0.17.2 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[0.548s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.559s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.559s] -- Configured cppcheck include dirs: /home/zenyn/Thrust-Control/include
+[0.559s] -- Configured cppcheck exclude dirs and/or files: 
+[0.569s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[0.569s] -- Configured cpplint exclude dirs and/or files: 
+[0.571s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.571s] -- Configured 'flake8' exclude dirs and/or files: 
+[0.573s] -- Added test 'lint_cmake' to check CMake code style
+[0.575s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.585s] -- Added test 'uncrustify' to check C / C++ code style
+[0.585s] -- Configured uncrustify additional arguments: 
+[0.586s] -- Added test 'xmllint' to check XML markup files
+[0.587s] -- Configuring done (0.6s)
+[0.589s] [31mCMake Error at CMakeLists.txt:22 (add_executable):
+[0.589s]   Cannot find source file:
+[0.589s] 
+[0.589s]     thrust_control/thrust_control_node.cpp
+[0.589s] 
+[0.590s]   Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm
+[0.590s]   .ccm .cxxm .c++m .h .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90
+[0.590s]   .f95 .f03 .hip .ispc
+[0.590s] 
+[0.590s] [0m
+[0.590s] [31mCMake Error at CMakeLists.txt:22 (add_executable):
+[0.590s]   No SOURCES given to target: thrust_control
+[0.591s] 
+[0.591s] [0m
+[0.591s] [0mCMake Generate step failed.  Build files cannot be regenerated correctly.[0m
+[0.596s] gmake: *** [Makefile:267: cmake_check_build_system] Error 1
+[0.600s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
