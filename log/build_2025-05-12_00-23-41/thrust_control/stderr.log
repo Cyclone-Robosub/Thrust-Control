@@ -1,0 +1,26 @@
+[01m[K/home/zenyn/Thrust-Control/Wiring.cpp:30:10:[m[K [01;31m[Kfatal error: [m[KwiringSerial.h: No such file or directory
+   30 | #include [01;31m[K<wiringSerial.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/thrust_control.dir/build.make:132: CMakeFiles/thrust_control.dir/Wiring.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+[01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:[m[K In member function ‘[01m[Kvoid thrust_control::ThrustControlSupervisor::[01;32m[Kfeed_forward_pwm[m[K(std::array<int, 8>)[m[K’:
+[01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:38:67:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kpwm[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   38 | void ThrustControlSupervisor::feed_forward_pwm([01;35m[Kstd::array<int, 8> pwm[m[K)
+      |                                                [01;35m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:[m[K In member function ‘[01m[Kvoid thrust_control::ThrustControlSupervisor::[01;32m[Kpid_pwm[m[K(std::array<int, 8>)[m[K’:
+[01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:43:58:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kpwm[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   43 | void ThrustControlSupervisor::pid_pwm([01;35m[Kstd::array<int, 8> pwm[m[K)
+      |                                       [01;35m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/zenyn/Thrust-Control/main.cpp:[m[K In function ‘[01m[Kstd::unique_ptr<Command_Interpreter_RPi5>[01;32m[K makeCommandInterpreterPtr[m[K(std::ostream&, std::ostream&, std::ostream&)[m[K’:
+[01m[K/home/zenyn/Thrust-Control/main.cpp:5:23:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Koutput[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+    5 |         [01;35m[Kstd::ostream& output[m[K,
+      |         [01;35m[K~~~~~~~~~~~~~~^~~~~~[m[K
+[01m[K/home/zenyn/Thrust-Control/main.cpp:6:23:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kerror[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+    6 |         [01;35m[Kstd::ostream& error[m[K,
+      |         [01;35m[K~~~~~~~~~~~~~~^~~~~[m[K
+[01m[K/home/zenyn/Thrust-Control/main.cpp:7:23:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KlogFile[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+    7 |         [01;35m[Kstd::ostream& logFile[m[K)
+      |         [01;35m[K~~~~~~~~~~~~~~^~~~~~~[m[K
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/thrust_control.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

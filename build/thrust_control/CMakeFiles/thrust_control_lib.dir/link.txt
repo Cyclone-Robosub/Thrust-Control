@@ -1,2 +1,0 @@
-/usr/bin/ar qc libthrust_control_lib.a CMakeFiles/thrust_control_lib.dir/thrust_control_node.cpp.o CMakeFiles/thrust_control_lib.dir/thrust_control_supervisor.cpp.o
-/usr/bin/ranlib libthrust_control_lib.a

@@ -1,0 +1,70 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found rclcpp: 28.1.8 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)
+-- Found ament_lint_auto: 0.17.2 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: 
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'cpplint' to check C / C++ code against the Google style
+-- Configured cpplint exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (1.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/zenyn/Thrust-Control/build/thrust_control
+[ 16%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/Wiring.cpp.o[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/main.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o[0m
+[ 83%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/Command_Interpreter.cpp.o[0m
+[01m[K/home/zenyn/Thrust-Control/Wiring.cpp:30:10:[m[K [01;31m[Kfatal error: [m[KwiringSerial.h: No such file or directory
+   30 | #include [01;31m[K<wiringSerial.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/thrust_control.dir/build.make:132: CMakeFiles/thrust_control.dir/Wiring.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+[01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:[m[K In member function ‘[01m[Kvoid thrust_control::ThrustControlSupervisor::[01;32m[Kfeed_forward_pwm[m[K(std::array<int, 8>)[m[K’:
+[01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:38:67:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kpwm[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   38 | void ThrustControlSupervisor::feed_forward_pwm([01;35m[Kstd::array<int, 8> pwm[m[K)
+      |                                                [01;35m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:[m[K In member function ‘[01m[Kvoid thrust_control::ThrustControlSupervisor::[01;32m[Kpid_pwm[m[K(std::array<int, 8>)[m[K’:
+[01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:43:58:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kpwm[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   43 | void ThrustControlSupervisor::pid_pwm([01;35m[Kstd::array<int, 8> pwm[m[K)
+      |                                       [01;35m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/zenyn/Thrust-Control/main.cpp:[m[K In function ‘[01m[Kstd::unique_ptr<Command_Interpreter_RPi5>[01;32m[K makeCommandInterpreterPtr[m[K(std::ostream&, std::ostream&, std::ostream&)[m[K’:
+[01m[K/home/zenyn/Thrust-Control/main.cpp:5:23:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Koutput[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+    5 |         [01;35m[Kstd::ostream& output[m[K,
+      |         [01;35m[K~~~~~~~~~~~~~~^~~~~~[m[K
+[01m[K/home/zenyn/Thrust-Control/main.cpp:6:23:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kerror[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+    6 |         [01;35m[Kstd::ostream& error[m[K,
+      |         [01;35m[K~~~~~~~~~~~~~~^~~~~[m[K
+[01m[K/home/zenyn/Thrust-Control/main.cpp:7:23:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KlogFile[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+    7 |         [01;35m[Kstd::ostream& logFile[m[K)
+      |         [01;35m[K~~~~~~~~~~~~~~^~~~~~~[m[K
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/thrust_control.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

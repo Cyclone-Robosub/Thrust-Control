@@ -1,0 +1,146 @@
+[0.000000] (-) TimerEvent: {}
+[0.000210] (thrust_control) JobQueued: {'identifier': 'thrust_control', 'dependencies': OrderedDict()}
+[0.000258] (thrust_control) JobStarted: {'identifier': 'thrust_control'}
+[0.005688] (thrust_control) JobProgress: {'identifier': 'thrust_control', 'progress': 'cmake'}
+[0.006272] (thrust_control) Command: {'cmd': ['/usr/bin/cmake', '/home/zenyn/Thrust-Control', '-DCMAKE_INSTALL_PREFIX=/home/zenyn/Thrust-Control/install/thrust_control'], 'cwd': '/home/zenyn/Thrust-Control/build/thrust_control', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US', 'USER': 'zenyn', 'XDG_SEAT': 'seat0', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/zenyn', 'OLDPWD': '/home/zenyn', 'DESKTOP_SESSION': 'cinnamon', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zenyn', 'DESKTOP_AUTOSTART_ID': '1043e37765b6273ff4174699624939894200000023500038', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': 'c2', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/home/zenyn/.local/bin:/home/zenyn/.local/bin:/home/zenyn/.local/bin:/home/zenyn/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/Zenyn-Linux:@/tmp/.ICE-unix/2350,unix/Zenyn-Linux:/tmp/.ICE-unix/2350', 'GDM_LANG': 'en_US', 'GTK3_MODULES': 'xapp-gtk3-module', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/a50e6b01_95ef_470c_986f_f4ce22636873', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'X-Cinnamon', 'XDG_SESSION_DESKTOP': 'cinnamon', 'XAUTHORITY': '/home/zenyn/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.78', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/zenyn', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'cinnamon', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'XDG_VTNR': '7', 'PWD': '/home/zenyn/Thrust-Control/build/thrust_control', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-cinnamon:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/cinnamon:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.071813] (thrust_control) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.099517] (-) TimerEvent: {}
+[0.127836] (thrust_control) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[0.146220] (thrust_control) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.199672] (-) TimerEvent: {}
+[0.275525] (thrust_control) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.293284] (thrust_control) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.293611] (thrust_control) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.293854] (thrust_control) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.299763] (-) TimerEvent: {}
+[0.304364] (thrust_control) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.399909] (-) TimerEvent: {}
+[0.403190] (thrust_control) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.410462] (thrust_control) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.410782] (thrust_control) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.410961] (thrust_control) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.412587] (thrust_control) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.500119] (-) TimerEvent: {}
+[0.543842] (thrust_control) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.600354] (-) TimerEvent: {}
+[0.619074] (thrust_control) StdoutLine: {'line': b'-- Found rclcpp: 28.1.8 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[0.649729] (thrust_control) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.658355] (thrust_control) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.668474] (thrust_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.679903] (thrust_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.700566] (-) TimerEvent: {}
+[0.732719] (thrust_control) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[0.734626] (thrust_control) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.800693] (-) TimerEvent: {}
+[0.824241] (thrust_control) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[0.854227] (thrust_control) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[0.879984] (thrust_control) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.900828] (-) TimerEvent: {}
+[0.937379] (thrust_control) StdoutLine: {'line': b'-- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)\n'}
+[0.949000] (thrust_control) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.2 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[1.000925] (-) TimerEvent: {}
+[1.039188] (thrust_control) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[1.060715] (thrust_control) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[1.060934] (thrust_control) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[1.061045] (thrust_control) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[1.080143] (thrust_control) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[1.080422] (thrust_control) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[1.087621] (thrust_control) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.101182] (-) TimerEvent: {}
+[1.109587] (thrust_control) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[1.109816] (thrust_control) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[1.112610] (thrust_control) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.113906] (thrust_control) StdoutLine: {'line': b'-- Configuring done (1.1s)\n'}
+[1.120666] (thrust_control) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[1.123028] (thrust_control) StdoutLine: {'line': b'-- Build files have been written to: /home/zenyn/Thrust-Control/build/thrust_control\n'}
+[1.130362] (thrust_control) CommandEnded: {'returncode': 0}
+[1.131058] (thrust_control) JobProgress: {'identifier': 'thrust_control', 'progress': 'build'}
+[1.131964] (thrust_control) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/zenyn/Thrust-Control/build/thrust_control', '--', '-j12', '-l12'], 'cwd': '/home/zenyn/Thrust-Control/build/thrust_control', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US', 'USER': 'zenyn', 'XDG_SEAT': 'seat0', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/zenyn', 'OLDPWD': '/home/zenyn', 'DESKTOP_SESSION': 'cinnamon', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zenyn', 'DESKTOP_AUTOSTART_ID': '1043e37765b6273ff4174699624939894200000023500038', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': 'c2', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/home/zenyn/.local/bin:/home/zenyn/.local/bin:/home/zenyn/.local/bin:/home/zenyn/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/Zenyn-Linux:@/tmp/.ICE-unix/2350,unix/Zenyn-Linux:/tmp/.ICE-unix/2350', 'GDM_LANG': 'en_US', 'GTK3_MODULES': 'xapp-gtk3-module', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/a50e6b01_95ef_470c_986f_f4ce22636873', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'X-Cinnamon', 'XDG_SESSION_DESKTOP': 'cinnamon', 'XAUTHORITY': '/home/zenyn/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.78', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/zenyn', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'cinnamon', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'XDG_VTNR': '7', 'PWD': '/home/zenyn/Thrust-Control/build/thrust_control', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-cinnamon:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/cinnamon:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[1.195842] (thrust_control) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object CMakeFiles/thrust_control.dir/Wiring.cpp.o\x1b[0m\n'}
+[1.197491] (thrust_control) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o\x1b[0m\n'}
+[1.197836] (thrust_control) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/thrust_control.dir/main.cpp.o\x1b[0m\n'}
+[1.198268] (thrust_control) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o\x1b[0m\n'}
+[1.198849] (thrust_control) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding CXX object CMakeFiles/thrust_control.dir/Command_Interpreter.cpp.o\x1b[0m\n'}
+[1.201289] (-) TimerEvent: {}
+[1.299501] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/Wiring.cpp:30:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[KwiringSerial.h: No such file or directory\n'}
+[1.299747] (thrust_control) StderrLine: {'line': b'   30 | #include \x1b[01;31m\x1b[K<wiringSerial.h>\x1b[m\x1b[K\n'}
+[1.299866] (thrust_control) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.299963] (thrust_control) StderrLine: {'line': b'compilation terminated.\n'}
+[1.301401] (-) TimerEvent: {}
+[1.303614] (thrust_control) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/thrust_control.dir/build.make:132: CMakeFiles/thrust_control.dir/Wiring.cpp.o] Error 1\n'}
+[1.303805] (thrust_control) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[1.401551] (-) TimerEvent: {}
+[1.501836] (-) TimerEvent: {}
+[1.602163] (-) TimerEvent: {}
+[1.702484] (-) TimerEvent: {}
+[1.802765] (-) TimerEvent: {}
+[1.903098] (-) TimerEvent: {}
+[2.003417] (-) TimerEvent: {}
+[2.103699] (-) TimerEvent: {}
+[2.204034] (-) TimerEvent: {}
+[2.304452] (-) TimerEvent: {}
+[2.404799] (-) TimerEvent: {}
+[2.505238] (-) TimerEvent: {}
+[2.605572] (-) TimerEvent: {}
+[2.705925] (-) TimerEvent: {}
+[2.806374] (-) TimerEvent: {}
+[2.898564] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid thrust_control::ThrustControlSupervisor::\x1b[01;32m\x1b[Kfeed_forward_pwm\x1b[m\x1b[K(std::array<int, 8>)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.898799] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:38:67:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kpwm\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.898919] (thrust_control) StderrLine: {'line': b'   38 | void ThrustControlSupervisor::feed_forward_pwm(\x1b[01;35m\x1b[Kstd::array<int, 8> pwm\x1b[m\x1b[K)\n'}
+[2.899028] (thrust_control) StderrLine: {'line': b'      |                                                \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[2.899133] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid thrust_control::ThrustControlSupervisor::\x1b[01;32m\x1b[Kpid_pwm\x1b[m\x1b[K(std::array<int, 8>)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.899238] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:43:58:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kpwm\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.899376] (thrust_control) StderrLine: {'line': b'   43 | void ThrustControlSupervisor::pid_pwm(\x1b[01;35m\x1b[Kstd::array<int, 8> pwm\x1b[m\x1b[K)\n'}
+[2.899485] (thrust_control) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[2.906545] (-) TimerEvent: {}
+[3.006981] (-) TimerEvent: {}
+[3.107410] (-) TimerEvent: {}
+[3.207839] (-) TimerEvent: {}
+[3.308253] (-) TimerEvent: {}
+[3.408548] (-) TimerEvent: {}
+[3.508897] (-) TimerEvent: {}
+[3.609205] (-) TimerEvent: {}
+[3.664245] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/main.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kstd::unique_ptr<Command_Interpreter_RPi5>\x1b[01;32m\x1b[K makeCommandInterpreterPtr\x1b[m\x1b[K(std::ostream&, std::ostream&, std::ostream&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.664519] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/main.cpp:5:23:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Koutput\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.664657] (thrust_control) StderrLine: {'line': b'    5 |         \x1b[01;35m\x1b[Kstd::ostream& output\x1b[m\x1b[K,\n'}
+[3.664782] (thrust_control) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~~~~~~~~~~^~~~~~\x1b[m\x1b[K\n'}
+[3.664906] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/main.cpp:6:23:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kerror\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.665031] (thrust_control) StderrLine: {'line': b'    6 |         \x1b[01;35m\x1b[Kstd::ostream& error\x1b[m\x1b[K,\n'}
+[3.665174] (thrust_control) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~~~~~~~~~~^~~~~\x1b[m\x1b[K\n'}
+[3.665293] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/main.cpp:7:23:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[KlogFile\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.665421] (thrust_control) StderrLine: {'line': b'    7 |         \x1b[01;35m\x1b[Kstd::ostream& logFile\x1b[m\x1b[K)\n'}
+[3.665538] (thrust_control) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~~~~~~~~~~^~~~~~~\x1b[m\x1b[K\n'}
+[3.709429] (-) TimerEvent: {}
+[3.809843] (-) TimerEvent: {}
+[3.910253] (-) TimerEvent: {}
+[4.010560] (-) TimerEvent: {}
+[4.110880] (-) TimerEvent: {}
+[4.211314] (-) TimerEvent: {}
+[4.311752] (-) TimerEvent: {}
+[4.412188] (-) TimerEvent: {}
+[4.512612] (-) TimerEvent: {}
+[4.612927] (-) TimerEvent: {}
+[4.713357] (-) TimerEvent: {}
+[4.813660] (-) TimerEvent: {}
+[4.914003] (-) TimerEvent: {}
+[5.014333] (-) TimerEvent: {}
+[5.114560] (-) TimerEvent: {}
+[5.214871] (-) TimerEvent: {}
+[5.315191] (-) TimerEvent: {}
+[5.415547] (-) TimerEvent: {}
+[5.515856] (-) TimerEvent: {}
+[5.616186] (-) TimerEvent: {}
+[5.716537] (-) TimerEvent: {}
+[5.816755] (-) TimerEvent: {}
+[5.916968] (-) TimerEvent: {}
+[6.017311] (-) TimerEvent: {}
+[6.117551] (-) TimerEvent: {}
+[6.218003] (-) TimerEvent: {}
+[6.318420] (-) TimerEvent: {}
+[6.418726] (-) TimerEvent: {}
+[6.519016] (-) TimerEvent: {}
+[6.574266] (thrust_control) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/thrust_control.dir/all] Error 2\n'}
+[6.574653] (thrust_control) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[6.576809] (thrust_control) CommandEnded: {'returncode': 2}
+[6.585847] (thrust_control) JobEnded: {'identifier': 'thrust_control', 'rc': 2}
+[6.596623] (-) EventReactorShutdown: {}
