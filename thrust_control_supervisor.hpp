@@ -6,7 +6,6 @@
 #include <memory>
 #include <vector>
 #include "rclcpp/rclcpp.hpp"
-#include "Command_Interpreter.h"
 namespace thrust_control
 {
 
