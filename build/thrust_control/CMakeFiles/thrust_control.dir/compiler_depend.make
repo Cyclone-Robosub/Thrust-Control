@@ -768,6 +768,10 @@ CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o: /home/zenyn/Thrust-Cont
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
 CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o: /home/zenyn/Thrust-Control/thrust_control_supervisor.cpp \
+  /home/zenyn/Thrust-Control/Command.h \
+  /home/zenyn/Thrust-Control/Command_Interpreter.h \
+  /home/zenyn/Thrust-Control/Wiring.h \
+  /home/zenyn/Thrust-Control/pwm_command.hpp \
   /home/zenyn/Thrust-Control/thrust_control_supervisor.hpp \
   /opt/ros/jazzy/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__builder.hpp \
   /opt/ros/jazzy/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__struct.hpp \
@@ -1208,6 +1212,7 @@ CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o: /home/zenyn/Thrus
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
+  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
@@ -1319,6 +1324,7 @@ CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o: /home/zenyn/Thrus
   /usr/include/c++/13/ext/numeric_traits.h \
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
+  /usr/include/c++/13/fstream \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/future \
   /usr/include/c++/13/initializer_list \
@@ -1497,8 +1503,10 @@ CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o: /home/zenyn/Thrus
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -1524,7 +1532,15 @@ CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o: /home/zenyn/Thrus
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
 
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h:
+
+/usr/include/c++/13/bits/fstream.tcc:
+
 /home/zenyn/Thrust-Control/thrust_control_supervisor.hpp:
+
+/home/zenyn/Thrust-Control/pwm_command.hpp:
+
+/home/zenyn/Thrust-Control/Wiring.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h:
 
@@ -1864,6 +1880,8 @@ CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o: /home/zenyn/Thrus
 
 /opt/ros/jazzy/include/rclcpp/rclcpp/experimental/subscription_intra_process.hpp:
 
+/home/zenyn/Thrust-Control/Command_Interpreter.h:
+
 /opt/ros/jazzy/include/rclcpp/rclcpp/node_interfaces/node_time_source_interface.hpp:
 
 /opt/ros/jazzy/include/rcutils/rcutils/sha256.h:
@@ -1992,6 +2010,8 @@ CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o: /home/zenyn/Thrus
 
 /opt/ros/jazzy/include/rclcpp/rclcpp/event.hpp:
 
+/usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h:
+
 /opt/ros/jazzy/include/rclcpp/rclcpp/expand_topic_or_service_name.hpp:
 
 /opt/ros/jazzy/include/libstatistics_collector/libstatistics_collector/moving_average_statistics/moving_average.hpp:
@@ -2071,6 +2091,8 @@ CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o: /home/zenyn/Thrus
 /opt/ros/jazzy/include/rclcpp/rclcpp/node_interfaces/node_parameters_interface_traits.hpp:
 
 /opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/msg/set_parameters_result.hpp:
+
+/home/zenyn/Thrust-Control/Command.h:
 
 /opt/ros/jazzy/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__traits.hpp:
 
@@ -2311,6 +2333,8 @@ CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o: /home/zenyn/Thrus
 /opt/ros/jazzy/include/rcl/rcl/domain_id.h:
 
 /opt/ros/jazzy/include/rclcpp/rclcpp/executors/static_single_threaded_executor.hpp:
+
+/usr/include/c++/13/fstream:
 
 /opt/ros/jazzy/include/rcl/rcl/arguments.h:
 
