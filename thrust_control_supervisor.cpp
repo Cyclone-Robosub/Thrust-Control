@@ -6,7 +6,6 @@ namespace thrust_control
 ThrustControlSupervisor::ThrustControlSupervisor(rclcpp::Logger logger)
   : logger_(logger)
 {
-  // Constructor body
 }
 
 void ThrustControlSupervisor::step(

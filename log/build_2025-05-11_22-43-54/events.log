@@ -1,0 +1,93 @@
+[0.000000] (-) TimerEvent: {}
+[0.000107] (thrust_control) JobQueued: {'identifier': 'thrust_control', 'dependencies': OrderedDict()}
+[0.000425] (thrust_control) JobStarted: {'identifier': 'thrust_control'}
+[0.010726] (thrust_control) JobProgress: {'identifier': 'thrust_control', 'progress': 'cmake'}
+[0.011231] (thrust_control) JobProgress: {'identifier': 'thrust_control', 'progress': 'build'}
+[0.012008] (thrust_control) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/zenyn/Thrust-Control/build/thrust_control', '--', '-j12', '-l12'], 'cwd': '/home/zenyn/Thrust-Control/build/thrust_control', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US', 'USER': 'zenyn', 'XDG_SEAT': 'seat0', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/zenyn', 'OLDPWD': '/home/zenyn', 'DESKTOP_SESSION': 'cinnamon', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zenyn', 'DESKTOP_AUTOSTART_ID': '1043e37765b6273ff4174699624939894200000023500038', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': 'c2', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/home/zenyn/.local/bin:/home/zenyn/.local/bin:/home/zenyn/.local/bin:/home/zenyn/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/Zenyn-Linux:@/tmp/.ICE-unix/2350,unix/Zenyn-Linux:/tmp/.ICE-unix/2350', 'GDM_LANG': 'en_US', 'GTK3_MODULES': 'xapp-gtk3-module', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/a50e6b01_95ef_470c_986f_f4ce22636873', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'X-Cinnamon', 'XDG_SESSION_DESKTOP': 'cinnamon', 'XAUTHORITY': '/home/zenyn/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.78', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/zenyn', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'cinnamon', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'XDG_VTNR': '7', 'PWD': '/home/zenyn/Thrust-Control/build/thrust_control', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-cinnamon:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/cinnamon:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.099684] (-) TimerEvent: {}
+[0.102607] (thrust_control) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o\x1b[0m\n'}
+[0.199793] (-) TimerEvent: {}
+[0.300094] (-) TimerEvent: {}
+[0.400438] (-) TimerEvent: {}
+[0.500753] (-) TimerEvent: {}
+[0.601081] (-) TimerEvent: {}
+[0.701391] (-) TimerEvent: {}
+[0.801687] (-) TimerEvent: {}
+[0.901994] (-) TimerEvent: {}
+[1.002301] (-) TimerEvent: {}
+[1.102599] (-) TimerEvent: {}
+[1.202905] (-) TimerEvent: {}
+[1.303217] (-) TimerEvent: {}
+[1.403527] (-) TimerEvent: {}
+[1.503832] (-) TimerEvent: {}
+[1.604146] (-) TimerEvent: {}
+[1.704447] (-) TimerEvent: {}
+[1.804742] (-) TimerEvent: {}
+[1.905024] (-) TimerEvent: {}
+[2.005335] (-) TimerEvent: {}
+[2.105647] (-) TimerEvent: {}
+[2.205979] (-) TimerEvent: {}
+[2.306281] (-) TimerEvent: {}
+[2.406576] (-) TimerEvent: {}
+[2.506885] (-) TimerEvent: {}
+[2.607213] (-) TimerEvent: {}
+[2.707550] (-) TimerEvent: {}
+[2.807900] (-) TimerEvent: {}
+[2.908257] (-) TimerEvent: {}
+[3.008628] (-) TimerEvent: {}
+[3.108947] (-) TimerEvent: {}
+[3.209488] (-) TimerEvent: {}
+[3.309935] (-) TimerEvent: {}
+[3.410381] (-) TimerEvent: {}
+[3.510836] (-) TimerEvent: {}
+[3.611453] (-) TimerEvent: {}
+[3.711741] (-) TimerEvent: {}
+[3.812052] (-) TimerEvent: {}
+[3.912276] (-) TimerEvent: {}
+[4.012599] (-) TimerEvent: {}
+[4.112936] (-) TimerEvent: {}
+[4.213352] (-) TimerEvent: {}
+[4.313612] (-) TimerEvent: {}
+[4.413918] (-) TimerEvent: {}
+[4.514314] (-) TimerEvent: {}
+[4.614627] (-) TimerEvent: {}
+[4.715004] (-) TimerEvent: {}
+[4.815383] (-) TimerEvent: {}
+[4.915703] (-) TimerEvent: {}
+[5.016127] (-) TimerEvent: {}
+[5.116439] (-) TimerEvent: {}
+[5.216861] (-) TimerEvent: {}
+[5.317274] (-) TimerEvent: {}
+[5.417692] (-) TimerEvent: {}
+[5.518115] (thrust_control) StdoutLine: {'line': b'[ 66%] \x1b[32m\x1b[1mLinking CXX executable thrust_control\x1b[0m\n'}
+[5.518423] (-) TimerEvent: {}
+[5.618808] (-) TimerEvent: {}
+[5.719476] (-) TimerEvent: {}
+[5.759596] (thrust_control) StdoutLine: {'line': b'[100%] Built target thrust_control\n'}
+[5.791428] (thrust_control) CommandEnded: {'returncode': 0}
+[5.793324] (thrust_control) JobProgress: {'identifier': 'thrust_control', 'progress': 'install'}
+[5.810035] (thrust_control) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/zenyn/Thrust-Control/build/thrust_control'], 'cwd': '/home/zenyn/Thrust-Control/build/thrust_control', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US', 'USER': 'zenyn', 'XDG_SEAT': 'seat0', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/zenyn', 'OLDPWD': '/home/zenyn', 'DESKTOP_SESSION': 'cinnamon', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zenyn', 'DESKTOP_AUTOSTART_ID': '1043e37765b6273ff4174699624939894200000023500038', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': 'c2', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/home/zenyn/.local/bin:/home/zenyn/.local/bin:/home/zenyn/.local/bin:/home/zenyn/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/Zenyn-Linux:@/tmp/.ICE-unix/2350,unix/Zenyn-Linux:/tmp/.ICE-unix/2350', 'GDM_LANG': 'en_US', 'GTK3_MODULES': 'xapp-gtk3-module', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/a50e6b01_95ef_470c_986f_f4ce22636873', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'X-Cinnamon', 'XDG_SESSION_DESKTOP': 'cinnamon', 'XAUTHORITY': '/home/zenyn/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.78', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/zenyn', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'cinnamon', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'XDG_VTNR': '7', 'PWD': '/home/zenyn/Thrust-Control/build/thrust_control', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-cinnamon:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/cinnamon:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[5.819703] (-) TimerEvent: {}
+[5.821170] (thrust_control) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[5.821624] (thrust_control) StdoutLine: {'line': b'-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/lib/thrust_control/thrust_control\n'}
+[5.826280] (thrust_control) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/zenyn/Thrust-Control/install/thrust_control/lib/thrust_control/thrust_control" to ""\n'}
+[5.826711] (thrust_control) StdoutLine: {'line': b'-- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/package_run_dependencies/thrust_control\n'}
+[5.826893] (thrust_control) StdoutLine: {'line': b'-- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/parent_prefix_path/thrust_control\n'}
+[5.827045] (thrust_control) StdoutLine: {'line': b'-- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/ament_prefix_path.sh\n'}
+[5.827177] (thrust_control) StdoutLine: {'line': b'-- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/ament_prefix_path.dsv\n'}
+[5.827301] (thrust_control) StdoutLine: {'line': b'-- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/path.sh\n'}
+[5.827423] (thrust_control) StdoutLine: {'line': b'-- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/path.dsv\n'}
+[5.827538] (thrust_control) StdoutLine: {'line': b'-- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.bash\n'}
+[5.827652] (thrust_control) StdoutLine: {'line': b'-- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.sh\n'}
+[5.827822] (thrust_control) StdoutLine: {'line': b'-- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.zsh\n'}
+[5.828092] (thrust_control) StdoutLine: {'line': b'-- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.dsv\n'}
+[5.828861] (thrust_control) StdoutLine: {'line': b'-- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/package.dsv\n'}
+[5.829523] (thrust_control) StdoutLine: {'line': b'-- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/packages/thrust_control\n'}
+[5.829742] (thrust_control) StdoutLine: {'line': b'-- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[5.829935] (thrust_control) StdoutLine: {'line': b'-- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[5.830241] (thrust_control) StdoutLine: {'line': b'-- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/thrust_controlConfig.cmake\n'}
+[5.830451] (thrust_control) StdoutLine: {'line': b'-- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/thrust_controlConfig-version.cmake\n'}
+[5.830612] (thrust_control) StdoutLine: {'line': b'-- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/package.xml\n'}
+[5.830801] (thrust_control) CommandEnded: {'returncode': 0}
+[5.841976] (thrust_control) JobEnded: {'identifier': 'thrust_control', 'rc': 0}
+[5.842659] (-) EventReactorShutdown: {}

@@ -1,0 +1,27 @@
+[0.012s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
+[0.102s] [ 33%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o[0m
+[5.518s] [ 66%] [32m[1mLinking CXX executable thrust_control[0m
+[5.759s] [100%] Built target thrust_control
+[5.792s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
+[5.810s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/zenyn/Thrust-Control/build/thrust_control
+[5.821s] -- Install configuration: ""
+[5.821s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/lib/thrust_control/thrust_control
+[5.826s] -- Set non-toolchain portion of runtime path of "/home/zenyn/Thrust-Control/install/thrust_control/lib/thrust_control/thrust_control" to ""
+[5.826s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/package_run_dependencies/thrust_control
+[5.827s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/parent_prefix_path/thrust_control
+[5.827s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/ament_prefix_path.sh
+[5.827s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/ament_prefix_path.dsv
+[5.827s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/path.sh
+[5.827s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/path.dsv
+[5.827s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.bash
+[5.827s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.sh
+[5.828s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.zsh
+[5.828s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.dsv
+[5.829s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/package.dsv
+[5.829s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/packages/thrust_control
+[5.829s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/ament_cmake_export_include_directories-extras.cmake
+[5.830s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/ament_cmake_export_dependencies-extras.cmake
+[5.830s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/thrust_controlConfig.cmake
+[5.830s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/thrust_controlConfig-version.cmake
+[5.830s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/package.xml
+[5.831s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/zenyn/Thrust-Control/build/thrust_control

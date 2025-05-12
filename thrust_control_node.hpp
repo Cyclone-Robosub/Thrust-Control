@@ -6,7 +6,7 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/int32_multi_array.hpp"
-
+#include "thrust_control_supervisor.hpp"
 namespace thrust_control
 {
 
@@ -18,6 +18,8 @@ public:
 private:
   void topic_callback(const std_msgs::msg::Int32MultiArray::SharedPtr msg) const;
   rclcpp::Subscription<std_msgs::msg::Int32MultiArray>::SharedPtr subscription_;
+  ThrustControlSupervisor supervisor_;
+
 };
 
 }  // namespace thrust_control

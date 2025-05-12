@@ -1,0 +1,10 @@
+[ 33%] [32m[1mLinking CXX executable thrust_control[0m
+/usr/bin/ld: CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o: in function `thrust_control::ThrustControlSupervisor::feed_forward_pwm(std::array<int, 8ul>)':
+thrust_control_supervisor.cpp:(.text+0x687): undefined reference to `Untimed_Command::Untimed_Command(pwm_array)'
+/usr/bin/ld: thrust_control_supervisor.cpp:(.text+0x6b5): undefined reference to `Untimed_Command::execute(Command_Interpreter_RPi5&)'
+/usr/bin/ld: thrust_control_supervisor.cpp:(.text+0x73a): undefined reference to `Timed_Command::Timed_Command(pwm_array, std::chrono::duration<long, std::ratio<1l, 1000l> >)'
+/usr/bin/ld: thrust_control_supervisor.cpp:(.text+0x768): undefined reference to `Timed_Command::execute(Command_Interpreter_RPi5&)'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/thrust_control.dir/build.make:187: thrust_control] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/thrust_control.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

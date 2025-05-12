@@ -6,7 +6,7 @@
 #include <memory>
 #include <vector>
 #include "rclcpp/rclcpp.hpp"
-
+#include "Command_Interpreter.h"
 namespace thrust_control
 {
 
@@ -31,19 +31,16 @@ private:
   void feed_forward_pwm(std::array<int, 8> pwm_array);
   void pid_pwm(std::array<int, 8> pwm_array);
  
-  // Control modes
   static constexpr const char* FEED_FORWARD = "feed-forward";
   static constexpr const char* PID = "pid";
   
-  // Current control state
   std::string control_mode_;
   std::array<int, 8> manual_pwm_;
   std::array<float, 6> current_waypoint_;
   float duration_;
   std::array<float, 6> current_position_;
   std::array<float, 6> waypoint_;
-  
-  // Logging
+
   rclcpp::Logger logger_;
 };
 

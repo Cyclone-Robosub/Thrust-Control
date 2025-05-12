@@ -1,0 +1,22 @@
+[0.008s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
+[0.089s] [ 33%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o[0m
+[1.686s] [01m[K/home/zenyn/Thrust-Control/thrust_control_node.cpp:[m[K In constructor ‘[01m[Kthrust_control::ThrustControlNode::[01;32m[KThrustControlNode[m[K()[m[K’:
+[1.686s] [01m[K/home/zenyn/Thrust-Control/thrust_control_node.cpp:7:29:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kthrust_control::ThrustControlSupervisor::ThrustControlSupervisor()[m[K’
+[1.686s]     7 | : Node("thrust_control_node"[01;31m[K)[m[K
+[1.686s]       |                             [01;31m[K^[m[K
+[1.687s] In file included from [01m[K/home/zenyn/Thrust-Control/thrust_control_node.hpp:9[m[K,
+[1.687s]                  from [01m[K/home/zenyn/Thrust-Control/thrust_control_node.cpp:1[m[K:
+[1.687s] [01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.hpp:17:12:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kthrust_control::ThrustControlSupervisor::[01;32m[KThrustControlSupervisor[m[K(rclcpp::Logger)[m[K’
+[1.687s]    17 |   explicit [01;36m[KThrustControlSupervisor[m[K(rclcpp::Logger logger);
+[1.687s]       |            [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.687s] [01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.hpp:17:12:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[1.687s] [01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.hpp:13:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kthrust_control::ThrustControlSupervisor::[01;32m[KThrustControlSupervisor[m[K(const thrust_control::ThrustControlSupervisor&)[m[K’
+[1.687s]    13 | class [01;36m[KThrustControlSupervisor[m[K
+[1.687s]       |       [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.688s] [01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.hpp:13:7:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[1.688s] [01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.hpp:13:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kthrust_control::ThrustControlSupervisor::[01;32m[KThrustControlSupervisor[m[K(thrust_control::ThrustControlSupervisor&&)[m[K’
+[1.688s] [01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.hpp:13:7:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[3.286s] gmake[2]: *** [CMakeFiles/thrust_control.dir/build.make:76: CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o] Error 1
+[3.286s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/thrust_control.dir/all] Error 2
+[3.286s] gmake: *** [Makefile:146: all] Error 2
+[3.289s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
