@@ -3,8 +3,12 @@
 namespace thrust_control
 {
 
-ThrustControlSupervisor::ThrustControlSupervisor(rclcpp::Logger logger)
-  : logger_(logger)
+ThrustControlSupervisor::ThrustControlSupervisor(
+        rclcpp::Logger logger,
+        std::unique_ptr<Command_Interpreter_RPi5> interpreter)
+  : logger_(logger),
+    interpreter_(std::move(interpreter))
+
 {
 }
 

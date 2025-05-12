@@ -6,6 +6,8 @@
 #include <memory>
 #include <vector>
 #include "rclcpp/rclcpp.hpp"
+#include "Command-Interpreter/lib/Command_Interpreter.h"
+
 namespace thrust_control
 {
 
@@ -13,10 +15,12 @@ class ThrustControlSupervisor
 {
 public:
 	
-  explicit ThrustControlSupervisor(rclcpp::Logger logger);
+  explicit ThrustControlSupervisor(
+          rclcpp::Logger logger,
+          std::unique_ptr<Command_Interpreter_RPi5>);
   void step(	  
 	std::string control_mode,
-       	std::array<int, 8> pwm,
+    std::array<int, 8> pwm,
 	float duration,
 	std::array<float, 6> error,
 	std::array<float, 6> waypoint);
@@ -39,7 +43,8 @@ private:
   float duration_;
   std::array<float, 6> current_position_;
   std::array<float, 6> waypoint_;
-
+  
+  std::unique_ptr<Command_Interpreter_RPi5> interpreter_;
   rclcpp::Logger logger_;
 };
 
