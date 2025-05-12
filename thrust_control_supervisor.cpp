@@ -38,13 +38,13 @@ void ThrustControlSupervisor::process_pwm_command(std::array<int, 8> pwm)
 
 void ThrustControlSupervisor::feed_forward_pwm(std::array<int, 8> pwm)  
 {
-    CommandComponent commandComponent;
-
+    // tanishqs code goes here
   
 }
 
 void ThrustControlSupervisor::pid_pwm(std::array<int, 8> pwm)
 {
+    // exported code from simulink goes here
 
 }
 }
