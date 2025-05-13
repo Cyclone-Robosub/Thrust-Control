@@ -6,8 +6,8 @@ namespace thrust_control
 ThrustControlSupervisor::ThrustControlSupervisor(
         rclcpp::Logger logger,
         std::unique_ptr<Command_Interpreter_RPi5> interpreter)
-  : logger_(logger),
-    command_manager_(std::move(interpreter))
+  : _logger(logger),
+    _command_manager(std::move(interpreter))
 
 {
 }
@@ -19,20 +19,20 @@ void ThrustControlSupervisor::step(
   std::array<float, 6> position,
   std::array<float, 6> waypoint)
 {
-	this->control_mode_ = control_mode;
-	this->manual_pwm_ = pwm;
-	this->duration_ = duration;
-	this->current_position_ = position;
-	this->waypoint_ = waypoint;
+	this->_control_mode = control_mode;
+	this->_manual_pwm = pwm;
+	this->_duration = duration;
+	this->_current_position = position;
+	this->_waypoint = waypoint;
 
-	this->process_pwm_command(manual_pwm_);
+	this->process_pwm_command(_manual_pwm);
 }
 
 
 void ThrustControlSupervisor::process_pwm_command(std::array<int, 8> pwm)
 {
-  if (this->control_mode_ == FEED_FORWARD) { this->feed_forward_pwm(pwm); }
-  if (this->control_mode_ == PID){ this->pid_pwm(pwm); }
+  if (this->_control_mode == FEED_FORWARD) { this->feed_forward_pwm(pwm); }
+  if (this->_control_mode == PID){ this->pid_pwm(pwm); }
 }  
 
 

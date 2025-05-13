@@ -35,15 +35,15 @@ private:
   static constexpr const char* FEED_FORWARD = "feed-forward";
   static constexpr const char* PID = "pid";
   
-  std::string control_mode_;
-  std::array<int, 8> manual_pwm_;
-  std::array<float, 6> current_waypoint_;
-  float duration_;
-  std::array<float, 6> current_position_;
-  std::array<float, 6> waypoint_;
+  std::string _control_mode;
+  std::array<int, 8> _manual_pwm;
+  std::array<float, 6> _current_waypoint;
+  float _duration;
+  std::array<float, 6> _current_position;
+  std::array<float, 6> _waypoint;
   
-  CommandManager command_manager_;
-  rclcpp::Logger logger_;
+  CommandManager _command_manager;
+  rclcpp::Logger _logger;
 };
 
 }  // namespace thrust_control

@@ -1,0 +1,117 @@
+[0.006s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
+[0.058s] [ 18%] Built target PropulsionFunctions
+[0.060s] [ 27%] Built target gtest
+[0.083s] [ 36%] Built target gtest_main
+[0.083s] [ 45%] Built target gmock
+[0.097s] [ 50%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/thrust_control_supervisor.cpp.o[0m
+[0.097s] [ 54%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/thrust_control_node.cpp.o[0m
+[0.099s] [ 59%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/main.cpp.o[0m
+[0.108s] [ 68%] Built target gmock_main
+[0.117s] [ 90%] Built target propulsion_test
+[2.659s] In file included from [01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:1[m[K:
+[2.659s] [01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.hpp:[m[K In constructor ‘[01m[Kthrust_control::ThrustControlSupervisor::[01;32m[KThrustControlSupervisor[m[K(rclcpp::Logger, std::unique_ptr<Command_Interpreter_RPi5>)[m[K’:
+[2.659s] [01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.hpp:49:18:[m[K [01;35m[Kwarning: [m[K‘[01m[Kthrust_control::ThrustControlSupervisor::logger_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.659s]    49 |   rclcpp::Logger [01;35m[Klogger_[m[K;
+[2.659s]       |                  [01;35m[K^~~~~~~[m[K
+[2.659s] [01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.hpp:48:18:[m[K [01;35m[Kwarning: [m[K  ‘[01m[KCommandManager thrust_control::ThrustControlSupervisor::command_manager_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.660s]    48 |   CommandManager [01;35m[Kcommand_manager_[m[K;
+[2.660s]       |                  [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[2.660s] [01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:6:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[2.660s]     6 | [01;35m[KThrustControlSupervisor[m[K::ThrustControlSupervisor(
+[2.660s]       | [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.660s] [01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:[m[K In member function ‘[01m[Kvoid thrust_control::ThrustControlSupervisor::[01;32m[Kfeed_forward_pwm[m[K(std::array<int, 8>)[m[K’:
+[2.660s] [01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:41:22:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KcommandComponent[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[2.660s]    41 |     CommandComponent [01;35m[KcommandComponent[m[K;
+[2.661s]       |                      [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[2.661s] [01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:39:67:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kpwm[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.661s]    39 | void ThrustControlSupervisor::feed_forward_pwm([01;35m[Kstd::array<int, 8> pwm[m[K)
+[2.661s]       |                                                [01;35m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[2.661s] [01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:[m[K In member function ‘[01m[Kvoid thrust_control::ThrustControlSupervisor::[01;32m[Kpid_pwm[m[K(std::array<int, 8>)[m[K’:
+[2.661s] [01m[K/home/zenyn/Thrust-Control/thrust_control_supervisor.cpp:46:58:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kpwm[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.661s]    46 | void ThrustControlSupervisor::pid_pwm([01;35m[Kstd::array<int, 8> pwm[m[K)
+[2.661s]       |                                       [01;35m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[5.255s] [ 95%] [32m[1mLinking CXX executable thrust_control[0m
+[5.460s] [100%] Built target thrust_control
+[5.473s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
+[5.485s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/zenyn/Thrust-Control/build/thrust_control
+[5.490s] -- Install configuration: ""
+[5.490s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/lib/thrust_control/thrust_control
+[5.494s] -- Set non-toolchain portion of runtime path of "/home/zenyn/Thrust-Control/install/thrust_control/lib/thrust_control/thrust_control" to ""
+[5.494s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/package_run_dependencies/thrust_control
+[5.494s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/parent_prefix_path/thrust_control
+[5.494s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/ament_prefix_path.sh
+[5.494s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/ament_prefix_path.dsv
+[5.495s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/path.sh
+[5.495s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/path.dsv
+[5.495s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.bash
+[5.495s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.sh
+[5.495s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.zsh
+[5.495s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.dsv
+[5.495s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/package.dsv
+[5.495s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/packages/thrust_control
+[5.496s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/ament_cmake_export_include_directories-extras.cmake
+[5.496s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/ament_cmake_export_dependencies-extras.cmake
+[5.496s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/thrust_controlConfig.cmake
+[5.496s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/thrust_controlConfig-version.cmake
+[5.496s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/package.xml
+[5.496s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include
+[5.496s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock
+[5.496s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock-spec-builders.h
+[5.497s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock-matchers.h
+[5.497s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock.h
+[5.497s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock-nice-strict.h
+[5.497s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock-more-actions.h
+[5.497s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock-actions.h
+[5.497s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock-cardinalities.h
+[5.497s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal
+[5.497s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal/gmock-pp.h
+[5.498s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal/gmock-port.h
+[5.498s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal/gmock-internal-utils.h
+[5.498s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal/custom
+[5.498s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal/custom/gmock-matchers.h
+[5.499s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal/custom/gmock-port.h
+[5.499s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal/custom/README.md
+[5.499s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal/custom/gmock-generated-actions.h
+[5.499s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock-more-matchers.h
+[5.499s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock-function-mocker.h
+[5.499s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/libgmock.a
+[5.500s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/libgmock_main.a
+[5.500s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/pkgconfig/gmock.pc
+[5.500s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/pkgconfig/gmock_main.pc
+[5.500s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/cmake/GTest/GTestTargets.cmake
+[5.500s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/cmake/GTest/GTestTargets-noconfig.cmake
+[5.501s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/cmake/GTest/GTestConfigVersion.cmake
+[5.501s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/cmake/GTest/GTestConfig.cmake
+[5.501s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include
+[5.502s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest
+[5.502s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-printers.h
+[5.502s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-typed-test.h
+[5.502s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest.h
+[5.502s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-param-test.h
+[5.504s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-death-test.h
+[5.504s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest_prod.h
+[5.504s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-test-part.h
+[5.504s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest_pred_impl.h
+[5.505s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-matchers.h
+[5.505s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-spi.h
+[5.505s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-assertion-result.h
+[5.505s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal
+[5.505s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/gtest-port-arch.h
+[5.506s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/gtest-port.h
+[5.506s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/gtest-filepath.h
+[5.506s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/gtest-type-util.h
+[5.506s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/gtest-death-test-internal.h
+[5.506s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/gtest-string.h
+[5.507s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/gtest-param-util.h
+[5.507s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/gtest-internal.h
+[5.507s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/custom
+[5.507s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/custom/gtest-printers.h
+[5.508s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/custom/gtest.h
+[5.508s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/custom/gtest-port.h
+[5.509s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/custom/README.md
+[5.509s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-message.h
+[5.509s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/libgtest.a
+[5.509s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/libgtest_main.a
+[5.509s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/pkgconfig/gtest.pc
+[5.509s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/pkgconfig/gtest_main.pc
+[5.509s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/zenyn/Thrust-Control/build/thrust_control
