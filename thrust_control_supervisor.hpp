@@ -28,10 +28,7 @@ public:
 
 private:
   
-  void set_control_mode(std::string control_mode);
-  void set_manual_pwm(std::array<int, 8> pwm);
-  void set_waypoint(std::array<float, 6> waypoint);
-  void process_pwm_command(std::array<int, 8> pwm_array);
+ void process_pwm_command(std::array<int, 8> pwm_array);
   void feed_forward_pwm(std::array<int, 8> pwm_array);
   void pid_pwm(std::array<int, 8> pwm_array);
  
