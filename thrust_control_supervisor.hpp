@@ -17,8 +17,7 @@ class ThrustControlSupervisor
 public:
 	
   explicit ThrustControlSupervisor(
-          rclcpp::Logger logger,
-          std::unique_ptr<Command_Interpreter_RPi5>);
+          );
   void step(	  
 	std::string control_mode,
     std::array<int, 8> pwm,
