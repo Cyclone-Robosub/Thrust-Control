@@ -30,14 +30,27 @@ std::unique_ptr<Command_Interpreter_RPi5> makeCommandInterpreterPtr
     }
 int main(int argc, char * argv[])
 {
+  rclcpp::init(argc, argv);
   std::ostream& output = std::cout;
   std::ostream& error = std::cerr;
   std::ostream& log_file = std::cout; //replace with actual log file probably
 
-  auto commandInterpreter_ptr = makeCommandInterpreterPtr(output, error, log_file);
+  auto commandInterpreter_ptr = makeCommandInterpreterPtr(output, error, stateFile);
+  commandInterpreter_ptr->initializePins();
 
-  rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<thrust_control::ThrustControlNode>());
+  auto currentCommand_ptr = makeCurrentCommand_ptr();
+  auto thrustControlObject = std::make_shared<ThrustControlSupervisor>(std::move(commandInterpreter_ptr), std::move(CurrentCommand_ptr), output, error);
+
+  //FIX PARAMETERS
+  auto sensorsROScallback = std::make_shared<ThrustControlNode>;
+
+  rclcpp::executors::MultiThreadedExecutor SensorsExecutor;
+  SensorsExecutor.add_node(sensorsROScallback);
+  // SensorsExecutor.add_node(mainLoopObject);
+  output << "ROS2 runnning" << std::endl;
+  SensorsExecutor.spin();
+  
+ // rclcpp::spin(std::make_shared<thrust_control::ThrustControlNode>());
   rclcpp::shutdown();
   return 0;
 }
