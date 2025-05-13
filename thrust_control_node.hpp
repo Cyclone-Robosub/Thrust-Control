@@ -13,6 +13,7 @@
 namespace thrust_control
 {
 
+
 class ThrustControlNode : public rclcpp::Node
 {
 public:
@@ -33,16 +34,16 @@ private:
   std::mutex array_duration_sync_mutex;
   std::mutex Manual_Mutex;
 
-  float angular_velocity_x = NULL_SENSOR_VALUE;
-  float angular_velocity_y = NULL_SENSOR_VALUE;
-  float angular_velocity_z = NULL_SENSOR_VALUE;
-  float linear_acceleration_x = NULL_SENSOR_VALUE;
-  float linear_acceleration_y = NULL_SENSOR_VALUE;
-  float linear_acceleration_z = NULL_SENSOR_VALUE;
+//  float angular_velocity_x = NULL_SENSOR_VALUE;
+//  float angular_velocity_y = NULL_SENSOR_VALUE;
+ // float angular_velocity_z = NULL_SENSOR_VALUE;
+//  float linear_acceleration_x = NULL_SENSOR_VALUE;
+//  float linear_acceleration_y = NULL_SENSOR_VALUE;
+//  float linear_acceleration_z = NULL_SENSOR_VALUE;
 
-  float mag_field_x = NULL_SENSOR_VALUE;
-  float mag_field_y = NULL_SENSOR_VALUE;
-  float mag_field_z = NULL_SENSOR_VALUE;
+//float mag_field_x = NULL_SENSOR_VALUE;
+//float mag_field_y = NULL_SENSOR_VALUE;
+//float mag_field_z = NULL_SENSOR_VALUE;
 
   std::unique_ptr<Command_Interpreter_RPi5> commandInterpreter_ptr;
   std::vector<PwmPin *> thrusterPins;
@@ -62,7 +63,6 @@ private:
   // bool isQueuePWMEmpty = true;
 
   //Will REDUCE AND FIX JUST MAKING SURE ALL VARIABLES ARE DECLARED.
-  std::ofstream& stateFile;
   std::ostream& output;
   std::ostream& error;
   std::mutex sensor_mutex;
