@@ -1,0 +1,156 @@
+[0.000000] (-) TimerEvent: {}
+[0.000560] (thrust_control) JobQueued: {'identifier': 'thrust_control', 'dependencies': OrderedDict()}
+[0.000604] (thrust_control) JobStarted: {'identifier': 'thrust_control'}
+[0.005970] (thrust_control) JobProgress: {'identifier': 'thrust_control', 'progress': 'cmake'}
+[0.006741] (thrust_control) Command: {'cmd': ['/usr/bin/cmake', '/home/zenyn/Thrust-Control', '-DCMAKE_INSTALL_PREFIX=/home/zenyn/Thrust-Control/install/thrust_control'], 'cwd': '/home/zenyn/Thrust-Control/build/thrust_control', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US', 'USER': 'zenyn', 'XDG_SEAT': 'seat0', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/zenyn', 'OLDPWD': '/', 'DESKTOP_SESSION': 'cinnamon', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zenyn', 'DESKTOP_AUTOSTART_ID': '10360ccc4ffbf25fee174718800315828400000023520038', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': 'c2', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/home/zenyn/.local/bin:/home/zenyn/.local/bin:/home/zenyn/.local/bin:/home/zenyn/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/Zenyn-Linux:@/tmp/.ICE-unix/2352,unix/Zenyn-Linux:/tmp/.ICE-unix/2352', 'GDM_LANG': 'en_US', 'GTK3_MODULES': 'xapp-gtk3-module', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/4ad5e572_c975_4999_9501_8949accb2b4e', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'X-Cinnamon', 'XDG_SESSION_DESKTOP': 'cinnamon', 'XAUTHORITY': '/home/zenyn/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.71', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/zenyn', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'cinnamon', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'XDG_VTNR': '7', 'PWD': '/home/zenyn/Thrust-Control/build/thrust_control', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-cinnamon:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/cinnamon:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.060620] (thrust_control) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.099771] (-) TimerEvent: {}
+[0.106282] (thrust_control) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[0.127642] (thrust_control) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.199937] (-) TimerEvent: {}
+[0.243967] (thrust_control) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.254168] (thrust_control) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.254389] (thrust_control) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.254620] (thrust_control) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.264568] (thrust_control) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.300203] (-) TimerEvent: {}
+[0.382513] (thrust_control) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.394926] (thrust_control) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.395352] (thrust_control) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.395588] (thrust_control) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.397345] (thrust_control) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.400424] (-) TimerEvent: {}
+[0.500684] (-) TimerEvent: {}
+[0.537592] (thrust_control) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.600904] (-) TimerEvent: {}
+[0.619790] (thrust_control) StdoutLine: {'line': b'-- Found rclcpp: 28.1.8 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[0.652547] (thrust_control) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.660735] (thrust_control) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.670598] (thrust_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.681842] (thrust_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.701133] (-) TimerEvent: {}
+[0.733858] (thrust_control) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[0.735472] (thrust_control) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.801321] (-) TimerEvent: {}
+[0.818510] (thrust_control) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[0.849222] (thrust_control) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[0.871889] (thrust_control) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.901543] (-) TimerEvent: {}
+[0.922830] (thrust_control) StdoutLine: {'line': b'-- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)\n'}
+[1.001664] (-) TimerEvent: {}
+[1.102241] (-) TimerEvent: {}
+[1.203339] (-) TimerEvent: {}
+[1.304112] (-) TimerEvent: {}
+[1.404920] (-) TimerEvent: {}
+[1.505539] (-) TimerEvent: {}
+[1.606317] (-) TimerEvent: {}
+[1.707146] (-) TimerEvent: {}
+[1.807805] (-) TimerEvent: {}
+[1.908436] (-) TimerEvent: {}
+[2.009157] (-) TimerEvent: {}
+[2.109946] (-) TimerEvent: {}
+[2.210869] (-) TimerEvent: {}
+[2.311760] (-) TimerEvent: {}
+[2.412568] (-) TimerEvent: {}
+[2.513387] (-) TimerEvent: {}
+[2.613904] (-) TimerEvent: {}
+[2.714321] (-) TimerEvent: {}
+[2.814602] (-) TimerEvent: {}
+[2.914991] (-) TimerEvent: {}
+[2.936555] (thrust_control) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[3.015240] (-) TimerEvent: {}
+[3.046933] (thrust_control) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[3.048802] (thrust_control) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[3.059532] (thrust_control) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.2 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[3.115444] (-) TimerEvent: {}
+[3.149520] (thrust_control) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[3.191544] (thrust_control) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[3.191802] (thrust_control) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[3.191912] (thrust_control) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[3.215536] (-) TimerEvent: {}
+[3.233667] (thrust_control) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[3.233891] (thrust_control) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[3.239497] (thrust_control) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[3.239705] (thrust_control) StdoutLine: {'line': b"-- Configured 'flake8' exclude dirs and/or files: \n"}
+[3.249841] (thrust_control) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[3.255586] (thrust_control) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[3.296193] (thrust_control) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[3.296511] (thrust_control) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[3.301737] (thrust_control) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[3.303259] (thrust_control) StdoutLine: {'line': b'-- Configuring done (3.3s)\n'}
+[3.315748] (-) TimerEvent: {}
+[3.316106] (thrust_control) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[3.320253] (thrust_control) StdoutLine: {'line': b'-- Build files have been written to: /home/zenyn/Thrust-Control/build/thrust_control\n'}
+[3.329174] (thrust_control) CommandEnded: {'returncode': 0}
+[3.330303] (thrust_control) JobProgress: {'identifier': 'thrust_control', 'progress': 'build'}
+[3.330340] (thrust_control) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/zenyn/Thrust-Control/build/thrust_control', '--', '-j12', '-l12'], 'cwd': '/home/zenyn/Thrust-Control/build/thrust_control', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US', 'USER': 'zenyn', 'XDG_SEAT': 'seat0', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/zenyn', 'OLDPWD': '/', 'DESKTOP_SESSION': 'cinnamon', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zenyn', 'DESKTOP_AUTOSTART_ID': '10360ccc4ffbf25fee174718800315828400000023520038', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': 'c2', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/home/zenyn/.local/bin:/home/zenyn/.local/bin:/home/zenyn/.local/bin:/home/zenyn/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/Zenyn-Linux:@/tmp/.ICE-unix/2352,unix/Zenyn-Linux:/tmp/.ICE-unix/2352', 'GDM_LANG': 'en_US', 'GTK3_MODULES': 'xapp-gtk3-module', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/4ad5e572_c975_4999_9501_8949accb2b4e', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'X-Cinnamon', 'XDG_SESSION_DESKTOP': 'cinnamon', 'XAUTHORITY': '/home/zenyn/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.71', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/zenyn', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'cinnamon', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'XDG_VTNR': '7', 'PWD': '/home/zenyn/Thrust-Control/build/thrust_control', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-cinnamon:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/cinnamon:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[3.385025] (thrust_control) StdoutLine: {'line': b'[  4%] \x1b[32mBuilding CXX object Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/lib/Command_Interpreter.cpp.o\x1b[0m\n'}
+[3.385757] (thrust_control) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding CXX object Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/lib/Serial.cpp.o\x1b[0m\n'}
+[3.388532] (thrust_control) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/lib/Wiring.cpp.o\x1b[0m\n'}
+[3.388795] (thrust_control) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o\x1b[0m\n'}
+[3.415901] (-) TimerEvent: {}
+[3.516210] (-) TimerEvent: {}
+[3.594554] (thrust_control) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Command_Interpreter.cpp:7\x1b[m\x1b[K:\n'}
+[3.594813] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Command_Interpreter.h:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KCommand_Interpreter_RPi5::\x1b[01;32m\x1b[KCommand_Interpreter_RPi5\x1b[m\x1b[K(std::vector<PwmPin*>, std::vector<DigitalPin*>, const WiringControl&, std::ostream&, std::ostream&, std::ostream&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.594939] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Command_Interpreter.h:168:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KCommand_Interpreter_RPi5::errorLog\x1b[m\x1b[K\xe2\x80\x99 will be initialized after [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder\x07-Werror=reorder\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.595045] (thrust_control) StderrLine: {'line': b'  168 |     std::ostream &\x1b[01;31m\x1b[KerrorLog\x1b[m\x1b[K;\n'}
+[3.595143] (thrust_control) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[3.595239] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Command_Interpreter.h:167:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kstd::ostream& Command_Interpreter_RPi5::outLog\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder\x07-Werror=reorder\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.595371] (thrust_control) StderrLine: {'line': b'  167 |     std::ostream &\x1b[01;31m\x1b[KoutLog\x1b[m\x1b[K;\n'}
+[3.595474] (thrust_control) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[3.595567] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Command_Interpreter.cpp:125:1:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K  when initialized here [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder\x07-Werror=reorder\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.595662] (thrust_control) StderrLine: {'line': b'  125 | \x1b[01;31m\x1b[KCommand_Interpreter_RPi5\x1b[m\x1b[K::Command_Interpreter_RPi5(std::vector<PwmPin *> thrusterPins,\n'}
+[3.595753] (thrust_control) StderrLine: {'line': b'      | \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.595844] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Command_Interpreter.h:167:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KCommand_Interpreter_RPi5::outLog\x1b[m\x1b[K\xe2\x80\x99 will be initialized after [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder\x07-Werror=reorder\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.595938] (thrust_control) StderrLine: {'line': b'  167 |     std::ostream &\x1b[01;31m\x1b[KoutLog\x1b[m\x1b[K;\n'}
+[3.596028] (thrust_control) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[3.596117] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Command_Interpreter.h:166:19:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kstd::ostream& Command_Interpreter_RPi5::output\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder\x07-Werror=reorder\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.596211] (thrust_control) StderrLine: {'line': b'  166 |     std::ostream &\x1b[01;31m\x1b[Koutput\x1b[m\x1b[K;\n'}
+[3.596323] (thrust_control) StderrLine: {'line': b'      |                   \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[3.596421] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Command_Interpreter.cpp:125:1:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K  when initialized here [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder\x07-Werror=reorder\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.596515] (thrust_control) StderrLine: {'line': b'  125 | \x1b[01;31m\x1b[KCommand_Interpreter_RPi5\x1b[m\x1b[K::Command_Interpreter_RPi5(std::vector<PwmPin *> thrusterPins,\n'}
+[3.596608] (thrust_control) StderrLine: {'line': b'      | \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.616323] (-) TimerEvent: {}
+[3.716654] (-) TimerEvent: {}
+[3.740430] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Wiring.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid WiringControl::\x1b[01;32m\x1b[KsetPinType\x1b[m\x1b[K(int, PinType)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.740661] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Wiring.cpp:70:61:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kmissing initializer for member \xe2\x80\x98\x1b[01m\x1b[KPwmPinStatus::dutyCycle\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers\x07-Werror=missing-field-initializers\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.740782] (thrust_control) StderrLine: {'line': b'   70 |             pwmPinStatuses[pinNumber] = PwmPinStatus{1500, 0\x1b[01;31m\x1b[K}\x1b[m\x1b[K;\n'}
+[3.740888] (thrust_control) StderrLine: {'line': b'      |                                                             \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[3.741056] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Wiring.cpp:77:61:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kmissing initializer for member \xe2\x80\x98\x1b[01m\x1b[KPwmPinStatus::dutyCycle\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers\x07-Werror=missing-field-initializers\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.741178] (thrust_control) StderrLine: {'line': b'   77 |             pwmPinStatuses[pinNumber] = PwmPinStatus{1500, 0\x1b[01;31m\x1b[K}\x1b[m\x1b[K;\n'}
+[3.741292] (thrust_control) StderrLine: {'line': b'      |                                                             \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[3.786506] (thrust_control) StderrLine: {'line': b'cc1plus: all warnings being treated as errors\n'}
+[3.790995] (thrust_control) StderrLine: {'line': b'gmake[2]: *** [Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/build.make:76: Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/lib/Command_Interpreter.cpp.o] Error 1\n'}
+[3.791208] (thrust_control) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[3.816884] (-) TimerEvent: {}
+[3.905562] (thrust_control) StderrLine: {'line': b'cc1plus: all warnings being treated as errors\n'}
+[3.909545] (thrust_control) StderrLine: {'line': b'gmake[2]: *** [Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/build.make:90: Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/lib/Wiring.cpp.o] Error 1\n'}
+[3.909832] (thrust_control) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:262: Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/all] Error 2\n'}
+[3.909951] (thrust_control) StderrLine: {'line': b'gmake[1]: *** Waiting for unfinished jobs....\n'}
+[3.917100] (-) TimerEvent: {}
+[4.017456] (-) TimerEvent: {}
+[4.117874] (-) TimerEvent: {}
+[4.218430] (-) TimerEvent: {}
+[4.318770] (-) TimerEvent: {}
+[4.419109] (-) TimerEvent: {}
+[4.519451] (-) TimerEvent: {}
+[4.619783] (-) TimerEvent: {}
+[4.720113] (-) TimerEvent: {}
+[4.820433] (-) TimerEvent: {}
+[4.920757] (-) TimerEvent: {}
+[5.021085] (-) TimerEvent: {}
+[5.121411] (-) TimerEvent: {}
+[5.221730] (-) TimerEvent: {}
+[5.322047] (-) TimerEvent: {}
+[5.422370] (-) TimerEvent: {}
+[5.522689] (-) TimerEvent: {}
+[5.623023] (-) TimerEvent: {}
+[5.723416] (-) TimerEvent: {}
+[5.823807] (-) TimerEvent: {}
+[5.877994] (thrust_control) StdoutLine: {'line': b'[ 22%] \x1b[32m\x1b[1mLinking CXX static library ../../../lib/libgtest.a\x1b[0m\n'}
+[5.923963] (-) TimerEvent: {}
+[5.953486] (thrust_control) StdoutLine: {'line': b'[ 22%] Built target gtest\n'}
+[5.954906] (thrust_control) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[5.957944] (thrust_control) CommandEnded: {'returncode': 2}
+[5.967102] (thrust_control) JobEnded: {'identifier': 'thrust_control', 'rc': 2}
+[5.968260] (-) EventReactorShutdown: {}

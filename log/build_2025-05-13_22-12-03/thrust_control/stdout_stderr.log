@@ -1,0 +1,86 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found rclcpp: 28.1.8 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found ament_lint_auto: 0.17.2 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: 
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'cpplint' to check C / C++ code against the Google style
+-- Configured cpplint exclude dirs and/or files: 
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Configured 'flake8' exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (3.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/zenyn/Thrust-Control/build/thrust_control
+[  4%] [32mBuilding CXX object Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/lib/Command_Interpreter.cpp.o[0m
+[  9%] [32mBuilding CXX object Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/lib/Serial.cpp.o[0m
+[ 18%] [32mBuilding CXX object Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/lib/Wiring.cpp.o[0m
+[ 18%] [32mBuilding CXX object _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o[0m
+In file included from [01m[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Command_Interpreter.cpp:7[m[K:
+[01m[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Command_Interpreter.h:[m[K In constructor ‘[01m[KCommand_Interpreter_RPi5::[01;32m[KCommand_Interpreter_RPi5[m[K(std::vector<PwmPin*>, std::vector<DigitalPin*>, const WiringControl&, std::ostream&, std::ostream&, std::ostream&)[m[K’:
+[01m[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Command_Interpreter.h:168:19:[m[K [01;31m[Kerror: [m[K‘[01m[KCommand_Interpreter_RPi5::errorLog[m[K’ will be initialized after [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Werror=reorder]8;;[m[K]
+  168 |     std::ostream &[01;31m[KerrorLog[m[K;
+      |                   [01;31m[K^~~~~~~~[m[K
+[01m[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Command_Interpreter.h:167:19:[m[K [01;31m[Kerror: [m[K  ‘[01m[Kstd::ostream& Command_Interpreter_RPi5::outLog[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Werror=reorder]8;;[m[K]
+  167 |     std::ostream &[01;31m[KoutLog[m[K;
+      |                   [01;31m[K^~~~~~[m[K
+[01m[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Command_Interpreter.cpp:125:1:[m[K [01;31m[Kerror: [m[K  when initialized here [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Werror=reorder]8;;[m[K]
+  125 | [01;31m[KCommand_Interpreter_RPi5[m[K::Command_Interpreter_RPi5(std::vector<PwmPin *> thrusterPins,
+      | [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Command_Interpreter.h:167:19:[m[K [01;31m[Kerror: [m[K‘[01m[KCommand_Interpreter_RPi5::outLog[m[K’ will be initialized after [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Werror=reorder]8;;[m[K]
+  167 |     std::ostream &[01;31m[KoutLog[m[K;
+      |                   [01;31m[K^~~~~~[m[K
+[01m[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Command_Interpreter.h:166:19:[m[K [01;31m[Kerror: [m[K  ‘[01m[Kstd::ostream& Command_Interpreter_RPi5::output[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Werror=reorder]8;;[m[K]
+  166 |     std::ostream &[01;31m[Koutput[m[K;
+      |                   [01;31m[K^~~~~~[m[K
+[01m[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Command_Interpreter.cpp:125:1:[m[K [01;31m[Kerror: [m[K  when initialized here [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Werror=reorder]8;;[m[K]
+  125 | [01;31m[KCommand_Interpreter_RPi5[m[K::Command_Interpreter_RPi5(std::vector<PwmPin *> thrusterPins,
+      | [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Wiring.cpp:[m[K In member function ‘[01m[Kvoid WiringControl::[01;32m[KsetPinType[m[K(int, PinType)[m[K’:
+[01m[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Wiring.cpp:70:61:[m[K [01;31m[Kerror: [m[Kmissing initializer for member ‘[01m[KPwmPinStatus::dutyCycle[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Werror=missing-field-initializers]8;;[m[K]
+   70 |             pwmPinStatuses[pinNumber] = PwmPinStatus{1500, 0[01;31m[K}[m[K;
+      |                                                             [01;31m[K^[m[K
+[01m[K/home/zenyn/Thrust-Control/Command-Interpreter/lib/Wiring.cpp:77:61:[m[K [01;31m[Kerror: [m[Kmissing initializer for member ‘[01m[KPwmPinStatus::dutyCycle[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wmissing-field-initializers-Werror=missing-field-initializers]8;;[m[K]
+   77 |             pwmPinStatuses[pinNumber] = PwmPinStatus{1500, 0[01;31m[K}[m[K;
+      |                                                             [01;31m[K^[m[K
+cc1plus: all warnings being treated as errors
+gmake[2]: *** [Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/build.make:76: Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/lib/Command_Interpreter.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+cc1plus: all warnings being treated as errors
+gmake[2]: *** [Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/build.make:90: Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/lib/Wiring.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:262: Command-Interpreter/CMakeFiles/PropulsionFunctions.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+[ 22%] [32m[1mLinking CXX static library ../../../lib/libgtest.a[0m
+[ 22%] Built target gtest
+gmake: *** [Makefile:146: all] Error 2
