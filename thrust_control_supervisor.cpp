@@ -25,27 +25,32 @@ void ThrustControlSupervisor::step(
 	this->_current_position = position;
 	this->_waypoint = waypoint;
 
-	this->process_pwm_command(_manual_pwm);
+	this->process_pwm_command();
 }
 
 
-void ThrustControlSupervisor::process_pwm_command(std::array<int, 8> pwm)
+void ThrustControlSupervisor::process_pwm_command()
 {
-  if (this->_control_mode == FEED_FORWARD) { this->feed_forward_pwm(pwm); }
-  if (this->_control_mode == PID){ this->pid_pwm(pwm); }
+  if (this->_control_mode == FEED_FORWARD) { this->feed_forward_pwm(); }
+  if (this->_control_mode == PID){ this->pid_pwm(); }
 }  
 
-
-void ThrustControlSupervisor::feed_forward_pwm(std::array<int, 8> pwm)  
+void ThrustControlSupervisor::feed_forward_pwm()  
 {
-    // tanishqs code goes here
+    // untimed_execute(_manual_pwm)
   
 }
 
-void ThrustControlSupervisor::pid_pwm(std::array<int, 8> pwm)
+void ThrustControlSupervisor::pid_pwm()
 {
     // exported code from simulink goes here
-
+    if ( _auto_flag == false )
+    { 
+        _auto_flag = true;
+        //simulink.initialize()
+    }
+    //simulink.step()
+    
 }
 }
 

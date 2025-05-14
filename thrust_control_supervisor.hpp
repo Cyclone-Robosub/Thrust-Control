@@ -28,14 +28,15 @@ public:
 
 private:
   
-  void process_pwm_command(std::array<int, 8> pwm_array);
-  void feed_forward_pwm(std::array<int, 8> pwm_array);
-  void pid_pwm(std::array<int, 8> pwm_array);
- 
+  void process_pwm_command();
+  void feed_forward_pwm();
+  void pid_pwm();
   static constexpr const char* FEED_FORWARD = "feed-forward";
   static constexpr const char* PID = "pid";
-  
+  bool _auto_flag = false;
+
   std::string _control_mode;
+  std::string _last_control_mode;
   std::array<int, 8> _manual_pwm;
   std::array<float, 6> _current_waypoint;
   float _duration;
