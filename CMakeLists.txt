@@ -12,7 +12,6 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic  -Werror)
 endif()
 
-# Find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
@@ -24,7 +23,6 @@ include_directories(
 )
 
 
-# Create the executable
 add_executable(thrust_control 
   main.cpp
   thrust_control_node.cpp
@@ -36,28 +34,23 @@ target_link_libraries(thrust_control
     PropulsionFunctions
 )
 
-# Install targets - this is important!
 install(TARGETS
   thrust_control
   DESTINATION lib/${PROJECT_NAME}
 )
 
-# Install launch files if any
 install(DIRECTORY
   launch
   DESTINATION share/${PROJECT_NAME}
   OPTIONAL
 )
 
-# Testing
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-# Export package dependencies
 ament_export_include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 ament_export_dependencies(rclcpp std_msgs)
 
-# This MUST be the last line in the file
 ament_package()
