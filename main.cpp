@@ -24,7 +24,8 @@ int main(int argc, char * argv[])
   auto commandInterpreter_ptr = makeCommandInterpreterPtr(output, error, log_file);
 
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<thrust_control::ThrustControlNode>());
+  
+  rclcpp::spin(std::make_shared<thrust_control::ThrustControlNode>(std::move(commandInterpreter_ptr)));
   rclcpp::shutdown();
   return 0;
 }

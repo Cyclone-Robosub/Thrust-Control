@@ -7,7 +7,7 @@ ThrustControlNode::ThrustControlNode()
     : Node("thrust_control_node"), 
   supervisor_(this->get_logger(), nullptr)
 {
-subscription_ = this->create_subscription<std_msgs::msg::Int32MultiArray>(
+_manual_pwm_subscription = this->create_subscription<std_msgs::msg::Int32MultiArray>(
    "array_Cltool_topic", 10, std::bind(&ThrustControlNode::topic_callback, this, std::placeholders::_1));
 }
 
@@ -15,12 +15,17 @@ ThrustControlNode::ThrustControlNode(std::unique_ptr<Command_Interpreter_RPi5> i
     : Node("thrust_control_node"), 
   supervisor_(this->get_logger(),std::move(interpreter))
 {
-  subscription_ = this->create_subscription<std_msgs::msg::Int32MultiArray>(
-    "array_Cltool_topic", 
-    10, 
-    std::bind(&ThrustControlNode::topic_callback, 
-        this, 
-        std::placeholders::_1));
+  
+    _manual_pwm_subscription = this->create_subscription<std_msgs::msg::Int32MultiArray>(
+       "array_Cltool_topic", 10, 
+       std::bind(&ThrustControlNode::topic_callback, this, std::placeholders::_1));
+
+    timer_ = this->create_wall_timer(
+            std::chrono::seconds(1),
+            std::bind(&ThrustControlNode::timer_callback, this));
+
+    RCLCPP_INFO(this->get_logger(), "Checking secondly. Heehaw...");
+
     
 }
 
@@ -40,6 +45,28 @@ void ThrustControlNode::topic_callback(const std_msgs::msg::Int32MultiArray::Sha
   RCLCPP_INFO(this->get_logger(), "%s", ss.str().c_str());
 }
 
-}  // namespace thrust_control
+void ThrustControlNode::timer_callback()
+{
+
+    std::stringstream ss;
+    ss << "heyyyyy\n";
+    RCLCPP_INFO(this->get_logger(), "%s", ss.str().c_str());
+
+    std::lock_guard<std::mutex> lock(message_mutex_);
+    if (last_message_ != nullptr) 
+    {
+        std::cout << "Nada\n";
+        RCLCPP_INFO(
+                this->get_logger(), 
+                "Latest message on topic: '%s'", 
+                last_message_->data.c_str());
+    } 
+    else 
+    {
+        RCLCPP_INFO(this->get_logger(), "No messages received yet on the topic");
+    }
+}
+
+}// namespace thrust_control
 
 
