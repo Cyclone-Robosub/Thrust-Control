@@ -37,32 +37,12 @@ void ThrustControlSupervisor::process_pwm_command()
 
 void ThrustControlSupervisor::feed_forward_pwm()  
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // tanishqs code goes here
-=======
-    // untimed_execute(_manual_pwm)
->>>>>>> zenyn-work-branch
-  
-=======
-  // feed_forward_pwm implementation
-  // Placeholder for compile
-  pwm[0] = 0;
->>>>>>> 82630cbe66a68703f1f05db4a38c7a708e6495d5
+  // manual implentation
 }
 
 void ThrustControlSupervisor::pid_pwm()
 {
-<<<<<<< HEAD
     // exported code from simulink goes here
-<<<<<<< HEAD
-
-=======
-  // pid_pwm implementation
-  // Placeholder for compile
-  pwm[0] = 0;
->>>>>>> 82630cbe66a68703f1f05db4a38c7a708e6495d5
-=======
     if ( _auto_flag == false )
     { 
         _auto_flag = true;
@@ -70,7 +50,5 @@ void ThrustControlSupervisor::pid_pwm()
     }
     //simulink.step()
     
->>>>>>> zenyn-work-branch
 }
 }
-

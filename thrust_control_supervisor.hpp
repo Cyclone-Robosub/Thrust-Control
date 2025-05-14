@@ -7,7 +7,6 @@
 #include <vector>
 #include "rclcpp/rclcpp.hpp"
 #include "Command-Interpreter/lib/Command_Interpreter.h"
-#include "command_manager.hpp"
 
 namespace thrust_control
 {
