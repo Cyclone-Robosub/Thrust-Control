@@ -17,6 +17,7 @@ class ThrustControlNode : public rclcpp::Node
 {
 public:
   ThrustControlNode();
+  ThrustControlNode(std::unique_ptr<Command_Interpreter_RPi5>);
 
 private:
   void topic_callback(const std_msgs::msg::Int32MultiArray::SharedPtr msg) const;

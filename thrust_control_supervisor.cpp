@@ -25,21 +25,24 @@ void ThrustControlSupervisor::step(
 	this->_current_position = position;
 	this->_waypoint = waypoint;
 
-	this->process_pwm_command(_manual_pwm);
+	this->process_pwm_command();
 }
 
 
-void ThrustControlSupervisor::process_pwm_command(std::array<int, 8> pwm)
+void ThrustControlSupervisor::process_pwm_command()
 {
-  if (this->_control_mode == FEED_FORWARD) { this->feed_forward_pwm(pwm); }
-  if (this->_control_mode == PID){ this->pid_pwm(pwm); }
+  if (this->_control_mode == FEED_FORWARD) { this->feed_forward_pwm(); }
+  if (this->_control_mode == PID){ this->pid_pwm(); }
 }  
 
-
-void ThrustControlSupervisor::feed_forward_pwm(std::array<int, 8> pwm)  
+void ThrustControlSupervisor::feed_forward_pwm()  
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     // tanishqs code goes here
+=======
+    // untimed_execute(_manual_pwm)
+>>>>>>> zenyn-work-branch
   
 =======
   // feed_forward_pwm implementation
@@ -48,16 +51,26 @@ void ThrustControlSupervisor::feed_forward_pwm(std::array<int, 8> pwm)
 >>>>>>> 82630cbe66a68703f1f05db4a38c7a708e6495d5
 }
 
-void ThrustControlSupervisor::pid_pwm(std::array<int, 8> pwm)
+void ThrustControlSupervisor::pid_pwm()
 {
 <<<<<<< HEAD
     // exported code from simulink goes here
+<<<<<<< HEAD
 
 =======
   // pid_pwm implementation
   // Placeholder for compile
   pwm[0] = 0;
 >>>>>>> 82630cbe66a68703f1f05db4a38c7a708e6495d5
+=======
+    if ( _auto_flag == false )
+    { 
+        _auto_flag = true;
+        //simulink.initialize()
+    }
+    //simulink.step()
+    
+>>>>>>> zenyn-work-branch
 }
 }
 
