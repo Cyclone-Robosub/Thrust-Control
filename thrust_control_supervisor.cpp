@@ -7,7 +7,7 @@ ThrustControlSupervisor::ThrustControlSupervisor(
         rclcpp::Logger logger,
         std::unique_ptr<Command_Interpreter_RPi5> interpreter)
   : _logger(logger),
-    _command_manager(std::move(interpreter))
+    _interpreter(std::move(interpreter))
 
 {
 }

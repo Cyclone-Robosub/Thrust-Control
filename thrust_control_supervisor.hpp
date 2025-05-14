@@ -28,7 +28,7 @@ public:
 
 private:
   
- void process_pwm_command(std::array<int, 8> pwm_array);
+  void process_pwm_command(std::array<int, 8> pwm_array);
   void feed_forward_pwm(std::array<int, 8> pwm_array);
   void pid_pwm(std::array<int, 8> pwm_array);
  
@@ -42,7 +42,7 @@ private:
   std::array<float, 6> _current_position;
   std::array<float, 6> _waypoint;
   
-  CommandManager _command_manager;
+  std::unique_ptr<Command_Interpreter_RPi5> _interpreter;
   rclcpp::Logger _logger;
 };
 
