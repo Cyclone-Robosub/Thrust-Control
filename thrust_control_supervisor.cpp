@@ -38,6 +38,8 @@ void ThrustControlSupervisor::process_pwm_command()
 void ThrustControlSupervisor::feed_forward_pwm()  
 {
   // manual implentation
+  _auto_flag = false;
+  _interpreter->untimed_execute(_manual_pwm);
 }
 
 void ThrustControlSupervisor::pid_pwm()
