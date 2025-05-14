@@ -37,8 +37,7 @@ void ThrustControlSupervisor::process_pwm_command()
 
 void ThrustControlSupervisor::feed_forward_pwm()  
 {
-    // untimed_execute(_manual_pwm)
-  
+  // manual implentation
 }
 
 void ThrustControlSupervisor::pid_pwm()
@@ -53,4 +52,3 @@ void ThrustControlSupervisor::pid_pwm()
     
 }
 }
-

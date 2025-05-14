@@ -1,5 +1,0 @@
-if(EXISTS "/home/zenyn/Thrust-Control/build/thrust_control/Command-Interpreter/propulsion_test[1]_tests.cmake")
-  include("/home/zenyn/Thrust-Control/build/thrust_control/Command-Interpreter/propulsion_test[1]_tests.cmake")
-else()
-  add_test(propulsion_test_NOT_BUILT propulsion_test_NOT_BUILT)
-endif()

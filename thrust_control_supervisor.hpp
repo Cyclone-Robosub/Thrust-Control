@@ -7,7 +7,6 @@
 #include <vector>
 #include "rclcpp/rclcpp.hpp"
 #include "Command-Interpreter/lib/Command_Interpreter.h"
-#include "command_manager.hpp"
 
 namespace thrust_control
 {
@@ -35,6 +34,9 @@ private:
   static constexpr const char* PID = "pid";
   bool _auto_flag = false;
 
+  rclcpp::Logger _logger;
+  std::unique_ptr<Command_Interpreter_RPi5> _interpreter;
+
   std::string _control_mode;
   std::string _last_control_mode;
   std::array<int, 8> _manual_pwm;
@@ -43,8 +45,6 @@ private:
   std::array<float, 6> _current_position;
   std::array<float, 6> _waypoint;
   
-  std::unique_ptr<Command_Interpreter_RPi5> _interpreter;
-  rclcpp::Logger _logger;
 };
 
 }  // namespace thrust_control
