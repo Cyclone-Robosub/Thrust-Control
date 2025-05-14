@@ -6,8 +6,10 @@ if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 14)
 endif()
 
+add_subdirectory(Command-Interpreter)
+
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic -Werror)
+  add_compile_options(-Wall -Wextra -Wpedantic  -Werror)
 endif()
 
 # Find dependencies
@@ -15,7 +17,6 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
-add_subdirectory(Command-Interpreter)
 
 #Include current directory for headers
 include_directories(
@@ -28,7 +29,6 @@ add_executable(thrust_control
   main.cpp
   thrust_control_node.cpp
   thrust_control_supervisor.cpp
-  command_manager.cpp
 )
 
 ament_target_dependencies(thrust_control rclcpp std_msgs)
