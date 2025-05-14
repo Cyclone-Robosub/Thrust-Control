@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/propulsion_test.dir/testing/Command_Interpreter_Testing.cpp.o CMakeFiles/propulsion_test.dir/lib/Command_Interpreter.cpp.o CMakeFiles/propulsion_test.dir/lib/Wiring.cpp.o CMakeFiles/propulsion_test.dir/lib/Serial.cpp.o -o propulsion_test  ../lib/libgtest_main.a ../lib/libgtest.a 

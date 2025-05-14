@@ -38,14 +38,26 @@ void ThrustControlSupervisor::process_pwm_command(std::array<int, 8> pwm)
 
 void ThrustControlSupervisor::feed_forward_pwm(std::array<int, 8> pwm)  
 {
+<<<<<<< HEAD
     // tanishqs code goes here
   
+=======
+  // feed_forward_pwm implementation
+  // Placeholder for compile
+  pwm[0] = 0;
+>>>>>>> 82630cbe66a68703f1f05db4a38c7a708e6495d5
 }
 
 void ThrustControlSupervisor::pid_pwm(std::array<int, 8> pwm)
 {
+<<<<<<< HEAD
     // exported code from simulink goes here
 
+=======
+  // pid_pwm implementation
+  // Placeholder for compile
+  pwm[0] = 0;
+>>>>>>> 82630cbe66a68703f1f05db4a38c7a708e6495d5
 }
 }
 
