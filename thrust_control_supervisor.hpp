@@ -25,11 +25,18 @@ public:
 	std::array<float, 6> error,
 	std::array<float, 6> waypoint);
 
+  /// @brief Manage State of Control of the Robot and set a current PWM_Command Object. 
+  void ControlLoop();
+  /// @brief Use Command_interpreter and use Untimed_execute function with the current PWM_Command Object.
+  void sendThrusterCommand();
+  
+
 private:
   
  void process_pwm_command(std::array<int, 8> pwm_array);
   void feed_forward_pwm(std::array<int, 8> pwm_array);
   void pid_pwm(std::array<int, 8> pwm_array);
+
  
   static constexpr const char* FEED_FORWARD = "feed-forward";
   static constexpr const char* PID = "pid";
