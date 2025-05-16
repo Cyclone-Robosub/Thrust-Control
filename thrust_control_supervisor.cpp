@@ -11,6 +11,11 @@ ThrustControlSupervisor::ThrustControlSupervisor(
 
 {
 }
+void ThrustControlSupervisor::set_pwm(
+  std::array<int, 8> pwm)
+{
+  this->_manual_pwm = pwm;
+}
 
 void ThrustControlSupervisor::step(
   std::string control_mode,
@@ -28,7 +33,6 @@ void ThrustControlSupervisor::step(
 
 	this->process_pwm_command();
 }
-
 
 void ThrustControlSupervisor::process_pwm_command()
 {

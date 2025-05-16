@@ -18,6 +18,9 @@ public:
   explicit ThrustControlSupervisor(
           rclcpp::Logger logger,
           std::unique_ptr<Command_Interpreter_RPi5>);
+  
+  void set_pwm(std::array<int, 8>, int duration, bool has_override);
+
   void step(	  
 	std::string control_mode,
     std::array<int, 8> pwm,
@@ -32,6 +35,7 @@ private:
   void pid_pwm();
   static constexpr const char* FEED_FORWARD = "feed-forward";
   static constexpr const char* PID = "pid";
+  void set_pwm(std::array<int, 8> pwm);
   bool _auto_flag = false;
 
   rclcpp::Logger _logger;

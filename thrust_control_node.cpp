@@ -8,28 +8,27 @@ ThrustControlNode::ThrustControlNode()
   supervisor_(this->get_logger(), nullptr)
 {
 _manual_pwm_subscription = this->create_subscription<std_msgs::msg::Int32MultiArray>(
-   "array_Cltool_topic", 10, std::bind(&ThrustControlNode::topic_callback, this, std::placeholders::_1));
+   "array_Cltool_topic", 10, std::bind(&ThrustControlNode::pwm_topic_callback, this, std::placeholders::_1));
 }
 
 ThrustControlNode::ThrustControlNode(std::unique_ptr<Command_Interpreter_RPi5> interpreter) 
     : Node("thrust_control_node"), 
   supervisor_(this->get_logger(),std::move(interpreter))
 {
-  
-    _manual_pwm_subscription = this->create_subscription<std_msgs::msg::Int32MultiArray>(
-       "array_Cltool_topic", 10, 
-       std::bind(&ThrustControlNode::topic_callback, this, std::placeholders::_1));
+    _manual_pwm_subscription =  this->create_subscription<std_msgs::msg::Int32MultiArray>(
+       pwm_topic_,
+      10, 
+      std::bind(&ThrustControlNode::pwm_topic_callback, this, std::placeholders::_1));
 
     timer_ = this->create_wall_timer(
             std::chrono::seconds(1),
             std::bind(&ThrustControlNode::timer_callback, this));
 
     RCLCPP_INFO(this->get_logger(), "Checking secondly. Heehaw...");
-
     
 }
 
-void ThrustControlNode::topic_callback(const std_msgs::msg::Int32MultiArray::SharedPtr msg) const
+void ThrustControlNode::pwm_topic_callback(const std_msgs::msg::Int32MultiArray::SharedPtr msg)
 {
   RCLCPP_INFO(this->get_logger(), "Received PWM array with %zu values", msg->data.size());
   
@@ -37,6 +36,7 @@ void ThrustControlNode::topic_callback(const std_msgs::msg::Int32MultiArray::Sha
   std::stringstream ss;
   ss << "PWM values: ";
   for (size_t i = 0; i < msg->data.size(); ++i) {
+    pwm_[i]= msg->data[i];  
     ss << msg->data[i];
     if (i < msg->data.size() - 1) {
       ss << ", ";
@@ -49,7 +49,6 @@ void ThrustControlNode::timer_callback()
 {
 
     std::stringstream ss;
-    ss << "heyyyyy\n";
     std::string test_mode = "auto";
     std::array<int, 8> test_pwms = {0,0,0,0,0,0,0,0};
     float test_duration = 1;

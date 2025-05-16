@@ -16,17 +16,16 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
-
-#Include current directory for headers
+# Include directories
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
-
 add_executable(thrust_control 
-  main.cpp
-  thrust_control_node.cpp
-  thrust_control_supervisor.cpp
+  src/main.cpp
+  src/thrust_control_node.cpp
+  src/thrust_control_supervisor.cpp
 )
 
 ament_target_dependencies(thrust_control rclcpp std_msgs)
@@ -50,7 +49,7 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-ament_export_include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+ament_export_include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
 ament_export_dependencies(rclcpp std_msgs)
 
 ament_package()
