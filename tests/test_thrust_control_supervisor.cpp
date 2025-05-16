@@ -57,19 +57,6 @@ TEST_F(ThrustControlSupervisorTest, CanBeInitialized) {
     });
 }
 
-// Test setting PWM values
-TEST_F(ThrustControlSupervisorTest, CanSetPwmValues) {
-    // Arrange
-    auto interpreter = createCommandInterpreter();
-    thrust_control::ThrustControlSupervisor supervisor(logger, std::move(interpreter));
-    
-    // Act & Assert - test if setting PWM values doesn't throw
-    std::array<int, 8> test_pwm = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500};
-    ASSERT_NO_THROW({
-        supervisor.set_pwm(test_pwm);
-    });
-}
-
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

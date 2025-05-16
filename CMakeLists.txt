@@ -7,7 +7,7 @@ if(NOT CMAKE_CXX_STANDARD)
 endif()
 
 add_subdirectory(Command-Interpreter)
-
+add_subdirectory(exported-PID-control)
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic  -Werror)
 endif()
@@ -31,6 +31,7 @@ add_executable(thrust_control
 ament_target_dependencies(thrust_control rclcpp std_msgs)
 target_link_libraries(thrust_control
     PropulsionFunctions
+    controller_lib
 )
 
 install(TARGETS
