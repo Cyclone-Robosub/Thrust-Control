@@ -26,6 +26,8 @@ protected:
     rclcpp::Logger logger;
 };
 
+
+// Test 1: Initialization
 TEST_F(ThrustControlSupervisorTest, CanBeInitialized) {
     // Arrange
     auto interpreter = make_command_interpreter_ptr(std::cout, std::cout, std::cout);
@@ -35,6 +37,10 @@ TEST_F(ThrustControlSupervisorTest, CanBeInitialized) {
         thrust_control::ThrustControlSupervisor supervisor(logger, std::move(interpreter));
     });
 }
+
+// Test 2: Feed Forward Step
+
+// Test 3: Auto Step
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
