@@ -20,6 +20,7 @@ find_package(std_msgs REQUIRED)
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/src
+    #    ${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}
 )
 
 add_executable(thrust_control 
