@@ -82,4 +82,9 @@ void log_array(rclcpp::Logger logger, const std::array<int, 8>& arr) {
 
     RCLCPP_INFO(logger, "%s", ss.str().c_str());
 }
+void ThrustControlSupervisor::execute_pwm(std::array<int, 8> pwm)
+{
+    _interpreter->untimed_execute(pwm);
+    // post sent pwm to sent_pwm topic
 } 
+}

@@ -14,7 +14,10 @@ int main(int argc, char * argv[])
 
   rclcpp::init(argc, argv);
   
-  rclcpp::spin(std::make_shared<thrust_control::ThrustControlNode>(std::move(commandInterpreter_ptr)));
+  rclcpp::spin(
+          std::make_shared<thrust_control::ThrustControlNode>(
+              std::move(commandInterpreter_ptr)));
+  
   rclcpp::shutdown();
   return 0;
 }

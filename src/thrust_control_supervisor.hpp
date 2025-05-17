@@ -14,6 +14,11 @@
 #include "../exported-PID-control/src/controller_codegenTest.h"
 #pragma GCC diagnostic pop
 
+//TODO
+//implement command queue for manual control
+//implement waypoint list
+//implement function that both sends pwms to comman_interpreter and posts to topic
+//replace std::array<int, 8> with pwm::array from command_interpreter
 
 namespace thrust_control
 {
@@ -41,6 +46,10 @@ private:
   void feed_forward_pwm();
   void pid_pwm(); 
   void step_controller();
+  void execute_pwm(std::array<int, 8>);
+
+
+
   static constexpr const char* FEED_FORWARD = "feed-forward";
   static constexpr const char* PID = "pid";
   bool _auto_flag = false;
