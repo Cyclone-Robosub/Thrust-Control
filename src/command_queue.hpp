@@ -1,7 +1,7 @@
 #pragma once
 
 #include "supervisor_command.hpp"
-#include "Command_Interpreter/src/Command_Interpreter.hpp"
+#include "Command_Interpreter/src/Command.hpp"
 #include <queue>
 #include <memory>
 
@@ -11,26 +11,19 @@ class CommandQueue {
 public:
     CommandQueue();
     
-    void add_command(std::unique_ptr<Command> new_command);
-    void add_command(
+    void push_command(std::unique_ptr<SupervisorCommand> new_command);
+    
+    static std::unique_ptr<SupervisorCommand> make_new_command(
         const pwm_array& pwm, 
         std::chrono::milliseconds duration,
         bool is_timed,
-        bool is_override = false);
+        bool is_override);
     
-    std::unique_ptr<Command> make_new_command(
-        const pwm_array& pwm, 
-        std::chrono::milliseconds duration,
-        bool is_timed,
-        bool is_override = false);
-    
-    std::unique_ptr<Command> get_command_from_queue(Command* current_command);
-    
-
+    std::unique_ptr<SupervisorCommand> get_command_from_queue(std::unique_ptr<SupervisorCommand> current_command);
 
 private:
-    std::queue<std::unique_ptr<Command>> command_queue_;
-    pwm_array stop_set_ = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500 }; 
+    std::queue<std::unique_ptr<SupervisorCommand>> command_queue_;
+    pwm_array stop_set_ = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}; 
 };
 
 }  // namespace thrust_control

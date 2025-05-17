@@ -8,27 +8,29 @@ ThrustControlSupervisor::ThrustControlSupervisor(
         std::unique_ptr<Command_Interpreter_RPi5> interpreter)
   : _logger(logger),
     _interpreter(std::move(interpreter)),
-    _controller(std::make_unique<controller_codegenTest>())
+    _controller(std::make_unique<controller_codegenTest>(),
+    command_queue(CommandQueue()))
 
 {
 }
-void ThrustControlSupervisor::set_pwm(
-  std::array<int, 8> pwm)
+void ThrustControlSupervisor::update_pwm_queue(std::unique_ptr<SupervisorCommand> new_command)
 {
-  this->_manual_pwm = pwm;
+  if (new_command->isOverride()) {
+    current_command = new_command();
+    std::swap(command_queue, std::queue<std::unique_ptr<SupervisorCommand>> empty);
+  }
+  else {
+    command_queue.push(std::move(new_command));
+  }
 }
 
 void ThrustControlSupervisor::step(
   std::string control_mode,
-  std::array<int, 8> pwm,
-  float duration,
   std::array<float, 6> position,
   std::array<float, 6> waypoint)
 {
 
 	this->_control_mode = control_mode;
-	this->_manual_pwm = pwm;
-	this->_duration = duration;
 	this->_current_position = position;
 	this->_waypoint = waypoint;
 
@@ -44,9 +46,12 @@ void ThrustControlSupervisor::process_pwm_command()
 
 void ThrustControlSupervisor::feed_forward_pwm()  
 {
-  // manual implentation
   _auto_flag = false;
-  _interpreter->untimed_execute(_manual_pwm);
+  if (current_command->isFinished()) {
+    current_command = command_queue.get_command_from_queue(std::move(current_command));
+  }
+  current_command->start();
+  _interpreter->untimed_execute(current_command->getPwms());
 }
 
 void ThrustControlSupervisor::pid_pwm()

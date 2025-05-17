@@ -65,15 +65,11 @@ void ThrustControlNode::timer_callback()
 
     std::stringstream ss;
     std::string test_mode = "auto";
-    std::array<int, 8> test_pwms = {0,0,0,0,0,0,0,0};
-    float test_duration = 1;
     std::array<float, 6> test_pos = {0,0,0,0,0,0};
     std::array<float, 6> waypoint = {0,0,0,0,0,0};
     
     supervisor_.step(
             test_mode,
-            test_pwms,
-            test_duration,
             test_pos,
             waypoint);
 

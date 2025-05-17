@@ -11,6 +11,8 @@
 #include "std_msgs/msg/bool.hpp"
 #include "std_msgs/msg/string.hpp"
 #include "thrust_control_supervisor.hpp"
+#include "Command.hpp"
+#include "command_queue.hpp"
 //#include "include/crs_common/crs_ros2_interfaces/src/publish_pwm_cmd.cpp"
 // TODO
 // Add object for commands
@@ -49,7 +51,7 @@ private:
   std::string waypoint_topic_ = "waypoint_topic";
   std::string sent_pwm_topic_ = "sent_pwm_topic";
     
-  std::array<int, 8> pwm_ = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500};
+  pwm_array pwm_ = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500};
 
 };
 
