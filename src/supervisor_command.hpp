@@ -6,7 +6,7 @@
 #include <queue>
 #include <memory>
 #include <chrono>
-#include "../Command-Interpreter/lib/Command.h"
+#include "Command_Interpreter/src/Command.hpp"
 //TODO
 
 namespace thrust_control {
