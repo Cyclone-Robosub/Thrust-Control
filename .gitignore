@@ -30,9 +30,6 @@
 *.a
 *.lib
 
-# Editor Files
-*.swp
-
 # Executables
 *.exe
 *.out
