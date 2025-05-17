@@ -50,17 +50,38 @@ if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
   
-  # Setup testing
   find_package(GTest REQUIRED)
   enable_testing()
   
-  # Add test executable
+  
+  # node testing
+  add_executable(test_thrust_control_node
+      tests/test_thrust_control_node.cpp
+      src/command_interpreter_pointer.cpp
+      src/thrust_control_supervisor.cpp
+      src/thrust_control_node.cpp
+  )
+ 
+  target_include_directories(test_thrust_control_node PRIVATE
+      ${CMAKE_CURRENT_SOURCE_DIR}/src
+      ${GTEST_INCLUDE_DIRS}
+  )
+
+  ament_target_dependencies(test_thrust_control_node  rclcpp std_msgs)
+   target_link_libraries(test_thrust_control_node
+    PropulsionFunctions
+    controller_lib
+    ${GTEST_LIBRARIES}
+    ${GTEST_MAIN_LIBRARIES}
+  ) 
+
+  # supervisor testing
   add_executable(test_thrust_control_supervisor 
     tests/test_thrust_control_supervisor.cpp
     src/command_interpreter_pointer.cpp
     src/thrust_control_supervisor.cpp
   )
-  
+
   target_include_directories(test_thrust_control_supervisor PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
     ${GTEST_INCLUDE_DIRS}

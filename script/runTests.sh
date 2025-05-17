@@ -12,3 +12,4 @@ source install/setup.bash
 # Run the test executable directly
 ./build/thrust_control/test_thrust_control_supervisor
 
+./build/thrust_control/test_thrust_control_node
