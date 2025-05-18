@@ -4,6 +4,4 @@
 [submodule "include/Command_Interpreter"]
 	path = include/Command_Interpreter
 	url = https://github.com/Cyclone-Robosub/Command_Interpreter.git
-[submodule "include/exported-PID-control"]
-	path = include/exported-PID-control
-	url = https://github.com/Cyclone-Robosub/exported-PID-control.git
+
