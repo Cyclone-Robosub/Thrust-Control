@@ -1,34 +1,29 @@
-#vim
+# Build directory
+build/
+
+# Generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+CTestTestfile.cmake
+Makefile
+
+# Compiled files
+*.o
+*.obj
+*.so
+*.a
+*.exe
+
+# Editor files
 *.swp
 *.swo
 
-# Prerequisites
-*.d
+*/build/
+**/cmake-build-*/
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+Testing/
 
 # Executables
 *.exe
@@ -38,9 +33,8 @@
 # MacOS extended attributes
 .DS_Store
 
-# CMake Caches/Files
-CMakeFiles/*
-
 # Build Artifacts
 build/*
-          
+
+# Other
+log/*
