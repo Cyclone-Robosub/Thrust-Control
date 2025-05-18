@@ -38,7 +38,6 @@ void ThrustControlSupervisor::step(
 
 void ThrustControlSupervisor::process_pwm_command()
 {
-  RCLCPP_INFO(_logger, "step it\n");
   if (this->_control_mode == FEED_FORWARD) { this->feed_forward_pwm(); }
   if (this->_control_mode == PID){ this->pid_pwm(); }
 }  
@@ -58,13 +57,20 @@ void ThrustControlSupervisor::pid_pwm()
     if ( _auto_flag == false )
     { 
         _auto_flag = true;
-       // _controller->initialize();
-       // add execute
+        //pathfinder->initialize();
+        _controller->initialize();
+
     }
-    this->step_controller();
+    //step_pathfinder();
+    step_controller();
+
 }
 
-
+void step_pathfinder()
+{
+    // give inputs to pathfinder
+    // take outputs (refernce singal)
+}
 void ThrustControlSupervisor::step_controller()
 {
     for (int i = 0; i < 6; i++)   
@@ -72,6 +78,11 @@ void ThrustControlSupervisor::step_controller()
         _controller->rtU.Input[i] = _current_position[i] - _waypoint[i];
     }
     _controller->step();
+    
+    for (int i = 0; i < 8; i++)
+    {
+        _current_pwm.pwm_signals[i] = _controller->rtY.Out1[i];
+    }
 }
 
 void log_array(rclcpp::Logger logger, const std::array<int, 8>& arr) {

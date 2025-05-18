@@ -33,11 +33,11 @@ public:
           std::unique_ptr<Command_Interpreter_RPi5>);
   
   void update_pwm_queue(std::unique_ptr<SupervisorCommand> new_command);
-
   void step(	  
 	std::string control_mode,
 	std::array<float, 6> error,
 	std::array<float, 6> waypoint);
+  pwm_array get_current_pwm(){ return _current_pwm;}
 
 private:
   
@@ -46,8 +46,6 @@ private:
   void pid_pwm(); 
   void step_controller();
   void execute_pwm(std::array<int, 8>);
-
-
 
   static constexpr const char* FEED_FORWARD = "feed-forward";
   static constexpr const char* PID = "pid";
@@ -61,10 +59,16 @@ private:
   std::unique_ptr<SupervisorCommand> current_command;
   std::string _control_mode;
   std::string _last_control_mode;
+
+  // waypoint is given by executive control loop, longer distance
   std::array<float, 6> _current_waypoint;
+
+  // reference position is generated each step iteration by the
+  // trajectory generator
+  std::array<float, 6> _current_reference_position;
   std::array<float, 6> _current_position;
   std::array<float, 6> _waypoint;
-
+  pwm_array _current_pwm = {{1500,1500,1500,1500,1500,1500,1500, 1500}};
 
 };
 
