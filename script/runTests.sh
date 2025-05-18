@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# run from /Thrust-Control/
+
+
+#build crs_common
+cd include/crs_common
+. ./script/build.sh
+cd ../..
+
 # Source ROS environment
 source /opt/ros/jazzy/setup.bash
 
