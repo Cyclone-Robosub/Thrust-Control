@@ -1,5 +1,5 @@
 #include "thrust_control_node.hpp"
-#include "../include/Command-Interpreter/lib/Command_Interpreter.h"
+#include "include/Command_Interpreter/src/Command_Interpreter.hpp"
 #include "command_interpreter_pointer.cpp"
 
 

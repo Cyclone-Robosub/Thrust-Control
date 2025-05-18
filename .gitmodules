@@ -1,12 +1,9 @@
-[submodule "Command-Interpreter"]
-	path = Command-Interpreter
-	url = https://github.com/ZenynEthridge/Command-Interpreter.git
-[submodule "Exported-PID-Testing"]
-	path = Exported-PID-Testing
-	url = https://github.com/Cyclone-Robosub/Exported-PID-Testing.git
-[submodule "exported-PID-control"]
-	path = exported-PID-control
-	url = https://github.com/Cyclone-Robosub/exported-PID-control.git
-[submodule "include/crs_common"]
+[submodule "crs_common"]
 	path = include/crs_common
 	url = https://github.com/Cyclone-Robosub/crs_common.git
+[submodule "include/Command_Interpreter"]
+	path = include/Command_Interpreter
+	url = https://github.com/Cyclone-Robosub/Command_Interpreter.git
+[submodule "include/exported-PID-control"]
+	path = include/exported-PID-control
+	url = https://github.com/Cyclone-Robosub/exported-PID-control.git
