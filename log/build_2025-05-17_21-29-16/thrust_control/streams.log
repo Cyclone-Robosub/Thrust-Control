@@ -1,0 +1,82 @@
+[0.009s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
+[0.074s] [  7%] Built target controller_test_lib
+[0.075s] [ 15%] Built target controller_lib
+[0.078s] [ 25%] Built target PropulsionFunctions
+[0.081s] [ 30%] Built target gtest
+[0.114s] [ 35%] Built target gtest_main
+[0.118s] [ 40%] Built target controller_test
+[0.122s] [ 45%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/src/main.cpp.o[0m
+[0.122s] [ 47%] Built target gmock
+[0.128s] [ 50%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/src/thrust_control_supervisor.cpp.o[0m
+[0.128s] [ 52%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o[0m
+[0.160s] [ 65%] Built target propulsion_test
+[0.167s] [ 70%] Built target gmock_main
+[0.180s] [ 72%] [32mBuilding CXX object CMakeFiles/test_thrust_control_supervisor.dir/src/thrust_control_supervisor.cpp.o[0m
+[0.183s] [ 77%] [32mBuilding CXX object CMakeFiles/test_thrust_control_supervisor.dir/tests/test_thrust_control_supervisor.cpp.o[0m
+[0.183s] [ 77%] [32mBuilding CXX object CMakeFiles/test_thrust_control_node.dir/src/thrust_control_supervisor.cpp.o[0m
+[0.185s] [ 82%] [32mBuilding CXX object CMakeFiles/test_thrust_control_node.dir/src/command_queue.cpp.o[0m
+[0.186s] [ 82%] [32mBuilding CXX object CMakeFiles/test_thrust_control_node.dir/src/thrust_control_node.cpp.o[0m
+[0.187s] [ 85%] [32mBuilding CXX object CMakeFiles/test_thrust_control_supervisor.dir/src/command_queue.cpp.o[0m
+[0.188s] [ 87%] [32mBuilding CXX object CMakeFiles/test_thrust_control_node.dir/tests/test_thrust_control_node.cpp.o[0m
+[0.581s] In file included from [01m[K/usr/include/c++/13/memory:78[m[K,
+[0.581s]                  from [01m[K/home/zenyn/Thrust-Control/src/supervisor_command.hpp:7[m[K,
+[0.581s]                  from [01m[K/home/zenyn/Thrust-Control/src/command_queue.hpp:3[m[K,
+[0.581s]                  from [01m[K/home/zenyn/Thrust-Control/src/command_queue.cpp:1[m[K:
+[0.581s] /usr/include/c++/13/bits/unique_ptr.h: In instantiation of ‘[01m[Kstd::__detail::__unique_ptr_t<_Tp> std::[01;32m[Kmake_unique[m[K(_Args&& ...) [35m[K[with _Tp = thrust_control::Timed_Command; _Args = {pwm_array, bool}; __detail::__unique_ptr_t<_Tp> = __detail::__unique_ptr_t<thrust_control::Timed_Command>][m[K[m[K’:
+[0.581s] [01m[K/home/zenyn/Thrust-Control/src/command_queue.cpp:33:17:[m[K   required from here
+[0.581s] [01m[K/usr/include/c++/13/bits/unique_ptr.h:1070:30:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kthrust_control::Timed_Command::Timed_Command(pwm_array, bool)[m[K’
+[0.582s]  1070 |     { return unique_ptr<_Tp>([01;31m[Knew _Tp(std::forward<_Args>(__args)...)[m[K); }
+[0.582s]       |                              [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.587s] [01m[K/home/zenyn/Thrust-Control/src/supervisor_command.hpp:44:4:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kthrust_control::Timed_Command::[01;32m[KTimed_Command[m[K(const pwm_array&, std::chrono::milliseconds, bool)[m[K’
+[0.587s]    44 |    [01;36m[KTimed_Command[m[K(const pwm_array& pwm,
+[0.587s]       |    [01;36m[K^~~~~~~~~~~~~[m[K
+[0.588s] [01m[K/home/zenyn/Thrust-Control/src/supervisor_command.hpp:45:44:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from ‘[01m[Kbool[m[K’ to ‘[01m[Kstd::chrono::milliseconds[m[K’ {aka ‘[01m[Kstd::chrono::duration<long int, std::ratio<1, 1000> >[m[K’}
+[0.588s]    45 |                  [01;36m[Kstd::chrono::milliseconds duration[m[K,
+[0.588s]       |                  [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~[m[K
+[0.588s] [01m[K/home/zenyn/Thrust-Control/src/supervisor_command.hpp:42:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr thrust_control::Timed_Command::[01;32m[KTimed_Command[m[K(const thrust_control::Timed_Command&)[m[K’
+[0.588s]    42 | class [01;36m[KTimed_Command[m[K : public SupervisorCommand {
+[0.588s]       |       [01;36m[K^~~~~~~~~~~~~[m[K
+[0.588s] [01m[K/home/zenyn/Thrust-Control/src/supervisor_command.hpp:42:7:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+[0.588s] [01m[K/home/zenyn/Thrust-Control/src/supervisor_command.hpp:42:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr thrust_control::Timed_Command::[01;32m[KTimed_Command[m[K(thrust_control::Timed_Command&&)[m[K’
+[0.588s] [01m[K/home/zenyn/Thrust-Control/src/supervisor_command.hpp:42:7:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+[0.591s] In file included from [01m[K/usr/include/c++/13/memory:78[m[K,
+[0.591s]                  from [01m[K/home/zenyn/Thrust-Control/src/supervisor_command.hpp:7[m[K,
+[0.591s]                  from [01m[K/home/zenyn/Thrust-Control/src/command_queue.hpp:3[m[K,
+[0.591s]                  from [01m[K/home/zenyn/Thrust-Control/src/command_queue.cpp:1[m[K:
+[0.591s] /usr/include/c++/13/bits/unique_ptr.h: In instantiation of ‘[01m[Kstd::__detail::__unique_ptr_t<_Tp> std::[01;32m[Kmake_unique[m[K(_Args&& ...) [35m[K[with _Tp = thrust_control::Timed_Command; _Args = {pwm_array, bool}; __detail::__unique_ptr_t<_Tp> = __detail::__unique_ptr_t<thrust_control::Timed_Command>][m[K[m[K’:
+[0.592s] [01m[K/home/zenyn/Thrust-Control/src/command_queue.cpp:33:17:[m[K   required from here
+[0.592s] [01m[K/usr/include/c++/13/bits/unique_ptr.h:1070:30:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kthrust_control::Timed_Command::Timed_Command(pwm_array, bool)[m[K’
+[0.592s]  1070 |     { return unique_ptr<_Tp>([01;31m[Knew _Tp(std::forward<_Args>(__args)...)[m[K); }
+[0.592s]       |                              [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.592s] [01m[K/home/zenyn/Thrust-Control/src/supervisor_command.hpp:44:4:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kthrust_control::Timed_Command::[01;32m[KTimed_Command[m[K(const pwm_array&, std::chrono::milliseconds, bool)[m[K’
+[0.592s]    44 |    [01;36m[KTimed_Command[m[K(const pwm_array& pwm,
+[0.592s]       |    [01;36m[K^~~~~~~~~~~~~[m[K
+[0.592s] [01m[K/home/zenyn/Thrust-Control/src/supervisor_command.hpp:45:44:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from ‘[01m[Kbool[m[K’ to ‘[01m[Kstd::chrono::milliseconds[m[K’ {aka ‘[01m[Kstd::chrono::duration<long int, std::ratio<1, 1000> >[m[K’}
+[0.592s]    45 |                  [01;36m[Kstd::chrono::milliseconds duration[m[K,
+[0.592s]       |                  [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~[m[K
+[0.592s] [01m[K/home/zenyn/Thrust-Control/src/supervisor_command.hpp:42:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr thrust_control::Timed_Command::[01;32m[KTimed_Command[m[K(const thrust_control::Timed_Command&)[m[K’
+[0.592s]    42 | class [01;36m[KTimed_Command[m[K : public SupervisorCommand {
+[0.593s]       |       [01;36m[K^~~~~~~~~~~~~[m[K
+[0.593s] [01m[K/home/zenyn/Thrust-Control/src/supervisor_command.hpp:42:7:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+[0.593s] [01m[K/home/zenyn/Thrust-Control/src/supervisor_command.hpp:42:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconstexpr thrust_control::Timed_Command::[01;32m[KTimed_Command[m[K(thrust_control::Timed_Command&&)[m[K’
+[0.593s] [01m[K/home/zenyn/Thrust-Control/src/supervisor_command.hpp:42:7:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 2 provided
+[0.630s] gmake[2]: *** [CMakeFiles/test_thrust_control_node.dir/build.make:132: CMakeFiles/test_thrust_control_node.dir/src/command_queue.cpp.o] Error 1
+[0.630s] gmake[2]: *** Waiting for unfinished jobs....
+[0.636s] gmake[2]: *** [CMakeFiles/test_thrust_control_supervisor.dir/build.make:118: CMakeFiles/test_thrust_control_supervisor.dir/src/command_queue.cpp.o] Error 1
+[0.636s] gmake[2]: *** Waiting for unfinished jobs....
+[5.536s] gmake[1]: *** [CMakeFiles/Makefile2:325: CMakeFiles/test_thrust_control_supervisor.dir/all] Error 2
+[5.536s] gmake[1]: *** Waiting for unfinished jobs....
+[7.674s] gmake[1]: *** [CMakeFiles/Makefile2:296: CMakeFiles/test_thrust_control_node.dir/all] Error 2
+[7.954s] [ 90%] [32m[1mLinking CXX executable thrust_control[0m
+[8.157s] /usr/bin/ld: CMakeFiles/thrust_control.dir/src/thrust_control_supervisor.cpp.o: in function `thrust_control::ThrustControlSupervisor::ThrustControlSupervisor(rclcpp::Logger, std::unique_ptr<Command_Interpreter_RPi5, std::default_delete<Command_Interpreter_RPi5> >)':
+[8.157s] thrust_control_supervisor.cpp:(.text+0x81): undefined reference to `thrust_control::CommandQueue::CommandQueue()'
+[8.157s] /usr/bin/ld: CMakeFiles/thrust_control.dir/src/thrust_control_supervisor.cpp.o: in function `thrust_control::ThrustControlSupervisor::update_pwm_queue(std::unique_ptr<thrust_control::SupervisorCommand, std::default_delete<thrust_control::SupervisorCommand> >)':
+[8.157s] thrust_control_supervisor.cpp:(.text+0x1bc): undefined reference to `thrust_control::CommandQueue::CommandQueue()'
+[8.157s] /usr/bin/ld: thrust_control_supervisor.cpp:(.text+0x22e): undefined reference to `thrust_control::CommandQueue::push_command(std::unique_ptr<thrust_control::SupervisorCommand, std::default_delete<thrust_control::SupervisorCommand> >)'
+[8.157s] /usr/bin/ld: CMakeFiles/thrust_control.dir/src/thrust_control_supervisor.cpp.o: in function `thrust_control::ThrustControlSupervisor::feed_forward_pwm()':
+[8.157s] thrust_control_supervisor.cpp:(.text+0x5c1): undefined reference to `thrust_control::CommandQueue::get_command_from_queue(std::unique_ptr<thrust_control::SupervisorCommand, std::default_delete<thrust_control::SupervisorCommand> >)'
+[8.177s] collect2: error: ld returned 1 exit status
+[8.179s] gmake[2]: *** [CMakeFiles/thrust_control.dir/build.make:205: thrust_control] Error 1
+[8.179s] gmake[1]: *** [CMakeFiles/Makefile2:267: CMakeFiles/thrust_control.dir/all] Error 2
+[8.179s] gmake: *** [Makefile:146: all] Error 2
+[8.181s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12

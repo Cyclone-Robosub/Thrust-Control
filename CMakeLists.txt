@@ -20,19 +20,26 @@ find_package(std_msgs REQUIRED)
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/src
-    ${CMAKE_CURRENT_SOURCE_DIR}/Command-Interpreter/lib
-    #    ${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Command_Interpreter
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/exported-PID-control
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/exported-PID-control/src
 )
 
 add_executable(thrust_control 
   src/main.cpp
   src/thrust_control_node.cpp
   src/thrust_control_supervisor.cpp
+  src/command_queue.cpp
+  src/supervisor_command.cpp
 )
 
 target_include_directories(thrust_control
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Command_Interpreter
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/exported-PID-control
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/exported-PID-control/src
     PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
@@ -67,10 +74,16 @@ if(BUILD_TESTING)
       src/command_interpreter_pointer.cpp
       src/thrust_control_supervisor.cpp
       src/thrust_control_node.cpp
+      src/command_queue.cpp
+      src/supervisor_command.cpp
   )
  
   target_include_directories(test_thrust_control_node PRIVATE
       ${CMAKE_CURRENT_SOURCE_DIR}/src
+      ${CMAKE_CURRENT_SOURCE_DIR}/include
+      ${CMAKE_CURRENT_SOURCE_DIR}/include/Command_Interpreter
+      ${CMAKE_CURRENT_SOURCE_DIR}/include/exported-PID-control
+      ${CMAKE_CURRENT_SOURCE_DIR}/include/exported-PID-control/src
       ${GTEST_INCLUDE_DIRS}
   )
 
@@ -87,11 +100,17 @@ if(BUILD_TESTING)
     tests/test_thrust_control_supervisor.cpp
     src/command_interpreter_pointer.cpp
     src/thrust_control_supervisor.cpp
+    src/command_queue.cpp
+    src/supervisor_command.cpp
   )
 
   target_include_directories(test_thrust_control_supervisor PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
-    ${GTEST_INCLUDE_DIRS}
+      ${CMAKE_CURRENT_SOURCE_DIR}/src
+      ${CMAKE_CURRENT_SOURCE_DIR}/include
+      ${CMAKE_CURRENT_SOURCE_DIR}/include/Command_Interpreter
+      ${CMAKE_CURRENT_SOURCE_DIR}/include/exported-PID-control
+      ${CMAKE_CURRENT_SOURCE_DIR}/include/exported-PID-control/src
+      ${GTEST_INCLUDE_DIRS}
   )
   
   ament_target_dependencies(test_thrust_control_supervisor rclcpp std_msgs)

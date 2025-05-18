@@ -22,7 +22,7 @@ ThrustControlNode::ThrustControlNode()
 ThrustControlNode::ThrustControlNode
 (std::unique_ptr<Command_Interpreter_RPi5> interpreter) 
     : Node("thrust_control_node"), 
-    supervisor_(this->get_logger(),std::move(interpreter))
+    supervisor_(this->get_logger(), std::move(interpreter))
 {
     _manual_pwm_subscription =  
         this->create_subscription<std_msgs::msg::Int32MultiArray>(
@@ -51,7 +51,7 @@ void ThrustControlNode::pwm_topic_callback(const std_msgs::msg::Int32MultiArray:
   std::stringstream ss;
   ss << "PWM values: ";
   for (size_t i = 0; i < msg->data.size(); ++i) {
-    pwm_[i]= msg->data[i];  
+    pwm_.pwm_signals[i] = msg->data[i];  
     ss << msg->data[i];
     if (i < msg->data.size() - 1) {
       ss << ", ";
@@ -65,15 +65,11 @@ void ThrustControlNode::timer_callback()
 
     std::stringstream ss;
     std::string test_mode = "auto";
-    std::array<int, 8> test_pwms = {0,0,0,0,0,0,0,0};
-    float test_duration = 1;
     std::array<float, 6> test_pos = {0,0,0,0,0,0};
     std::array<float, 6> waypoint = {0,0,0,0,0,0};
     
     supervisor_.step(
             test_mode,
-            test_pwms,
-            test_duration,
             test_pos,
             waypoint);
 

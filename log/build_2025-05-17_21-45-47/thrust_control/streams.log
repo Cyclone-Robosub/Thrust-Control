@@ -1,0 +1,95 @@
+[0.008s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
+[0.082s] [  6%] Built target controller_test_lib
+[0.082s] [ 15%] Built target PropulsionFunctions
+[0.086s] [ 22%] Built target controller_lib
+[0.090s] [ 27%] Built target gtest
+[0.129s] [ 31%] Built target gtest_main
+[0.131s] [ 36%] Built target gmock
+[0.138s] [ 40%] Built target controller_test
+[0.140s] [ 54%] Built target thrust_control
+[0.182s] [ 59%] Built target gmock_main
+[0.188s] [ 70%] Built target propulsion_test
+[0.191s] [ 84%] Built target test_thrust_control_supervisor
+[0.191s] [100%] Built target test_thrust_control_node
+[0.206s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
+[0.217s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/zenyn/Thrust-Control/build/thrust_control
+[0.233s] -- Install configuration: ""
+[0.234s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/thrust_control/thrust_control
+[0.234s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/package_run_dependencies/thrust_control
+[0.234s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/parent_prefix_path/thrust_control
+[0.235s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/ament_prefix_path.sh
+[0.235s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/ament_prefix_path.dsv
+[0.235s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/path.sh
+[0.235s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/environment/path.dsv
+[0.236s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.bash
+[0.236s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.sh
+[0.236s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.zsh
+[0.236s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/local_setup.dsv
+[0.236s] -- Installing: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/package.dsv
+[0.237s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/ament_index/resource_index/packages/thrust_control
+[0.237s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.237s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.237s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/thrust_controlConfig.cmake
+[0.237s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/cmake/thrust_controlConfig-version.cmake
+[0.237s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/share/thrust_control/package.xml
+[0.238s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include
+[0.238s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock
+[0.238s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock-spec-builders.h
+[0.238s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock-matchers.h
+[0.238s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock.h
+[0.239s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock-nice-strict.h
+[0.239s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock-more-actions.h
+[0.240s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock-actions.h
+[0.240s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock-cardinalities.h
+[0.241s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal
+[0.241s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal/gmock-pp.h
+[0.241s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal/gmock-port.h
+[0.241s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal/gmock-internal-utils.h
+[0.241s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal/custom
+[0.241s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal/custom/gmock-matchers.h
+[0.242s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal/custom/gmock-port.h
+[0.242s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal/custom/README.md
+[0.242s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/internal/custom/gmock-generated-actions.h
+[0.242s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock-more-matchers.h
+[0.243s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gmock/gmock-function-mocker.h
+[0.243s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/libgmock.a
+[0.243s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/libgmock_main.a
+[0.243s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/pkgconfig/gmock.pc
+[0.243s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/pkgconfig/gmock_main.pc
+[0.244s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/cmake/GTest/GTestTargets.cmake
+[0.244s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/cmake/GTest/GTestTargets-noconfig.cmake
+[0.244s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/cmake/GTest/GTestConfigVersion.cmake
+[0.244s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/cmake/GTest/GTestConfig.cmake
+[0.244s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include
+[0.245s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest
+[0.245s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-printers.h
+[0.245s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-typed-test.h
+[0.245s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest.h
+[0.246s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-param-test.h
+[0.246s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-death-test.h
+[0.246s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest_prod.h
+[0.246s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-test-part.h
+[0.246s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest_pred_impl.h
+[0.246s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-matchers.h
+[0.247s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-spi.h
+[0.247s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-assertion-result.h
+[0.247s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal
+[0.247s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/gtest-port-arch.h
+[0.247s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/gtest-port.h
+[0.247s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/gtest-filepath.h
+[0.248s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/gtest-type-util.h
+[0.248s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/gtest-death-test-internal.h
+[0.248s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/gtest-string.h
+[0.248s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/gtest-param-util.h
+[0.248s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/gtest-internal.h
+[0.248s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/custom
+[0.248s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/custom/gtest-printers.h
+[0.248s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/custom/gtest.h
+[0.249s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/custom/gtest-port.h
+[0.249s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/internal/custom/README.md
+[0.249s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/include/gtest/gtest-message.h
+[0.249s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/libgtest.a
+[0.249s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/libgtest_main.a
+[0.250s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/pkgconfig/gtest.pc
+[0.250s] -- Up-to-date: /home/zenyn/Thrust-Control/install/thrust_control/lib/pkgconfig/gtest_main.pc
+[0.250s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/zenyn/Thrust-Control/build/thrust_control

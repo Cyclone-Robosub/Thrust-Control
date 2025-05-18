@@ -7,6 +7,7 @@
 #include <vector>
 #include "rclcpp/rclcpp.hpp"
 #include "../include/Command_Interpreter/src/Command_Interpreter.hpp"
+#include "command_queue.hpp"
 
 // Temporarily disable unused-function warnings for this include
 #pragma GCC diagnostic push
@@ -31,12 +32,10 @@ public:
           rclcpp::Logger logger,
           std::unique_ptr<Command_Interpreter_RPi5>);
   
-  void set_pwm(std::array<int, 8> pwm);
+  void update_pwm_queue(std::unique_ptr<SupervisorCommand> new_command);
 
   void step(	  
 	std::string control_mode,
-    std::array<int, 8> pwm,
-	float duration,
 	std::array<float, 6> error,
 	std::array<float, 6> waypoint);
 
@@ -58,12 +57,11 @@ private:
   std::unique_ptr<Command_Interpreter_RPi5> _interpreter;
   std::unique_ptr<controller_codegenTest> _controller;
   
-
+  CommandQueue command_queue;
+  std::unique_ptr<SupervisorCommand> current_command;
   std::string _control_mode;
   std::string _last_control_mode;
-  std::array<int, 8> _manual_pwm;
   std::array<float, 6> _current_waypoint;
-  float _duration;
   std::array<float, 6> _current_position;
   std::array<float, 6> _waypoint;
 
