@@ -1,0 +1,92 @@
+[0.008s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
+[0.075s] [ 10%] Built target controller_codegenTest
+[0.076s] [ 15%] Built target gtest
+[0.079s] [ 23%] Built target controller_lib
+[0.080s] [ 33%] Built target PropulsionFunctions
+[0.103s] [ 35%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/src/main.cpp.o[0m
+[0.103s] [ 38%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o[0m
+[0.110s] [ 41%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/src/thrust_control_supervisor.cpp.o[0m
+[0.115s] [ 51%] Built target gmock
+[0.115s] [ 51%] Built target controller_test
+[0.116s] [ 56%] Built target gtest_main
+[0.158s] [ 58%] [32mBuilding CXX object CMakeFiles/test_thrust_control_node.dir/tests/test_thrust_control_node.cpp.o[0m
+[0.158s] [ 61%] [32mBuilding CXX object CMakeFiles/test_thrust_control_supervisor.dir/tests/test_thrust_control_supervisor.cpp.o[0m
+[0.160s] [ 71%] [32mBuilding CXX object CMakeFiles/test_thrust_control_node.dir/src/thrust_control_supervisor.cpp.o[0m
+[0.161s] [ 74%] Built target gmock_main
+[0.161s] [ 74%] [32mBuilding CXX object CMakeFiles/test_thrust_control_supervisor.dir/src/command_interpreter_pointer.cpp.o[0m
+[0.162s] [ 74%] [32mBuilding CXX object CMakeFiles/test_thrust_control_node.dir/src/command_interpreter_pointer.cpp.o[0m
+[0.164s] [ 79%] [32mBuilding CXX object CMakeFiles/test_thrust_control_supervisor.dir/src/thrust_control_supervisor.cpp.o[0m
+[0.164s] [ 89%] Built target propulsion_test
+[0.167s] [ 92%] [32mBuilding CXX object CMakeFiles/test_thrust_control_node.dir/src/thrust_control_node.cpp.o[0m
+[0.230s] In file included from [01m[K/home/zenyn/Thrust-Control/src/command_interpreter_pointer.cpp:2[m[K:
+[0.230s] [01m[K/home/zenyn/Thrust-Control/src/command_interpreter_pointer.hpp:4:10:[m[K [01;31m[Kfatal error: [m[K../include/Command_Interpreter/lib/Command_Interpreter.h: No such file or directory
+[0.230s]     4 | #include [01;31m[K"../include/Command_Interpreter/lib/Command_Interpreter.h"[m[K
+[0.230s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.230s] compilation terminated.
+[0.230s] In file included from [01m[K/home/zenyn/Thrust-Control/src/command_interpreter_pointer.cpp:2[m[K:
+[0.230s] [01m[K/home/zenyn/Thrust-Control/src/command_interpreter_pointer.hpp:4:10:[m[K [01;31m[Kfatal error: [m[K../include/Command_Interpreter/lib/Command_Interpreter.h: No such file or directory
+[0.231s]     4 | #include [01;31m[K"../include/Command_Interpreter/lib/Command_Interpreter.h"[m[K
+[0.231s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.231s] compilation terminated.
+[0.232s] gmake[2]: *** [CMakeFiles/test_thrust_control_supervisor.dir/build.make:90: CMakeFiles/test_thrust_control_supervisor.dir/src/command_interpreter_pointer.cpp.o] Error 1
+[0.232s] gmake[2]: *** [CMakeFiles/test_thrust_control_node.dir/build.make:90: CMakeFiles/test_thrust_control_node.dir/src/command_interpreter_pointer.cpp.o] Error 1
+[0.232s] gmake[2]: *** Waiting for unfinished jobs....
+[0.232s] gmake[2]: *** Waiting for unfinished jobs....
+[0.287s] In file included from [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:1[m[K:
+[0.288s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.hpp:9:10:[m[K [01;31m[Kfatal error: [m[K../include/Command_Interpreter/lib/Command_Interpreter.h: No such file or directory
+[0.288s]     9 | #include [01;31m[K"../include/Command_Interpreter/lib/Command_Interpreter.h"[m[K
+[0.288s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.288s] compilation terminated.
+[0.290s] gmake[2]: *** [CMakeFiles/thrust_control.dir/build.make:104: CMakeFiles/thrust_control.dir/src/thrust_control_supervisor.cpp.o] Error 1
+[0.290s] gmake[2]: *** Waiting for unfinished jobs....
+[0.320s] In file included from [01m[K/home/zenyn/Thrust-Control/tests/test_thrust_control_node.cpp:6[m[K:
+[0.320s] [01m[K/home/zenyn/Thrust-Control/tests/../src/thrust_control_supervisor.hpp:9:10:[m[K [01;31m[Kfatal error: [m[K../include/Command_Interpreter/lib/Command_Interpreter.h: No such file or directory
+[0.320s]     9 | #include [01;31m[K"../include/Command_Interpreter/lib/Command_Interpreter.h"[m[K
+[0.320s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.320s] compilation terminated.
+[0.322s] gmake[2]: *** [CMakeFiles/test_thrust_control_node.dir/build.make:76: CMakeFiles/test_thrust_control_node.dir/tests/test_thrust_control_node.cpp.o] Error 1
+[0.377s] In file included from [01m[K/home/zenyn/Thrust-Control/src/thrust_control_node.hpp:13[m[K,
+[0.377s]                  from [01m[K/home/zenyn/Thrust-Control/src/thrust_control_node.cpp:1[m[K:
+[0.378s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.hpp:9:10:[m[K [01;31m[Kfatal error: [m[K../include/Command_Interpreter/lib/Command_Interpreter.h: No such file or directory
+[0.378s]     9 | #include [01;31m[K"../include/Command_Interpreter/lib/Command_Interpreter.h"[m[K
+[0.378s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.378s] compilation terminated.
+[0.379s] gmake[2]: *** [CMakeFiles/test_thrust_control_node.dir/build.make:118: CMakeFiles/test_thrust_control_node.dir/src/thrust_control_node.cpp.o] Error 1
+[0.402s] In file included from [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:1[m[K:
+[0.403s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.hpp:9:10:[m[K [01;31m[Kfatal error: [m[K../include/Command_Interpreter/lib/Command_Interpreter.h: No such file or directory
+[0.403s]     9 | #include [01;31m[K"../include/Command_Interpreter/lib/Command_Interpreter.h"[m[K
+[0.403s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.403s] compilation terminated.
+[0.404s] gmake[2]: *** [CMakeFiles/test_thrust_control_node.dir/build.make:104: CMakeFiles/test_thrust_control_node.dir/src/thrust_control_supervisor.cpp.o] Error 1
+[0.404s] gmake[1]: *** [CMakeFiles/Makefile2:295: CMakeFiles/test_thrust_control_node.dir/all] Error 2
+[0.405s] gmake[1]: *** Waiting for unfinished jobs....
+[0.406s] In file included from [01m[K/home/zenyn/Thrust-Control/src/thrust_control_node.hpp:13[m[K,
+[0.406s]                  from [01m[K/home/zenyn/Thrust-Control/src/main.cpp:1[m[K:
+[0.406s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.hpp:9:10:[m[K [01;31m[Kfatal error: [m[K../include/Command_Interpreter/lib/Command_Interpreter.h: No such file or directory
+[0.406s]     9 | #include [01;31m[K"../include/Command_Interpreter/lib/Command_Interpreter.h"[m[K
+[0.407s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.407s] compilation terminated.
+[0.407s] In file included from [01m[K/home/zenyn/Thrust-Control/src/thrust_control_node.hpp:13[m[K,
+[0.407s]                  from [01m[K/home/zenyn/Thrust-Control/src/thrust_control_node.cpp:1[m[K:
+[0.407s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.hpp:9:10:[m[K [01;31m[Kfatal error: [m[K../include/Command_Interpreter/lib/Command_Interpreter.h: No such file or directory
+[0.407s]     9 | #include [01;31m[K"../include/Command_Interpreter/lib/Command_Interpreter.h"[m[K
+[0.407s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.407s] compilation terminated.
+[0.409s] gmake[2]: *** [CMakeFiles/thrust_control.dir/build.make:76: CMakeFiles/thrust_control.dir/src/main.cpp.o] Error 1
+[0.409s] gmake[2]: *** [CMakeFiles/thrust_control.dir/build.make:90: CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o] Error 1
+[0.410s] gmake[1]: *** [CMakeFiles/Makefile2:266: CMakeFiles/thrust_control.dir/all] Error 2
+[0.416s] In file included from [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:1[m[K:
+[0.416s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.hpp:9:10:[m[K [01;31m[Kfatal error: [m[K../include/Command_Interpreter/lib/Command_Interpreter.h: No such file or directory
+[0.416s]     9 | #include [01;31m[K"../include/Command_Interpreter/lib/Command_Interpreter.h"[m[K
+[0.417s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.417s] compilation terminated.
+[0.419s] gmake[2]: *** [CMakeFiles/test_thrust_control_supervisor.dir/build.make:104: CMakeFiles/test_thrust_control_supervisor.dir/src/thrust_control_supervisor.cpp.o] Error 1
+[0.442s] In file included from [01m[K/home/zenyn/Thrust-Control/tests/test_thrust_control_supervisor.cpp:4[m[K:
+[0.442s] [01m[K/home/zenyn/Thrust-Control/tests/../src/thrust_control_supervisor.hpp:9:10:[m[K [01;31m[Kfatal error: [m[K../include/Command_Interpreter/lib/Command_Interpreter.h: No such file or directory
+[0.442s]     9 | #include [01;31m[K"../include/Command_Interpreter/lib/Command_Interpreter.h"[m[K
+[0.442s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.443s] compilation terminated.
+[0.445s] gmake[2]: *** [CMakeFiles/test_thrust_control_supervisor.dir/build.make:76: CMakeFiles/test_thrust_control_supervisor.dir/tests/test_thrust_control_supervisor.cpp.o] Error 1
+[0.445s] gmake[1]: *** [CMakeFiles/Makefile2:324: CMakeFiles/test_thrust_control_supervisor.dir/all] Error 2
+[0.445s] gmake: *** [Makefile:146: all] Error 2
+[0.447s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12

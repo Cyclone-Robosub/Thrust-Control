@@ -20,6 +20,7 @@ find_package(std_msgs REQUIRED)
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/Command-Interpreter/lib
     #    ${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}
 )
 
@@ -29,6 +30,12 @@ add_executable(thrust_control
   src/thrust_control_supervisor.cpp
 )
 
+target_include_directories(thrust_control
+    PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
 ament_target_dependencies(thrust_control rclcpp std_msgs)
 target_link_libraries(thrust_control
     PropulsionFunctions

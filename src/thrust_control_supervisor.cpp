@@ -46,7 +46,7 @@ void ThrustControlSupervisor::feed_forward_pwm()
 {
   // manual implentation
   _auto_flag = false;
-  _interpreter->untimed_execute(_manual_pwm);
+  //_interpreter->untimed_execute(_manual_pwm);
 }
 
 void ThrustControlSupervisor::pid_pwm()
@@ -54,7 +54,8 @@ void ThrustControlSupervisor::pid_pwm()
     if ( _auto_flag == false )
     { 
         _auto_flag = true;
-        _controller->initialize();
+       // _controller->initialize();
+       // add execute
     }
     this->step_controller();
 }
@@ -82,9 +83,11 @@ void log_array(rclcpp::Logger logger, const std::array<int, 8>& arr) {
 
     RCLCPP_INFO(logger, "%s", ss.str().c_str());
 }
-void ThrustControlSupervisor::execute_pwm(std::array<int, 8> pwm)
-{
-    _interpreter->untimed_execute(pwm);
-    // post sent pwm to sent_pwm topic
-} 
+//void ThrustControlSupervisor::execute_pwm(std::array<int, 8> pwm)
+//{   
+//        std::cout  pwm;
+//    //pwm_array p_w_m;
+//    // _interpreter->untimed_execute(pwm);
+//    // post sent pwm to sent_pwm topic
+//} 
 }

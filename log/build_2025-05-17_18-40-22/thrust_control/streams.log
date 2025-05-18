@@ -1,0 +1,25 @@
+[0.013s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
+[0.063s] [  7%] Built target controller_lib
+[0.067s] [ 17%] Built target controller_codegenTest
+[0.069s] [ 23%] Built target gtest
+[0.070s] [ 33%] Built target PropulsionFunctions
+[0.094s] [ 38%] Built target gtest_main
+[0.097s] [ 48%] Built target controller_test
+[0.097s] [ 48%] Built target gmock
+[0.124s] [ 51%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/src/thrust_control_supervisor.cpp.o[0m
+[0.128s] [ 64%] Built target propulsion_test
+[0.130s] [ 69%] Built target gmock_main
+[0.131s] [ 71%] [32mBuilding CXX object CMakeFiles/test_thrust_control_node.dir/src/thrust_control_supervisor.cpp.o[0m
+[0.141s] [ 74%] [32mBuilding CXX object CMakeFiles/test_thrust_control_supervisor.dir/src/thrust_control_supervisor.cpp.o[0m
+[2.140s] [ 76%] [32m[1mLinking CXX executable test_thrust_control_supervisor[0m
+[2.147s] [ 79%] [32m[1mLinking CXX executable thrust_control[0m
+[2.194s] /usr/bin/ld: cannot find -lPID_FUNCTIONS: No such file or directory
+[2.302s] [ 84%] Built target test_thrust_control_supervisor
+[2.305s] collect2: error: ld returned 1 exit status
+[2.307s] gmake[2]: *** [CMakeFiles/thrust_control.dir/build.make:204: thrust_control] Error 1
+[2.307s] gmake[1]: *** [CMakeFiles/Makefile2:266: CMakeFiles/thrust_control.dir/all] Error 2
+[2.307s] gmake[1]: *** Waiting for unfinished jobs....
+[3.107s] [ 87%] [32m[1mLinking CXX executable test_thrust_control_node[0m
+[3.363s] [ 94%] Built target test_thrust_control_node
+[3.364s] gmake: *** [Makefile:146: all] Error 2
+[3.366s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12

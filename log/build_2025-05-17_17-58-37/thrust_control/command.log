@@ -1,0 +1,2 @@
+Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/zenyn/Thrust-Control -DBUILD_TESTING=ON -DCMAKE_INSTALL_PREFIX=/home/zenyn/Thrust-Control/install/thrust_control
+Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/zenyn/Thrust-Control -DBUILD_TESTING=ON -DCMAKE_INSTALL_PREFIX=/home/zenyn/Thrust-Control/install/thrust_control

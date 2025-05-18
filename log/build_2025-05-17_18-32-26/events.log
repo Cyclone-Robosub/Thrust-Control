@@ -1,0 +1,202 @@
+[0.000000] (-) TimerEvent: {}
+[0.000686] (thrust_control) JobQueued: {'identifier': 'thrust_control', 'dependencies': OrderedDict()}
+[0.000751] (thrust_control) JobStarted: {'identifier': 'thrust_control'}
+[0.005663] (thrust_control) JobProgress: {'identifier': 'thrust_control', 'progress': 'cmake'}
+[0.006547] (thrust_control) JobProgress: {'identifier': 'thrust_control', 'progress': 'build'}
+[0.006607] (thrust_control) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/zenyn/Thrust-Control/build/thrust_control', '--', '-j12', '-l12'], 'cwd': '/home/zenyn/Thrust-Control/build/thrust_control', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'en_US', 'USER': 'zenyn', 'XDG_SEAT': 'seat0', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/zenyn', 'OLDPWD': '/home/zenyn/Thrust-Control/include/exported-PID-control/test', 'DESKTOP_SESSION': 'cinnamon', 'ROS_PYTHON_VERSION': '3', 'GTK_MODULES': 'gail:atk-bridge', 'XDG_SEAT_PATH': '/org/freedesktop/DisplayManager/Seat0', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zenyn', 'DESKTOP_AUTOSTART_ID': '10548af1e022aa691a174745163180485900000023430038', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': 'c2', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/home/zenyn/.local/bin:/home/zenyn/.local/bin:/home/zenyn/.local/bin:/home/zenyn/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'SESSION_MANAGER': 'local/Zenyn-Linux:@/tmp/.ICE-unix/2343,unix/Zenyn-Linux:/tmp/.ICE-unix/2343', 'GDM_LANG': 'en_US', 'GTK3_MODULES': 'xapp-gtk3-module', 'XDG_SESSION_PATH': '/org/freedesktop/DisplayManager/Session0', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/e5d02491_c38d_435c_a58c_541bc3dfd0f9', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'X-Cinnamon', 'XDG_SESSION_DESKTOP': 'cinnamon', 'XAUTHORITY': '/home/zenyn/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.71', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XDG_GREETER_DATA_DIR': '/var/lib/lightdm-data/zenyn', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'cinnamon', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'XDG_VTNR': '7', 'PWD': '/home/zenyn/Thrust-Control/build/thrust_control', 'LC_ALL': 'en_US.UTF-8', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-cinnamon:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/cinnamon:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.071382] (thrust_control) StdoutLine: {'line': b'[  5%] Built target gtest\n'}
+[0.072567] (thrust_control) StdoutLine: {'line': b'[ 12%] Built target controller_lib\n'}
+[0.073219] (thrust_control) StdoutLine: {'line': b'[ 23%] Built target controller_codegenTest\n'}
+[0.073583] (thrust_control) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object include/Command_Interpreter/CMakeFiles/PropulsionFunctions.dir/src/Command_Interpreter.cpp.o\x1b[0m\n'}
+[0.094317] (thrust_control) StdoutLine: {'line': b'[ 30%] Built target gmock\n'}
+[0.097125] (thrust_control) StdoutLine: {'line': b'[ 35%] Built target gtest_main\n'}
+[0.097375] (thrust_control) StdoutLine: {'line': b'[ 41%] Built target controller_test\n'}
+[0.099920] (-) TimerEvent: {}
+[0.122472] (thrust_control) StdoutLine: {'line': b'[ 46%] Built target gmock_main\n'}
+[0.125350] (thrust_control) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding CXX object include/Command_Interpreter/CMakeFiles/propulsion_test.dir/src/Command_Interpreter.cpp.o\x1b[0m\n'}
+[0.125574] (thrust_control) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding CXX object include/Command_Interpreter/CMakeFiles/propulsion_test.dir/testing/Command_Interpreter_Testing.cpp.o\x1b[0m\n'}
+[0.200162] (-) TimerEvent: {}
+[0.300577] (-) TimerEvent: {}
+[0.400997] (-) TimerEvent: {}
+[0.501318] (-) TimerEvent: {}
+[0.503178] (thrust_control) StdoutLine: {'line': b'[ 53%] \x1b[32m\x1b[1mLinking CXX static library libPropulsionFunctions.a\x1b[0m\n'}
+[0.548219] (thrust_control) StdoutLine: {'line': b'[ 58%] Built target PropulsionFunctions\n'}
+[0.590817] (thrust_control) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object CMakeFiles/test_thrust_control_node.dir/tests/test_thrust_control_node.cpp.o\x1b[0m\n'}
+[0.591053] (thrust_control) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/test_thrust_control_node.dir/src/thrust_control_supervisor.cpp.o\x1b[0m\n'}
+[0.591124] (thrust_control) StdoutLine: {'line': b'[ 64%] \x1b[32mBuilding CXX object CMakeFiles/test_thrust_control_supervisor.dir/src/command_interpreter_pointer.cpp.o\x1b[0m\n'}
+[0.591183] (thrust_control) StdoutLine: {'line': b'[ 69%] \x1b[32mBuilding CXX object CMakeFiles/thrust_control.dir/src/main.cpp.o\x1b[0m\n'}
+[0.592066] (thrust_control) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object CMakeFiles/test_thrust_control_supervisor.dir/tests/test_thrust_control_supervisor.cpp.o\x1b[0m\n'}
+[0.592342] (thrust_control) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/thrust_control.dir/src/thrust_control_node.cpp.o\x1b[0m\n'}
+[0.592684] (thrust_control) StdoutLine: {'line': b'[ 76%] \x1b[32mBuilding CXX object CMakeFiles/test_thrust_control_supervisor.dir/src/thrust_control_supervisor.cpp.o\x1b[0m\n'}
+[0.594216] (thrust_control) StdoutLine: {'line': b'[ 79%] \x1b[32mBuilding CXX object CMakeFiles/thrust_control.dir/src/thrust_control_supervisor.cpp.o\x1b[0m\n'}
+[0.594416] (thrust_control) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding CXX object CMakeFiles/test_thrust_control_node.dir/src/command_interpreter_pointer.cpp.o\x1b[0m\n'}
+[0.599771] (thrust_control) StdoutLine: {'line': b'[ 84%] \x1b[32mBuilding CXX object CMakeFiles/test_thrust_control_node.dir/src/thrust_control_node.cpp.o\x1b[0m\n'}
+[0.601423] (-) TimerEvent: {}
+[0.701762] (-) TimerEvent: {}
+[0.802082] (-) TimerEvent: {}
+[0.902385] (-) TimerEvent: {}
+[1.002720] (-) TimerEvent: {}
+[1.103031] (-) TimerEvent: {}
+[1.203386] (-) TimerEvent: {}
+[1.303776] (-) TimerEvent: {}
+[1.404156] (-) TimerEvent: {}
+[1.506771] (-) TimerEvent: {}
+[1.607175] (-) TimerEvent: {}
+[1.620557] (thrust_control) StdoutLine: {'line': b'[ 87%] \x1b[32m\x1b[1mLinking CXX executable propulsion_test\x1b[0m\n'}
+[1.707328] (-) TimerEvent: {}
+[1.807709] (-) TimerEvent: {}
+[1.830386] (thrust_control) StdoutLine: {'line': b'[ 92%] Built target propulsion_test\n'}
+[1.907853] (-) TimerEvent: {}
+[2.008203] (-) TimerEvent: {}
+[2.108549] (-) TimerEvent: {}
+[2.208871] (-) TimerEvent: {}
+[2.309187] (-) TimerEvent: {}
+[2.409538] (-) TimerEvent: {}
+[2.509900] (-) TimerEvent: {}
+[2.520301] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid thrust_control::ThrustControlSupervisor::\x1b[01;32m\x1b[Kfeed_forward_pwm\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.520582] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:49:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kcannot convert \xe2\x80\x98\x1b[01m\x1b[Kstd::array<int, 8>\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kpwm_array\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.520732] (thrust_control) StderrLine: {'line': b'   49 |   _interpreter->untimed_execute(\x1b[01;31m\x1b[K_manual_pwm\x1b[m\x1b[K);\n'}
+[2.520856] (thrust_control) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.520964] (thrust_control) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K|\x1b[m\x1b[K\n'}
+[2.521071] (thrust_control) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[Kstd::array<int, 8>\x1b[m\x1b[K\n'}
+[2.521193] (thrust_control) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.hpp:9\x1b[m\x1b[K,\n'}
+[2.521308] (thrust_control) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:1\x1b[m\x1b[K:\n'}
+[2.521421] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/../include/Command_Interpreter/src/Command_Interpreter.hpp:188:36:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  initializing argument 1 of \xe2\x80\x98\x1b[01m\x1b[Kvoid Command_Interpreter_RPi5::\x1b[01;32m\x1b[Kuntimed_execute\x1b[m\x1b[K(pwm_array)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.521539] (thrust_control) StderrLine: {'line': b'  188 |     void untimed_execute(\x1b[01;36m\x1b[Kpwm_array thrusterPwms\x1b[m\x1b[K);\n'}
+[2.521659] (thrust_control) StderrLine: {'line': b'      |                          \x1b[01;36m\x1b[K~~~~~~~~~~^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.521941] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid thrust_control::ThrustControlSupervisor::\x1b[01;32m\x1b[Kexecute_pwm\x1b[m\x1b[K(std::array<int, 8>)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.522097] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:88:15:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kdeclaration of \xe2\x80\x98\x1b[01m\x1b[Kpwm_array pwm\x1b[m\x1b[K\xe2\x80\x99 shadows a parameter\n'}
+[2.522188] (thrust_control) StderrLine: {'line': b'   88 |     pwm_array \x1b[01;31m\x1b[Kpwm\x1b[m\x1b[K;\n'}
+[2.522256] (thrust_control) StderrLine: {'line': b'      |               \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[2.522322] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:85:62:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kstd::array<int, 8> pwm\x1b[m\x1b[K\xe2\x80\x99 previously declared here\n'}
+[2.522393] (thrust_control) StderrLine: {'line': b'   85 | void ThrustControlSupervisor::execute_pwm(\x1b[01;36m\x1b[Kstd::array<int, 8> pwm\x1b[m\x1b[K)\n'}
+[2.522458] (thrust_control) StderrLine: {'line': b'      |                                           \x1b[01;36m\x1b[K~~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[2.522524] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:88:15:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kpwm\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Werror=unused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.522598] (thrust_control) StderrLine: {'line': b'   88 |     pwm_array \x1b[01;31m\x1b[Kpwm\x1b[m\x1b[K;\n'}
+[2.522665] (thrust_control) StderrLine: {'line': b'      |               \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[2.522873] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:85:62:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kpwm\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Werror=unused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.523013] (thrust_control) StderrLine: {'line': b'   85 | void ThrustControlSupervisor::execute_pwm(\x1b[01;31m\x1b[Kstd::array<int, 8> pwm\x1b[m\x1b[K)\n'}
+[2.523133] (thrust_control) StderrLine: {'line': b'      |                                           \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[2.610045] (-) TimerEvent: {}
+[2.710357] (-) TimerEvent: {}
+[2.810732] (-) TimerEvent: {}
+[2.911052] (-) TimerEvent: {}
+[3.007610] (thrust_control) StderrLine: {'line': b'cc1plus: all warnings being treated as errors\n'}
+[3.011171] (-) TimerEvent: {}
+[3.023764] (thrust_control) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/test_thrust_control_node.dir/build.make:104: CMakeFiles/test_thrust_control_node.dir/src/thrust_control_supervisor.cpp.o] Error 1\n'}
+[3.024156] (thrust_control) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[3.111320] (-) TimerEvent: {}
+[3.211702] (-) TimerEvent: {}
+[3.312030] (-) TimerEvent: {}
+[3.412389] (-) TimerEvent: {}
+[3.512778] (-) TimerEvent: {}
+[3.613120] (-) TimerEvent: {}
+[3.713456] (-) TimerEvent: {}
+[3.813800] (-) TimerEvent: {}
+[3.914131] (-) TimerEvent: {}
+[4.014496] (-) TimerEvent: {}
+[4.087718] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid thrust_control::ThrustControlSupervisor::\x1b[01;32m\x1b[Kfeed_forward_pwm\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.088151] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:49:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kcannot convert \xe2\x80\x98\x1b[01m\x1b[Kstd::array<int, 8>\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kpwm_array\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.088307] (thrust_control) StderrLine: {'line': b'   49 |   _interpreter->untimed_execute(\x1b[01;31m\x1b[K_manual_pwm\x1b[m\x1b[K);\n'}
+[4.088435] (thrust_control) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.088557] (thrust_control) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K|\x1b[m\x1b[K\n'}
+[4.088673] (thrust_control) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[Kstd::array<int, 8>\x1b[m\x1b[K\n'}
+[4.088823] (thrust_control) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.hpp:9\x1b[m\x1b[K,\n'}
+[4.088941] (thrust_control) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:1\x1b[m\x1b[K:\n'}
+[4.089084] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/../include/Command_Interpreter/src/Command_Interpreter.hpp:188:36:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  initializing argument 1 of \xe2\x80\x98\x1b[01m\x1b[Kvoid Command_Interpreter_RPi5::\x1b[01;32m\x1b[Kuntimed_execute\x1b[m\x1b[K(pwm_array)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.089215] (thrust_control) StderrLine: {'line': b'  188 |     void untimed_execute(\x1b[01;36m\x1b[Kpwm_array thrusterPwms\x1b[m\x1b[K);\n'}
+[4.089328] (thrust_control) StderrLine: {'line': b'      |                          \x1b[01;36m\x1b[K~~~~~~~~~~^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.089903] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid thrust_control::ThrustControlSupervisor::\x1b[01;32m\x1b[Kexecute_pwm\x1b[m\x1b[K(std::array<int, 8>)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.090093] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:88:15:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kdeclaration of \xe2\x80\x98\x1b[01m\x1b[Kpwm_array pwm\x1b[m\x1b[K\xe2\x80\x99 shadows a parameter\n'}
+[4.090211] (thrust_control) StderrLine: {'line': b'   88 |     pwm_array \x1b[01;31m\x1b[Kpwm\x1b[m\x1b[K;\n'}
+[4.090317] (thrust_control) StderrLine: {'line': b'      |               \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[4.090422] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:85:62:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kstd::array<int, 8> pwm\x1b[m\x1b[K\xe2\x80\x99 previously declared here\n'}
+[4.090531] (thrust_control) StderrLine: {'line': b'   85 | void ThrustControlSupervisor::execute_pwm(\x1b[01;36m\x1b[Kstd::array<int, 8> pwm\x1b[m\x1b[K)\n'}
+[4.090639] (thrust_control) StderrLine: {'line': b'      |                                           \x1b[01;36m\x1b[K~~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[4.090768] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:88:15:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kpwm\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Werror=unused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[4.090902] (thrust_control) StderrLine: {'line': b'   88 |     pwm_array \x1b[01;31m\x1b[Kpwm\x1b[m\x1b[K;\n'}
+[4.091007] (thrust_control) StderrLine: {'line': b'      |               \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[4.091107] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:85:62:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kpwm\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Werror=unused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[4.091208] (thrust_control) StderrLine: {'line': b'   85 | void ThrustControlSupervisor::execute_pwm(\x1b[01;31m\x1b[Kstd::array<int, 8> pwm\x1b[m\x1b[K)\n'}
+[4.091307] (thrust_control) StderrLine: {'line': b'      |                                           \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[4.114647] (-) TimerEvent: {}
+[4.167455] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid thrust_control::ThrustControlSupervisor::\x1b[01;32m\x1b[Kfeed_forward_pwm\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.167740] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:49:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kcannot convert \xe2\x80\x98\x1b[01m\x1b[Kstd::array<int, 8>\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kpwm_array\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.167879] (thrust_control) StderrLine: {'line': b'   49 |   _interpreter->untimed_execute(\x1b[01;31m\x1b[K_manual_pwm\x1b[m\x1b[K);\n'}
+[4.167993] (thrust_control) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.168101] (thrust_control) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K|\x1b[m\x1b[K\n'}
+[4.168204] (thrust_control) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[Kstd::array<int, 8>\x1b[m\x1b[K\n'}
+[4.168304] (thrust_control) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.hpp:9\x1b[m\x1b[K,\n'}
+[4.168984] (thrust_control) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:1\x1b[m\x1b[K:\n'}
+[4.169129] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/../include/Command_Interpreter/src/Command_Interpreter.hpp:188:36:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  initializing argument 1 of \xe2\x80\x98\x1b[01m\x1b[Kvoid Command_Interpreter_RPi5::\x1b[01;32m\x1b[Kuntimed_execute\x1b[m\x1b[K(pwm_array)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.169233] (thrust_control) StderrLine: {'line': b'  188 |     void untimed_execute(\x1b[01;36m\x1b[Kpwm_array thrusterPwms\x1b[m\x1b[K);\n'}
+[4.169329] (thrust_control) StderrLine: {'line': b'      |                          \x1b[01;36m\x1b[K~~~~~~~~~~^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.169541] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid thrust_control::ThrustControlSupervisor::\x1b[01;32m\x1b[Kexecute_pwm\x1b[m\x1b[K(std::array<int, 8>)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.169726] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:88:15:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kdeclaration of \xe2\x80\x98\x1b[01m\x1b[Kpwm_array pwm\x1b[m\x1b[K\xe2\x80\x99 shadows a parameter\n'}
+[4.169867] (thrust_control) StderrLine: {'line': b'   88 |     pwm_array \x1b[01;31m\x1b[Kpwm\x1b[m\x1b[K;\n'}
+[4.169990] (thrust_control) StderrLine: {'line': b'      |               \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[4.170104] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:85:62:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kstd::array<int, 8> pwm\x1b[m\x1b[K\xe2\x80\x99 previously declared here\n'}
+[4.170217] (thrust_control) StderrLine: {'line': b'   85 | void ThrustControlSupervisor::execute_pwm(\x1b[01;36m\x1b[Kstd::array<int, 8> pwm\x1b[m\x1b[K)\n'}
+[4.170328] (thrust_control) StderrLine: {'line': b'      |                                           \x1b[01;36m\x1b[K~~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[4.170593] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:88:15:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kpwm\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Werror=unused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[4.170746] (thrust_control) StderrLine: {'line': b'   88 |     pwm_array \x1b[01;31m\x1b[Kpwm\x1b[m\x1b[K;\n'}
+[4.170864] (thrust_control) StderrLine: {'line': b'      |               \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[4.170968] (thrust_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:85:62:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kpwm\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;31m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Werror=unused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[4.171092] (thrust_control) StderrLine: {'line': b'   85 | void ThrustControlSupervisor::execute_pwm(\x1b[01;31m\x1b[Kstd::array<int, 8> pwm\x1b[m\x1b[K)\n'}
+[4.171196] (thrust_control) StderrLine: {'line': b'      |                                           \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[4.214764] (-) TimerEvent: {}
+[4.315091] (-) TimerEvent: {}
+[4.415395] (-) TimerEvent: {}
+[4.515759] (-) TimerEvent: {}
+[4.616132] (-) TimerEvent: {}
+[4.716493] (-) TimerEvent: {}
+[4.816766] (-) TimerEvent: {}
+[4.917084] (-) TimerEvent: {}
+[5.017448] (-) TimerEvent: {}
+[5.041454] (thrust_control) StderrLine: {'line': b'cc1plus: all warnings being treated as errors\n'}
+[5.064383] (thrust_control) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/thrust_control.dir/build.make:104: CMakeFiles/thrust_control.dir/src/thrust_control_supervisor.cpp.o] Error 1\n'}
+[5.064629] (thrust_control) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[5.117689] (-) TimerEvent: {}
+[5.164274] (thrust_control) StderrLine: {'line': b'cc1plus: all warnings being treated as errors\n'}
+[5.186854] (thrust_control) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/test_thrust_control_supervisor.dir/build.make:104: CMakeFiles/test_thrust_control_supervisor.dir/src/thrust_control_supervisor.cpp.o] Error 1\n'}
+[5.187217] (thrust_control) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:324: CMakeFiles/test_thrust_control_supervisor.dir/all] Error 2\n'}
+[5.187467] (thrust_control) StderrLine: {'line': b'gmake[1]: *** Waiting for unfinished jobs....\n'}
+[5.217869] (-) TimerEvent: {}
+[5.318157] (-) TimerEvent: {}
+[5.418559] (-) TimerEvent: {}
+[5.518891] (-) TimerEvent: {}
+[5.619195] (-) TimerEvent: {}
+[5.719577] (-) TimerEvent: {}
+[5.819860] (-) TimerEvent: {}
+[5.920136] (-) TimerEvent: {}
+[6.020558] (-) TimerEvent: {}
+[6.120972] (-) TimerEvent: {}
+[6.221388] (-) TimerEvent: {}
+[6.321710] (-) TimerEvent: {}
+[6.421993] (-) TimerEvent: {}
+[6.522313] (-) TimerEvent: {}
+[6.622736] (-) TimerEvent: {}
+[6.723147] (-) TimerEvent: {}
+[6.823477] (-) TimerEvent: {}
+[6.923890] (-) TimerEvent: {}
+[7.024296] (-) TimerEvent: {}
+[7.124346] (thrust_control) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:266: CMakeFiles/thrust_control.dir/all] Error 2\n'}
+[7.124572] (-) TimerEvent: {}
+[7.224913] (-) TimerEvent: {}
+[7.325262] (-) TimerEvent: {}
+[7.425622] (-) TimerEvent: {}
+[7.525920] (-) TimerEvent: {}
+[7.626230] (-) TimerEvent: {}
+[7.726632] (-) TimerEvent: {}
+[7.826953] (-) TimerEvent: {}
+[7.927352] (-) TimerEvent: {}
+[8.027752] (-) TimerEvent: {}
+[8.128045] (-) TimerEvent: {}
+[8.228373] (-) TimerEvent: {}
+[8.328815] (-) TimerEvent: {}
+[8.429116] (-) TimerEvent: {}
+[8.440522] (thrust_control) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:295: CMakeFiles/test_thrust_control_node.dir/all] Error 2\n'}
+[8.440881] (thrust_control) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[8.444411] (thrust_control) CommandEnded: {'returncode': 2}
+[8.449362] (thrust_control) JobEnded: {'identifier': 'thrust_control', 'rc': 2}
+[8.459877] (-) EventReactorShutdown: {}

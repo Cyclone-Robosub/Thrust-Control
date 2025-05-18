@@ -1,0 +1,12 @@
+[  5%] Built target gtest
+[ 12%] Built target controller_lib
+[ 25%] Built target controller_codegenTest
+[ 33%] Built target PropulsionFunctions
+[ 38%] Built target controller_test
+[ 43%] Built target gmock
+[ 48%] Built target gtest_main
+[ 51%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/src/thrust_control_supervisor.cpp.o[0m
+[ 64%] Built target gmock_main
+[ 69%] Built target propulsion_test
+[ 71%] [32mBuilding CXX object CMakeFiles/test_thrust_control_node.dir/src/thrust_control_supervisor.cpp.o[0m
+[ 74%] [32mBuilding CXX object CMakeFiles/test_thrust_control_supervisor.dir/src/thrust_control_supervisor.cpp.o[0m

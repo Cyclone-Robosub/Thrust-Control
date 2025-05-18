@@ -6,12 +6,12 @@
 #include <memory>
 #include <vector>
 #include "rclcpp/rclcpp.hpp"
-#include "Command_Interpreter/src/Command_Interpreter.hpp"
+#include "../include/Command_Interpreter/src/Command_Interpreter.hpp"
 
 // Temporarily disable unused-function warnings for this include
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-function"
-#include "exported-PID-control/src/controller_codegenTest.h"
+#include "../include/exported-PID-control/src/controller_codegenTest.h"
 #pragma GCC diagnostic pop
 
 //TODO

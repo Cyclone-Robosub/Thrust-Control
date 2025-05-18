@@ -1,0 +1,9 @@
+[31mCMake Error at include/exported-PID-control/test/CMakeLists.txt:8 (add_library):
+  add_library cannot create target "controller_lib" because another target
+  with the same name already exists.  The existing target is a shared library
+  created in source directory
+  "/home/zenyn/Thrust-Control/include/exported-PID-control/src".  See
+  documentation for policy CMP0002 for more details.
+
+[0m
+gmake: *** [Makefile:568: cmake_check_build_system] Error 1

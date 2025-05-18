@@ -1,0 +1,84 @@
+[0.008s] Invoking command in '/home/zenyn/Thrust-Control/build/thrust_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
+[0.065s] [  7%] Built target controller_lib
+[0.065s] [ 17%] Built target PropulsionFunctions
+[0.069s] [ 23%] Built target gtest
+[0.069s] [ 33%] Built target controller_codegenTest
+[0.091s] [ 38%] Built target gtest_main
+[0.092s] [ 43%] Built target gmock
+[0.093s] [ 48%] Built target controller_test
+[0.105s] [ 51%] [32mBuilding CXX object CMakeFiles/thrust_control.dir/src/thrust_control_supervisor.cpp.o[0m
+[0.123s] [ 56%] Built target gmock_main
+[0.128s] [ 69%] Built target propulsion_test
+[0.135s] [ 71%] [32mBuilding CXX object CMakeFiles/test_thrust_control_node.dir/tests/test_thrust_control_node.cpp.o[0m
+[0.138s] [ 74%] [32mBuilding CXX object CMakeFiles/test_thrust_control_supervisor.dir/src/thrust_control_supervisor.cpp.o[0m
+[0.139s] [ 76%] [32mBuilding CXX object CMakeFiles/test_thrust_control_supervisor.dir/tests/test_thrust_control_supervisor.cpp.o[0m
+[0.142s] [ 79%] [32mBuilding CXX object CMakeFiles/test_thrust_control_node.dir/src/thrust_control_supervisor.cpp.o[0m
+[2.688s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:[m[K In member function ‘[01m[Kvoid thrust_control::ThrustControlSupervisor::[01;32m[Kfeed_forward_pwm[m[K()[m[K’:
+[2.688s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:49:33:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kstd::array<int, 8>[m[K’ to ‘[01m[Kpwm_array[m[K’
+[2.688s]    49 |   _interpreter->untimed_execute([01;31m[K_manual_pwm[m[K);
+[2.689s]       |                                 [01;31m[K^~~~~~~~~~~[m[K
+[2.689s]       |                                 [01;31m[K|[m[K
+[2.689s]       |                                 [01;31m[Kstd::array<int, 8>[m[K
+[2.689s] In file included from [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.hpp:9[m[K,
+[2.689s]                  from [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:1[m[K:
+[2.689s] [01m[K/home/zenyn/Thrust-Control/src/../include/Command_Interpreter/src/Command_Interpreter.hpp:188:36:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kvoid Command_Interpreter_RPi5::[01;32m[Kuntimed_execute[m[K(pwm_array)[m[K’
+[2.689s]   188 |     void untimed_execute([01;36m[Kpwm_array thrusterPwms[m[K);
+[2.689s]       |                          [01;36m[K~~~~~~~~~~^~~~~~~~~~~~[m[K
+[2.690s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:[m[K In member function ‘[01m[Kvoid thrust_control::ThrustControlSupervisor::[01;32m[Kexecute_pwm[m[K(std::array<int, 8>)[m[K’:
+[2.690s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:87:35:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kstd::array<int, 8>[m[K’ to ‘[01m[Kpwm_array[m[K’
+[2.690s]    87 |     _interpreter->untimed_execute([01;31m[Kpwm[m[K);
+[2.690s]       |                                   [01;31m[K^~~[m[K
+[2.690s]       |                                   [01;31m[K|[m[K
+[2.690s]       |                                   [01;31m[Kstd::array<int, 8>[m[K
+[2.690s] [01m[K/home/zenyn/Thrust-Control/src/../include/Command_Interpreter/src/Command_Interpreter.hpp:188:36:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kvoid Command_Interpreter_RPi5::[01;32m[Kuntimed_execute[m[K(pwm_array)[m[K’
+[2.690s]   188 |     void untimed_execute([01;36m[Kpwm_array thrusterPwms[m[K);
+[2.690s]       |                          [01;36m[K~~~~~~~~~~^~~~~~~~~~~~[m[K
+[2.843s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:[m[K In member function ‘[01m[Kvoid thrust_control::ThrustControlSupervisor::[01;32m[Kfeed_forward_pwm[m[K()[m[K’:
+[2.843s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:49:33:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kstd::array<int, 8>[m[K’ to ‘[01m[Kpwm_array[m[K’
+[2.843s]    49 |   _interpreter->untimed_execute([01;31m[K_manual_pwm[m[K);
+[2.843s]       |                                 [01;31m[K^~~~~~~~~~~[m[K
+[2.843s]       |                                 [01;31m[K|[m[K
+[2.843s]       |                                 [01;31m[Kstd::array<int, 8>[m[K
+[2.844s] In file included from [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.hpp:9[m[K,
+[2.844s]                  from [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:1[m[K:
+[2.844s] [01m[K/home/zenyn/Thrust-Control/src/../include/Command_Interpreter/src/Command_Interpreter.hpp:188:36:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kvoid Command_Interpreter_RPi5::[01;32m[Kuntimed_execute[m[K(pwm_array)[m[K’
+[2.844s]   188 |     void untimed_execute([01;36m[Kpwm_array thrusterPwms[m[K);
+[2.844s]       |                          [01;36m[K~~~~~~~~~~^~~~~~~~~~~~[m[K
+[2.844s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:[m[K In member function ‘[01m[Kvoid thrust_control::ThrustControlSupervisor::[01;32m[Kexecute_pwm[m[K(std::array<int, 8>)[m[K’:
+[2.844s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:87:35:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kstd::array<int, 8>[m[K’ to ‘[01m[Kpwm_array[m[K’
+[2.844s]    87 |     _interpreter->untimed_execute([01;31m[Kpwm[m[K);
+[2.845s]       |                                   [01;31m[K^~~[m[K
+[2.845s]       |                                   [01;31m[K|[m[K
+[2.845s]       |                                   [01;31m[Kstd::array<int, 8>[m[K
+[2.845s] [01m[K/home/zenyn/Thrust-Control/src/../include/Command_Interpreter/src/Command_Interpreter.hpp:188:36:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kvoid Command_Interpreter_RPi5::[01;32m[Kuntimed_execute[m[K(pwm_array)[m[K’
+[2.845s]   188 |     void untimed_execute([01;36m[Kpwm_array thrusterPwms[m[K);
+[2.845s]       |                          [01;36m[K~~~~~~~~~~^~~~~~~~~~~~[m[K
+[3.143s] gmake[2]: *** [CMakeFiles/thrust_control.dir/build.make:104: CMakeFiles/thrust_control.dir/src/thrust_control_supervisor.cpp.o] Error 1
+[3.143s] gmake[1]: *** [CMakeFiles/Makefile2:266: CMakeFiles/thrust_control.dir/all] Error 2
+[3.143s] gmake[1]: *** Waiting for unfinished jobs....
+[3.198s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:[m[K In member function ‘[01m[Kvoid thrust_control::ThrustControlSupervisor::[01;32m[Kfeed_forward_pwm[m[K()[m[K’:
+[3.198s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:49:33:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kstd::array<int, 8>[m[K’ to ‘[01m[Kpwm_array[m[K’
+[3.198s]    49 |   _interpreter->untimed_execute([01;31m[K_manual_pwm[m[K);
+[3.198s]       |                                 [01;31m[K^~~~~~~~~~~[m[K
+[3.198s]       |                                 [01;31m[K|[m[K
+[3.198s]       |                                 [01;31m[Kstd::array<int, 8>[m[K
+[3.198s] In file included from [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.hpp:9[m[K,
+[3.199s]                  from [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:1[m[K:
+[3.199s] [01m[K/home/zenyn/Thrust-Control/src/../include/Command_Interpreter/src/Command_Interpreter.hpp:188:36:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kvoid Command_Interpreter_RPi5::[01;32m[Kuntimed_execute[m[K(pwm_array)[m[K’
+[3.199s]   188 |     void untimed_execute([01;36m[Kpwm_array thrusterPwms[m[K);
+[3.199s]       |                          [01;36m[K~~~~~~~~~~^~~~~~~~~~~~[m[K
+[3.199s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:[m[K In member function ‘[01m[Kvoid thrust_control::ThrustControlSupervisor::[01;32m[Kexecute_pwm[m[K(std::array<int, 8>)[m[K’:
+[3.199s] [01m[K/home/zenyn/Thrust-Control/src/thrust_control_supervisor.cpp:87:35:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kstd::array<int, 8>[m[K’ to ‘[01m[Kpwm_array[m[K’
+[3.199s]    87 |     _interpreter->untimed_execute([01;31m[Kpwm[m[K);
+[3.199s]       |                                   [01;31m[K^~~[m[K
+[3.199s]       |                                   [01;31m[K|[m[K
+[3.200s]       |                                   [01;31m[Kstd::array<int, 8>[m[K
+[3.200s] [01m[K/home/zenyn/Thrust-Control/src/../include/Command_Interpreter/src/Command_Interpreter.hpp:188:36:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kvoid Command_Interpreter_RPi5::[01;32m[Kuntimed_execute[m[K(pwm_array)[m[K’
+[3.200s]   188 |     void untimed_execute([01;36m[Kpwm_array thrusterPwms[m[K);
+[3.200s]       |                          [01;36m[K~~~~~~~~~~^~~~~~~~~~~~[m[K
+[3.290s] gmake[2]: *** [CMakeFiles/test_thrust_control_supervisor.dir/build.make:104: CMakeFiles/test_thrust_control_supervisor.dir/src/thrust_control_supervisor.cpp.o] Error 1
+[3.290s] gmake[1]: *** [CMakeFiles/Makefile2:324: CMakeFiles/test_thrust_control_supervisor.dir/all] Error 2
+[3.615s] gmake[2]: *** [CMakeFiles/test_thrust_control_node.dir/build.make:104: CMakeFiles/test_thrust_control_node.dir/src/thrust_control_supervisor.cpp.o] Error 1
+[3.615s] gmake[1]: *** [CMakeFiles/Makefile2:295: CMakeFiles/test_thrust_control_node.dir/all] Error 2
+[3.615s] gmake: *** [Makefile:146: all] Error 2
+[3.618s] Invoked command in '/home/zenyn/Thrust-Control/build/thrust_control' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/zenyn/Thrust-Control/build/thrust_control -- -j12 -l12
