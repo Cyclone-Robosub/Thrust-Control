@@ -28,9 +28,7 @@ std::unique_ptr<SupervisorCommand> CommandQueue::make_new_command(
 
 std::unique_ptr<SupervisorCommand> CommandQueue::get_command_from_queue() {
         if (command_queue_.empty()) {
-            return std::make_unique<Untimed_Command>
-                (current_command->onExpirePwm(), 
-                 current_command->isOverride());
+            return std::make_unique<Untimed_Command>(stop_set_);
         }
         else {
             auto next_command = std::move(command_queue_.front());
