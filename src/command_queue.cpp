@@ -26,8 +26,7 @@ std::unique_ptr<SupervisorCommand> CommandQueue::make_new_command(
         }
     }
 
-std::unique_ptr<SupervisorCommand> CommandQueue::get_command_from_queue(
-    std::unique_ptr<SupervisorCommand> current_command) {
+std::unique_ptr<SupervisorCommand> CommandQueue::get_command_from_queue() {
         if (command_queue_.empty()) {
             return std::make_unique<Untimed_Command>
                 (current_command->onExpirePwm(), 

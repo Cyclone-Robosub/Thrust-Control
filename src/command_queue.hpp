@@ -19,9 +19,9 @@ public:
         bool is_timed,
         bool is_override);
     
-    std::unique_ptr<SupervisorCommand> get_command_from_queue(std::unique_ptr<SupervisorCommand> current_command);
+    std::unique_ptr<SupervisorCommand> get_command_from_queue();
 
-private:
+    private:
     std::queue<std::unique_ptr<SupervisorCommand>> command_queue_;
     pwm_array stop_set_ = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}; 
 };

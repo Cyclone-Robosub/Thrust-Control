@@ -67,7 +67,27 @@ if(BUILD_TESTING)
   find_package(GTest REQUIRED)
   enable_testing()
   
-  
+  # command queue testing
+   add_executable(test_command_queue
+      tests/test_command_queue.cpp
+      src/command_queue.cpp
+      src/supervisor_command.cpp
+  )
+ 
+  target_include_directories(test_command_queue PRIVATE
+      ${CMAKE_CURRENT_SOURCE_DIR}/src
+      ${CMAKE_CURRENT_SOURCE_DIR}/include
+      ${CMAKE_CURRENT_SOURCE_DIR}/include/Command_Interpreter
+      ${GTEST_INCLUDE_DIRS}
+  )
+
+   target_link_libraries(test_command_queue
+    controller_lib
+    ${GTEST_LIBRARIES}
+    ${GTEST_MAIN_LIBRARIES}
+  ) 
+
+
   # node testing
   add_executable(test_thrust_control_node
       tests/test_thrust_control_node.cpp
