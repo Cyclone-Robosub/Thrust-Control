@@ -5,7 +5,6 @@ namespace thrust_control {
 SupervisorCommand::SupervisorCommand(const pwm_array& pwm, bool is_override)
     : pwm_(pwm), is_override_(is_override) {}
 
-// Untimed Command implementations
 Untimed_Command::Untimed_Command(const pwm_array& pwm, bool override)
     : SupervisorCommand(pwm, override), is_executed_(false) {}
 
