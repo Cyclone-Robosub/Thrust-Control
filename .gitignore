@@ -1,5 +1,7 @@
 # Build directory
 build/
+log/
+install/
 
 # Generated files
 CMakeCache.txt
