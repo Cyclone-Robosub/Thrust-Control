@@ -35,6 +35,5 @@ Testing/
 
 # Build Artifacts
 build/*
-
-# Other
 log/*
+install/*
