@@ -1,7 +1,7 @@
 #pragma once
 
 #include "supervisor_command.hpp"
-#include "../include/Command_Interpreter/src/Command.hpp"
+#include "Command_Interpreter/src/Command.hpp"
 #include <queue>
 #include <memory>
 

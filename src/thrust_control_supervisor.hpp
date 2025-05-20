@@ -20,6 +20,7 @@
 // implement waypoint list
 // implement function that both sends pwms to comman_interpreter and posts to topic
 // replace std::array<int, 8> with pwm::array from command_interpreter
+// remove ROS dependencies from this class
 
 namespace thrust_control
 {

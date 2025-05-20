@@ -26,12 +26,17 @@ protected:
 
 
 // Test 1:  Empty Queue Behaviour
-TEST_F(CommandQueueTest, empty_queue_behaviour) 
+TEST_F(CommandQueueTest, stop_set_on_end) 
 {
+    using namespace thrust_control;
     std::unique_ptr<thrust_control::SupervisorCommand> empty_queue_response;
-    empty_queue_response = std::move(CQ->get_command_from_queue());
 
+    
     pwm_array stop_set = {{1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}};
+    std::unique_ptr<thrust_control::SupervisorCommand> test_command_ptr = 
+        std::make_unique<Untimed_Command>(stop_set);
+
+    empty_queue_response = std::move(CQ->get_command_from_queue(std::move(test_command_ptr)));
 
     for (int i = 0; i < 8; i++) 
     {
