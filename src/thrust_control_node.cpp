@@ -39,8 +39,6 @@ ThrustControlNode::ThrustControlNode
             std::chrono::seconds(1),
             std::bind(&ThrustControlNode::timer_callback, this));
 
-    RCLCPP_INFO(this->get_logger(), "Checking secondly. Heehaw...");
-    
 }
 
 void ThrustControlNode::pwm_topic_callback(const std_msgs::msg::Int32MultiArray::SharedPtr msg)
@@ -62,8 +60,11 @@ void ThrustControlNode::pwm_topic_callback(const std_msgs::msg::Int32MultiArray:
 
 void ThrustControlNode::timer_callback()
 {
-
+    
     std::stringstream ss;
+    
+    // this data should get replaced with data from callbacks
+    // only exists as is here for testing putposes
     std::string test_mode = "auto";
     std::array<float, 6> test_pos = {0,0,0,0,0,0};
     std::array<float, 6> waypoint = {0,0,0,0,0,0};
