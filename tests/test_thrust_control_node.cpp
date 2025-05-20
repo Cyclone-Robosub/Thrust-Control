@@ -9,11 +9,6 @@
 #include "../src/thrust_control_node.hpp"
 
 
-
-
-
-
-
 class ThrustControlNodeTest : public ::testing::Test {
 
 protected:
