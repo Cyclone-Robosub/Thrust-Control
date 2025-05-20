@@ -1,7 +1,0 @@
-/usr/bin/ld: CMakeFiles/test_thrust_control_node.dir/tests/test_thrust_control_node.cpp.o: in function `void std::_Construct<thrust_control::ThrustControlNode, std::unique_ptr<Command_Interpreter_RPi5, std::default_delete<Command_Interpreter_RPi5> > >(thrust_control::ThrustControlNode*, std::unique_ptr<Command_Interpreter_RPi5, std::default_delete<Command_Interpreter_RPi5> >&&)':
-test_thrust_control_node.cpp:(.text._ZSt10_ConstructIN14thrust_control17ThrustControlNodeEJSt10unique_ptrI24Command_Interpreter_RPi5St14default_deleteIS3_EEEEvPT_DpOT0_[_ZSt10_ConstructIN14thrust_control17ThrustControlNodeEJSt10unique_ptrI24Command_Interpreter_RPi5St14default_deleteIS3_EEEEvPT_DpOT0_]+0x6d): undefined reference to `thrust_control::ThrustControlNode::ThrustControlNode(std::unique_ptr<Command_Interpreter_RPi5, std::default_delete<Command_Interpreter_RPi5> >)'
-collect2: error: ld returned 1 exit status
-gmake[2]: *** [CMakeFiles/test_thrust_control_node.dir/build.make:240: test_thrust_control_node] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:296: CMakeFiles/test_thrust_control_node.dir/all] Error 2
-gmake[1]: *** Waiting for unfinished jobs....
-gmake: *** [Makefile:146: all] Error 2
