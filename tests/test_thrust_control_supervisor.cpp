@@ -10,21 +10,10 @@ protected:
 
     ThrustControlSupervisorTest() : logger(rclcpp::get_logger("test_logger")) {}
     
-
-    rclcpp::Node::SharedPtr test_node_sub_;
-    rclcpp::Node::SharedPtr test_node_pub_;
-    std::shared_ptr<rclcpp::executors::SingleThreadedExecutor> executor_;
-
     void SetUp() override 
     {
         if (!rclcpp::ok()) {  rclcpp::init(0, nullptr);}
-        
-
-        // configure test node
-        test_node_sub_ = std::make_shared<rclcpp::Node>("test_subscriber_node");
-        executor_ = std::make_shared<rclcpp::executors::SingleThreadedExecutor>();
-        executor_->add_node(test_node_sub_);
-    }
+   }
 
     void TearDown() override 
     {
@@ -47,6 +36,7 @@ TEST_F(ThrustControlSupervisorTest, CanBeInitialized) {
                 std::move(interpreter));
     });
 }
+
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisor) {
 
