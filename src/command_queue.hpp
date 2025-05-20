@@ -19,7 +19,8 @@ public:
         bool is_timed,
         bool is_override);
     
-    std::unique_ptr<SupervisorCommand> get_command_from_queue();
+    std::unique_ptr<SupervisorCommand> get_command_from_queue(
+            std::unique_ptr<SupervisorCommand> current_command);
 
     private:
     std::queue<std::unique_ptr<SupervisorCommand>> command_queue_;

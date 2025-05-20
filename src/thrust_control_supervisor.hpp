@@ -15,11 +15,11 @@
 #include "../include/exported-PID-control/src/controller_codegenTest.h"
 #pragma GCC diagnostic pop
 
-//TODO
-//implement command queue for manual control
-//implement waypoint list
-//implement function that both sends pwms to comman_interpreter and posts to topic
-//replace std::array<int, 8> with pwm::array from command_interpreter
+// TODO
+// implement command queue for manual control
+// implement waypoint list
+// implement function that both sends pwms to comman_interpreter and posts to topic
+// replace std::array<int, 8> with pwm::array from command_interpreter
 
 namespace thrust_control
 {
@@ -33,10 +33,12 @@ public:
           std::unique_ptr<Command_Interpreter_RPi5>);
   
   void update_pwm_queue(std::unique_ptr<SupervisorCommand> new_command);
+
   void step(	  
 	std::string control_mode,
 	std::array<float, 6> error,
 	std::array<float, 6> waypoint);
+  
   pwm_array get_current_pwm(){ return _current_pwm;}
 
 private:

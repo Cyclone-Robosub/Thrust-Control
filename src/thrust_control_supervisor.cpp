@@ -45,8 +45,10 @@ void ThrustControlSupervisor::process_pwm_command()
 void ThrustControlSupervisor::feed_forward_pwm()  
 {
   _auto_flag = false;
-  if (current_command->isFinished()) {
-    current_command = command_queue.get_command_from_queue();
+  if (current_command->isFinished()) 
+  {
+    current_command = command_queue.get_command_from_queue(
+            std::move(current_command));
   }
   current_command->start();
   _interpreter->untimed_execute(current_command->getPwms());

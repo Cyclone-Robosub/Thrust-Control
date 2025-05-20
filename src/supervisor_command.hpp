@@ -24,8 +24,11 @@ public:
 
 protected:
     pwm_array pwm_;
-    bool is_override_; 
+    bool is_override_;
+    bool is_timed_;
 };
+
+
 
 class Untimed_Command : public SupervisorCommand {
 public:
@@ -38,6 +41,8 @@ public:
 protected:
    bool is_executed_;
 };
+
+
 
 class Timed_Command : public SupervisorCommand {
 public:
