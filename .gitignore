@@ -21,6 +21,8 @@ Makefile
 # Editor files
 *.swp
 *.swo
+.vscode/*
+.cursor/*
 
 */build/
 **/cmake-build-*/

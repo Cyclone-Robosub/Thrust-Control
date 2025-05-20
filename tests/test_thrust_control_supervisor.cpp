@@ -38,9 +38,12 @@ TEST_F(ThrustControlSupervisorTest, CanBeInitialized) {
     });
 }
 
-// Test 2: Feed Forward Step
+TEST_F(ThrustControlSupervisorTest, StepSupervisor) {
 
-// Test 3: Auto Step
+    auto interpreter = make_command_interpreter_ptr(std::cout, std::cout, std::cout);
+    thrust_control::ThrustControlSupervisor supervisor(logger, std::move(interpreter));
+}
+
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
