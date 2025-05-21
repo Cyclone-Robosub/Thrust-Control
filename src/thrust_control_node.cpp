@@ -6,7 +6,7 @@ namespace thrust_control
 ThrustControlNode::ThrustControlNode()
     : 
         Node("thrust_control_node"), 
-        supervisor_(this->get_logger(), nullptr)
+        supervisor_(this->get_logger(), nullptr, CommandQueue())
 {
 
     _manual_pwm_subscription = 
@@ -22,7 +22,7 @@ ThrustControlNode::ThrustControlNode()
 ThrustControlNode::ThrustControlNode
 (std::unique_ptr<Command_Interpreter_RPi5> interpreter) 
     : Node("thrust_control_node"), 
-    supervisor_(this->get_logger(), std::move(interpreter))
+    supervisor_(this->get_logger(), std::move(interpreter), CommandQueue())
 {
     _manual_pwm_subscription =  
         this->create_subscription<std_msgs::msg::Int32MultiArray>(

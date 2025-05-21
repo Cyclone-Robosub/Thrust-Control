@@ -2,9 +2,8 @@
 
 namespace thrust_control {
 
-CommandQueue::CommandQueue() 
-{
-
+CommandQueue::CommandQueue() {
+    command_queue_ = std::queue<std::unique_ptr<SupervisorCommand>>{};
 }
 
 
@@ -41,4 +40,18 @@ std::unique_ptr<SupervisorCommand> CommandQueue::get_command_from_queue(
             return next_command;
         }
 }
+
+CommandQueue& CommandQueue::operator=(const CommandQueue& new_command_queue) {
+    if (this != &new_command_queue) {
+        std::queue<std::unique_ptr<SupervisorCommand>> empty;
+        std::swap(this->command_queue_, empty);
+        while (!new_command_queue.command_queue_.empty()) {
+            this->command_queue_.push(std::move(command_queue_.front()));
+            command_queue_.pop();
+        }
+    }
+
+    return *this;
+}
+
 }

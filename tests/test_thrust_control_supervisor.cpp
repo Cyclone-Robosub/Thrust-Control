@@ -33,7 +33,8 @@ TEST_F(ThrustControlSupervisorTest, CanBeInitialized) {
     ASSERT_NO_THROW({
         thrust_control::ThrustControlSupervisor supervisor(
                 logger, 
-                std::move(interpreter));
+                std::move(interpreter),
+                thrust_control::CommandQueue());
     });
 }
 
@@ -47,7 +48,8 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisor) {
 
     thrust_control::ThrustControlSupervisor supervisor(
             logger, 
-            std::move(interpreter));
+            std::move(interpreter),
+            thrust_control::CommandQueue());
 
     
 }

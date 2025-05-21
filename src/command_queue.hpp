@@ -21,6 +21,8 @@ public:
     
     std::unique_ptr<SupervisorCommand> get_command_from_queue(
             std::unique_ptr<SupervisorCommand> current_command);
+    
+    CommandQueue& operator=(const CommandQueue& new_command_queue);
 
     private:
     std::queue<std::unique_ptr<SupervisorCommand>> command_queue_;

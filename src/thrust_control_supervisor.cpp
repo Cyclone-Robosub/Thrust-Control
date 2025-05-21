@@ -5,18 +5,20 @@ namespace thrust_control
 
 ThrustControlSupervisor::ThrustControlSupervisor(
         rclcpp::Logger logger,
-        std::unique_ptr<Command_Interpreter_RPi5> interpreter)
+        std::unique_ptr<Command_Interpreter_RPi5> interpreter,
+        CommandQueue command_queue)
   : _logger(logger),
     _interpreter(std::move(interpreter)),
-    _controller(std::make_unique<controller_codegenTest>()),
-    command_queue()
+    _controller(std::make_unique<controller_codegenTest>())
 {
+  this->command_queue = command_queue;
 }
+
 void ThrustControlSupervisor::update_pwm_queue(std::unique_ptr<SupervisorCommand> new_command)
 {
   if (new_command->isOverride()) {
     current_command =std::move(new_command);
-    command_queue =  CommandQueue();
+    command_queue = CommandQueue();
   }
   else {
     command_queue.push_command(std::move(new_command));

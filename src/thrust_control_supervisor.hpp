@@ -31,7 +31,8 @@ public:
 	
   explicit ThrustControlSupervisor(
           rclcpp::Logger logger,
-          std::unique_ptr<Command_Interpreter_RPi5>);
+          std::unique_ptr<Command_Interpreter_RPi5>,
+          CommandQueue command_queue);
   
   void update_pwm_queue(std::unique_ptr<SupervisorCommand> new_command);
 
