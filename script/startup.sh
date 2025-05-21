@@ -1,5 +1,5 @@
 source /opt/ros/jazzy/setup.bash
-colcon build
+colcon build --symlink-install
 
 source install/setup.bash
 
