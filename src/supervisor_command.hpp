@@ -58,7 +58,6 @@ protected:
    std::chrono::milliseconds duration_;
    std::chrono::time_point<std::chrono::steady_clock> end_time_;
    bool is_started_;
-   pwm_array stop_set_ = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}; // Default stop values
 };
 }  // namespace thrust_control
 

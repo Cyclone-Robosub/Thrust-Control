@@ -3,6 +3,7 @@
 #include "command_interpreter_pointer.hpp"
 #include "supervisor_command.hpp"
 #include "command_queue.hpp"
+#include "sets.hpp"
 
 
 class CommandQueueTest : public ::testing::Test {
@@ -32,7 +33,6 @@ TEST_F(CommandQueueTest, stop_set_on_end)
     std::unique_ptr<thrust_control::SupervisorCommand> empty_queue_response;
 
     
-    pwm_array stop_set = {{1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}};
     std::unique_ptr<thrust_control::SupervisorCommand> test_command_ptr = 
         std::make_unique<Untimed_Command>(stop_set);
 

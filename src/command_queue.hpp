@@ -24,7 +24,6 @@ public:
 
     private:
     std::queue<std::unique_ptr<SupervisorCommand>> command_queue_;
-    pwm_array stop_set_ = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}; 
 };
 
 }  // namespace thrust_control

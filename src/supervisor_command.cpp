@@ -1,4 +1,5 @@
 #include "supervisor_command.hpp"
+#include "sets.hpp"
 
 namespace thrust_control {
 
@@ -40,7 +41,7 @@ bool Timed_Command::isFinished() {
 }
 
 pwm_array Timed_Command::onExpirePwm() {
-    return stop_set_;
+    return stop_set;
 }
 
 } // namespace thrust_control
