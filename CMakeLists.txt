@@ -16,28 +16,24 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
-# Include directories
-include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/Command_Interpreter
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/exported-PID-control
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/exported-PID-control/src
-)
-
 add_executable(thrust_control 
   src/main.cpp
   src/thrust_control_node.cpp
+  src/thrust_control_node.hpp
   src/thrust_control_supervisor.cpp
+  src/thrust_control_supervisor.hpp
+  src/command_interpreter_pointer.cpp
+  src/command_interpreter_pointer.hpp
   src/command_queue.cpp
+  src/command_queue.hpp
   src/supervisor_command.cpp
+  src/supervisor_command.hpp
 )
 
 target_include_directories(thrust_control
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/Command_Interpreter
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/Command_Interpreter/src
     ${CMAKE_CURRENT_SOURCE_DIR}/include/exported-PID-control
     ${CMAKE_CURRENT_SOURCE_DIR}/include/exported-PID-control/src
     PRIVATE
@@ -68,6 +64,7 @@ if(BUILD_TESTING)
   enable_testing()
   
   # command queue testing
+  
    add_executable(test_command_queue
       tests/test_command_queue.cpp
       src/command_queue.cpp
@@ -77,7 +74,7 @@ if(BUILD_TESTING)
   target_include_directories(test_command_queue PRIVATE
       ${CMAKE_CURRENT_SOURCE_DIR}/src
       ${CMAKE_CURRENT_SOURCE_DIR}/include
-      ${CMAKE_CURRENT_SOURCE_DIR}/include/Command_Interpreter
+      ${CMAKE_CURRENT_SOURCE_DIR}/include/Command_Interpreter/src
       ${GTEST_INCLUDE_DIRS}
   )
 
@@ -101,7 +98,7 @@ if(BUILD_TESTING)
   target_include_directories(test_thrust_control_node PRIVATE
       ${CMAKE_CURRENT_SOURCE_DIR}/src
       ${CMAKE_CURRENT_SOURCE_DIR}/include
-      ${CMAKE_CURRENT_SOURCE_DIR}/include/Command_Interpreter
+      ${CMAKE_CURRENT_SOURCE_DIR}/include/Command_Interpreter/src
       ${CMAKE_CURRENT_SOURCE_DIR}/include/exported-PID-control
       ${CMAKE_CURRENT_SOURCE_DIR}/include/exported-PID-control/src
       ${GTEST_INCLUDE_DIRS}
@@ -127,7 +124,7 @@ if(BUILD_TESTING)
   target_include_directories(test_thrust_control_supervisor PRIVATE
       ${CMAKE_CURRENT_SOURCE_DIR}/src
       ${CMAKE_CURRENT_SOURCE_DIR}/include
-      ${CMAKE_CURRENT_SOURCE_DIR}/include/Command_Interpreter
+      ${CMAKE_CURRENT_SOURCE_DIR}/include/Command_Interpreter/src
       ${CMAKE_CURRENT_SOURCE_DIR}/include/exported-PID-control
       ${CMAKE_CURRENT_SOURCE_DIR}/include/exported-PID-control/src
       ${GTEST_INCLUDE_DIRS}
@@ -140,6 +137,22 @@ if(BUILD_TESTING)
     ${GTEST_LIBRARIES}
     ${GTEST_MAIN_LIBRARIES}
   )
+
+  target_link_libraries(test_command_queue
+    PropulsionFunctions
+    controller_lib
+    ${GTEST_LIBRARIES}
+    ${GTEST_MAIN_LIBRARIES}
+  )
+
+
+  target_link_libraries(test_thrust_control_supervisor
+    PropulsionFunctions
+    controller_lib
+    ${GTEST_LIBRARIES}
+    ${GTEST_MAIN_LIBRARIES}
+  )
+
   
   # Register the test
   add_test(NAME test_thrust_control_supervisor COMMAND test_thrust_control_supervisor)

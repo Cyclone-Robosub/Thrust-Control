@@ -2,7 +2,7 @@
 #include <memory>
 #include "rclcpp/rclcpp.hpp"
 #include "thrust_control_supervisor.hpp"
-#include "Command_Interpreter/src/Command_Interpreter.hpp"
+#include "Command_Interpreter.hpp"
 #include "command_interpreter_pointer.hpp"
 
 class ThrustControlSupervisorTest : public ::testing::Test {

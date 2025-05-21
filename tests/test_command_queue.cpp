@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
 #include <memory>
-#include "../src/command_interpreter_pointer.hpp"
-#include "../src/supervisor_command.hpp"
-#include "../src/command_queue.hpp"
+#include "command_interpreter_pointer.hpp"
+#include "supervisor_command.hpp"
+#include "command_queue.hpp"
 
 
 class CommandQueueTest : public ::testing::Test {

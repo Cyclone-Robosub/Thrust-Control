@@ -11,7 +11,7 @@
 #include "std_msgs/msg/bool.hpp"
 #include "std_msgs/msg/string.hpp"
 #include "thrust_control_supervisor.hpp"
-#include "Command_Interpreter/src/Command.hpp"
+#include "Command.hpp"
 #include "command_queue.hpp"
 //#include "include/crs_common/crs_ros2_interfaces/src/publish_pwm_cmd.cpp"
 // TODO

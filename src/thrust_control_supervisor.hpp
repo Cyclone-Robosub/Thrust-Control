@@ -6,7 +6,7 @@
 #include <memory>
 #include <vector>
 #include "rclcpp/rclcpp.hpp"
-#include "../include/Command_Interpreter/src/Command_Interpreter.hpp"
+#include "Command_Interpreter.hpp"
 #include "command_queue.hpp"
 
 // Temporarily disable unused-function warnings for this include
