@@ -43,10 +43,3 @@ TEST_F(CommandQueueTest, stop_set_on_end)
         EXPECT_EQ(empty_queue_response->getPwms().pwm_signals[i], stop_set.pwm_signals[i]);
     }
 }
-
-
-
-int main(int argc, char** argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-} 
