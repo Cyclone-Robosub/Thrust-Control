@@ -22,8 +22,8 @@ std::unique_ptr<Command_Interpreter_RPi5> make_command_interpreter_ptr
           thrusterPins, 
           std::vector<DigitalPin *>{}, 
           wiringControl, 
+          output,
           logFile, 
-          output, 
           error);
   
       return commandInterpreter_ptr;
