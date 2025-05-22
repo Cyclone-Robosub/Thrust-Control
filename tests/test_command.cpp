@@ -6,26 +6,6 @@
 
 using namespace thrust_control;
 
-
-// class CommandQueueTest : public ::testing::Test {
-// protected:
-//     CommandQueueTest(){} 
-
-//     void SetUp() override 
-//     {
-//         CQ = new thrust_control::CommandQueue();
-//     }
-
-//     void TearDown() override 
-//     {
-//         delete CQ;
-//         CQ = nullptr;
-//     }
-
-//     thrust_control::CommandQueue* CQ;
-
-// };
-
 TEST(CommandTest, CreateUntimedCommand) {
     std::unique_ptr<SupervisorCommand> untimed_command = std::make_unique<Untimed_Command>(stop_set);
 
