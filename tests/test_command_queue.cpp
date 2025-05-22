@@ -38,8 +38,5 @@ TEST_F(CommandQueueTest, stop_set_on_end)
 
     empty_queue_response = std::move(CQ->get_command_from_queue(std::move(test_command_ptr)));
 
-    for (int i = 0; i < 8; i++) 
-    {
-        EXPECT_EQ(empty_queue_response->getPwms().pwm_signals[i], stop_set.pwm_signals[i]);
-    }
+    EXPECT_EQ(empty_queue_response->getPwms(), stop_set);
 }
