@@ -14,9 +14,9 @@ void CommandQueue::push_command(std::unique_ptr<SupervisorCommand> new_command)
 
 std::unique_ptr<SupervisorCommand> CommandQueue::make_new_command(
     const pwm_array& pwm, 
-    std::chrono::milliseconds duration,
     bool is_timed,
-    bool is_override) {
+    bool is_override,
+    std::chrono::milliseconds duration) {
         if (is_timed) {
             return std::move(std::make_unique<Timed_Command>(pwm, duration, is_override));
         }
