@@ -67,6 +67,7 @@ if(BUILD_TESTING)
     tests/test_thrust_control_node.cpp
     tests/test_thrust_control_supervisor.cpp
     tests/test_command_queue.cpp
+    tests/test_command.cpp
     src/thrust_control_node.cpp
     src/thrust_control_node.hpp
     src/thrust_control_supervisor.cpp

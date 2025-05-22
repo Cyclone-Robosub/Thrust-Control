@@ -51,7 +51,7 @@ TEST_F(ThrustControlNodeTest, Con){
 }
 
 
-TEST_F(ThrustControlNodeTest, ConsturctorWithIntrepreter){
+TEST_F(ThrustControlNodeTest, ConstructorWithIntrepreter){
     auto interpreter = make_command_interpreter_ptr(
             std::cout, 
             std::cout, 
