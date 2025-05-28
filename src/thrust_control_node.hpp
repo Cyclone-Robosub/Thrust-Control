@@ -25,8 +25,6 @@ namespace thrust_control
 class ThrustControlNode : public rclcpp::Node
 {
 public:
-  
-  ThrustControlNode();
   ThrustControlNode(std::unique_ptr<Command_Interpreter_RPi5>);
     
 private:
