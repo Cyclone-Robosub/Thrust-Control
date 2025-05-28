@@ -8,6 +8,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "Command_Interpreter.hpp"
 #include "command_queue.hpp"
+#include "sets.hpp"
 
 // Temporarily disable unused-function warnings for this include
 #pragma GCC diagnostic push
@@ -36,7 +37,7 @@ public:
           std::unique_ptr<Command_Interpreter_RPi5>,
           CommandQueue command_queue);
   
-  void update_pwm_queue(std::unique_ptr<SupervisorCommand> new_command);
+  void push_to_pwm_queue(std::unique_ptr<SupervisorCommand> new_command);
 
   void step(
 	  ControlMode control_mode,

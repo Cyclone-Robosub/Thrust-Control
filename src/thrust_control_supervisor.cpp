@@ -9,15 +9,17 @@ ThrustControlSupervisor::ThrustControlSupervisor(
         CommandQueue command_queue)
   : _logger(logger),
     _interpreter(std::move(interpreter)),
-    _controller(std::make_unique<controller_codegenTest>())
+    _controller(std::make_unique<controller_codegenTest>()),
+    current_command(std::make_unique<Untimed_Command>(stop_set, false))
 {
   this->command_queue = command_queue;
+  current_command->start();
 }
 
-void ThrustControlSupervisor::update_pwm_queue(std::unique_ptr<SupervisorCommand> new_command)
+void ThrustControlSupervisor::push_to_pwm_queue(std::unique_ptr<SupervisorCommand> new_command)
 {
   if (new_command->isOverride()) {
-    current_command =std::move(new_command);
+    current_command = std::move(new_command);
     command_queue = CommandQueue();
   }
   else {
@@ -47,7 +49,7 @@ void ThrustControlSupervisor::process_pwm_command()
 void ThrustControlSupervisor::feed_forward_pwm()  
 {
   _auto_flag = false;
-  if (current_command->isFinished()) 
+  if (current_command->isFinished())
   {
     current_command = command_queue.get_command_from_queue(
             std::move(current_command));
