@@ -22,6 +22,7 @@ Makefile
 *.swp
 *.swo
 .vscode/*
+.vscode/c_cpp_properties.json
 .cursor/*
 
 */build/
@@ -42,5 +43,3 @@ build/*
 log/*
 install/*
 
-#VSCode Files
-.vscode/*
