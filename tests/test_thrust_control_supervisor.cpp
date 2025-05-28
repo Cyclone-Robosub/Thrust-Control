@@ -4,6 +4,7 @@
 #include "thrust_control_supervisor.hpp"
 #include "Command_Interpreter.hpp"
 #include "command_interpreter_pointer.hpp"
+#include <fstream>
 
 using namespace thrust_control;
 
@@ -23,13 +24,14 @@ protected:
     }
 
     rclcpp::Logger logger;
+    std::ofstream nullOut = std::ofstream("/dev/null");
 };
 
 
 // Test 1: Initialization
 TEST_F(ThrustControlSupervisorTest, CanBeInitialized) {
     // Arrange
-    auto interpreter = make_command_interpreter_ptr(std::cout, std::cout, std::cout);
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, nullOut);
     
     // Act - this tests if we can initialize the supervisor without exceptions
     ASSERT_NO_THROW({
@@ -41,20 +43,49 @@ TEST_F(ThrustControlSupervisorTest, CanBeInitialized) {
 }
 
 
-TEST_F(ThrustControlSupervisorTest, StepSupervisor) {
+TEST_F(ThrustControlSupervisorTest, StepSupervisorAuto) {
 
     auto interpreter = make_command_interpreter_ptr(
-            std::cout, 
-            std::cout, 
-            std::cout);
+            nullOut, 
+            nullOut, 
+            std::cerr);
 
     thrust_control::ThrustControlSupervisor supervisor(
             logger, 
             std::move(interpreter),
             thrust_control::CommandQueue());
+
+    std::array<float,6> position = {0,1.5,1.8,-99,0,0};
+    std::array<float,6> waypoints = {-9,10,42.5,42.0,0,1};
     
-    supervisor.step(Auto, {0,1.5,1.8,-99,0,0}, {-9,10,42.5,42.0,0,1});
-    // ASSERT_EQ(supervisor.get_control_mode(), Auto);
-    // ASSERT_EQ(supervisor.get_current_position(), ({0,1.5,1.8,-99,0,0}));
-    // ASSERT_EQ(supervisor.get_waypoint(), ({-9,10,42.5,42.0,0,1}));
+    supervisor.step(Auto, position, waypoints);
+    ASSERT_EQ(supervisor.get_control_mode(), Auto);
+    ASSERT_EQ(supervisor.get_current_position(), position);
+    ASSERT_EQ(supervisor.get_waypoint(), waypoints);
+}
+
+TEST_F(ThrustControlSupervisorTest, StepSupervisorCustomFeedForward) {
+
+    auto interpreter = make_command_interpreter_ptr(
+            nullOut, 
+            nullOut, 
+            std::cerr);
+
+    thrust_control::ThrustControlSupervisor supervisor(
+            logger, 
+            std::move(interpreter),
+            thrust_control::CommandQueue());
+
+    std::array<float,6> position = {0,1.5,1.8,-99,0,0};
+    std::array<float,6> waypoints = {-9,10,42.5,42.0,0,1};
+    pwm_array pwm = {1900, 1500, 1100, 1240, 1240, 1900, 1500, 1500};
+    std::unique_ptr<SupervisorCommand> untimed_command = std::make_unique<Untimed_Command>(pwm);
+
+    supervisor.update_pwm_queue(std::move(untimed_command));
+    ASSERT_EQ(supervisor.get_current_command_pwm(), pwm);
+    supervisor.step(FeedForward, position, waypoints);
+    ASSERT_EQ(supervisor.get_control_mode(), FeedForward);
+    ASSERT_EQ(supervisor.get_current_position(), position);
+    ASSERT_EQ(supervisor.get_waypoint(), waypoints);
+    ASSERT_EQ(supervisor.get_current_command_pwm(), pwm);
 }

@@ -6,15 +6,24 @@ if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 14)
 endif()
 
-add_subdirectory(include/Command_Interpreter)
 add_subdirectory(include/exported-PID-control)
-if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic  -Werror)
-endif()
-
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+
+# Optional mocking flag
+option(MOCK_RPI "Use mock Pico" OFF)
+option(BUILD_TESTING "Build Gtest executables" OFF)
+
+if (MOCK_RPI)
+    add_compile_options("-DMOCK_RPI")
+endif()
+
+add_subdirectory(include/Command_Interpreter)
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic -Werror)
+endif()
+
 
 add_executable(thrust_control 
   src/main.cpp

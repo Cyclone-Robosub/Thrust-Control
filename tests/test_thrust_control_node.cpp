@@ -35,14 +35,15 @@ protected:
     }
 
     rclcpp::Logger logger;
+    std::ofstream nullOut = std::ofstream("/dev/null");
 };
 
 TEST_F(ThrustControlNodeTest, Con){
 
     auto interpreter = make_command_interpreter_ptr(
-            std::cout, 
-            std::cout, 
-            std::cout);
+            nullOut, 
+            nullOut, 
+            std::cerr);
     auto node =  std::make_shared<thrust_control::ThrustControlNode>(
                 std::move(interpreter));
 
@@ -53,9 +54,9 @@ TEST_F(ThrustControlNodeTest, Con){
 
 TEST_F(ThrustControlNodeTest, ConstructorWithIntrepreter){
     auto interpreter = make_command_interpreter_ptr(
-            std::cout, 
-            std::cout, 
-            std::cout);
+            nullOut, 
+            nullOut, 
+            std::cerr);
     auto node =         
             std::make_shared<thrust_control::ThrustControlNode>(
                     std::move(interpreter));

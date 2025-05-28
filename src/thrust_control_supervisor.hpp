@@ -43,9 +43,9 @@ public:
 	  std::array<float, 6> position,
 	  std::array<float, 6> waypoint);
   
-  pwm_array get_current_pwm(){ return _current_pwm;}
+  pwm_array get_current_command_pwm(){ return current_command->getPwms();}
   ControlMode get_control_mode() {return _control_mode;}
-  // CommandQueue get_command_queue() {return command_queue;}
+  CommandQueue get_command_queue() {return command_queue;}
   std::array<float, 6> get_current_position() {return _current_position;}
   std::array<float, 6> get_waypoint() {return _waypoint;}
 

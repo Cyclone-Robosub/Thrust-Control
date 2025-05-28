@@ -4,8 +4,8 @@
 std::unique_ptr<Command_Interpreter_RPi5> make_command_interpreter_ptr
 (
     std::ostream& output, 
-    std::ostream& error, 
-    std::ostream& logFile
+    std::ostream& logFile,
+    std::ostream& error
 )
 {
     auto PhysicalPins = std::vector<int>{2, 3, 4, 5, 6, 7, 8, 9};
@@ -25,6 +25,8 @@ std::unique_ptr<Command_Interpreter_RPi5> make_command_interpreter_ptr
           output,
           logFile, 
           error);
+        
+      commandInterpreter_ptr->initializePins();
   
       return commandInterpreter_ptr;
     } 
