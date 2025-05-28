@@ -123,3 +123,20 @@ TEST_F(CommandQueueTest, MakeNewCommand) {
     EXPECT_EQ(untimed_pointer, nullptr);
     EXPECT_EQ(timed_pointer, nullptr);
 }
+
+TEST_F(CommandQueueTest, AssignmentOperator) {
+    pwm_array pwm_1 = {1900, 1500, 1100, 1240, 1240, 1900, 1500, 1500};
+    CQ->push_command(std::make_unique<Untimed_Command>(pwm_1));
+    auto CQ_other = new thrust_control::CommandQueue();
+
+    CQ_other = CQ;
+
+    auto new_command_other = CQ_other->get_command_from_queue(std::make_unique<Untimed_Command>(stop_set));
+    EXPECT_EQ(new_command_other->getPwms(), pwm_1);
+
+    auto new_command = CQ->get_command_from_queue(std::make_unique<Untimed_Command>(stop_set));
+    EXPECT_EQ(new_command->getPwms(), pwm_1);
+
+    delete CQ;
+    CQ = nullptr;
+}

@@ -5,6 +5,8 @@
 #include "Command_Interpreter.hpp"
 #include "command_interpreter_pointer.hpp"
 
+using namespace thrust_control;
+
 class ThrustControlSupervisorTest : public ::testing::Test {
 protected:
 
@@ -50,6 +52,9 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisor) {
             logger, 
             std::move(interpreter),
             thrust_control::CommandQueue());
-
     
+    supervisor.step(Auto, {0,1.5,1.8,-99,0,0}, {-9,10,42.5,42.0,0,1});
+    // ASSERT_EQ(supervisor.get_control_mode(), Auto);
+    // ASSERT_EQ(supervisor.get_current_position(), ({0,1.5,1.8,-99,0,0}));
+    // ASSERT_EQ(supervisor.get_waypoint(), ({-9,10,42.5,42.0,0,1}));
 }

@@ -15,6 +15,7 @@ class SupervisorCommand {
 public:
     SupervisorCommand(const pwm_array& pwm, bool is_override = true);
     virtual ~SupervisorCommand() = default;
+    virtual std::unique_ptr<SupervisorCommand> clone() const = 0;
     
     virtual void start() = 0;
     virtual bool isFinished() = 0;
@@ -32,6 +33,7 @@ protected:
 class Untimed_Command : public SupervisorCommand {
 public:
    Untimed_Command(const pwm_array& pwm, bool override = true);
+   std::unique_ptr<SupervisorCommand> clone() const override;
    
    void start() override;
    bool isFinished() override;
@@ -48,6 +50,7 @@ public:
    Timed_Command(const pwm_array& pwm, 
                  std::chrono::milliseconds duration,
                  bool override = false);
+   std::unique_ptr<SupervisorCommand> clone() const override;
    
    void start() override;
    bool isFinished() override;

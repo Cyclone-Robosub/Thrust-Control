@@ -9,6 +9,10 @@ SupervisorCommand::SupervisorCommand(const pwm_array& pwm, bool is_override)
 Untimed_Command::Untimed_Command(const pwm_array& pwm, bool override)
     : SupervisorCommand(pwm, override), is_executed_(false) {}
 
+std::unique_ptr<SupervisorCommand> Untimed_Command::clone() const {
+    return std::make_unique<Untimed_Command>(pwm_, is_override_);
+}
+
 void Untimed_Command::start() {
     is_executed_ = true;
 }
@@ -27,6 +31,11 @@ Timed_Command::Timed_Command(const pwm_array& pwm,
     : SupervisorCommand(pwm, override)
     , duration_(duration)
     , is_started_(false) {}
+
+std::unique_ptr<SupervisorCommand> Timed_Command::clone() const {
+    return std::make_unique<Timed_Command>(pwm_, duration_, is_override_);
+}
+    
 
 void Timed_Command::start() {
     if (!is_started_) {
