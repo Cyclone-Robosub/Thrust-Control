@@ -79,6 +79,7 @@ void step_pathfinder()
 }
 void ThrustControlSupervisor::step_controller()
 {
+    pwm_array new_pwm;
     for (int i = 0; i < 6; i++)   
     {
         _controller->rtU.Input[i] = _current_position[i] - _waypoint[i];
@@ -87,8 +88,9 @@ void ThrustControlSupervisor::step_controller()
     
     for (int i = 0; i < 8; i++)
     {
-        _current_pwm.pwm_signals[i] = _controller->rtY.Out1[i];
+        new_pwm.pwm_signals[i] = _controller->rtY.Out1[i];
     }
+    current_command = std::make_unique<Untimed_Command>(new_pwm);
 }
 
 void log_array(rclcpp::Logger logger, const std::array<int, 8>& arr) {
@@ -104,11 +106,5 @@ void log_array(rclcpp::Logger logger, const std::array<int, 8>& arr) {
 
     RCLCPP_INFO(logger, "%s", ss.str().c_str());
 }
-//void ThrustControlSupervisor::execute_pwm(std::array<int, 8> pwm)
-//{   
-//        std::cout  pwm;
-//    //pwm_array p_w_m;
-//    // _interpreter->untimed_execute(pwm);
-//    // post sent pwm to sent_pwm topic
-//} 
+
 }

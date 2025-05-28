@@ -26,7 +26,7 @@
 namespace thrust_control
 {
 
-enum ControlMode {Auto, FeedForward, PID};
+enum ControlMode {FeedForward, PID};
 
 class ThrustControlSupervisor
 {
@@ -44,10 +44,10 @@ public:
 	  std::array<float, 6> position,
 	  std::array<float, 6> waypoint);
   
-  pwm_array get_current_command_pwm(){ return current_command->getPwms();}
+  pwm_array get_current_pwm(){ return current_command->getPwms();}
   ControlMode get_control_mode() {return _control_mode;}
   CommandQueue get_command_queue() {return command_queue;}
-  std::array<float, 6> get_current_position() {return _current_position;}
+  std::array<float, 6> get_current_position() {return _current_position;} // x, y, z, roll, pitch, yaw
   std::array<float, 6> get_waypoint() {return _waypoint;}
 
 private:
@@ -56,7 +56,6 @@ private:
   void feed_forward_pwm();
   void pid_pwm(); 
   void step_controller();
-  void execute_pwm(std::array<int, 8>);
 
   bool _auto_flag = false;
 
@@ -77,7 +76,6 @@ private:
   std::array<float, 6> _current_reference_position;
   std::array<float, 6> _current_position;
   std::array<float, 6> _waypoint;
-  pwm_array _current_pwm = {{1500,1500,1500,1500,1500,1500,1500, 1500}};
 
 };
 

@@ -44,7 +44,7 @@ TEST_F(ThrustControlSupervisorTest, CanBeInitialized) {
 }
 
 
-TEST_F(ThrustControlSupervisorTest, StepSupervisorAuto) {
+TEST_F(ThrustControlSupervisorTest, StepSupervisorPID) {
 
     auto interpreter = make_command_interpreter_ptr(
         nullOut, 
@@ -59,8 +59,8 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorAuto) {
     std::array<float,6> position = {0,1.5,1.8,-99,0,0};
     std::array<float,6> waypoints = {-9,10,42.5,42.0,0,1};
     
-    supervisor.step(Auto, position, waypoints);
-    EXPECT_EQ(supervisor.get_control_mode(), Auto);
+    supervisor.step(PID, position, waypoints);
+    EXPECT_EQ(supervisor.get_control_mode(), PID);
     EXPECT_EQ(supervisor.get_current_position(), position);
     EXPECT_EQ(supervisor.get_waypoint(), waypoints);
 }
@@ -87,7 +87,7 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorCustomFeedForward) {
     EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
     EXPECT_EQ(supervisor.get_current_position(), position);
     EXPECT_EQ(supervisor.get_waypoint(), waypoints);
-    EXPECT_EQ(supervisor.get_current_command_pwm(), pwm);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm);
 }
 
 
@@ -118,19 +118,19 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorMultiStep) {
     EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
     EXPECT_EQ(supervisor.get_current_position(), position);
     EXPECT_EQ(supervisor.get_waypoint(), waypoints);
-    EXPECT_EQ(supervisor.get_current_command_pwm(), pwm_1);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_1);
 
     supervisor.step(FeedForward, position, waypoints);
     EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
     EXPECT_EQ(supervisor.get_current_position(), position);
     EXPECT_EQ(supervisor.get_waypoint(), waypoints);
-    EXPECT_EQ(supervisor.get_current_command_pwm(), pwm_2);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
 
     supervisor.step(FeedForward, position, waypoints);
     EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
     EXPECT_EQ(supervisor.get_current_position(), position);
     EXPECT_EQ(supervisor.get_waypoint(), waypoints);
-    EXPECT_EQ(supervisor.get_current_command_pwm(), pwm_2);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
 }
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorUntimedOverrideUntimed) {
@@ -160,13 +160,13 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorUntimedOverrideUntimed) {
     EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
     EXPECT_EQ(supervisor.get_current_position(), position);
     EXPECT_EQ(supervisor.get_waypoint(), waypoints);
-    EXPECT_EQ(supervisor.get_current_command_pwm(), pwm_2);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
 
     supervisor.step(FeedForward, position, waypoints);
     EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
     EXPECT_EQ(supervisor.get_current_position(), position);
     EXPECT_EQ(supervisor.get_waypoint(), waypoints);
-    EXPECT_EQ(supervisor.get_current_command_pwm(), pwm_2);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
 }
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorUntimedOverrideTimed) {
@@ -196,13 +196,13 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorUntimedOverrideTimed) {
     EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
     EXPECT_EQ(supervisor.get_current_position(), position);
     EXPECT_EQ(supervisor.get_waypoint(), waypoints);
-    EXPECT_EQ(supervisor.get_current_command_pwm(), pwm_2);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
 
     supervisor.step(FeedForward, position, waypoints);
     EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
     EXPECT_EQ(supervisor.get_current_position(), position);
     EXPECT_EQ(supervisor.get_waypoint(), waypoints);
-    EXPECT_EQ(supervisor.get_current_command_pwm(), pwm_2);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
 }
 
 
@@ -233,13 +233,13 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideTimed) {
     EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
     EXPECT_EQ(supervisor.get_current_position(), position);
     EXPECT_EQ(supervisor.get_waypoint(), waypoints);
-    EXPECT_EQ(supervisor.get_current_command_pwm(), pwm_2);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
 
     supervisor.step(FeedForward, position, waypoints);
     EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
     EXPECT_EQ(supervisor.get_current_position(), position);
     EXPECT_EQ(supervisor.get_waypoint(), waypoints);
-    EXPECT_EQ(supervisor.get_current_command_pwm(), pwm_2);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
 }
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideUntimed) {
@@ -269,13 +269,13 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideUntimed) {
     EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
     EXPECT_EQ(supervisor.get_current_position(), position);
     EXPECT_EQ(supervisor.get_waypoint(), waypoints);
-    EXPECT_EQ(supervisor.get_current_command_pwm(), pwm_2);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
 
     supervisor.step(FeedForward, position, waypoints);
     EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
     EXPECT_EQ(supervisor.get_current_position(), position);
     EXPECT_EQ(supervisor.get_waypoint(), waypoints);
-    EXPECT_EQ(supervisor.get_current_command_pwm(), pwm_2);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
 }
 
 //TODO: Test PID
