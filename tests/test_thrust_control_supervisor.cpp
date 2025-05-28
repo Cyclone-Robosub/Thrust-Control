@@ -277,3 +277,5 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideUntimed) {
     EXPECT_EQ(supervisor.get_waypoint(), waypoints);
     EXPECT_EQ(supervisor.get_current_command_pwm(), pwm_2);
 }
+
+//TODO: Test PID
