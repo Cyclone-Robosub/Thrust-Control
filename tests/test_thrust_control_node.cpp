@@ -59,7 +59,7 @@ TEST_F(ThrustControlNodeTest, ConstructorWithIntrepreter){
     auto node =         
             std::make_shared<thrust_control::ThrustControlNode>(
                     std::move(interpreter));
-    ASSERT_NO_THROW({rclcpp::spin(node);});
+    ASSERT_NO_THROW({rclcpp::spin_some(node);});
     node.reset();
 
 }

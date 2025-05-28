@@ -8,3 +8,6 @@
 [submodule "include/exported-PID-control"]
 	path = include/exported-PID-control
 	url = https://github.com/Cyclone-Robosub/exported-PID-control.git
+[submodule "include/exported_waypoint_follower"]
+	path = include/exported_waypoint_follower
+	url = https://github.com/Cyclone-Robosub/exported_waypoint_follower.git
