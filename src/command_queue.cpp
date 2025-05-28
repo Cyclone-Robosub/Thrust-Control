@@ -56,6 +56,7 @@ CommandQueue& CommandQueue::operator=(const CommandQueue& new_command_queue) {
 }
 
 CommandQueue::CommandQueue(const CommandQueue& other) {
+    command_queue_.clear();
     for (const auto& command : other.command_queue_) {
         command_queue_.push_back(command->clone());
     }
