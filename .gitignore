@@ -25,6 +25,7 @@ Makefile
 .cursor/*
 
 */build/
+*/log/
 **/cmake-build-*/
 
 Testing/
