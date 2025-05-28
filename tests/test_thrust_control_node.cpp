@@ -51,7 +51,7 @@ TEST_F(ThrustControlNodeTest, Con){
 }
 
 
-TEST_F(ThrustControlNodeTest, ConsturctorWithIntrepreter){
+TEST_F(ThrustControlNodeTest, ConstructorWithIntrepreter){
     auto interpreter = make_command_interpreter_ptr(
             std::cout, 
             std::cout, 
@@ -63,13 +63,3 @@ TEST_F(ThrustControlNodeTest, ConsturctorWithIntrepreter){
     node.reset();
 
 }
-
-
-
-
-int main(int argc, char** argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
-          
-

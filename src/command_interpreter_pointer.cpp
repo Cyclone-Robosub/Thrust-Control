@@ -13,7 +13,7 @@ std::unique_ptr<Command_Interpreter_RPi5> make_command_interpreter_ptr
 
       for (auto i : PhysicalPins) 
       {
-        thrusterPins.push_back(new HardwarePwmPin(i, logFile, output, error));
+        thrusterPins.push_back(new HardwarePwmPin(i, output, logFile, error));
       }
   
       auto wiringControl = WiringControl(output, logFile, error);
@@ -22,8 +22,8 @@ std::unique_ptr<Command_Interpreter_RPi5> make_command_interpreter_ptr
           thrusterPins, 
           std::vector<DigitalPin *>{}, 
           wiringControl, 
+          output,
           logFile, 
-          output, 
           error);
   
       return commandInterpreter_ptr;

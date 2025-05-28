@@ -15,9 +15,9 @@ public:
     
     static std::unique_ptr<SupervisorCommand> make_new_command(
         const pwm_array& pwm, 
-        std::chrono::milliseconds duration,
         bool is_timed,
-        bool is_override);
+        bool is_override,
+        std::chrono::milliseconds duration = std::chrono::milliseconds(0));
     
     std::unique_ptr<SupervisorCommand> get_command_from_queue(
             std::unique_ptr<SupervisorCommand> current_command);
