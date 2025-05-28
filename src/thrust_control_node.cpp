@@ -65,7 +65,7 @@ void ThrustControlNode::timer_callback()
     
     // this data should get replaced with data from callbacks
     // only exists as is here for testing putposes
-    std::string test_mode = "auto";
+    ControlMode test_mode = Auto;
     std::array<float, 6> test_pos = {0,0,0,0,0,0};
     std::array<float, 6> waypoint = {0,0,0,0,0,0};
     

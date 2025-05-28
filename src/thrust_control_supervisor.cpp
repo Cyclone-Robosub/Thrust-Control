@@ -26,7 +26,7 @@ void ThrustControlSupervisor::update_pwm_queue(std::unique_ptr<SupervisorCommand
 }
 
 void ThrustControlSupervisor::step(
-  std::string control_mode,
+  ControlMode control_mode,
   std::array<float, 6> position,
   std::array<float, 6> waypoint)
 {
@@ -40,7 +40,7 @@ void ThrustControlSupervisor::step(
 
 void ThrustControlSupervisor::process_pwm_command()
 {
-  if (this->_control_mode == FEED_FORWARD) { this->feed_forward_pwm(); }
+  if (this->_control_mode == FeedForward) { this->feed_forward_pwm(); }
   if (this->_control_mode == PID){ this->pid_pwm(); }
 }  
 
