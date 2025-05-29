@@ -6,6 +6,10 @@
 #include "command_interpreter_pointer.hpp"
 #include "Command.hpp"
 
+#include "sets.hpp"
+#include <fstream>
+
+using namespace thrust_control;
 
 class ThrustControlSupervisorTest : public ::testing::Test {
 protected:
@@ -27,6 +31,7 @@ protected:
     }
 
     rclcpp::Logger logger;
+    std::ofstream nullOut = std::ofstream("/dev/null");
 };
 
 
@@ -39,6 +44,8 @@ TEST_F(ThrustControlSupervisorTest, CanBeInitialized) {
                 std::cout);
 
    
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, nullOut);
+    
     // Act - this tests if we can initialize the supervisor without exceptions
     ASSERT_NO_THROW({
         thrust_control::ThrustControlSupervisor test_supervisor(
@@ -54,7 +61,7 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorPidNoError) {
     auto interpreter = make_command_interpreter_ptr(
             std::cout, 
             std::cout, 
-            std::cout);
+            std::cerr);
     
     thrust_control::ThrustControlSupervisor supervisor(
             logger, 
@@ -80,24 +87,25 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorPidNoError) {
     }
     EXPECT_FALSE(has_force) << "PWM signal should not have a force";
 }
+
 TEST_F(ThrustControlSupervisorTest, StepSupervisorPidWithError) {
     auto interpreter = make_command_interpreter_ptr(
             std::cout, 
             std::cout, 
             std::cout);
-
     thrust_control::ThrustControlSupervisor supervisor(
-            logger, 
-            std::move(interpreter),
-            thrust_control::CommandQueue());
+        logger, 
+        std::move(interpreter),
+        thrust_control::CommandQueue());
 
-    thrust_control::ControlMode control_mode = thrust_control::ControlMode::PID;
     std::array<float, 6> position = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
-    std::array<float, 6> waypoint = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f};
-    
-    ASSERT_NO_THROW({
-        supervisor.step(control_mode, position, waypoint);
-    });
+    std::array<float, 6> waypoints = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f};
+   
+ 
+    supervisor.step(PID, position, waypoints);
+    EXPECT_EQ(supervisor.get_control_mode(), PID);
+    EXPECT_EQ(supervisor.get_current_position(), position);
+    EXPECT_EQ(supervisor.get_waypoint(), waypoints);
 
     pwm_array current_pwm = supervisor.get_current_pwm();
 
@@ -109,3 +117,218 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorPidWithError) {
     }
     EXPECT_TRUE(has_force) << "PWM signal should have a force";
 }   
+
+TEST_F(ThrustControlSupervisorTest, StepSupervisorCustomFeedForward) {
+
+    auto interpreter = make_command_interpreter_ptr(
+        nullOut, 
+        nullOut, 
+        std::cerr);
+
+    thrust_control::ThrustControlSupervisor supervisor(
+        logger, 
+        std::move(interpreter),
+        thrust_control::CommandQueue());
+
+    std::array<float,6> position = {0,1.5,1.8,-99,0,0};
+    std::array<float,6> waypoints = {-9,10,42.5,42.0,0,1};
+    pwm_array pwm = {1900, 1500, 1100, 1240, 1240, 1900, 1500, 1500};
+    std::unique_ptr<SupervisorCommand> untimed_command = std::make_unique<Untimed_Command>(pwm);
+
+    supervisor.push_to_pwm_queue(std::move(untimed_command));
+    supervisor.step(FeedForward, position, waypoints);
+    EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
+    EXPECT_EQ(supervisor.get_current_position(), position);
+    EXPECT_EQ(supervisor.get_waypoint(), waypoints);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm);
+}
+
+
+TEST_F(ThrustControlSupervisorTest, StepSupervisorMultiStep) {
+
+    auto interpreter = make_command_interpreter_ptr(
+        nullOut, 
+        nullOut, 
+        std::cerr);
+
+    thrust_control::ThrustControlSupervisor supervisor(
+        logger, 
+        std::move(interpreter),
+        thrust_control::CommandQueue());
+
+    std::array<float,6> position = {0,1.5,1.8,-99,0,0};
+    std::array<float,6> waypoints = {-9,10,42.5,42.0,0,1};
+
+    pwm_array pwm_1 = {1900, 1500, 1100, 1240, 1240, 1900, 1500, 1500};
+    pwm_array pwm_2 = {1500, 1900, 1240, 1100, 1300, 1500, 1900, 1500};
+    std::unique_ptr<SupervisorCommand> command_1 = std::make_unique<Untimed_Command>(pwm_1, false);
+    std::unique_ptr<SupervisorCommand> command_2 =  std::make_unique<Untimed_Command>(pwm_2, false);
+
+    supervisor.push_to_pwm_queue(std::move(command_1));
+    supervisor.push_to_pwm_queue(std::move(command_2));
+
+    supervisor.step(FeedForward, position, waypoints);
+    EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
+    EXPECT_EQ(supervisor.get_current_position(), position);
+    EXPECT_EQ(supervisor.get_waypoint(), waypoints);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_1);
+
+    supervisor.step(FeedForward, position, waypoints);
+    EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
+    EXPECT_EQ(supervisor.get_current_position(), position);
+    EXPECT_EQ(supervisor.get_waypoint(), waypoints);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
+
+    supervisor.step(FeedForward, position, waypoints);
+    EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
+    EXPECT_EQ(supervisor.get_current_position(), position);
+    EXPECT_EQ(supervisor.get_waypoint(), waypoints);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
+}
+
+TEST_F(ThrustControlSupervisorTest, StepSupervisorUntimedOverrideUntimed) {
+
+    auto interpreter = make_command_interpreter_ptr(
+        nullOut, 
+        nullOut, 
+        std::cerr);
+
+    thrust_control::ThrustControlSupervisor supervisor(
+        logger, 
+        std::move(interpreter),
+        thrust_control::CommandQueue());
+
+    std::array<float,6> position = {0,1.5,1.8,-99,0,0};
+    std::array<float,6> waypoints = {-9,10,42.5,42.0,0,1};
+    
+    pwm_array pwm_1 = {1900, 1500, 1100, 1240, 1240, 1900, 1500, 1500};
+    pwm_array pwm_2 = {1500, 1900, 1240, 1100, 1300, 1500, 1900, 1500};
+    std::unique_ptr<SupervisorCommand> command_1 = std::make_unique<Untimed_Command>(pwm_1, false);
+    std::unique_ptr<SupervisorCommand> command_2 =  std::make_unique<Untimed_Command>(pwm_2);
+
+    supervisor.push_to_pwm_queue(std::move(command_1));
+    supervisor.push_to_pwm_queue(std::move(command_2));
+
+    supervisor.step(FeedForward, position, waypoints);
+    EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
+    EXPECT_EQ(supervisor.get_current_position(), position);
+    EXPECT_EQ(supervisor.get_waypoint(), waypoints);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
+
+    supervisor.step(FeedForward, position, waypoints);
+    EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
+    EXPECT_EQ(supervisor.get_current_position(), position);
+    EXPECT_EQ(supervisor.get_waypoint(), waypoints);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
+}
+
+TEST_F(ThrustControlSupervisorTest, StepSupervisorUntimedOverrideTimed) {
+
+    auto interpreter = make_command_interpreter_ptr(
+        nullOut, 
+        nullOut, 
+        std::cerr);
+
+    thrust_control::ThrustControlSupervisor supervisor(
+        logger, 
+        std::move(interpreter),
+        thrust_control::CommandQueue());
+
+    std::array<float,6> position = {0,1.5,1.8,-99,0,0};
+    std::array<float,6> waypoints = {-9,10,42.5,42.0,0,1};
+    
+    pwm_array pwm_1 = {1900, 1500, 1100, 1240, 1240, 1900, 1500, 1500};
+    pwm_array pwm_2 = {1500, 1900, 1240, 1100, 1300, 1500, 1900, 1500};
+    std::unique_ptr<SupervisorCommand> command_1 = std::make_unique<Timed_Command>(pwm_1, std::chrono::milliseconds(50));
+    std::unique_ptr<SupervisorCommand> command_2 =  std::make_unique<Untimed_Command>(pwm_2);
+
+    supervisor.push_to_pwm_queue(std::move(command_1));
+    supervisor.push_to_pwm_queue(std::move(command_2));
+
+    supervisor.step(FeedForward, position, waypoints);
+    EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
+    EXPECT_EQ(supervisor.get_current_position(), position);
+    EXPECT_EQ(supervisor.get_waypoint(), waypoints);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
+
+    supervisor.step(FeedForward, position, waypoints);
+    EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
+    EXPECT_EQ(supervisor.get_current_position(), position);
+    EXPECT_EQ(supervisor.get_waypoint(), waypoints);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
+}
+
+
+TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideTimed) {
+
+    auto interpreter = make_command_interpreter_ptr(
+        nullOut, 
+        nullOut, 
+        std::cerr);
+
+    thrust_control::ThrustControlSupervisor supervisor(
+        logger, 
+        std::move(interpreter),
+        thrust_control::CommandQueue());
+
+    std::array<float,6> position = {0,1.5,1.8,-99,0,0};
+    std::array<float,6> waypoints = {-9,10,42.5,42.0,0,1};
+    
+    pwm_array pwm_1 = {1900, 1500, 1100, 1240, 1240, 1900, 1500, 1500};
+    pwm_array pwm_2 = {1500, 1900, 1240, 1100, 1300, 1500, 1900, 1500};
+    std::unique_ptr<SupervisorCommand> command_1 = std::make_unique<Timed_Command>(pwm_1, std::chrono::milliseconds(50));
+    std::unique_ptr<SupervisorCommand> command_2 =  std::make_unique<Timed_Command>(pwm_2, std::chrono::milliseconds(50), true);
+
+    supervisor.push_to_pwm_queue(std::move(command_1));
+    supervisor.push_to_pwm_queue(std::move(command_2));
+
+    supervisor.step(FeedForward, position, waypoints);
+    EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
+    EXPECT_EQ(supervisor.get_current_position(), position);
+    EXPECT_EQ(supervisor.get_waypoint(), waypoints);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
+
+    supervisor.step(FeedForward, position, waypoints);
+    EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
+    EXPECT_EQ(supervisor.get_current_position(), position);
+    EXPECT_EQ(supervisor.get_waypoint(), waypoints);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
+}
+
+TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideUntimed) {
+
+    auto interpreter = make_command_interpreter_ptr(
+        nullOut, 
+        nullOut, 
+        std::cerr);
+
+    thrust_control::ThrustControlSupervisor supervisor(
+        logger, 
+        std::move(interpreter),
+        thrust_control::CommandQueue());
+
+    std::array<float,6> position = {0,1.5,1.8,-99,0,0};
+    std::array<float,6> waypoints = {-9,10,42.5,42.0,0,1};
+    
+    pwm_array pwm_1 = {1900, 1500, 1100, 1240, 1240, 1900, 1500, 1500};
+    pwm_array pwm_2 = {1500, 1900, 1240, 1100, 1300, 1500, 1900, 1500};
+    std::unique_ptr<SupervisorCommand> command_1 = std::make_unique<Untimed_Command>(pwm_1, false);
+    std::unique_ptr<SupervisorCommand> command_2 =  std::make_unique<Timed_Command>(pwm_2, std::chrono::milliseconds(50), true);
+
+    supervisor.push_to_pwm_queue(std::move(command_1));
+    supervisor.push_to_pwm_queue(std::move(command_2));
+
+    supervisor.step(FeedForward, position, waypoints);
+    EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
+    EXPECT_EQ(supervisor.get_current_position(), position);
+    EXPECT_EQ(supervisor.get_waypoint(), waypoints);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
+
+    supervisor.step(FeedForward, position, waypoints);
+    EXPECT_EQ(supervisor.get_control_mode(), FeedForward);
+    EXPECT_EQ(supervisor.get_current_position(), position);
+    EXPECT_EQ(supervisor.get_waypoint(), waypoints);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
+}
+
+//TODO: Test PID

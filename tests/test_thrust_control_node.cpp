@@ -62,6 +62,7 @@ protected:
     }
 
     rclcpp::Logger logger;
+    std::ofstream nullOut = std::ofstream("/dev/null");
 };
 
 
@@ -147,3 +148,14 @@ TEST_F(ThrustControlNodeTest, TimerCallbackExecutes) {
 
 
 
+TEST_F(ThrustControlNodeTest, Constructor) {
+    auto interpreter = make_command_interpreter_ptr(
+            nullOut, 
+            nullOut, 
+            std::cerr);
+    auto node =         
+            std::make_shared<thrust_control::ThrustControlNode>(
+                    std::move(interpreter));
+    ASSERT_NO_THROW({rclcpp::spin_some(node);});
+    node.reset();
+}

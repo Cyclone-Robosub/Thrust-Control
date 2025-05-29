@@ -3,13 +3,13 @@
 namespace thrust_control {
 
 CommandQueue::CommandQueue() {
-    command_queue_ = std::queue<std::unique_ptr<SupervisorCommand>>{};
+    command_queue_ = std::deque<std::unique_ptr<SupervisorCommand>>{};
 }
 
 
 void CommandQueue::push_command(std::unique_ptr<SupervisorCommand> new_command)
 {
-    command_queue_.push(std::move(new_command));
+    command_queue_.push_back(std::move(new_command));
 }
 
 std::unique_ptr<SupervisorCommand> CommandQueue::make_new_command(
@@ -25,6 +25,9 @@ std::unique_ptr<SupervisorCommand> CommandQueue::make_new_command(
         }
     }
 
+// This needs a parameter current_command so that the commands can persist correctly. For
+// example, if the queue is empty, an untimed command should be replaced with itself so that
+// the command runs indefinitely. For this, we need to know what the command that we just ran is.
 std::unique_ptr<SupervisorCommand> CommandQueue::get_command_from_queue(
     std::unique_ptr<SupervisorCommand> current_command)
 {
@@ -36,22 +39,27 @@ std::unique_ptr<SupervisorCommand> CommandQueue::get_command_from_queue(
         }
         else {
             auto next_command = std::move(command_queue_.front());
-            command_queue_.pop();
+            command_queue_.pop_front();
             return next_command;
         }
 }
 
 CommandQueue& CommandQueue::operator=(const CommandQueue& new_command_queue) {
     if (this != &new_command_queue) {
-        std::queue<std::unique_ptr<SupervisorCommand>> empty;
-        std::swap(this->command_queue_, empty);
-        while (!new_command_queue.command_queue_.empty()) {
-            this->command_queue_.push(std::move(command_queue_.front()));
-            command_queue_.pop();
+        command_queue_.clear();
+        for (const auto& command : new_command_queue.command_queue_) {
+            command_queue_.push_back(command->clone());
         }
     }
 
     return *this;
+}
+
+CommandQueue::CommandQueue(const CommandQueue& other) {
+    command_queue_.clear();
+    for (const auto& command : other.command_queue_) {
+        command_queue_.push_back(command->clone());
+    }
 }
 
 }

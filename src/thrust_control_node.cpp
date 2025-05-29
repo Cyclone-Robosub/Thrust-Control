@@ -3,22 +3,6 @@
 namespace thrust_control
 {
 
-ThrustControlNode::ThrustControlNode()
-    : 
-        Node("thrust_control_node"), 
-        supervisor_(this->get_logger(), nullptr, CommandQueue())
-{
-
-    _manual_pwm_subscription = 
-        this->create_subscription<std_msgs::msg::Int32MultiArray>(
-                manual_pwm_topic_, 
-                10, 
-                std::bind(
-                    &ThrustControlNode::pwm_topic_callback, 
-                    this, 
-                    std::placeholders::_1));
-}
-
 ThrustControlNode::ThrustControlNode
 (std::unique_ptr<Command_Interpreter_RPi5> interpreter) 
     : Node("thrust_control_node"), 
@@ -65,9 +49,9 @@ void ThrustControlNode::timer_callback()
     
     // this data should get replaced with data from callbacks
     // only exists as is here for testing putposes
-    ControlMode test_mode = Auto;
-    std::array<float, 6> test_pos = {0,0,0,0,0,0};
-    std::array<float, 6> waypoint = {0,0,0,0,0,0};
+    ControlMode test_mode = PID;
+    Position test_pos = {0,0,0,0,0,0};
+    Position waypoint = {0,0,0,0,0,0};
     
     supervisor_.step(
             test_mode,

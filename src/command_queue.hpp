@@ -10,6 +10,7 @@ namespace thrust_control {
 class CommandQueue {
 public:
     CommandQueue();
+    CommandQueue(const CommandQueue&);
     
     void push_command(std::unique_ptr<SupervisorCommand> new_command);
     
@@ -25,9 +26,7 @@ public:
     CommandQueue& operator=(const CommandQueue& new_command_queue);
 
     private:
-    std::queue<std::unique_ptr<SupervisorCommand>> command_queue_;
+    std::deque<std::unique_ptr<SupervisorCommand>> command_queue_;
 };
 
 }  // namespace thrust_control
-
-

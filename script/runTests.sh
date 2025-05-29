@@ -12,7 +12,7 @@
 source /opt/ros/jazzy/setup.bash
 
 # Build with testing enabled
-colcon build --cmake-args -DBUILD_TESTING=ON
+colcon build --cmake-args -DBUILD_TESTING=ON -DMOCK_RPI=ON
 
 # Source the local setup
 source install/setup.bash

@@ -9,15 +9,17 @@ ThrustControlSupervisor::ThrustControlSupervisor(
         CommandQueue command_queue)
   : _logger(logger),
     _interpreter(std::move(interpreter)),
-    _controller(std::make_unique<controller_codegenTest>())
+    _controller(std::make_unique<controller_codegenTest>()),
+    current_command(std::make_unique<Untimed_Command>(stop_set, false))
 {
   this->command_queue = command_queue;
+  current_command->start();
 }
 
-void ThrustControlSupervisor::update_pwm_queue(std::unique_ptr<SupervisorCommand> new_command)
+void ThrustControlSupervisor::push_to_pwm_queue(std::unique_ptr<SupervisorCommand> new_command)
 {
   if (new_command->isOverride()) {
-    current_command =std::move(new_command);
+    current_command = std::move(new_command);
     command_queue = CommandQueue();
   }
   else {
@@ -27,8 +29,8 @@ void ThrustControlSupervisor::update_pwm_queue(std::unique_ptr<SupervisorCommand
 
 void ThrustControlSupervisor::step(
   ControlMode control_mode,
-  std::array<float, 6> position,
-  std::array<float, 6> waypoint)
+  Position position,
+  Position waypoint)
 {
 
 	this->_control_mode = control_mode;
@@ -47,7 +49,7 @@ void ThrustControlSupervisor::process_pwm_command()
 void ThrustControlSupervisor::feed_forward_pwm()  
 {
   _auto_flag = false;
-  if (current_command->isFinished()) 
+  if (current_command->isFinished())
   {
     current_command = command_queue.get_command_from_queue(
             std::move(current_command));
@@ -77,6 +79,7 @@ void step_pathfinder()
 }
 void ThrustControlSupervisor::step_controller()
 {
+    pwm_array new_pwm;
     for (int i = 0; i < 6; i++)   
     {
         _controller->rtU.Input[i] = _current_position[i] - _waypoint[i];
@@ -85,8 +88,9 @@ void ThrustControlSupervisor::step_controller()
     
     for (int i = 0; i < 8; i++)
     {
-        _current_pwm.pwm_signals[i] = _controller->rtY.Out1[i];
+        new_pwm.pwm_signals[i] = _controller->rtY.Out1[i];
     }
+    current_command = std::make_unique<Untimed_Command>(new_pwm);
 }
 
 void log_array(rclcpp::Logger logger, const std::array<int, 8>& arr) {
@@ -102,11 +106,5 @@ void log_array(rclcpp::Logger logger, const std::array<int, 8>& arr) {
 
     RCLCPP_INFO(logger, "%s", ss.str().c_str());
 }
-//void ThrustControlSupervisor::execute_pwm(std::array<int, 8> pwm)
-//{   
-//        std::cout  pwm;
-//    //pwm_array p_w_m;
-//    // _interpreter->untimed_execute(pwm);
-//    // post sent pwm to sent_pwm topic
-//} 
+
 }
