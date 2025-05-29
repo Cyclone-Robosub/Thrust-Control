@@ -37,8 +37,10 @@ private:
 //  void cpwm_topic_callback(const st
   void duration_callback(const std_msgs::msg::Int64::SharedPtr msg) const;
   void manual_override_callback(const std_msgs::msg::Bool::SharedPtr msg) const;
+
   void timer_callback();
-  
+  void send_pwm();
+
   rclcpp::Subscription<std_msgs::msg::Int32MultiArray>::SharedPtr _manual_pwm_subscription;
   rclcpp::Publisher<std_msgs::msg::Int32MultiArray>::SharedPtr _pwm_publisher;
   rclcpp::TimerBase::SharedPtr timer_;
