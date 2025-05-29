@@ -7,7 +7,7 @@
 #include "Command_Interpreter.hpp"
 #include "command_interpreter_pointer.hpp"
 #include "thrust_control_node.hpp"
-
+#include "include/crs_ros2_interfaces/msg/pwm_cmd.hpp"
 
 class ThrustControlNodeTest : public ::testing::Test {
 
@@ -33,8 +33,8 @@ protected:
        
         test_node_sub_ = std::make_shared<rclcpp::Node>("test_subscriber_node");
         test_node_pub_ = std::make_shared<rclcpp::Node>("test_publisher_node");
-        
-        pwm_publisher_ = test_node_pub_->create_publisher<std_msgs::msg::Int32MultiArray>(
+
+        pwm_publisher_ = test_node_pub_->create_publisher<crs_ros2_interfaces::msg::PwmCmd>(
             "array_Cltool_topic", 10);
             
         pwm_subscriber_ = test_node_sub_->create_subscription<std_msgs::msg::Int32MultiArray>(
