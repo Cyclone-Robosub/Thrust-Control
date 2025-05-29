@@ -13,6 +13,7 @@
 #include "thrust_control_supervisor.hpp"
 #include "Command.hpp"
 #include "command_queue.hpp"
+#include "crs_ros2_interfaces/msg/pwm_cmd.hpp"
 //#include "include/crs_common/crs_ros2_interfaces/src/publish_pwm_cmd.cpp"
 // TODO
 // Add object for commands
@@ -34,6 +35,7 @@ private:
   void pwm_topic_callback(const std_msgs::msg::Int32MultiArray::SharedPtr msg);
 //  void cpwm_topic_callback(const st
   void duration_callback(const std_msgs::msg::Int64::SharedPtr msg) const;
+  void new_command_callback(const crs_ros2_interfaces::msg::PwmCmd msg) const;
   void manual_override_callback(const std_msgs::msg::Bool::SharedPtr msg) const;
   void timer_callback();
   

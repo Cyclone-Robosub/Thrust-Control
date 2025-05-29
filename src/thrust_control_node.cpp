@@ -75,4 +75,9 @@ void ThrustControlNode::timer_callback()
     }
 }
 
+void ThrustControlNode::new_command_callback(const crs_ros2_interfaces::msg::PwmCmd msg) const {
+    std::cout << msg.duration;
+    return;
+};
+
 }// namespace thrust_control 
