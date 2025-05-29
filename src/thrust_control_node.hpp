@@ -40,7 +40,7 @@ private:
   void timer_callback();
   
   rclcpp::Subscription<std_msgs::msg::Int32MultiArray>::SharedPtr _manual_pwm_subscription;
-  rclcpp::Publisher<std_msgs::msg::Int32MultiArray>::SharedPtr publisher_;
+  rclcpp::Publisher<std_msgs::msg::Int32MultiArray>::SharedPtr _pwm_publisher;
   rclcpp::TimerBase::SharedPtr timer_;
   
   ThrustControlSupervisor supervisor_;

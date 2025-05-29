@@ -31,7 +31,7 @@ ThrustControlNode::ThrustControlNode
                     this, 
                     std::placeholders::_1));
 
-    publisher_ = this->create_publisher<std_msgs::msg::Int32MultiArray>(
+    _pwm_publisher = this->create_publisher<std_msgs::msg::Int32MultiArray>(
             sent_pwm_topic_, 
             10);
         
@@ -73,7 +73,16 @@ void ThrustControlNode::timer_callback()
             test_mode,
             test_pos,
             waypoint);
+    pwm_array current_pwm = supervisor_.get_current_pwm();
 
+    // Convert pwm_array to ROS2 message
+    auto pwm_msg = std_msgs::msg::Int32MultiArray();
+    pwm_msg.data.resize(8);
+    for (int i = 0; i < 8; i++) {
+        pwm_msg.data[i] = current_pwm.pwm_signals[i];
+    }
+
+    _pwm_publisher->publish(pwm_msg);
     RCLCPP_INFO(this->get_logger(), "%s", ss.str().c_str());
 
     std::lock_guard<std::mutex> lock(message_mutex_);
