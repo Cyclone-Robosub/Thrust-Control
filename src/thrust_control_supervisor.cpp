@@ -29,8 +29,8 @@ void ThrustControlSupervisor::push_to_pwm_queue(std::unique_ptr<SupervisorComman
 
 void ThrustControlSupervisor::step(
   ControlMode control_mode,
-  std::array<float, 6> position,
-  std::array<float, 6> waypoint)
+  Position position,
+  Position waypoint)
 {
 
 	this->_control_mode = control_mode;

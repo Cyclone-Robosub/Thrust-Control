@@ -37,6 +37,8 @@ add_executable(thrust_control
   src/command_queue.hpp
   src/supervisor_command.cpp
   src/supervisor_command.hpp
+  src/position.cpp
+  src/position.hpp
 )
 
 target_include_directories(thrust_control
@@ -86,7 +88,9 @@ if(BUILD_TESTING)
     src/command_queue.cpp
     src/command_queue.hpp
     src/supervisor_command.cpp
-    src/supervisor_command.hpp  
+    src/supervisor_command.hpp
+    src/position.cpp
+    src/position.hpp
   )
 
   target_include_directories(thrust_control_tests PRIVATE

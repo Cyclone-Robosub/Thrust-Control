@@ -62,5 +62,4 @@ CommandQueue::CommandQueue(const CommandQueue& other) {
     }
 }
 
-
 }

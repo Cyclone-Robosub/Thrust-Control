@@ -50,8 +50,8 @@ void ThrustControlNode::timer_callback()
     // this data should get replaced with data from callbacks
     // only exists as is here for testing putposes
     ControlMode test_mode = PID;
-    std::array<float, 6> test_pos = {0,0,0,0,0,0};
-    std::array<float, 6> waypoint = {0,0,0,0,0,0};
+    Position test_pos = {0,0,0,0,0,0};
+    Position waypoint = {0,0,0,0,0,0};
     
     supervisor_.step(
             test_mode,
