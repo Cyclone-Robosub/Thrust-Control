@@ -333,7 +333,6 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideUntimed) {
 }
 
 
-//TODO: Test PID
 
 // Test overloaded push_to_pwm_queue function with untimed command, non-override
 TEST_F(ThrustControlSupervisorTest, PushToQueueUntimedNonOverride) {
@@ -352,6 +351,11 @@ TEST_F(ThrustControlSupervisorTest, PushToQueueUntimedNonOverride) {
     supervisor.push_to_pwm_queue(test_pwm, 0.0f, false, false);
     
     supervisor.step(FeedForward, position, waypoint);
+     
+     // Step many times to ensure the timed command is not overridden
+    for (int i = 0; i < 100; i++) {
+        supervisor.step(FeedForward, position, waypoint);
+    }
     
     EXPECT_EQ(supervisor.get_current_pwm(), test_pwm);
 }
@@ -399,6 +403,7 @@ TEST_F(ThrustControlSupervisorTest, PushToQueueTimedNonOverride) {
     
     supervisor.step(FeedForward, position, waypoint);
     
+   
     EXPECT_EQ(supervisor.get_current_pwm(), test_pwm);
 }
 
@@ -507,3 +512,5 @@ TEST_F(ThrustControlSupervisorTest, PushToQueueOverrideClearsQueue) {
     supervisor.step(FeedForward, position, waypoint);
     EXPECT_EQ(supervisor.get_current_pwm(), after_override_pwm);
 }
+
+
