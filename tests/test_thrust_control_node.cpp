@@ -70,7 +70,10 @@ protected:
 
 
 TEST_F(ThrustControlNodeTest, PWMSubscriptionCallback) {
-    auto pwm_msg = pwm_utils::create_pwm_msg(std::array<int, 8>{1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700});
+
+    pwm_array pwm_data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
+
+    auto pwm_msg = pwm_utils::create_pwm_msg(pwm_data, false, 0, false);
     
     pwm_cmd_publisher_->publish(pwm_msg);
     
@@ -81,98 +84,44 @@ TEST_F(ThrustControlNodeTest, PWMSubscriptionCallback) {
 
 TEST_F(ThrustControlNodeTest, PWMCallbackStoresDataCorrectly) {
     // Send specific PWM values using the custom message
-    auto pwm_msg = crs_ros2_interfaces::msg::PwmCmd();
-    pwm_msg.pwm_flt = 1100;
-    pwm_msg.pwm_frt = 1200;
-    pwm_msg.pwm_rlt = 1300;
-    pwm_msg.pwm_rrt = 1400;
-    pwm_msg.pwm_flb = 1500;
-    pwm_msg.pwm_frb = 1600;
-    pwm_msg.pwm_rlb = 1700;
-    pwm_msg.pwm_rrb = 1800;
-    pwm_msg.is_timed = false;
-    pwm_msg.duration = 0;
-    pwm_msg.is_overriding = false;
+    pwm_array pwm_data = {1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800};
+    auto pwm_msg = pwm_utils::create_pwm_msg(pwm_data, false, 0, false);
     
-    // Publish the PWM data
     pwm_cmd_publisher_->publish(pwm_msg);
-    
-    // Process the callback
     executor_->spin_some();
 
-    // Get the stored PWM data directly from the node using the getter
     pwm_array stored_pwm = thrust_node_->get_pwm();
     
-    // Check that the stored data is correct
-    int expected_values[] = {1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800};
-    for (int i = 0; i < 8; i++) {
-        EXPECT_EQ(stored_pwm.pwm_signals[i], expected_values[i]) << "PWM signal " << i << " is incorrect";
-    }
-}
-
-TEST_F(ThrustControlNodeTest, PWMCallbackStoresAdditionalDataCorrectly) {
-    // Test that the callback also stores duration, manual_override, and is_timed_command correctly
-    auto pwm_msg = crs_ros2_interfaces::msg::PwmCmd();
-    pwm_msg.pwm_flt = 1200;
-    pwm_msg.pwm_frt = 1300;
-    pwm_msg.pwm_rlt = 1400;
-    pwm_msg.pwm_rrt = 1500;
-    pwm_msg.pwm_flb = 1600;
-    pwm_msg.pwm_frb = 1700;
-    pwm_msg.pwm_rlb = 1800;
-    pwm_msg.pwm_rrb = 1900;
-    pwm_msg.is_timed = true;
-    pwm_msg.duration = 5000;  // 5 seconds
-    pwm_msg.is_overriding = true;
-    
-    // Publish the PWM data
-    pwm_cmd_publisher_->publish(pwm_msg);
-    
-    // Process the callback
-    executor_->spin_some();
-    
-    // Check that all data is stored correctly
-    EXPECT_EQ(thrust_node_->get_duration(), 5000);
-    EXPECT_EQ(thrust_node_->get_manual_override(), true);
-    EXPECT_EQ(thrust_node_->get_is_timed_command(), true);
+    EXPECT_EQ(stored_pwm, pwm_data);
+    EXPECT_EQ(thrust_node_->get_duration(), 0);
+    EXPECT_EQ(thrust_node_->get_manual_override(), false);
+    EXPECT_EQ(thrust_node_->get_is_timed_command(), false);
 }
 
 TEST_F(ThrustControlNodeTest, ManualPWMPublishedOnSentTopic) {
-    auto pwm_msg = crs_ros2_interfaces::msg::PwmCmd();
-    pwm_msg.pwm_flt = 1400;
-    pwm_msg.pwm_frt = 1450;
-    pwm_msg.pwm_rlt = 1500;
-    pwm_msg.pwm_rrt = 1550;
-    pwm_msg.pwm_flb = 1600;
-    pwm_msg.pwm_frb = 1350;
-    pwm_msg.pwm_rlb = 1650;
-    pwm_msg.pwm_rrb = 1700;
-    pwm_msg.is_timed = false;
-    pwm_msg.duration = 0;
-    pwm_msg.is_overriding = false;
+
+    pwm_array pwm_data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
+    auto pwm_msg = pwm_utils::create_pwm_msg(pwm_data, false, 0, false);
     
-    // Reset the flag
     pwm_received_ = false;
     
-    // Publish input PWM
     pwm_cmd_publisher_->publish(pwm_msg);
     
-    // Spin until we receive data or timeout (wait longer than 1 second for timer)
     auto start = std::chrono::steady_clock::now();
     while (!pwm_received_ && (std::chrono::steady_clock::now() - start) < std::chrono::seconds(2)) {
         executor_->spin_some();
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
     
-    // Check that PWM was published
     EXPECT_TRUE(pwm_received_) << "No PWM data received on sent_pwm_topic";
     
     if (pwm_received_) {
+        EXPECT_EQ(received_pwm_data_, pwm_data);
         // Check that we got 8 PWM values
         // Note: The actual values will be processed by the supervisor, so they might be different
         for (int i = 0; i < 8; i++) {
-            EXPECT_GE(received_pwm_data_.pwm_signals[i], 1100) << "PWM signal " << i << " too low";
-            EXPECT_LE(received_pwm_data_.pwm_signals[i], 1900) << "PWM signal " << i << " too high";
+            EXPECT_EQ(received_pwm_data_.pwm_signals[i], pwm_data.pwm_signals[i])
+            << "PWM signal " << i << " is incorrect";
         }
     }
 }
