@@ -8,13 +8,6 @@ ThrustControlNode::ThrustControlNode
     : Node("thrust_control_node"), 
     supervisor_(this->get_logger(), std::move(interpreter), CommandQueue())
 {
-//    _manual_pwm_subscription =  
-//        this->create_subscription<std_msgs::msg::Int32MultiArray>(
-//                manual_pwm_topic_, 
-//                10, std::bind(&ThrustControlNode::pwm_topic_callback, 
-//                    this, 
-//                    std::placeholders::_1));
-//
 
     _manual_pwm_subscription =  
         this->create_subscription<crs_ros2_interfaces::msg::PwmCmd>(
@@ -32,23 +25,6 @@ ThrustControlNode::ThrustControlNode
             std::bind(&ThrustControlNode::timer_callback, this));
 
 }
-
-//void ThrustControlNode::pwm_topic_callback(const std_msgs::msg::Int32MultiArray::SharedPtr msg)
-//{
-//  RCLCPP_INFO(this->get_logger(), "Received PWM array with %zu values", msg->data.size());
-//  
-//  // Print the values in the array
-//  std::stringstream ss;
-//  ss << "PWM values: ";
-//  for (size_t i = 0; i < msg->data.size(); ++i) {
-//    pwm_.pwm_signals[i] = msg->data[i];  
-//    ss << msg->data[i];
-//    if (i < msg->data.size() - 1) {
-//      ss << ", ";
-//    }
-//  }
-//  RCLCPP_INFO(this->get_logger(), "%s", ss.str().c_str());
-//}
 void ThrustControlNode::pwm_topic_callback(const crs_ros2_interfaces::msg::PwmCmd::SharedPtr msg)
 {
     // consolidate pwm data into a single array

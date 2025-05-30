@@ -42,26 +42,18 @@ private:
   std_msgs::msg::String::SharedPtr last_message_ = nullptr;
   std::mutex message_mutex_;
 
-  //void pwm_topic_callback(const std_msgs::msg::Int32MultiArray::SharedPtr msg);
   void pwm_topic_callback(const crs_ros2_interfaces::msg::PwmCmd::SharedPtr msg);
-  
-//  void cpwm_topic_callback(const st
-  //void duration_callback(const std_msgs::msg::Int64::SharedPtr msg) const;
-  //void manual_override_callback(const std_msgs::msg::Bool::SharedPtr msg) const;
 
   void timer_callback();
   void send_pwm();
 
-  //rclcpp::Subscription<std_msgs::msg::Int32MultiArray>::SharedPtr _manual_pwm_subscription;
   rclcpp::Subscription<crs_ros2_interfaces::msg::PwmCmd>::SharedPtr _manual_pwm_subscription;
   rclcpp::Publisher<std_msgs::msg::Int32MultiArray>::SharedPtr _pwm_publisher;
   rclcpp::TimerBase::SharedPtr timer_;
   
   ThrustControlSupervisor supervisor_;
   
-  //std::string manual_pwm_topic_ = "array_Cltool_topic";
   std::string manual_pwm_topic_ = "pwm_cmd_topic";
-  //std::string duration_topic_ = "duation_Cltool_topic";
   std::string position_topic_ = "position_topic";
   std::string waypoint_topic_ = "waypoint_topic";
   std::string sent_pwm_topic_ = "sent_pwm_topic";
