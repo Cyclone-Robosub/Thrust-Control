@@ -37,6 +37,7 @@ public:
           CommandQueue command_queue);
   
   void push_to_pwm_queue(std::unique_ptr<SupervisorCommand> new_command);
+  void push_to_pwm_queue(pwm_array pwm, float duration, bool is_timed_command, bool is_override);
 
   void step(
 	  ControlMode control_mode,

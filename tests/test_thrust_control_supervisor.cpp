@@ -332,4 +332,178 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideUntimed) {
     EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
 }
 
+
 //TODO: Test PID
+
+// Test overloaded push_to_pwm_queue function with untimed command, non-override
+TEST_F(ThrustControlSupervisorTest, PushToQueueUntimedNonOverride) {
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
+    
+    thrust_control::ThrustControlSupervisor supervisor(
+        logger, 
+        std::move(interpreter),
+        thrust_control::CommandQueue());
+
+    Position position;
+    Position waypoint;
+    
+    pwm_array test_pwm = {1600, 1700, 1400, 1300, 1800, 1200, 1650, 1550};
+    
+    supervisor.push_to_pwm_queue(test_pwm, 0.0f, false, false);
+    
+    supervisor.step(FeedForward, position, waypoint);
+    
+    EXPECT_EQ(supervisor.get_current_pwm(), test_pwm);
+}
+
+// Test overloaded push_to_pwm_queue function with untimed command, override
+TEST_F(ThrustControlSupervisorTest, PushToQueueUntimedOverride) {
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
+    
+    thrust_control::ThrustControlSupervisor supervisor(
+        logger, 
+        std::move(interpreter),
+        thrust_control::CommandQueue());
+
+    Position position;
+    Position waypoint;
+    
+    pwm_array initial_pwm = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500};
+    pwm_array override_pwm = {1800, 1200, 1900, 1100, 1700, 1300, 1600, 1400};
+    
+    supervisor.push_to_pwm_queue(initial_pwm, 0.0f, false, false);
+    
+    supervisor.push_to_pwm_queue(override_pwm, 0.0f, false, true);
+    
+    supervisor.step(FeedForward, position, waypoint);
+    
+    EXPECT_EQ(supervisor.get_current_pwm(), override_pwm);
+}
+
+// Test overloaded push_to_pwm_queue function with timed command, non-override
+TEST_F(ThrustControlSupervisorTest, PushToQueueTimedNonOverride) {
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
+    
+    thrust_control::ThrustControlSupervisor supervisor(
+        logger, 
+        std::move(interpreter),
+        thrust_control::CommandQueue());
+
+    Position position;
+    Position waypoint;
+    
+    pwm_array test_pwm = {1650, 1350, 1750, 1250, 1850, 1150, 1550, 1450};
+    float duration = 100.0f; // 100ms
+    
+    supervisor.push_to_pwm_queue(test_pwm, duration, true, false);
+    
+    supervisor.step(FeedForward, position, waypoint);
+    
+    EXPECT_EQ(supervisor.get_current_pwm(), test_pwm);
+}
+
+// Test overloaded push_to_pwm_queue function with timed command, override
+TEST_F(ThrustControlSupervisorTest, PushToQueueTimedOverride) {
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
+    
+    thrust_control::ThrustControlSupervisor supervisor(
+        logger, 
+        std::move(interpreter),
+        thrust_control::CommandQueue());
+
+    Position position;
+    Position waypoint;
+    
+    pwm_array initial_pwm = {1600, 1400, 1600, 1400, 1600, 1400, 1600, 1400};
+    pwm_array timed_override_pwm = {1900, 1100, 1800, 1200, 1700, 1300, 1950, 1050};
+    float duration = 50.0f; // 50ms
+    
+    supervisor.push_to_pwm_queue(initial_pwm, 0.0f, false, false);
+    
+    supervisor.push_to_pwm_queue(timed_override_pwm, duration, true, true);
+    
+    supervisor.step(FeedForward, position, waypoint);
+    
+    EXPECT_EQ(supervisor.get_current_pwm(), timed_override_pwm);
+}
+
+// Test multiple commands with overloaded function
+TEST_F(ThrustControlSupervisorTest, PushToQueueMultipleCommands) {
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
+    
+    thrust_control::ThrustControlSupervisor supervisor(
+        logger, 
+        std::move(interpreter),
+        thrust_control::CommandQueue());
+
+    Position position;
+    Position waypoint;
+    
+    pwm_array pwm_1 = {1600, 1400, 1700, 1300, 1800, 1200, 1650, 1350};
+    pwm_array pwm_2 = {1550, 1450, 1650, 1350, 1750, 1250, 1600, 1400};
+    
+    supervisor.push_to_pwm_queue(pwm_1, 0.0f, false, false);
+    supervisor.push_to_pwm_queue(pwm_2, 0.0f, false, false);
+    
+    supervisor.step(FeedForward, position, waypoint);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_1);
+    
+    supervisor.step(FeedForward, position, waypoint);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
+    
+    supervisor.step(FeedForward, position, waypoint);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_2);
+}
+
+// Test that duration parameter is properly handled for untimed commands
+TEST_F(ThrustControlSupervisorTest, PushToQueueUntimedIgnoresDuration) {
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
+    
+    thrust_control::ThrustControlSupervisor supervisor(
+        logger, 
+        std::move(interpreter),
+        thrust_control::CommandQueue());
+
+    Position position;
+    Position waypoint;
+    
+    pwm_array test_pwm = {1700, 1300, 1800, 1200, 1600, 1400, 1750, 1250};
+    
+    supervisor.push_to_pwm_queue(test_pwm, 1000.0f, false, false);
+    
+    supervisor.step(FeedForward, position, waypoint);
+    EXPECT_EQ(supervisor.get_current_pwm(), test_pwm);
+    
+    supervisor.step(FeedForward, position, waypoint);
+    EXPECT_EQ(supervisor.get_current_pwm(), test_pwm);
+}
+
+// Test override clears command queue
+TEST_F(ThrustControlSupervisorTest, PushToQueueOverrideClearsQueue) {
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
+    
+    thrust_control::ThrustControlSupervisor supervisor(
+        logger, 
+        std::move(interpreter),
+        thrust_control::CommandQueue());
+
+    Position position;
+    Position waypoint;
+    
+    pwm_array queued_pwm = {1600, 1400, 1600, 1400, 1600, 1400, 1600, 1400};
+    pwm_array override_pwm = {1800, 1200, 1800, 1200, 1800, 1200, 1800, 1200};
+    pwm_array after_override_pwm = {1700, 1300, 1700, 1300, 1700, 1300, 1700, 1300};
+    
+    supervisor.push_to_pwm_queue(queued_pwm, 0.0f, false, false);
+    supervisor.push_to_pwm_queue(queued_pwm, 0.0f, false, false);
+    
+    supervisor.push_to_pwm_queue(override_pwm, 0.0f, false, true);
+    
+    supervisor.push_to_pwm_queue(after_override_pwm, 0.0f, false, false);
+    
+    supervisor.step(FeedForward, position, waypoint);
+    EXPECT_EQ(supervisor.get_current_pwm(), override_pwm);
+    
+    supervisor.step(FeedForward, position, waypoint);
+    EXPECT_EQ(supervisor.get_current_pwm(), after_override_pwm);
+}

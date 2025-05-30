@@ -27,6 +27,18 @@ void ThrustControlSupervisor::push_to_pwm_queue(std::unique_ptr<SupervisorComman
   }
 }
 
+void ThrustControlSupervisor::push_to_pwm_queue(pwm_array pwm, float duration, bool is_timed_command, bool is_override)
+{
+  if (is_timed_command) {
+    auto timed_command = std::make_unique<Timed_Command>(pwm, std::chrono::milliseconds(static_cast<int>(duration)), is_override);
+    push_to_pwm_queue(std::move(timed_command));
+  }
+  else {
+    auto untimed_command = std::make_unique<Untimed_Command>(pwm, is_override);
+    push_to_pwm_queue(std::move(untimed_command));
+  }
+}
+
 void ThrustControlSupervisor::step(
   ControlMode control_mode,
   Position position,
