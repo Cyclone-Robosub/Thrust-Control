@@ -17,9 +17,6 @@
 
 //#include "include/crs_common/crs_ros2_interfaces/src/publish_pwm_cmd.cpp"
 // TODO
-// Add object for commands
-// Add second public function to set pwms & remove setters from step()
-// Add functionality for timed commands
 
 namespace thrust_control
 {
@@ -43,11 +40,12 @@ private:
   std::mutex message_mutex_;
 
   void pwm_topic_callback(const crs_ros2_interfaces::msg::PwmCmd::SharedPtr msg);
-
+  void control_mode_callback(const std_msgs::msg::String::SharedPtr msg);
   void timer_callback();
   void send_pwm();
 
   rclcpp::Subscription<crs_ros2_interfaces::msg::PwmCmd>::SharedPtr _manual_pwm_subscription;
+  rclcpp::Subscription<std_msgs::msg::String>::SharedPtr _control_mode_subscription;
   rclcpp::Publisher<std_msgs::msg::Int32MultiArray>::SharedPtr _pwm_publisher;
   rclcpp::TimerBase::SharedPtr timer_;
   
@@ -57,12 +55,14 @@ private:
   std::string position_topic_ = "position_topic";
   std::string waypoint_topic_ = "waypoint_topic";
   std::string sent_pwm_topic_ = "sent_pwm_topic";
-    
+  std::string control_mode_topic_ = "control_mode_topic";
+
+  // start at stop set
   pwm_array pwm_ ={ {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}};
   float duration_ = 0;
   bool manual_override_ = false;
   bool is_timed_command_ = false;
-
+  ControlMode control_mode_ = ControlMode::FeedForward;
 };
 
 }  // namespace thrust_control

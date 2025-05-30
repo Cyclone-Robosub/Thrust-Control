@@ -25,7 +25,7 @@
 namespace thrust_control
 {
 
-enum ControlMode {FeedForward, PID};
+enum ControlMode {FeedForward, PID, STOP};
 
 class ThrustControlSupervisor
 {

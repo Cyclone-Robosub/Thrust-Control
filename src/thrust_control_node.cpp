@@ -16,6 +16,13 @@ ThrustControlNode::ThrustControlNode
                     this, 
                     std::placeholders::_1));
 
+    _control_mode_subscription =
+        this->create_subscription<std_msgs::msg::String>(
+                control_mode_topic_,
+                10, std::bind(&ThrustControlNode::control_mode_callback,
+                    this,
+                    std::placeholders::_1));
+
     _pwm_publisher = this->create_publisher<std_msgs::msg::Int32MultiArray>(
             sent_pwm_topic_, 
             10);
@@ -42,6 +49,24 @@ void ThrustControlNode::pwm_topic_callback(const crs_ros2_interfaces::msg::PwmCm
     manual_override_ = msg->is_overriding;
     is_timed_command_ = msg->is_timed;
 }
+
+void ThrustControlNode::control_mode_callback(const std_msgs::msg::String::SharedPtr msg)
+{
+    // Convert string to ControlMode enum
+    std::string mode_str = msg->data;
+    if (mode_str == "FeedForward") {
+        control_mode_ = ControlMode::FeedForward;
+    } else if (mode_str == "PID") {
+        control_mode_ = ControlMode::PID;
+    } else if (mode_str == "STOP") {
+        control_mode_ = ControlMode::STOP;
+    } else {
+        RCLCPP_WARN(this->get_logger(), "Unknown control mode: %s. Defaulting to FeedForward.", mode_str.c_str());
+        control_mode_ = ControlMode::FeedForward;
+    }
+    
+    RCLCPP_INFO(this->get_logger(), "Control mode set to: %s", mode_str.c_str());
+}   
 
 void ThrustControlNode::timer_callback()
 {
