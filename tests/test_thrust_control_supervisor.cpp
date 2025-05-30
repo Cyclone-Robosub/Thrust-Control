@@ -5,7 +5,7 @@
 #include "Command_Interpreter.hpp"
 #include "command_interpreter_pointer.hpp"
 #include "Command.hpp"
-
+#include "position.hpp"
 #include "sets.hpp"
 #include <fstream>
 
@@ -69,8 +69,8 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorPidNoError) {
             thrust_control::CommandQueue());
 
     thrust_control::ControlMode control_mode = thrust_control::ControlMode::PID;
-    std::array<float, 6> position = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
-    std::array<float, 6> waypoint = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
+    Position position(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+    Position waypoint(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
     
     ASSERT_NO_THROW({
         supervisor.step(control_mode, position, waypoint);
@@ -98,8 +98,8 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorPidWithError) {
         std::move(interpreter),
         thrust_control::CommandQueue());
 
-    std::array<float, 6> position = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
-    std::array<float, 6> waypoints = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f};
+    Position position(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f); // Default constructor creates (0,0,0,0,0,0)
+    Position waypoints(0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f);
    
  
     supervisor.step(PID, position, waypoints);
@@ -130,8 +130,9 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorCustomFeedForward) {
         std::move(interpreter),
         thrust_control::CommandQueue());
 
-    std::array<float,6> position = {0,1.5,1.8,-99,0,0};
-    std::array<float,6> waypoints = {-9,10,42.5,42.0,0,1};
+    Position position(0.0f, 1.5f, 1.8f, -99.0f, 0.0f, 0.0f);
+    Position waypoints(-9.0f, 10.0f, 42.5f, 42.0f, 0.0f, 1.0f);
+ 
     pwm_array pwm = {1900, 1500, 1100, 1240, 1240, 1900, 1500, 1500};
     std::unique_ptr<SupervisorCommand> untimed_command = std::make_unique<Untimed_Command>(pwm);
 
@@ -156,8 +157,8 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorMultiStep) {
         std::move(interpreter),
         thrust_control::CommandQueue());
 
-    std::array<float,6> position = {0,1.5,1.8,-99,0,0};
-    std::array<float,6> waypoints = {-9,10,42.5,42.0,0,1};
+    Position position(0.0f, 1.5f, 1.8f, -99.0f, 0.0f, 0.0f);
+    Position waypoints(-9.0f, 10.0f, 42.5f, 42.0f, 0.0f, 1.0f);
 
     pwm_array pwm_1 = {1900, 1500, 1100, 1240, 1240, 1900, 1500, 1500};
     pwm_array pwm_2 = {1500, 1900, 1240, 1100, 1300, 1500, 1900, 1500};
@@ -198,8 +199,8 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorUntimedOverrideUntimed) {
         std::move(interpreter),
         thrust_control::CommandQueue());
 
-    std::array<float,6> position = {0,1.5,1.8,-99,0,0};
-    std::array<float,6> waypoints = {-9,10,42.5,42.0,0,1};
+    Position position(0.0f, 1.5f, 1.8f, -99.0f, 0.0f, 0.0f);
+    Position waypoints(-9.0f, 10.0f, 42.5f, 42.0f, 0.0f, 1.0f);
     
     pwm_array pwm_1 = {1900, 1500, 1100, 1240, 1240, 1900, 1500, 1500};
     pwm_array pwm_2 = {1500, 1900, 1240, 1100, 1300, 1500, 1900, 1500};
@@ -234,8 +235,8 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorUntimedOverrideTimed) {
         std::move(interpreter),
         thrust_control::CommandQueue());
 
-    std::array<float,6> position = {0,1.5,1.8,-99,0,0};
-    std::array<float,6> waypoints = {-9,10,42.5,42.0,0,1};
+    Position position(0.0f, 1.5f, 1.8f, -99.0f, 0.0f, 0.0f);
+    Position waypoints(-9.0f, 10.0f, 42.5f, 42.0f, 0.0f, 1.0f);
     
     pwm_array pwm_1 = {1900, 1500, 1100, 1240, 1240, 1900, 1500, 1500};
     pwm_array pwm_2 = {1500, 1900, 1240, 1100, 1300, 1500, 1900, 1500};
@@ -271,8 +272,8 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideTimed) {
         std::move(interpreter),
         thrust_control::CommandQueue());
 
-    std::array<float,6> position = {0,1.5,1.8,-99,0,0};
-    std::array<float,6> waypoints = {-9,10,42.5,42.0,0,1};
+    Position position(0.0f, 1.5f, 1.8f, -99.0f, 0.0f, 0.0f);
+    Position waypoints(-9.0f, 10.0f, 42.5f, 42.0f, 0.0f, 1.0f);
     
     pwm_array pwm_1 = {1900, 1500, 1100, 1240, 1240, 1900, 1500, 1500};
     pwm_array pwm_2 = {1500, 1900, 1240, 1100, 1300, 1500, 1900, 1500};
@@ -307,8 +308,8 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideUntimed) {
         std::move(interpreter),
         thrust_control::CommandQueue());
 
-    std::array<float,6> position = {0,1.5,1.8,-99,0,0};
-    std::array<float,6> waypoints = {-9,10,42.5,42.0,0,1};
+    Position position(0.0f, 1.5f, 1.8f, -99.0f, 0.0f, 0.0f);
+    Position waypoints(-9.0f, 10.0f, 42.5f, 42.0f, 0.0f, 1.0f);
     
     pwm_array pwm_1 = {1900, 1500, 1100, 1240, 1240, 1900, 1500, 1500};
     pwm_array pwm_2 = {1500, 1900, 1240, 1100, 1300, 1500, 1900, 1500};

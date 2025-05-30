@@ -58,7 +58,7 @@ private:
   std::string control_mode_topic_ = "control_mode_topic";
 
   // start at stop set
-  pwm_array pwm_ ={ {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}};
+  pwm_array pwm_ = { {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}};
   float duration_ = 0;
   bool manual_override_ = false;
   bool is_timed_command_ = false;

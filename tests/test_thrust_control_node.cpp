@@ -162,8 +162,8 @@ TEST_F(ThrustControlNodeTest, TimerCallbackExecutes) {
     
     if (pwm_received_) {
         for (int i = 0; i < 8; i++) {
-            EXPECT_GE(received_pwm_data_.pwm_signals[i], 1000);
-            EXPECT_LE(received_pwm_data_.pwm_signals[i], 2000);
+            EXPECT_GE(received_pwm_data_.pwm_signals[i], 1200);
+            EXPECT_LE(received_pwm_data_.pwm_signals[i], 1900);
         }
     }
 }
