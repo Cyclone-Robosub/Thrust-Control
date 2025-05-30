@@ -7,6 +7,7 @@
 #include "Command_Interpreter.hpp"
 #include "command_interpreter_pointer.hpp"
 #include "thrust_control_node.hpp"
+#include "pwm_message_utils.hpp"
 
 class ThrustControlNodeTest : public ::testing::Test {
 
@@ -19,6 +20,7 @@ protected:
     
     rclcpp::Publisher<crs_ros2_interfaces::msg::PwmCmd>::SharedPtr pwm_cmd_publisher_;
     rclcpp::Subscription<std_msgs::msg::Int32MultiArray>::SharedPtr pwm_subscriber_;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr control_mode_publisher_;
     std::shared_ptr<rclcpp::executors::SingleThreadedExecutor> executor_;
     
     std::unique_ptr<Command_Interpreter_RPi5> interpreter_;
@@ -66,29 +68,9 @@ protected:
 };
 
 
-//TEST_F(ThrustControlNodeTest, PWMSubscriptionCallback) {
-    //auto pwm_msg = std_msgs::msg::Int32MultiArray();
-    //pwm_msg.data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
-    
-    //pwm_publisher_->publish(pwm_msg);
-    
-    //ASSERT_NO_THROW({
-        //executor_->spin_some();
-    //});
-//}
+
 TEST_F(ThrustControlNodeTest, PWMSubscriptionCallback) {
-    auto pwm_msg = crs_ros2_interfaces::msg::PwmCmd();
-    pwm_msg.pwm_flt = 1400;
-    pwm_msg.pwm_frt = 1450;
-    pwm_msg.pwm_rlt = 1500;
-    pwm_msg.pwm_rrt = 1550;
-    pwm_msg.pwm_flb = 1600;
-    pwm_msg.pwm_frb = 1350;
-    pwm_msg.pwm_rlb = 1650;
-    pwm_msg.pwm_rrb = 1700;
-    pwm_msg.is_timed = false;
-    pwm_msg.duration = 0;
-    pwm_msg.is_overriding = false;
+    auto pwm_msg = pwm_utils::create_pwm_msg(std::array<int, 8>{1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700});
     
     pwm_cmd_publisher_->publish(pwm_msg);
     
@@ -155,7 +137,7 @@ TEST_F(ThrustControlNodeTest, PWMCallbackStoresAdditionalDataCorrectly) {
     EXPECT_EQ(thrust_node_->get_is_timed_command(), true);
 }
 
-TEST_F(ThrustControlNodeTest, PWMPublishedOnSentTopic) {
+TEST_F(ThrustControlNodeTest, ManualPWMPublishedOnSentTopic) {
     auto pwm_msg = crs_ros2_interfaces::msg::PwmCmd();
     pwm_msg.pwm_flt = 1400;
     pwm_msg.pwm_frt = 1450;

@@ -92,6 +92,8 @@ if(BUILD_TESTING)
     src/supervisor_command.hpp
     src/position.cpp
     src/position.hpp
+    src/pwm_message_utils.cpp
+    src/pwm_message_utils.hpp
   )
 
   target_include_directories(thrust_control_tests PRIVATE
