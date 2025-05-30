@@ -33,7 +33,7 @@ public:
   float get_duration() const {return duration_;}
   bool get_manual_override() const {return manual_override_;}
   bool get_is_timed_command() const {return is_timed_command_;}
-
+  ControlMode get_control_mode() const {return control_mode_;}
 
 private:
   std_msgs::msg::String::SharedPtr last_message_ = nullptr;

@@ -38,6 +38,9 @@ protected:
         
         pwm_cmd_publisher_ = test_node_pub_->create_publisher<crs_ros2_interfaces::msg::PwmCmd>(
             "pwm_cmd_topic", 10);
+
+        control_mode_publisher_ = test_node_pub_->create_publisher<std_msgs::msg::String>(
+            "control_mode_topic", 10);
             
         pwm_subscriber_ = test_node_sub_->create_subscription<std_msgs::msg::Int32MultiArray>(
             "sent_pwm_topic", 10,
@@ -96,6 +99,25 @@ TEST_F(ThrustControlNodeTest, PWMCallbackStoresDataCorrectly) {
     EXPECT_EQ(thrust_node_->get_duration(), 0);
     EXPECT_EQ(thrust_node_->get_manual_override(), false);
     EXPECT_EQ(thrust_node_->get_is_timed_command(), false);
+}
+
+TEST_F(ThrustControlNodeTest, ControlModeCallbackStoresDataCorrectly) {
+    auto control_mode_msg = std_msgs::msg::String();
+    
+    control_mode_msg.data = "FeedForward";
+    control_mode_publisher_->publish(control_mode_msg);
+    executor_->spin_some();
+    EXPECT_EQ(thrust_node_->get_control_mode(), thrust_control::ControlMode::FeedForward);
+
+    control_mode_msg.data = "PID";
+    control_mode_publisher_->publish(control_mode_msg);
+    executor_->spin_some();
+    EXPECT_EQ(thrust_node_->get_control_mode(), thrust_control::ControlMode::PID);
+
+    control_mode_msg.data = "STOP";
+    control_mode_publisher_->publish(control_mode_msg);
+    executor_->spin_some();
+    EXPECT_EQ(thrust_node_->get_control_mode(), thrust_control::ControlMode::STOP);
 }
 
 TEST_F(ThrustControlNodeTest, ManualPWMPublishedOnSentTopic) {
