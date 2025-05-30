@@ -2,14 +2,13 @@
 
 # run from /Thrust-Control/
 
-
-#build crs_common
-# cd include/crs_common
-# . ./script/build.sh
-# cd ../..
-
 # Source ROS environment
 source /opt/ros/jazzy/setup.bash
+
+ # build crs_common
+ cd include/crs_common
+ . ./script/build.sh
+ cd ../..
 
 # Build with testing enabled
 colcon build --cmake-args -DBUILD_TESTING=ON -DMOCK_RPI=ON

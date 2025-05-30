@@ -13,6 +13,8 @@
 #include "thrust_control_supervisor.hpp"
 #include "Command.hpp"
 #include "command_queue.hpp"
+#include "crs_ros2_interfaces/msg/pwm_cmd.hpp"
+
 //#include "include/crs_common/crs_ros2_interfaces/src/publish_pwm_cmd.cpp"
 // TODO
 // Add object for commands
@@ -26,12 +28,23 @@ class ThrustControlNode : public rclcpp::Node
 {
 public:
   ThrustControlNode(std::unique_ptr<Command_Interpreter_RPi5>);
-    
+
+
+
+  // getters for unit testing
+  pwm_array get_pwm() const {return pwm_;}
+  float get_duration() const {return duration_;}
+  bool get_manual_override() const {return manual_override_;}
+  bool get_is_timed_command() const {return is_timed_command_;}
+
+  
 private:
   std_msgs::msg::String::SharedPtr last_message_ = nullptr;
   std::mutex message_mutex_;
 
   void pwm_topic_callback(const std_msgs::msg::Int32MultiArray::SharedPtr msg);
+  void pwm2_topic_callback(const crs_ros2_interfaces::msg::PwmCmd::SharedPtr msg);
+  
 //  void cpwm_topic_callback(const st
   void duration_callback(const std_msgs::msg::Int64::SharedPtr msg) const;
   void manual_override_callback(const std_msgs::msg::Bool::SharedPtr msg) const;
@@ -52,6 +65,9 @@ private:
   std::string sent_pwm_topic_ = "sent_pwm_topic";
     
   pwm_array pwm_ ={ {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}};
+  float duration_ = 0;
+  bool manual_override_ = false;
+  bool is_timed_command_ = false;
 
 };
 

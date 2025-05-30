@@ -10,6 +10,7 @@ add_subdirectory(include/exported-PID-control)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(crs_ros2_interfaces REQUIRED)
 
 # Optional mocking flag
 option(MOCK_RPI "Use mock Pico" OFF)
@@ -50,7 +51,7 @@ target_include_directories(thrust_control
     PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
-ament_target_dependencies(thrust_control rclcpp std_msgs)
+ament_target_dependencies(thrust_control rclcpp std_msgs crs_ros2_interfaces)
 target_link_libraries(thrust_control
     PropulsionFunctions
     controller_lib
@@ -102,7 +103,7 @@ if(BUILD_TESTING)
     ${GTEST_INCLUDE_DIRS}
   )
 
-  ament_target_dependencies(thrust_control_tests rclcpp std_msgs)
+  ament_target_dependencies(thrust_control_tests rclcpp std_msgs crs_ros2_interfaces)
 
   target_link_libraries(thrust_control_tests
     PropulsionFunctions
@@ -116,6 +117,6 @@ if(BUILD_TESTING)
 endif()
 
 ament_export_include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
-ament_export_dependencies(rclcpp std_msgs)
+ament_export_dependencies(rclcpp std_msgs crs_ros2_interfaces)
 
 ament_package()

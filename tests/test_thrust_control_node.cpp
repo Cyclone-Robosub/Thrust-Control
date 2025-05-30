@@ -7,7 +7,6 @@
 #include "Command_Interpreter.hpp"
 #include "command_interpreter_pointer.hpp"
 #include "thrust_control_node.hpp"
-#include "include/crs_ros2_interfaces/msg/pwm_cmd.hpp"
 
 class ThrustControlNodeTest : public ::testing::Test {
 
@@ -18,6 +17,7 @@ protected:
     rclcpp::Node::SharedPtr test_node_sub_;
     rclcpp::Node::SharedPtr test_node_pub_;
     rclcpp::Publisher<std_msgs::msg::Int32MultiArray>::SharedPtr pwm_publisher_;
+    rclcpp::Publisher<crs_ros2_interfaces::msg::PwmCmd>::SharedPtr test_publisher;
     rclcpp::Subscription<std_msgs::msg::Int32MultiArray>::SharedPtr pwm_subscriber_;
     std::shared_ptr<rclcpp::executors::SingleThreadedExecutor> executor_;
     
@@ -33,8 +33,10 @@ protected:
        
         test_node_sub_ = std::make_shared<rclcpp::Node>("test_subscriber_node");
         test_node_pub_ = std::make_shared<rclcpp::Node>("test_publisher_node");
-
-        pwm_publisher_ = test_node_pub_->create_publisher<crs_ros2_interfaces::msg::PwmCmd>(
+        
+        test_publisher = test_node_pub_->create_publisher<crs_ros2_interfaces::msg::PwmCmd>(
+            "pwm_cmd_topic", 10);
+        pwm_publisher_ = test_node_pub_->create_publisher<std_msgs::msg::Int32MultiArray>(
             "array_Cltool_topic", 10);
             
         pwm_subscriber_ = test_node_sub_->create_subscription<std_msgs::msg::Int32MultiArray>(
@@ -88,12 +90,18 @@ TEST_F(ThrustControlNodeTest, PWMCallbackStoresDataCorrectly) {
     pwm_publisher_->publish(pwm_msg);
     
     executor_->spin_some(std::chrono::seconds(2));
+
+
+    pwm_array sotred_pwm = thrust_node_->get_pwm();
     
-    ASSERT_TRUE(pwm_received_) << "No PWM data received on sent_pwm_topic";
-    // Check that the received data is correct
+
     for (int i = 0; i < 8; i++) {
-        EXPECT_EQ(received_pwm_data_.pwm_signals[i], pwm_msg.data[i]) << "PWM signal " << i << " is incorrect";
+        EXPECT_EQ(sotred_pwm.pwm_signals[i], pwm_msg.data[i]) << "PWM signal " << i << " is incorrect";
     }
+
+
+
+
 }
 
 TEST_F(ThrustControlNodeTest, PWMPublishedOnSentTopic) {

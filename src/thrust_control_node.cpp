@@ -41,6 +41,12 @@ void ThrustControlNode::pwm_topic_callback(const std_msgs::msg::Int32MultiArray:
   }
   RCLCPP_INFO(this->get_logger(), "%s", ss.str().c_str());
 }
+void ThrustControlNode::pwm2_topic_callback(const crs_ros2_interfaces::msg::PwmCmd::SharedPtr msg)
+{
+    duration_ = msg->duration;
+    manual_override_ = msg->is_overriding;
+    is_timed_command_ = msg->is_timed;
+}
 
 void ThrustControlNode::timer_callback()
 {
@@ -87,5 +93,4 @@ void ThrustControlNode::send_pwm()
 
     _pwm_publisher->publish(pwm_msg);
 }
-
 }// namespace thrust_control 
