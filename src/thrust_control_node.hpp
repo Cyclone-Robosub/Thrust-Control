@@ -29,7 +29,8 @@ public:
 
 
   // getters for unit testing
-  pwm_array get_pwm() const {return pwm_;}
+  pwm_array get_user_pwm() const {return user_pwm_;}
+  pwm_array get_thruster_pwm() const {return thruster_pwm_;}
   float get_duration() const {return duration_;}
   bool get_manual_override() const {return manual_override_;}
   bool get_is_timed_command() const {return is_timed_command_;}
@@ -58,11 +59,18 @@ private:
   std::string control_mode_topic_ = "control_mode_topic";
 
   // start at stop set
-  pwm_array pwm_ = { {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}};
+  pwm_array user_pwm_ = { {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}};
+
+  // this is the pwm that has last been sent to motors
+  pwm_array thruster_pwm_ = { {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}};
+
   float duration_ = 0;
   bool manual_override_ = false;
   bool is_timed_command_ = false;
   ControlMode control_mode_ = ControlMode::FeedForward;
+
+  Position position_ = {0,0,0,0,0,0};
+  Position waypoint_ = {0,0,0,0,0,0};
 };
 
 }  // namespace thrust_control

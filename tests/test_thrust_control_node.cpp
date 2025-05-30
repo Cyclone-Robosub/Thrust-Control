@@ -43,8 +43,8 @@ protected:
             "control_mode_topic", 10);
             
         pwm_subscriber_ = test_node_sub_->create_subscription<std_msgs::msg::Int32MultiArray>(
-            "sent_pwm_topic", 10,
-            [this](const std_msgs::msg::Int32MultiArray::SharedPtr msg) {
+            "sent_pwm_topic", 10, [this](const std_msgs::msg::Int32MultiArray::SharedPtr msg) 
+            {
                 for (int i = 0; i < 8; i++) {
                     received_pwm_data_.pwm_signals[i] = msg->data[i];
                 }
@@ -93,7 +93,7 @@ TEST_F(ThrustControlNodeTest, PWMCallbackStoresDataCorrectly) {
     pwm_cmd_publisher_->publish(pwm_msg);
     executor_->spin_some();
 
-    pwm_array stored_pwm = thrust_node_->get_pwm();
+    pwm_array stored_pwm = thrust_node_->get_user_pwm();
     
     EXPECT_EQ(stored_pwm, pwm_data);
     EXPECT_EQ(thrust_node_->get_duration(), 0);
@@ -119,21 +119,72 @@ TEST_F(ThrustControlNodeTest, ControlModeCallbackStoresDataCorrectly) {
     executor_->spin_some();
     EXPECT_EQ(thrust_node_->get_control_mode(), thrust_control::ControlMode::STOP);
 }
-
-TEST_F(ThrustControlNodeTest, ManualPWMPublishedOnSentTopic) {
-
+TEST_F(ThrustControlNodeTest, ManualPWMRetreivedCorrectly)
+{
     pwm_array pwm_data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
-    auto pwm_msg = pwm_utils::create_pwm_msg(pwm_data, false, 0, false);
-    
+    auto pwm_msg = pwm_utils::create_pwm_msg(pwm_data, false, 0, true);
+    auto control_mode_msg = std_msgs::msg::String();
+    control_mode_msg.data = "FeedForward";
     pwm_received_ = false;
     
+    control_mode_publisher_->publish(control_mode_msg);
+    executor_->spin_some();
+
     pwm_cmd_publisher_->publish(pwm_msg);
     
     auto start = std::chrono::steady_clock::now();
-    while (!pwm_received_ && (std::chrono::steady_clock::now() - start) < std::chrono::seconds(2)) {
-        executor_->spin_some();
+    while (!pwm_received_ || std::chrono::steady_clock::now() - start < std::chrono::seconds(1)) 
+    {
+        executor_->spin_some();  
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
+    
+    EXPECT_EQ(thrust_node_->get_thruster_pwm(), pwm_data);
+}
+
+TEST_F(ThrustControlNodeTest, ManualPWMPublishedOnSentTopic) 
+{
+    pwm_array pwm_data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
+    auto pwm_msg = pwm_utils::create_pwm_msg(pwm_data, false, 0, true);
+    auto control_mode_msg = std_msgs::msg::String();
+    control_mode_msg.data = "FeedForward";
+    pwm_received_ = false;
+    
+    pwm_cmd_publisher_->publish(pwm_msg);
+    executor_->spin_some();
+    control_mode_publisher_->publish(control_mode_msg);
+    
+    auto start = std::chrono::steady_clock::now();
+    while (!pwm_received_ && std::chrono::steady_clock::now() - start < std::chrono::seconds(1)) 
+    {
+        executor_->spin_some();  
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
+    
+    EXPECT_TRUE(pwm_received_) << "No PWM data received on sent_pwm_topic";
+}
+
+TEST_F(ThrustControlNodeTest, ManualPWMPublishedOnSentTopicAndReceivedAccuaratly) 
+{
+    pwm_array pwm_data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
+    auto pwm_msg = pwm_utils::create_pwm_msg(pwm_data, false, 0, true);
+    auto control_mode_msg = std_msgs::msg::String();
+    control_mode_msg.data = "FeedForward";
+    pwm_received_ = false;
+    
+    control_mode_publisher_->publish(control_mode_msg);
+    executor_->spin_some();
+    pwm_cmd_publisher_->publish(pwm_msg);
+    
+    
+    auto start = std::chrono::steady_clock::now();
+    while (!pwm_received_ && std::chrono::steady_clock::now() - start < std::chrono::seconds(2)) 
+    {
+        executor_->spin_some();  
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
     
     EXPECT_TRUE(pwm_received_) << "No PWM data received on sent_pwm_topic";
     
@@ -147,6 +198,7 @@ TEST_F(ThrustControlNodeTest, ManualPWMPublishedOnSentTopic) {
         }
     }
 }
+
 
 TEST_F(ThrustControlNodeTest, TimerCallbackExecutes) {
     // Reset the flag
