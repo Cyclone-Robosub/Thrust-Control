@@ -26,4 +26,4 @@ source install/setup.bash
 
 # Run the test executable directly (only if builds succeeded)
 echo "Build succeeded, running tests..."
-./build/thrust_control/thrust_control_tests
+./build/thrust_control/thrust_control_tests 
