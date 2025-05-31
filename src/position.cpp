@@ -61,3 +61,9 @@ bool operator==(const Position& lhs, const Position& rhs) {
     float_equal(lhs.z,rhs.z) && float_equal(lhs.roll,rhs.roll) && 
     float_equal(lhs.pitch,rhs.pitch) && float_equal(lhs.yaw,rhs.yaw);
 }
+
+//bool operator==(const Position& lhs, const std::array<float, 6>& rhs) {
+//    return float_equal(lhs.x,rhs[0]) && float_equal(lhs.y,rhs[1]) && 
+//    float_equal(lhs.z,rhs[2]) && float_equal(lhs.roll,rhs[3]) && 
+//    float_equal(lhs.pitch,rhs[4]) && float_equal(lhs.yaw,rhs[5]);
+//}
