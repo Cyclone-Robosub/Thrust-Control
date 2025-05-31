@@ -15,14 +15,16 @@ class ThrustControlSupervisorTest : public ::testing::Test {
 protected:
 
     ThrustControlSupervisorTest() : logger(rclcpp::get_logger("test_logger")) {}
+    std::ofstream nullOut = std::ofstream("/dev/null");
+    std::unique_ptr<Command_Interpreter_RPi5> interpreter;
     
     void SetUp() override 
     {
         if (!rclcpp::ok()) {  rclcpp::init(0, nullptr);}
         auto interpreter = make_command_interpreter_ptr(
-                std::cout, 
-                std::cout, 
-                std::cout);
+                nullOut, 
+                nullOut, 
+                std::cerr);
    }
 
     void TearDown() override 
@@ -31,7 +33,6 @@ protected:
     }
 
     rclcpp::Logger logger;
-    std::ofstream nullOut = std::ofstream("/dev/null");
 };
 
 
@@ -39,9 +40,9 @@ protected:
 TEST_F(ThrustControlSupervisorTest, CanBeInitialized) {
     // Arrange
          auto test_interpreter = make_command_interpreter_ptr(
-                std::cout, 
-                std::cout, 
-                std::cout);
+                nullOut, 
+                nullOut, 
+                std::cerr);
 
    
     auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, nullOut);
@@ -57,11 +58,7 @@ TEST_F(ThrustControlSupervisorTest, CanBeInitialized) {
 
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorPidNoError) {
-
-    auto interpreter = make_command_interpreter_ptr(
-            std::cout, 
-            std::cout, 
-            std::cerr);
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
     
     thrust_control::ThrustControlSupervisor supervisor(
             logger, 
@@ -89,10 +86,8 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorPidNoError) {
 }
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorPidWithError) {
-    auto interpreter = make_command_interpreter_ptr(
-            std::cout, 
-            std::cout, 
-            std::cout);
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
+
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
@@ -119,11 +114,7 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorPidWithError) {
 }   
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorCustomFeedForward) {
-
-    auto interpreter = make_command_interpreter_ptr(
-        nullOut, 
-        nullOut, 
-        std::cerr);
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
 
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
@@ -146,11 +137,7 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorCustomFeedForward) {
 
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorMultiStep) {
-
-    auto interpreter = make_command_interpreter_ptr(
-        nullOut, 
-        nullOut, 
-        std::cerr);
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
 
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
@@ -188,11 +175,7 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorMultiStep) {
 }
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorUntimedOverrideUntimed) {
-
-    auto interpreter = make_command_interpreter_ptr(
-        nullOut, 
-        nullOut, 
-        std::cerr);
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
 
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
@@ -224,11 +207,7 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorUntimedOverrideUntimed) {
 }
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorUntimedOverrideTimed) {
-
-    auto interpreter = make_command_interpreter_ptr(
-        nullOut, 
-        nullOut, 
-        std::cerr);
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
 
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
@@ -261,11 +240,7 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorUntimedOverrideTimed) {
 
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideTimed) {
-
-    auto interpreter = make_command_interpreter_ptr(
-        nullOut, 
-        nullOut, 
-        std::cerr);
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
 
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
@@ -297,11 +272,7 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideTimed) {
 }
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideUntimed) {
-
-    auto interpreter = make_command_interpreter_ptr(
-        nullOut, 
-        nullOut, 
-        std::cerr);
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
 
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 

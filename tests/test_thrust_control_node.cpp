@@ -2,6 +2,7 @@
 #include <memory>
 #include <thread>
 #include <chrono>
+#include <ostream>
 #include "rclcpp/rclcpp.hpp" 
 #include "thrust_control_supervisor.hpp"
 #include "Command_Interpreter.hpp"
@@ -31,10 +32,13 @@ protected:
     
     pwm_array received_pwm_data_;
     bool pwm_received_ = false;
+    // std::ofstream logFile;
+    std::ofstream nullOut = std::ofstream("/dev/null");
 
     void SetUp() override
     { 
         if (!rclcpp::ok()) { rclcpp::init(0, nullptr); }
+        testing::internal::CaptureStdout();
        
         test_node_sub_ = std::make_shared<rclcpp::Node>("test_subscriber_node");
         test_node_pub_ = std::make_shared<rclcpp::Node>("test_publisher_node");
@@ -59,8 +63,9 @@ protected:
                 }
                 pwm_received_ = true;
             });
-            
-        interpreter_ = make_command_interpreter_ptr(std::cout, std::cout, std::cout);
+        
+        // logFile.open("../logFile.txt");
+        interpreter_ = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
         thrust_node_ = std::make_shared<thrust_control::ThrustControlNode>(std::move(interpreter_));
             
         executor_ = std::make_shared<rclcpp::executors::SingleThreadedExecutor>();
@@ -73,10 +78,11 @@ protected:
     {
         thrust_node_.reset();
         if (rclcpp::ok()) { rclcpp::shutdown(); }
+        testing::internal::GetCapturedStdout();
+        // logFile.close();
     }
 
     rclcpp::Logger logger;
-    std::ofstream nullOut = std::ofstream("/dev/null");
 };
 
 
@@ -111,6 +117,7 @@ TEST_F(ThrustControlNodeTest, PWMCallbackStoresDataCorrectly) {
 }
 
 TEST_F(ThrustControlNodeTest, ControlModeCallbackStoresDataCorrectly) {
+
     auto control_mode_msg = std_msgs::msg::String();
     
     control_mode_msg.data = "FeedForward";
