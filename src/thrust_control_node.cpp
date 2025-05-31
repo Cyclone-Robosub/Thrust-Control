@@ -23,6 +23,18 @@ ThrustControlNode::ThrustControlNode
                     this,
                     std::placeholders::_1));
 
+    _position_subscription =
+        this->create_subscription<std_msgs::msg::Float32MultiArray>(
+                position_topic_,
+                10, std::bind(&ThrustControlNode::position_callback,
+                    this,
+                    std::placeholders::_1));
+
+    _waypoint_subscription =
+        this->create_subscription<std_msgs::msg::Float32MultiArray>(
+                waypoint_topic_,
+                10, std::bind(&ThrustControlNode::waypoint_callback,
+                this, std::placeholders::_1));
     _pwm_publisher = this->create_publisher<std_msgs::msg::Int32MultiArray>(
             sent_pwm_topic_, 
             10);
@@ -76,6 +88,16 @@ void ThrustControlNode::control_mode_callback(const std_msgs::msg::String::Share
     
     RCLCPP_INFO(this->get_logger(), "Control mode set to: %s", mode_str.c_str());
 }   
+
+void ThrustControlNode::position_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg)
+{
+    position_ = Position(msg->data[0], msg->data[1], msg->data[2], msg->data[3], msg->data[4], msg->data[5]);
+}
+
+void ThrustControlNode::waypoint_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg)
+{
+    waypoint_ = Position(msg->data[0], msg->data[1], msg->data[2], msg->data[3], msg->data[4], msg->data[5]);
+}
 
 void ThrustControlNode::timer_callback()
 {

@@ -8,6 +8,7 @@
 #include "command_interpreter_pointer.hpp"
 #include "thrust_control_node.hpp"
 #include "pwm_message_utils.hpp"
+#include "std_msgs/msg/float32_multi_array.hpp"
 
 class ThrustControlNodeTest : public ::testing::Test {
 
@@ -21,6 +22,8 @@ protected:
     rclcpp::Publisher<crs_ros2_interfaces::msg::PwmCmd>::SharedPtr pwm_cmd_publisher_;
     rclcpp::Subscription<std_msgs::msg::Int32MultiArray>::SharedPtr pwm_subscriber_;
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr control_mode_publisher_;
+    rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr position_publisher_;
+    rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr waypoint_publisher_;
     std::shared_ptr<rclcpp::executors::SingleThreadedExecutor> executor_;
     
     std::unique_ptr<Command_Interpreter_RPi5> interpreter_;
@@ -41,6 +44,12 @@ protected:
 
         control_mode_publisher_ = test_node_pub_->create_publisher<std_msgs::msg::String>(
             "control_mode_topic", 10);
+
+        position_publisher_ = test_node_pub_->create_publisher<std_msgs::msg::Float32MultiArray>(
+            "position_topic", 10);
+
+        waypoint_publisher_ = test_node_pub_->create_publisher<std_msgs::msg::Float32MultiArray>(
+            "waypoint_topic", 10);
             
         pwm_subscriber_ = test_node_sub_->create_subscription<std_msgs::msg::Int32MultiArray>(
             "sent_pwm_topic", 10, [this](const std_msgs::msg::Int32MultiArray::SharedPtr msg) 
@@ -220,7 +229,50 @@ TEST_F(ThrustControlNodeTest, TimerCallbackExecutes) {
     }
 }
 
+TEST_F(ThrustControlNodeTest, PositionCallbackStoresDataCorrectly)
+{
+    std_msgs::msg::Float32MultiArray position_msg;
+    Position position = {1, 2, 3, 4, 5, 6};
+    position_msg.data = {
+        position.get_x(), 
+        position.get_y(), 
+        position.get_z(), 
+        position.get_roll(), 
+        position.get_pitch(), 
+        position.get_yaw()};
+    position_publisher_->publish(position_msg);
+    
+    auto start = std::chrono::steady_clock::now();
+    while (std::chrono::steady_clock::now() - start < std::chrono::seconds(1)) 
+    {
+        executor_->spin_some();  
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
 
+    EXPECT_EQ(thrust_node_->get_position(), position);
+}
+TEST_F(ThrustControlNodeTest, WaypointCallbackStoresDataCorrectly)
+{ 
+    std_msgs::msg::Float32MultiArray waypoint_msg;
+    Position waypoint = {1, 2, 3, 4, 5, 6};
+    waypoint_msg.data = {
+        waypoint.get_x(), 
+        waypoint.get_y(), 
+        waypoint.get_z(), 
+        waypoint.get_roll(), 
+        waypoint.get_pitch(), 
+        waypoint.get_yaw()};
+    waypoint_publisher_->publish(waypoint_msg);
+    
+    auto start = std::chrono::steady_clock::now();
+    while (std::chrono::steady_clock::now() - start < std::chrono::seconds(1)) 
+    {
+        executor_->spin_some();  
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
+    EXPECT_EQ(thrust_node_->get_waypoint(), waypoint);
+ }
 
 TEST_F(ThrustControlNodeTest, Constructor) {
     auto interpreter = make_command_interpreter_ptr(

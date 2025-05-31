@@ -7,6 +7,7 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/int32_multi_array.hpp"
+#include "std_msgs/msg/float32_multi_array.hpp"
 #include "std_msgs/msg/int64.hpp"      
 #include "std_msgs/msg/bool.hpp"
 #include "std_msgs/msg/string.hpp"
@@ -16,7 +17,8 @@
 #include "crs_ros2_interfaces/msg/pwm_cmd.hpp"
 
 //#include "include/crs_common/crs_ros2_interfaces/src/publish_pwm_cmd.cpp"
-// TODO
+// TODO: Add position and waypoint callbacks:w
+
 
 namespace thrust_control
 {
@@ -35,6 +37,8 @@ public:
   bool get_manual_override() const {return manual_override_;}
   bool get_is_timed_command() const {return is_timed_command_;}
   ControlMode get_control_mode() const {return control_mode_;}
+  Position get_position() const {return position_;}
+  Position get_waypoint() const {return waypoint_;}
 
 private:
   std_msgs::msg::String::SharedPtr last_message_ = nullptr;
@@ -42,11 +46,15 @@ private:
 
   void pwm_topic_callback(const crs_ros2_interfaces::msg::PwmCmd::SharedPtr msg);
   void control_mode_callback(const std_msgs::msg::String::SharedPtr msg);
+  void position_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg);
+  void waypoint_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg);
   void timer_callback();
   void send_pwm();
 
   rclcpp::Subscription<crs_ros2_interfaces::msg::PwmCmd>::SharedPtr _manual_pwm_subscription;
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr _control_mode_subscription;
+  rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr _position_subscription;
+  rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr _waypoint_subscription;
   rclcpp::Publisher<std_msgs::msg::Int32MultiArray>::SharedPtr _pwm_publisher;
   rclcpp::TimerBase::SharedPtr timer_;
   
