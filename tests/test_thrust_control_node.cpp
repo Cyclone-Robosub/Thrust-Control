@@ -32,13 +32,12 @@ protected:
     
     pwm_array received_pwm_data_;
     bool pwm_received_ = false;
-    // std::ofstream logFile;
     std::ofstream nullOut = std::ofstream("/dev/null");
 
     void SetUp() override
     { 
         if (!rclcpp::ok()) { rclcpp::init(0, nullptr); }
-        testing::internal::CaptureStdout();
+        //testing::internal::CaptureStdout();
        
         test_node_sub_ = std::make_shared<rclcpp::Node>("test_subscriber_node");
         test_node_pub_ = std::make_shared<rclcpp::Node>("test_publisher_node");
@@ -78,7 +77,6 @@ protected:
     {
         thrust_node_.reset();
         if (rclcpp::ok()) { rclcpp::shutdown(); }
-        testing::internal::GetCapturedStdout();
         // logFile.close();
     }
 
@@ -218,7 +216,7 @@ TEST_F(ThrustControlNodeTest, TimedCommandExpiresCorrectly)
 {
     pwm_array pwm_data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
     pwm_array stop_pwm = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500};
-    auto pwm_msg = pwm_utils::create_pwm_msg(pwm_data, true, 1000, true);
+    auto pwm_msg = pwm_utils::create_pwm_msg(pwm_data, true, 1, true);
     pwm_cmd_publisher_->publish(pwm_msg);
 
     auto control_mode_msg = std_msgs::msg::String();
@@ -230,13 +228,13 @@ TEST_F(ThrustControlNodeTest, TimedCommandExpiresCorrectly)
         executor_->spin_some();
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
-    EXPECT_EQ(thrust_node_->get_thruster_pwm(), pwm_data);
+    EXPECT_EQ(thrust_node_->get_thruster_pwm(), pwm_data) << "Initial pwm data is not correct";
     
     while (std::chrono::steady_clock::now() - start < std::chrono::milliseconds(1100)){
         executor_->spin_some();
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
-    EXPECT_EQ(thrust_node_->get_thruster_pwm(), stop_pwm);
+    EXPECT_EQ(thrust_node_->get_thruster_pwm(), stop_pwm) << "Stop pwm data is not correct";
 }
 TEST_F(ThrustControlNodeTest, TimerCallbackExecutes) {
     // Reset the flag
