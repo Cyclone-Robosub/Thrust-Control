@@ -19,7 +19,7 @@ public:
 
     float operator[](int value);
     friend bool operator==(const Position& lhs, const Position& rhs);
-
+    friend bool operator==(const Position& lhs, const std::array<float, 6>& rhs);
 private:
     float x;
     float y;

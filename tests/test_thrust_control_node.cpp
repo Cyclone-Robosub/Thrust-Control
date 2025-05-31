@@ -208,7 +208,6 @@ TEST_F(ThrustControlNodeTest, ManualPWMPublishedOnSentTopicAndReceivedAccuaratly
     }
 }
 
-
 TEST_F(ThrustControlNodeTest, TimerCallbackExecutes) {
     // Reset the flag
     pwm_received_ = false;
