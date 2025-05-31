@@ -207,7 +207,30 @@ TEST_F(ThrustControlNodeTest, ManualPWMPublishedOnSentTopicAndReceivedAccuaratly
         }
     }
 }
+TEST_F(ThrustControlNodeTest, TimedCommandExpiresCorrectly)
+{
+    pwm_array pwm_data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
+    pwm_array stop_pwm = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500};
+    auto pwm_msg = pwm_utils::create_pwm_msg(pwm_data, true, 1000, true);
+    pwm_cmd_publisher_->publish(pwm_msg);
 
+    auto control_mode_msg = std_msgs::msg::String();
+    control_mode_msg.data = "FeedForward";
+    control_mode_publisher_->publish(control_mode_msg);
+
+    auto start = std::chrono::steady_clock::now();
+    while (std::chrono::steady_clock::now() - start < std::chrono::milliseconds(500)){
+        executor_->spin_some();
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+    EXPECT_EQ(thrust_node_->get_thruster_pwm(), pwm_data);
+    
+    while (std::chrono::steady_clock::now() - start < std::chrono::milliseconds(1100)){
+        executor_->spin_some();
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+    EXPECT_EQ(thrust_node_->get_thruster_pwm(), stop_pwm);
+}
 TEST_F(ThrustControlNodeTest, TimerCallbackExecutes) {
     // Reset the flag
     pwm_received_ = false;
