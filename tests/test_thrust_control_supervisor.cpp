@@ -484,4 +484,34 @@ TEST_F(ThrustControlSupervisorTest, PushToQueueOverrideClearsQueue) {
     EXPECT_EQ(supervisor.get_current_pwm(), after_override_pwm);
 }
 
+// test that timed commands expire
+TEST_F(ThrustControlSupervisorTest, TimedCommandsExpire) {
+    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
+    
+    thrust_control::ThrustControlSupervisor supervisor(
+        logger, 
+        std::move(interpreter),
+        thrust_control::CommandQueue());
 
+    Position position;
+    Position waypoint;
+    
+    pwm_array pwm_0 = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500};
+    pwm_array pwm_1 = {1600, 1400, 1600, 1400, 1600, 1400, 1600, 1400};
+
+    supervisor.push_to_pwm_queue(pwm_1, 500.0f, true, false);
+
+    supervisor.step(FeedForward, position, waypoint);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_1);
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(490));
+    supervisor.step(FeedForward, position, waypoint);
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_1);
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    supervisor.step(FeedForward, position, waypoint);
+
+    EXPECT_EQ(supervisor.get_current_pwm(), pwm_0);
+
+    
+}
