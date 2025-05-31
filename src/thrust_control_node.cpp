@@ -63,11 +63,11 @@ void ThrustControlNode::pwm_topic_callback(const crs_ros2_interfaces::msg::PwmCm
 
     if (is_timed_command_)  
     {
-        supervisor_.push_to_pwm_queue(std::make_unique<Untimed_Command>(pwm_data));
+        supervisor_.push_to_pwm_queue(std::make_unique<Timed_Command>(pwm_data, std::chrono::milliseconds(static_cast<int>(duration_ * 1000)), manual_override_));
     }
     else
     {
-        supervisor_.push_to_pwm_queue(std::make_unique<Untimed_Command>(pwm_data));
+        supervisor_.push_to_pwm_queue(std::make_unique<Untimed_Command>(pwm_data, manual_override_));
     }
 }
 
@@ -101,9 +101,6 @@ void ThrustControlNode::waypoint_callback(const std_msgs::msg::Float32MultiArray
 
 void ThrustControlNode::timer_callback()
 {
-    
-    std::stringstream ss;
-    
     ControlMode test_mode = control_mode_;
     Position test_pos = position_;
     Position waypoint = waypoint_;
@@ -112,11 +109,9 @@ void ThrustControlNode::timer_callback()
             test_mode,
             test_pos,
             waypoint);
-    RCLCPP_INFO(this->get_logger(), "%s", ss.str().c_str());
     
     thruster_pwm_ = supervisor_.get_current_pwm();
     send_pwm();
-
 }
 
 void ThrustControlNode::send_pwm()
