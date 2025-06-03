@@ -8,7 +8,7 @@ std::unique_ptr<Command_Interpreter_RPi5> make_command_interpreter_ptr
     std::ostream& error
 )
 {
-    auto PhysicalPins = std::vector<int>{2, 3, 4, 5, 6, 7, 8, 9};
+    auto PhysicalPins = std::vector<int>{8, 9, 6, 7, 13, 11, 12, 10};
       std::vector<PwmPin *> thrusterPins;
 
       for (auto i : PhysicalPins) 
