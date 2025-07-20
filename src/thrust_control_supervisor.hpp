@@ -8,7 +8,7 @@
 #include "Command_Interpreter.hpp"
 #include "command_queue.hpp"
 #include "sets.hpp"
-#include "position.hpp"
+#include "include/crs_common/position/position.hpp"
 
 // Temporarily disable unused-function warnings for this include
 #pragma GCC diagnostic push
