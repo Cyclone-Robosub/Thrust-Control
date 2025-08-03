@@ -5,6 +5,8 @@
 # Source ROS environment
 source /opt/ros/jazzy/setup.bash
 
+
+
 # build crs_common
 cd include/crs_common
 . ./script/build.sh
@@ -15,7 +17,7 @@ fi
 cd ../..
 
 # Build with testing enabled
-colcon build --cmake-args -DBUILD_TESTING=ON -DMOCK_RPI=ON
+colcon build  --cmake-args -DBUILD_TESTING=ON -DMOCK_RPI=ON
 if [ $? -ne 0 ]; then
     echo "ERROR: Main project build failed"
     exit 1

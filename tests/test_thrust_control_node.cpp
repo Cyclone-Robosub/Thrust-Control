@@ -9,6 +9,8 @@
 #include "command_interpreter_pointer.hpp"
 #include "thrust_control_node.hpp"
 #include "pwm_message_utils.hpp"
+#include "position.hpp"
+#include "Command.hpp"
 #include "std_msgs/msg/float32_multi_array.hpp"
 
 class ThrustControlNodeTest : public ::testing::Test {
@@ -84,7 +86,6 @@ protected:
 };
 
 
-
 TEST_F(ThrustControlNodeTest, PWMSubscriptionCallback) {
 
     pwm_array pwm_data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
@@ -133,9 +134,97 @@ TEST_F(ThrustControlNodeTest, ControlModeCallbackStoresDataCorrectly) {
     executor_->spin_some();
     EXPECT_EQ(thrust_node_->get_control_mode(), thrust_control::ControlMode::STOP);
 }
+
+TEST_F(ThrustControlNodeTest, NoErrorProducesNoOutputForPIDControl)
+{
+   
+    auto control_mode_msg = std_msgs::msg::String();
+    control_mode_msg.data = "PID";
+    control_mode_publisher_->publish(control_mode_msg);
+    
+    std_msgs::msg::Float32MultiArray waypoint_msg;
+    Position waypoint(0, 0, 0, 0, 0, 0);
+    waypoint_msg.data = {
+        waypoint.get_x(), 
+        waypoint.get_y(), 
+        waypoint.get_z(), 
+        waypoint.get_roll(), 
+        waypoint.get_pitch(), 
+        waypoint.get_yaw()};
+
+    waypoint_publisher_->publish(waypoint_msg);
+    position_publisher_->publish(waypoint_msg);
+
+
+   pwm_array stop_pwm = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500};
+
+   pwm_received_ = false;
+   auto start = std::chrono::steady_clock::now();
+   while (!pwm_received_ && std::chrono::steady_clock::now() - start < std::chrono::seconds(2)) 
+   {
+       executor_->spin_some();  
+       std::this_thread::sleep_for(std::chrono::milliseconds(10));
+   }
+   EXPECT_TRUE(pwm_received_) << "No PWM data received on sent_pwm_topic";
+   
+   if (pwm_received_) { EXPECT_EQ(received_pwm_data_, stop_pwm); }
+
+
+}
+
+TEST_F(ThrustControlNodeTest, ErrorProducesOutputForPIDControl)
+{
+ //   pwm_array pwm_data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
+    
+    auto control_mode_msg = std_msgs::msg::String();
+    control_mode_msg.data = "PID";
+    control_mode_publisher_->publish(control_mode_msg);
+    
+    std_msgs::msg::Float32MultiArray waypoint_msg;
+    std_msgs::msg::Float32MultiArray position_msg;
+    Position waypoint(0, 0, 0, 0, 0, 0);
+    waypoint_msg.data = {
+        waypoint.get_x(), 
+        waypoint.get_y(), 
+        waypoint.get_z(), 
+        waypoint.get_roll(), 
+        waypoint.get_pitch(), 
+        waypoint.get_yaw()};
+    
+
+    Position position(1, 0, 0, 0, 0, 0);
+    position_msg.data = {
+        position.get_x(),
+        position.get_y(),
+        position.get_z(), 
+        position.get_roll(),
+        position.get_pitch(),
+        position.get_yaw()
+    };
+    waypoint_publisher_->publish(waypoint_msg);
+    position_publisher_->publish(position_msg);
+
+
+   pwm_array stop_pwm = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500};
+
+   pwm_received_ = false;
+   auto start = std::chrono::steady_clock::now();
+   while (!pwm_received_ && std::chrono::steady_clock::now() - start < std::chrono::seconds(2)) 
+   {
+       executor_->spin_some();  
+       std::this_thread::sleep_for(std::chrono::milliseconds(10));
+   }
+   EXPECT_TRUE(pwm_received_) << "No PWM data received on sent_pwm_topic";
+   
+   
+   if (pwm_received_) { 
+    EXPECT_NE(received_pwm_data_.pwm_signals, stop_pwm.pwm_signals); }
+
+}
 TEST_F(ThrustControlNodeTest, ManualPWMRetreivedCorrectly)
 {
     pwm_array pwm_data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
+    
     auto pwm_msg = pwm_utils::create_pwm_msg(pwm_data, false, 0, true);
     auto control_mode_msg = std_msgs::msg::String();
     control_mode_msg.data = "FeedForward";
