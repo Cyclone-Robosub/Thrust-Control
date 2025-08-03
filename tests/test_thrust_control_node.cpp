@@ -217,8 +217,7 @@ TEST_F(ThrustControlNodeTest, ErrorProducesOutputForPIDControl)
    EXPECT_TRUE(pwm_received_) << "No PWM data received on sent_pwm_topic";
    
    
-   if (pwm_received_) { 
-    EXPECT_NE(received_pwm_data_.pwm_signals, stop_pwm.pwm_signals); }
+   if (pwm_received_) { EXPECT_NE(received_pwm_data_.pwm_signals, stop_pwm.pwm_signals); }
 
 }
 TEST_F(ThrustControlNodeTest, ManualPWMRetreivedCorrectly)
