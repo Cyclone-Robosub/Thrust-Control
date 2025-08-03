@@ -5,6 +5,7 @@ install/
 
 # Generated files
 CMakeCache.txt
+build_log.txt
 CMakeFiles/
 cmake_install.cmake
 compile_commands.json
