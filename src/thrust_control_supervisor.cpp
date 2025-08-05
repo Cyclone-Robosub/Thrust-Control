@@ -75,20 +75,12 @@ void ThrustControlSupervisor::pid_pwm()
     if ( _auto_flag == false )
     { 
         _auto_flag = true;
-        //pathfinder->initialize();
         _controller->initialize();
 
     }
-    //step_pathfinder();
     step_controller();
-
 }
 
-void step_pathfinder()
-{
-    // give inputs to pathfinder
-    // take outputs (refernce singal)
-}
 void ThrustControlSupervisor::step_controller()
 {
     pwm_array new_pwm;
