@@ -16,6 +16,7 @@ ThrustControlSupervisor::ThrustControlSupervisor(
   current_command->start();
 }
 
+
 void ThrustControlSupervisor::push_to_pwm_queue(std::unique_ptr<SupervisorCommand> new_command)
 {
   if (new_command->isOverride()) {
@@ -74,21 +75,14 @@ void ThrustControlSupervisor::pid_pwm()
 {
     if ( _auto_flag == false )
     { 
+        std::cout << "initializing controller\n";
         _auto_flag = true;
-        //pathfinder->initialize();
         _controller->initialize();
 
     }
-    //step_pathfinder();
     step_controller();
-
 }
 
-void step_pathfinder()
-{
-    // give inputs to pathfinder
-    // take outputs (refernce singal)
-}
 void ThrustControlSupervisor::step_controller()
 {
     pwm_array new_pwm;
@@ -97,11 +91,14 @@ void ThrustControlSupervisor::step_controller()
         _controller->rtU.Input[i] = _current_position[i] - _waypoint[i];
     }
     _controller->step();
-    
+ //   std::cout << "stepping controller\n";
     for (int i = 0; i < 8; i++)
     {
         new_pwm.pwm_signals[i] = _controller->rtY.Out1[i];
+     //   std::cout << new_pwm.pwm_signals[i] << " ";
     }
+//    std::cout << "\n";
+
     current_command = std::make_unique<Untimed_Command>(new_pwm);
 }
 
