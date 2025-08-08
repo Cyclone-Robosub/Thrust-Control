@@ -13,7 +13,7 @@
 // Temporarily disable unused-function warnings for this include
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-function"
-#include "../include/exported-PID-control/src/controller_codegenTest.h"
+#include "../include/exported-PID-control/src/PID_Controller.h"
 #pragma GCC diagnostic pop
 
 // TODO
@@ -45,10 +45,10 @@ public:
 	  Position waypoint);
   
   pwm_array get_current_pwm(){ return current_command->getPwms();}
-  ControlMode get_control_mode() {return _control_mode;}
-  CommandQueue get_command_queue() {return command_queue;}
-  Position get_current_position() {return _current_position;} // x, y, z, roll, pitch, yaw
-  Position get_waypoint() {return _waypoint;}
+  ControlMode get_control_mode() { return _control_mode;}
+  CommandQueue get_command_queue() { return command_queue;}
+  Position get_current_position() { return _current_position;} // x, y, z, roll, pitch, yaw
+  Position get_waypoint() { return _waypoint;}
 
 private:
   
@@ -61,7 +61,7 @@ private:
 
   rclcpp::Logger _logger;
   std::unique_ptr<Command_Interpreter_RPi5> _interpreter;
-  std::unique_ptr<controller_codegenTest> _controller;
+  std::unique_ptr<PID_Controller> _controller;
   
   CommandQueue command_queue;
   std::unique_ptr<SupervisorCommand> current_command;

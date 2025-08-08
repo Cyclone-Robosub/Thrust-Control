@@ -9,7 +9,7 @@ ThrustControlSupervisor::ThrustControlSupervisor(
         CommandQueue command_queue)
   : _logger(logger),
     _interpreter(std::move(interpreter)),
-    _controller(std::make_unique<controller_codegenTest>()),
+    _controller(std::make_unique<PID_Controller>()),
     current_command(std::make_unique<Untimed_Command>(stop_set, false))
 {
   this->command_queue = command_queue;
@@ -86,18 +86,21 @@ void ThrustControlSupervisor::pid_pwm()
 void ThrustControlSupervisor::step_controller()
 {
     pwm_array new_pwm;
+    PID_Controller::ExtU_PID_Controller_T extU;
+    PID_Controller::ExtY_PID_Controller_T extY;
+
     for (int i = 0; i < 6; i++)   
     {
-        _controller->rtU.Input[i] = _current_position[i] - _waypoint[i];
+        extU.state_error_e[i] = _current_position[i] - _waypoint[i];
     }
+    _controller->setExternalInputs(&extU);
     _controller->step();
- //   std::cout << "stepping controller\n";
+
+    extY = _controller->getExternalOutputs();
     for (int i = 0; i < 8; i++)
     {
-        new_pwm.pwm_signals[i] = _controller->rtY.Out1[i];
-     //   std::cout << new_pwm.pwm_signals[i] << " ";
+        new_pwm.pwm_signals[i] = extY.PWM[i];
     }
-//    std::cout << "\n";
 
     current_command = std::make_unique<Untimed_Command>(new_pwm);
 }

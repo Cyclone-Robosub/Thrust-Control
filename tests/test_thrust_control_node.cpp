@@ -220,6 +220,7 @@ TEST_F(ThrustControlNodeTest, ErrorProducesOutputForPIDControl)
    if (pwm_received_) { EXPECT_NE(received_pwm_data_.pwm_signals, stop_pwm.pwm_signals); }
 
 }
+
 TEST_F(ThrustControlNodeTest, ManualPWMRetreivedCorrectly)
 {
     pwm_array pwm_data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
@@ -300,6 +301,7 @@ TEST_F(ThrustControlNodeTest, ManualPWMPublishedOnSentTopicAndReceivedAccuaratly
         }
     }
 }
+
 TEST_F(ThrustControlNodeTest, TimedCommandExpiresCorrectly)
 {
     pwm_array pwm_data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
