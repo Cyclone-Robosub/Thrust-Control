@@ -7,14 +7,14 @@ source /opt/ros/jazzy/setup.bash
 
 
 
-# build crs_common
-cd include/crs_common
-. ./script/build.sh
-if [ $? -ne 0 ]; then
-    echo "ERROR: crs_common build failed"
-    exit 1
-fi
-cd ../..
+## build crs_common
+#cd include/crs_common
+#. ./script/build.sh
+#if [ $? -ne 0 ]; then
+#    echo "ERROR: crs_common build failed"
+#    exit 1
+#fi
+#cd ../..
 
 # Build with testing enabled
 colcon build  --cmake-args -DBUILD_TESTING=ON -DMOCK_RPI=ON
