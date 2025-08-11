@@ -77,6 +77,7 @@ void ThrustControlSupervisor::pid_pwm()
     { 
         std::cout << "initializing controller\n";
         _auto_flag = true;
+        _controller = std::make_unique<PID_Controller>();
         _controller->initialize();
 
     }
