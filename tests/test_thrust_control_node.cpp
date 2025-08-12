@@ -372,7 +372,7 @@ TEST_F(ThrustControlNodeTest, PositionCallbackStoresDataCorrectly)
     EXPECT_EQ(thrust_node_->get_position(), position);
 }
 
-TEST_F(ThrustControlNodeTest, BatteryCallbackStoresDataCorrectly)
+TEST_F(ThrustControlNodeTest, BatteryVoltCallbackStoresDataCorrectly)
 {
     std_msgs::msg::Float64 batteryvoltage_msg;
     batteryvoltage_msg.data = 12.0f;
