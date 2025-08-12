@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.8)
 project(thrust_control)
 
-# Default to C++14
+# Default to C++20
 if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
+  set(CMAKE_CXX_STANDARD 20)
 endif()
 
 add_subdirectory(include/exported-PID-control)
