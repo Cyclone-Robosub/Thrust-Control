@@ -1,6 +1,3 @@
-[submodule "crs_common"]
-	path = include/crs_common
-	url = https://github.com/Cyclone-Robosub/crs_common.git
 [submodule "include/Command_Interpreter"]
 	path = include/Command_Interpreter
 	url = https://github.com/Cyclone-Robosub/Command_Interpreter.git

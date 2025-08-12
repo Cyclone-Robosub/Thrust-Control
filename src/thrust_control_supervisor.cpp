@@ -82,6 +82,7 @@ void ThrustControlSupervisor::pid_pwm()
 
     }
     step_controller();
+    _interpreter->untimed_execute(current_command->getPwms());
 }
 
 void ThrustControlSupervisor::step_controller()
