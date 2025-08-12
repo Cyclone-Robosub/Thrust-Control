@@ -45,6 +45,7 @@ private:
   std::mutex message_mutex_;
 
   void pwm_topic_callback(const crs_ros2_interfaces::msg::PwmCmd::SharedPtr msg);
+  void pwm_limit_callback(const std_msgs::msg::Int32MultiArray::SharedPtr msg);
   void control_mode_callback(const std_msgs::msg::String::SharedPtr msg);
   void position_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg);
   void waypoint_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg);
@@ -55,6 +56,7 @@ private:
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr _control_mode_subscription;
   rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr _position_subscription;
   rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr _waypoint_subscription;
+  rclcpp::Subscription<std_msgs::msg::Int32MultiArray>::SharedPtr _pwm_limit_subscription;
   rclcpp::Publisher<std_msgs::msg::Int32MultiArray>::SharedPtr _pwm_publisher;
   rclcpp::TimerBase::SharedPtr timer_;
   
@@ -65,6 +67,7 @@ private:
   std::string waypoint_topic_ = "waypoint_topic";
   std::string sent_pwm_topic_ = "sent_pwm_topic";
   std::string control_mode_topic_ = "control_mode_topic";
+  std::string pwm_limit_topic_ = "pwm_limit_topic";
 
   // start at stop set
   pwm_array user_pwm_ = { {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}};
@@ -76,7 +79,7 @@ private:
   bool manual_override_ = false;
   bool is_timed_command_ = false;
   ControlMode control_mode_ = ControlMode::FeedForward;
-
+  int pwm_limit_[2] = {1100, 1900};
   Position position_ = {0,0,0,0,0,0};
   Position waypoint_ = {0,0,0,0,0,0};
 };

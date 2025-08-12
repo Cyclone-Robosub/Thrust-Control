@@ -16,6 +16,13 @@ ThrustControlNode::ThrustControlNode
                     this, 
                     std::placeholders::_1));
 
+    _pwm_limit_subscription =
+        this->create_subscription<std_msgs::msg::Int32MultiArray>(
+                pwm_limit_topic_,
+                10, std::bind(&ThrustControlNode::pwm_limit_callback,
+                    this,
+                    std::placeholders::_1));
+
     _control_mode_subscription =
         this->create_subscription<std_msgs::msg::String>(
                 control_mode_topic_,
@@ -69,6 +76,30 @@ void ThrustControlNode::pwm_topic_callback(const crs_ros2_interfaces::msg::PwmCm
     {
         supervisor_.push_to_pwm_queue(std::make_unique<Untimed_Command>(pwm_data, manual_override_));
     }
+}
+
+void ThrustControlNode::pwm_limit_callback(const std_msgs::msg::Int32MultiArray::SharedPtr msg)
+{
+    if (msg->data.size() != 2)
+    {
+        std::cout << "PWM limit is not the correct size" << std::endl;
+        return;
+    }
+
+    int pwm_limit[2] = {msg->data[0], msg->data[1]};
+    if (pwm_limit[0] < 1100) 
+    {
+        std::cout << "PWM limit is too low" << std::endl;
+        return;
+    }
+    if (pwm_limit[1] > 1900)
+    {
+        std::cout << "PWM limit is too high" << std::endl;
+        return;
+    }
+    pwm_limit_[0] = std::min(pwm_limit[0], pwm_limit_[1]);
+    pwm_limit_[1] = std::max(pwm_limit[1], pwm_limit_[0]);
+    supervisor_.set_pwm_limit(pwm_limit_[0], pwm_limit_[1]);
 }
 
 void ThrustControlNode::control_mode_callback(const std_msgs::msg::String::SharedPtr msg)
