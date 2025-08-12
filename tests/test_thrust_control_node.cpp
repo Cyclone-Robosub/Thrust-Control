@@ -376,6 +376,7 @@ TEST_F(ThrustControlNodeTest, BatteryVoltCallbackStoresDataCorrectly)
 {
     std_msgs::msg::Float64 batteryvoltage_msg;
     batteryvoltage_msg.data = 12.0f;
+    EXPECT_EQ(thrust_node_->get_voltageLow(), false);
     voltage_publisher_->publish(batteryvoltage_msg);
     
     auto start = std::chrono::steady_clock::now();
