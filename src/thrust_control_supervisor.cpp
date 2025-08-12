@@ -16,7 +16,6 @@ ThrustControlSupervisor::ThrustControlSupervisor(
   current_command->start();
 }
 
-
 void ThrustControlSupervisor::push_to_pwm_queue(std::unique_ptr<SupervisorCommand> new_command)
 {
   if (new_command->isOverride()) {
@@ -38,6 +37,23 @@ void ThrustControlSupervisor::push_to_pwm_queue(pwm_array pwm, float duration, b
     auto untimed_command = std::make_unique<Untimed_Command>(pwm, is_override);
     push_to_pwm_queue(std::move(untimed_command));
   }
+}
+void ThrustControlSupervisor::limit_command(
+  std::unique_ptr<SupervisorCommand>& command)
+{
+  pwm_array pwms = command->getPwms();
+  for (int i = 0; i < 8; i++)
+  {
+    if (pwms.pwm_signals[i] < pwm_limit_[0])
+    {
+      pwms.pwm_signals[i] = pwm_limit_[0];
+    }
+    if (pwms.pwm_signals[i] > pwm_limit_[1])
+    {
+      pwms.pwm_signals[i] = pwm_limit_[1];
+    }
+  }
+  command->setPwms(pwms);
 }
 
 void ThrustControlSupervisor::step(
