@@ -391,7 +391,7 @@ TEST_F(ThrustControlSupervisorTest, PushToQueueTimedOverride) {
     Position waypoint;
     
     pwm_array initial_pwm = {1600, 1400, 1600, 1400, 1600, 1400, 1600, 1400};
-    pwm_array timed_override_pwm = {1900, 1100, 1800, 1200, 1700, 1300, 1950, 1050};
+    pwm_array timed_override_pwm = {1900, 1100, 1800, 1200, 1700, 1300, 1900, 1100};
     float duration = 50.0f; // 50ms
     
     supervisor.push_to_pwm_queue(initial_pwm, 0.0f, false, false);
@@ -399,8 +399,9 @@ TEST_F(ThrustControlSupervisorTest, PushToQueueTimedOverride) {
     supervisor.push_to_pwm_queue(timed_override_pwm, duration, true, true);
     
     supervisor.step(FeedForward, position, waypoint);
-    
-    EXPECT_EQ(supervisor.get_current_pwm(), timed_override_pwm);
+    for (int i = 0; i < 8; i++) {
+        EXPECT_EQ(supervisor.get_current_pwm().pwm_signals[i], timed_override_pwm.pwm_signals[i]);
+    }
 }
 
 // Test multiple commands with overloaded function
@@ -478,10 +479,14 @@ TEST_F(ThrustControlSupervisorTest, PushToQueueOverrideClearsQueue) {
     supervisor.push_to_pwm_queue(after_override_pwm, 0.0f, false, false);
     
     supervisor.step(FeedForward, position, waypoint);
-    EXPECT_EQ(supervisor.get_current_pwm(), override_pwm);
+    for (int i = 0; i < 8; i++) {
+        EXPECT_EQ(supervisor.get_current_pwm().pwm_signals[i], override_pwm.pwm_signals[i]);
+    }
     
     supervisor.step(FeedForward, position, waypoint);
-    EXPECT_EQ(supervisor.get_current_pwm(), after_override_pwm);
+    for (int i = 0; i < 8; i++) {   
+        EXPECT_EQ(supervisor.get_current_pwm().pwm_signals[i], after_override_pwm.pwm_signals[i]);
+    }
 }
 
 // test that timed commands expire
@@ -514,4 +519,29 @@ TEST_F(ThrustControlSupervisorTest, TimedCommandsExpire) {
     EXPECT_EQ(supervisor.get_current_pwm(), pwm_0);
 
     
+}
+
+TEST_F(ThrustControlSupervisorTest, LimitCommand) {
+
+    thrust_control::ThrustControlSupervisor supervisor(
+        logger, 
+        std::move(interpreter),
+        thrust_control::CommandQueue());
+
+    pwm_array pwm = {1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800};
+    pwm_array expected_pwm = {1400, 1400, 1400, 1400, 1500, 1600, 1600, 1600};
+    std::unique_ptr<SupervisorCommand> command = std::make_unique<Untimed_Command>(pwm, false);
+    supervisor.set_pwm_limit(1400, 1600);
+    supervisor.limit_command(command);
+
+
+    // ugly assert block fived better terminal output
+    EXPECT_EQ(command->getPwms().pwm_signals[0], expected_pwm.pwm_signals[0]);
+    EXPECT_EQ(command->getPwms().pwm_signals[1], expected_pwm.pwm_signals[1]);
+    EXPECT_EQ(command->getPwms().pwm_signals[2], expected_pwm.pwm_signals[2]);
+    EXPECT_EQ(command->getPwms().pwm_signals[3], expected_pwm.pwm_signals[3]);
+    EXPECT_EQ(command->getPwms().pwm_signals[4], expected_pwm.pwm_signals[4]);
+    EXPECT_EQ(command->getPwms().pwm_signals[5], expected_pwm.pwm_signals[5]);
+    EXPECT_EQ(command->getPwms().pwm_signals[6], expected_pwm.pwm_signals[6]);
+    EXPECT_EQ(command->getPwms().pwm_signals[7], expected_pwm.pwm_signals[7]);
 }

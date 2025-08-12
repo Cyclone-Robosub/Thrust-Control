@@ -20,6 +20,7 @@ public:
     virtual void start() = 0;
     virtual bool isFinished() = 0;
     virtual pwm_array getPwms() const {return pwm_;};
+    virtual void setPwms(const pwm_array& pwm) {pwm_ = pwm;};
     virtual bool isOverride() const {return is_override_;};
     virtual pwm_array onExpirePwm() = 0;
 

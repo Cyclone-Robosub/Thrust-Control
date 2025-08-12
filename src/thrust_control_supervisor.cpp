@@ -16,7 +16,6 @@ ThrustControlSupervisor::ThrustControlSupervisor(
   current_command->start();
 }
 
-
 void ThrustControlSupervisor::push_to_pwm_queue(std::unique_ptr<SupervisorCommand> new_command)
 {
   if (new_command->isOverride()) {
@@ -38,6 +37,23 @@ void ThrustControlSupervisor::push_to_pwm_queue(pwm_array pwm, float duration, b
     auto untimed_command = std::make_unique<Untimed_Command>(pwm, is_override);
     push_to_pwm_queue(std::move(untimed_command));
   }
+}
+void ThrustControlSupervisor::limit_command(
+  std::unique_ptr<SupervisorCommand>& command)
+{
+  pwm_array pwms = command->getPwms();
+  for (int i = 0; i < 8; i++)
+  {
+    if (pwms.pwm_signals[i] < pwm_limit_[0])
+    {
+      pwms.pwm_signals[i] = pwm_limit_[0];
+    }
+    if (pwms.pwm_signals[i] > pwm_limit_[1])
+    {
+      pwms.pwm_signals[i] = pwm_limit_[1];
+    }
+  }
+  command->setPwms(pwms);
 }
 
 void ThrustControlSupervisor::step(
@@ -73,6 +89,7 @@ void ThrustControlSupervisor::feed_forward_pwm()
             std::move(current_command));
   }
   current_command->start();
+  limit_command(current_command);
   _interpreter->untimed_execute(current_command->getPwms());
 }
 
@@ -82,10 +99,12 @@ void ThrustControlSupervisor::pid_pwm()
     { 
         std::cout << "initializing controller\n";
         _auto_flag = true;
+        _controller = std::make_unique<PID_Controller>();
         _controller->initialize();
 
     }
     step_controller();
+    limit_command(current_command);
     _interpreter->untimed_execute(current_command->getPwms());
 }
 
@@ -98,6 +117,12 @@ void ThrustControlSupervisor::step_controller()
     for (int i = 0; i < 6; i++)   
     {
         extU.state_error_e[i] = _current_position[i] - _waypoint[i];
+    }
+
+    // correct degrees to radians for angular errors
+    for (int i = 3; i < 6; i++)
+    {
+        extU.state_error_e[i] = extU.state_error_e[i] * M_PI / 180.0;
     }
     _controller->setExternalInputs(&extU);
     _controller->step();

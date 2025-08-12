@@ -42,6 +42,7 @@ public:
   Position get_position() const {return position_;}
   bool get_voltageLow() const {return isLowVoltage;}
   Position get_waypoint() const {return waypoint_;}
+  std::array<int, 2> get_pwm_limit() const {return pwm_limit_;}
 
 private:
   std_msgs::msg::String::SharedPtr last_message_ = nullptr;
@@ -49,6 +50,7 @@ private:
 
   void pwm_topic_callback(const crs_ros2_interfaces::msg::PwmCmd::SharedPtr msg);
   void voltage_callback(const std_msgs::msg::Float64::SharedPtr msg);
+  void pwm_limit_callback(const std_msgs::msg::Int32MultiArray::SharedPtr msg);
   void control_mode_callback(const std_msgs::msg::String::SharedPtr msg);
   void position_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg);
   void waypoint_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg);
@@ -60,6 +62,7 @@ private:
   rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr _position_subscription;
   rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr _voltage_subscription;
   rclcpp::Subscription<std_msgs::msg::Float32MultiArray>::SharedPtr _waypoint_subscription;
+  rclcpp::Subscription<std_msgs::msg::Int32MultiArray>::SharedPtr _pwm_limit_subscription;
   rclcpp::Publisher<std_msgs::msg::Int32MultiArray>::SharedPtr _pwm_publisher;
   rclcpp::TimerBase::SharedPtr timer_;
   
@@ -70,6 +73,7 @@ private:
   std::string waypoint_topic_ = "waypoint_topic";
   std::string sent_pwm_topic_ = "sent_pwm_topic";
   std::string control_mode_topic_ = "control_mode_topic";
+  std::string pwm_limit_topic_ = "pwm_limit_topic";
 
   // start at stop set
   pwm_array user_pwm_ = { {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}};
@@ -82,6 +86,7 @@ private:
   bool is_timed_command_ = false;
   ControlMode control_mode_ = ControlMode::FeedForward;
   std::atomic<bool> isLowVoltage = false;
+  std::array<int, 2> pwm_limit_ = {1100, 1900};
   Position position_ = {0,0,0,0,0,0};
   Position waypoint_ = {0,0,0,0,0,0};
 };

@@ -28,6 +28,7 @@ protected:
     rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr position_publisher_;
     rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr waypoint_publisher_;
     rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr voltage_publisher_;
+    rclcpp::Publisher<std_msgs::msg::Int32MultiArray>::SharedPtr pwm_limit_publisher_;
     std::shared_ptr<rclcpp::executors::SingleThreadedExecutor> executor_;
     
     std::unique_ptr<Command_Interpreter_RPi5> interpreter_;
@@ -47,6 +48,9 @@ protected:
         
         pwm_cmd_publisher_ = test_node_pub_->create_publisher<crs_ros2_interfaces::msg::PwmCmd>(
             "pwm_cmd_topic", 10);
+
+        pwm_limit_publisher_ = test_node_pub_->create_publisher<std_msgs::msg::Int32MultiArray>(
+            "pwm_limit_topic", 10);
 
         control_mode_publisher_ = test_node_pub_->create_publisher<std_msgs::msg::String>(
             "control_mode_topic", 10);
@@ -101,7 +105,6 @@ TEST_F(ThrustControlNodeTest, PWMSubscriptionCallback) {
         executor_->spin_some();
     });
 }
-
 TEST_F(ThrustControlNodeTest, PWMCallbackStoresDataCorrectly) {
     // Send specific PWM values using the custom message
     pwm_array pwm_data = {1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800};
@@ -117,7 +120,6 @@ TEST_F(ThrustControlNodeTest, PWMCallbackStoresDataCorrectly) {
     EXPECT_EQ(thrust_node_->get_manual_override(), false);
     EXPECT_EQ(thrust_node_->get_is_timed_command(), false);
 }
-
 TEST_F(ThrustControlNodeTest, ControlModeCallbackStoresDataCorrectly) {
 
     auto control_mode_msg = std_msgs::msg::String();
@@ -344,6 +346,46 @@ TEST_F(ThrustControlNodeTest, ManualPWMPublishedOnSentTopicAndReceivedAccuaratly
     }
 }
 
+TEST_F(ThrustControlNodeTest, PWM_Limit_Callback_Test)
+{
+    int pwm_limit[2] = {1400, 1600};
+    auto pwm_limit_msg = std_msgs::msg::Int32MultiArray();
+    pwm_limit_msg.data = {pwm_limit[0], pwm_limit[1]};
+    pwm_limit_publisher_->publish(pwm_limit_msg);
+    executor_->spin_some();
+    ASSERT_EQ(thrust_node_->get_pwm_limit().at(0), pwm_limit[0]);
+    ASSERT_EQ(thrust_node_->get_pwm_limit().at(1), pwm_limit[1]);
+}
+
+TEST_F(ThrustControlNodeTest, PWM_Limit_Callback_Test_2)
+{
+    int pwm_limit[2] = {1400, 1600};
+    auto pwm_limit_msg = std_msgs::msg::Int32MultiArray();
+    pwm_limit_msg.data = {pwm_limit[0], pwm_limit[1]};
+    pwm_limit_publisher_->publish(pwm_limit_msg);
+    executor_->spin_some();
+
+    pwm_array pwm_data = {1300, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
+    pwm_array expected_pwm = {1400, 1450, 1500, 1550, 1600, 1400, 1600, 1600};
+    auto pwm_msg = pwm_utils::create_pwm_msg(pwm_data, false, 0, false);
+    pwm_cmd_publisher_->publish(pwm_msg);
+    
+    auto start = std::chrono::steady_clock::now();
+    while (!pwm_received_ && std::chrono::steady_clock::now() - start < std::chrono::seconds(2)) 
+    {
+        executor_->spin_some();  
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
+    EXPECT_TRUE(pwm_received_) << "No PWM data received on sent_pwm_topic";
+
+    if (pwm_received_) {
+        for (int i = 0; i < 8; i++) {
+            EXPECT_EQ(received_pwm_data_.pwm_signals[i], expected_pwm.pwm_signals[i]);
+        }
+    }
+}
+
 TEST_F(ThrustControlNodeTest, TimedCommandExpiresCorrectly)
 {
     pwm_array pwm_data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
@@ -461,3 +503,5 @@ TEST_F(ThrustControlNodeTest, Constructor) {
     ASSERT_NO_THROW({rclcpp::spin_some(node);});
     node.reset();
 }
+
+
