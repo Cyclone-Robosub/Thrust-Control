@@ -113,6 +113,12 @@ void ThrustControlSupervisor::step_controller()
     {
         extU.state_error_e[i] = _current_position[i] - _waypoint[i];
     }
+
+    // correct degrees to radians for angular errors
+    for (int i = 3; i < 6; i++)
+    {
+        extU.state_error_e[i] = extU.state_error_e[i] * M_PI / 180.0;
+    }
     _controller->setExternalInputs(&extU);
     _controller->step();
 
