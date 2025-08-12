@@ -27,6 +27,7 @@ protected:
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr control_mode_publisher_;
     rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr position_publisher_;
     rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr waypoint_publisher_;
+    rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr voltage_publisher_;
     std::shared_ptr<rclcpp::executors::SingleThreadedExecutor> executor_;
     
     std::unique_ptr<Command_Interpreter_RPi5> interpreter_;
@@ -55,7 +56,9 @@ protected:
 
         waypoint_publisher_ = test_node_pub_->create_publisher<std_msgs::msg::Float32MultiArray>(
             "waypoint_topic", 10);
-            
+        voltage_publisher_ = 
+        test_node_pub_->create_publisher<std_msgs::msg::Float64>(   
+            "voltageReadingTopic", 10);
         pwm_subscriber_ = test_node_sub_->create_subscription<std_msgs::msg::Int32MultiArray>(
             "sent_pwm_topic", 10, [this](const std_msgs::msg::Int32MultiArray::SharedPtr msg) 
             {
@@ -367,6 +370,22 @@ TEST_F(ThrustControlNodeTest, PositionCallbackStoresDataCorrectly)
     }
 
     EXPECT_EQ(thrust_node_->get_position(), position);
+}
+
+TEST_F(ThrustControlNodeTest, BatteryCallbackStoresDataCorrectly)
+{
+    std_msgs::msg::Float64 batteryvoltage_msg;
+    batteryvoltage_msg.data = 12.0f;
+    voltage_publisher_->publish(batteryvoltage_msg);
+    
+    auto start = std::chrono::steady_clock::now();
+    while (std::chrono::steady_clock::now() - start < std::chrono::seconds(1)) 
+    {
+        executor_->spin_some();  
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
+    EXPECT_EQ(thrust_node_->get_voltageLow(), true);
 }
 TEST_F(ThrustControlNodeTest, WaypointCallbackStoresDataCorrectly)
 { 
