@@ -247,6 +247,45 @@ TEST_F(ThrustControlNodeTest, ManualPWMRetreivedCorrectly)
     
     EXPECT_EQ(thrust_node_->get_thruster_pwm(), pwm_data);
 }
+TEST_F(ThrustControlNodeTest, LowVoltagePWMRetreivedCorrectly)
+{
+    pwm_array pwm_data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
+    
+    auto pwm_msg = pwm_utils::create_pwm_msg(pwm_data, false, 0, true);
+    auto control_mode_msg = std_msgs::msg::String();
+    control_mode_msg.data = "FeedForward";
+    pwm_received_ = false;
+    
+    control_mode_publisher_->publish(control_mode_msg);
+    executor_->spin_some();
+
+    pwm_cmd_publisher_->publish(pwm_msg);
+    
+    auto start = std::chrono::steady_clock::now();
+    while (!pwm_received_ || std::chrono::steady_clock::now() - start < std::chrono::seconds(1)) 
+    {
+        executor_->spin_some();  
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+    
+    EXPECT_EQ(thrust_node_->get_thruster_pwm(), pwm_data);
+
+    std_msgs::msg::Float64 batteryvoltage_msg;
+    batteryvoltage_msg.data = 12.0f;
+    EXPECT_EQ(thrust_node_->get_voltageLow(), false);
+    voltage_publisher_->publish(batteryvoltage_msg);
+    start = std::chrono::steady_clock::now();
+    while (std::chrono::steady_clock::now() - start < std::chrono::seconds(1)) 
+    {
+        executor_->spin_some();  
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+    EXPECT_EQ(thrust_node_->get_voltageLow(), true);
+     std::this_thread::sleep_for(std::chrono::milliseconds(800));
+    pwm_array stop_pwm = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500};
+    EXPECT_EQ(thrust_node_->get_thruster_pwm(), stop_pwm);
+
+}
 
 TEST_F(ThrustControlNodeTest, ManualPWMPublishedOnSentTopic) 
 {

@@ -49,7 +49,7 @@ public:
   CommandQueue get_command_queue() { return command_queue;}
   Position get_current_position() { return _current_position;} // x, y, z, roll, pitch, yaw
   Position get_waypoint() { return _waypoint;}
-
+  bool isLowVoltageReading = false;
 private:
   
   void process_pwm_command();
@@ -76,7 +76,6 @@ private:
   Position _current_reference_position;
   Position _current_position;
   Position _waypoint;
-
 };
 
 }  // namespace thrust_control

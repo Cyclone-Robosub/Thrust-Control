@@ -97,6 +97,7 @@ void ThrustControlNode::voltage_callback(const std_msgs::msg::Float64::SharedPtr
 {
     if(msg->data <= 14.2){
         isLowVoltage = true;
+        supervisor_.isLowVoltageReading = true;
     }
 }
 void ThrustControlNode::position_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg)
