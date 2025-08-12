@@ -49,6 +49,7 @@ public:
   CommandQueue get_command_queue() { return command_queue;}
   Position get_current_position() { return _current_position;} // x, y, z, roll, pitch, yaw
   Position get_waypoint() { return _waypoint;}
+  bool isLowVoltageReading = false;
   void set_pwm_limit(int min, int max) { pwm_limit_[0] = min; pwm_limit_[1] = max;}
 
   void limit_command(std::unique_ptr<SupervisorCommand>& command);
@@ -80,7 +81,6 @@ private:
   Position _waypoint;
 
   int pwm_limit_[2] = {1100, 1900};
-
 };
 
 }  // namespace thrust_control

@@ -36,6 +36,11 @@ ThrustControlNode::ThrustControlNode
                 10, std::bind(&ThrustControlNode::position_callback,
                     this,
                     std::placeholders::_1));
+    _voltage_subscription = 
+        this->create_subscription<std_msgs::msg::Float64>(
+                "voltageReadingTopic", rclcpp::QoS(5),
+                std::bind(&ThrustControlNode::voltage_callback, this, std::placeholders::_1)
+        );
 
     _waypoint_subscription =
         this->create_subscription<std_msgs::msg::Float32MultiArray>(
@@ -119,7 +124,13 @@ void ThrustControlNode::control_mode_callback(const std_msgs::msg::String::Share
     
     RCLCPP_INFO(this->get_logger(), "Control mode set to: %s", mode_str.c_str());
 }   
-
+void ThrustControlNode::voltage_callback(const std_msgs::msg::Float64::SharedPtr msg)
+{
+    if(msg->data <= 14.2){
+        isLowVoltage = true;
+        supervisor_.isLowVoltageReading = true;
+    }
+}
 void ThrustControlNode::position_callback(const std_msgs::msg::Float32MultiArray::SharedPtr msg)
 {
     position_ = Position(msg->data[0], msg->data[1], msg->data[2], msg->data[3], msg->data[4], msg->data[5]);

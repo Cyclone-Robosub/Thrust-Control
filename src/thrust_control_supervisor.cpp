@@ -71,8 +71,13 @@ void ThrustControlSupervisor::step(
 
 void ThrustControlSupervisor::process_pwm_command()
 {
+  if(isLowVoltageReading){
+    pwm_array stop_pwm = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500};
+    current_command = std::make_unique<Untimed_Command>(stop_pwm);
+  }else{
   if (this->_control_mode == FeedForward) { this->feed_forward_pwm(); }
   if (this->_control_mode == PID){ this->pid_pwm(); }
+  }
 }  
 
 void ThrustControlSupervisor::feed_forward_pwm()  
