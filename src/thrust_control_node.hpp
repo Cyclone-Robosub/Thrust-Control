@@ -39,6 +39,7 @@ public:
   ControlMode get_control_mode() const {return control_mode_;}
   Position get_position() const {return position_;}
   Position get_waypoint() const {return waypoint_;}
+  std::array<int, 2> get_pwm_limit() const {return pwm_limit_;}
 
 private:
   std_msgs::msg::String::SharedPtr last_message_ = nullptr;
@@ -79,7 +80,7 @@ private:
   bool manual_override_ = false;
   bool is_timed_command_ = false;
   ControlMode control_mode_ = ControlMode::FeedForward;
-  int pwm_limit_[2] = {1100, 1900};
+  std::array<int, 2> pwm_limit_ = {1100, 1900};
   Position position_ = {0,0,0,0,0,0};
   Position waypoint_ = {0,0,0,0,0,0};
 };

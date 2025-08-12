@@ -84,6 +84,7 @@ void ThrustControlSupervisor::feed_forward_pwm()
             std::move(current_command));
   }
   current_command->start();
+  limit_command(current_command);
   _interpreter->untimed_execute(current_command->getPwms());
 }
 
@@ -98,6 +99,7 @@ void ThrustControlSupervisor::pid_pwm()
 
     }
     step_controller();
+    limit_command(current_command);
     _interpreter->untimed_execute(current_command->getPwms());
 }
 
