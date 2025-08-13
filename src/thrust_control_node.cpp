@@ -52,7 +52,7 @@ ThrustControlNode::ThrustControlNode
             10);
         
     timer_ = this->create_wall_timer(
-            std::chrono::milliseconds(1),
+            std::chrono::milliseconds(10),
             std::bind(&ThrustControlNode::timer_callback, this));
 
 }
