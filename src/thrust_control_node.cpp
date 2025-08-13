@@ -56,6 +56,19 @@ ThrustControlNode::ThrustControlNode
             std::bind(&ThrustControlNode::timer_callback, this));
 
 }
+ThrustControlNode::~ThrustControlNode()
+{
+    std::cout << "Destructor" << std::endl;
+    timer_->cancel();
+    stop();
+}
+void ThrustControlNode::stop()
+{
+    control_mode_ = ControlMode::STOP;
+    supervisor_.stop();
+    thruster_pwm_ = supervisor_.get_current_pwm();
+    send_pwm();
+}
 void ThrustControlNode::pwm_topic_callback(const crs_ros2_interfaces::msg::PwmCmd::SharedPtr msg)
 {
     // consolidate pwm data into a single array

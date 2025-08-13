@@ -51,8 +51,8 @@ public:
   Position get_waypoint() { return _waypoint;}
   bool isLowVoltageReading = false;
   void set_pwm_limit(int min, int max) { pwm_limit_[0] = min; pwm_limit_[1] = max;}
-
   void limit_command(std::unique_ptr<SupervisorCommand>& command);
+  void stop();
 private:
   
   void process_pwm_command();

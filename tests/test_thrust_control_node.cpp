@@ -5,6 +5,7 @@
 #include <ostream>
 #include "rclcpp/rclcpp.hpp" 
 #include "thrust_control_supervisor.hpp"
+#include "sets.hpp"
 #include "Command_Interpreter.hpp"
 #include "command_interpreter_pointer.hpp"
 #include "thrust_control_node.hpp"
@@ -492,6 +493,27 @@ TEST_F(ThrustControlNodeTest, WaypointCallbackStoresDataCorrectly)
     EXPECT_EQ(thrust_node_->get_waypoint(), waypoint);
  }
 
+ TEST_F(ThrustControlNodeTest, Stop) {
+    pwm_array fwd_pwm = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
+    auto pwm_msg = pwm_utils::create_pwm_msg(fwd_pwm, false, 0, false);
+    pwm_cmd_publisher_->publish(pwm_msg);
+
+    auto start = std::chrono::steady_clock::now();
+    while (std::chrono::steady_clock::now() - start < std::chrono::seconds(1)) 
+    {
+        executor_->spin_some();  
+    }
+    EXPECT_EQ(thrust_node_->get_thruster_pwm(), fwd_pwm);
+    thrust_node_->stop();
+    start = std::chrono::steady_clock::now();
+    while (std::chrono::steady_clock::now() - start < std::chrono::seconds(1)) 
+    {
+        executor_->spin_some();  
+    }
+    EXPECT_EQ(thrust_node_->get_thruster_pwm(), stop_set);
+ }
+
+
 TEST_F(ThrustControlNodeTest, Constructor) {
     auto interpreter = make_command_interpreter_ptr(
             nullOut, 
@@ -505,3 +527,33 @@ TEST_F(ThrustControlNodeTest, Constructor) {
 }
 
 
+TEST_F(ThrustControlNodeTest, Destructor) {
+    
+
+    pwm_array pwm_data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
+    auto pwm_msg = pwm_utils::create_pwm_msg(pwm_data, false, 0, false);
+    pwm_cmd_publisher_->publish(pwm_msg);   
+    
+    auto start = std::chrono::steady_clock::now();
+    while (std::chrono::steady_clock::now() - start < std::chrono::seconds(1)) 
+    {
+        executor_->spin_some();  
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+    EXPECT_EQ(thrust_node_->get_thruster_pwm(), pwm_data);
+
+
+    start = std::chrono::steady_clock::now();
+    thrust_node_.reset();
+    pwm_received_ = false;
+    while (!pwm_received_ && std::chrono::steady_clock::now() - start < std::chrono::seconds(2)) 
+    {
+        executor_->spin_some();  
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+    EXPECT_EQ(pwm_received_, true);
+    for (int i = 0; i < 8; i++) {
+        EXPECT_EQ(received_pwm_data_.pwm_signals[i], stop_set.pwm_signals[i]);
+    }
+}
+   

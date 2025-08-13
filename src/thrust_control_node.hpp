@@ -29,6 +29,7 @@ class ThrustControlNode : public rclcpp::Node
 {
 public:
   ThrustControlNode(std::unique_ptr<Command_Interpreter_RPi5>);
+  ~ThrustControlNode();
 
 
 
@@ -43,6 +44,7 @@ public:
   bool get_voltageLow() const {return isLowVoltage;}
   Position get_waypoint() const {return waypoint_;}
   std::array<int, 2> get_pwm_limit() const {return pwm_limit_;}
+  void stop();
 
 private:
   std_msgs::msg::String::SharedPtr last_message_ = nullptr;
