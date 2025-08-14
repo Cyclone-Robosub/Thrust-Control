@@ -101,7 +101,29 @@ void ThrustControlSupervisor::pid_pwm()
         _auto_flag = true;
         _controller = std::make_unique<PID_Controller>();
         _controller->initialize();
+        std::vector<std::vector<double>> pid_values = 
+        {
+          {18.568,2.749,30.798,17.247},
+          {18.568,2.749,30.798,17.247},
+          {18.568,2.749,30.798,17.247},
+          {4.773,2.325,2.504,54.54},
+          {6.912,3.236,3.625,54.54},
+          {6.782,2.479,2.957,114.828}
+        };
+        PID_Controller::ExtU_PID_Controller_T extU;
+        extU.controller_mode = 0.0;
+        extU.DFC_error[0] = 0.0;
+        extU.DFC_error[1] = 0.0;
 
+        for (int i = 0; i < 4; i++) {
+          extU.PIDN_X[i] = pid_values[0][i];
+          extU.PIDN_Y[i] = pid_values[1][i];
+          extU.PIDN_Z[i] = pid_values[2][i];
+          extU.PIDN_roll[i] = pid_values[3][i];
+          extU.PIDN_pitch[i] = pid_values[4][i];
+          extU.PIDN_yaw[i] = pid_values[5][i];
+        }
+        _controller->setExternalInputs(&extU);
     }
     step_controller();
     limit_command(current_command);
