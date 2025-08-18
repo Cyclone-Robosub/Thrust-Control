@@ -1,7 +1,7 @@
 #include "position.hpp"
 
 bool float_equal(float x, float y) {
-    return (x - y < 0.00001) || (y - x < 0.00001);
+    return (x > y) ? (x - y < 0.00001) : (y - x < 0.00001);
 }
 
 Position::Position() : x(0), y(0), z(0), roll(0), pitch(0), yaw(0) {}
