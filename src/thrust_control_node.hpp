@@ -76,10 +76,10 @@ private:
   std::string pwm_limit_topic_ = "pwm_limit_topic";
 
   // start at stop set
-  pwm_array user_pwm_ = { {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}};
+  pwm_array user_pwm_ = stop_set;
 
   // this is the pwm that has last been sent to motors
-  pwm_array thruster_pwm_ = { {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500}};
+  pwm_array thruster_pwm_ = stop_set;
 
   float duration_ = 0;
   bool manual_override_ = false;

@@ -92,16 +92,6 @@ void ThrustControlNode::pwm_limit_callback(const std_msgs::msg::Int32MultiArray:
     }
 
     int pwm_limit[2] = {msg->data[0], msg->data[1]};
-    if (pwm_limit[0] < 1100) 
-    {
-        std::cout << "PWM limit is too low" << std::endl;
-        return;
-    }
-    if (pwm_limit[1] > 1900)
-    {
-        std::cout << "PWM limit is too high" << std::endl;
-        return;
-    }
     pwm_limit_[0] = std::min(pwm_limit[0], pwm_limit_[1]);
     pwm_limit_[1] = std::max(pwm_limit[1], pwm_limit_[0]);
     supervisor_.set_pwm_limit(pwm_limit_[0], pwm_limit_[1]);

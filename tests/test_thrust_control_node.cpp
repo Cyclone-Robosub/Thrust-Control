@@ -31,7 +31,6 @@ protected:
     rclcpp::Publisher<std_msgs::msg::Int32MultiArray>::SharedPtr pwm_limit_publisher_;
     std::shared_ptr<rclcpp::executors::SingleThreadedExecutor> executor_;
     
-    std::unique_ptr<Command_Interpreter_RPi5> interpreter_;
     std::shared_ptr<thrust_control::ThrustControlNode> thrust_node_;
     
     pwm_array received_pwm_data_;
@@ -40,8 +39,8 @@ protected:
 
     void SetUp() override
     { 
+        testing::internal::CaptureStdout();
         if (!rclcpp::ok()) { rclcpp::init(0, nullptr); }
-        //testing::internal::CaptureStdout();
        
         test_node_sub_ = std::make_shared<rclcpp::Node>("test_subscriber_node");
         test_node_pub_ = std::make_shared<rclcpp::Node>("test_publisher_node");
@@ -73,7 +72,8 @@ protected:
             });
         
         // logFile.open("../logFile.txt");
-        interpreter_ = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
+        auto interpreter_ = make_command_interpreter_ptr(std::cout, nullOut, std::cerr);
+        interpreter_->setAllPwmLimits(1100, 1900);
         thrust_node_ = std::make_shared<thrust_control::ThrustControlNode>(std::move(interpreter_));
             
         executor_ = std::make_shared<rclcpp::executors::SingleThreadedExecutor>();
@@ -84,6 +84,7 @@ protected:
 
     void TearDown() override 
     {
+        testing::internal::GetCapturedStdout();
         thrust_node_.reset();
         if (rclcpp::ok()) { rclcpp::shutdown(); }
         // logFile.close();
@@ -161,7 +162,6 @@ TEST_F(ThrustControlNodeTest, NoErrorProducesNoOutputForPIDControl)
     position_publisher_->publish(waypoint_msg);
 
 
-   pwm_array stop_pwm = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500};
 
    pwm_received_ = false;
    auto start = std::chrono::steady_clock::now();
@@ -172,7 +172,7 @@ TEST_F(ThrustControlNodeTest, NoErrorProducesNoOutputForPIDControl)
    }
    EXPECT_TRUE(pwm_received_) << "No PWM data received on sent_pwm_topic";
    
-   if (pwm_received_) { EXPECT_EQ(received_pwm_data_, stop_pwm); }
+   if (pwm_received_) { EXPECT_EQ(received_pwm_data_, stop_set); }
 
 
 }
@@ -210,7 +210,6 @@ TEST_F(ThrustControlNodeTest, ErrorProducesOutputForPIDControl)
     position_publisher_->publish(position_msg);
 
 
-   pwm_array stop_pwm = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500};
 
    pwm_received_ = false;
    auto start = std::chrono::steady_clock::now();
@@ -222,7 +221,7 @@ TEST_F(ThrustControlNodeTest, ErrorProducesOutputForPIDControl)
    EXPECT_TRUE(pwm_received_) << "No PWM data received on sent_pwm_topic";
    
    
-   if (pwm_received_) { EXPECT_NE(received_pwm_data_.pwm_signals, stop_pwm.pwm_signals); }
+   if (pwm_received_) { EXPECT_NE(received_pwm_data_.pwm_signals, stop_set.pwm_signals); }
 
 }
 
@@ -271,21 +270,21 @@ TEST_F(ThrustControlNodeTest, LowVoltagePWMRetreivedCorrectly)
     }
     
     EXPECT_EQ(thrust_node_->get_thruster_pwm(), pwm_data);
+    EXPECT_EQ(thrust_node_->get_voltageLow(), false);
 
     std_msgs::msg::Float64 batteryvoltage_msg;
     batteryvoltage_msg.data = 12.0f;
-    EXPECT_EQ(thrust_node_->get_voltageLow(), false);
     voltage_publisher_->publish(batteryvoltage_msg);
+
     start = std::chrono::steady_clock::now();
-    while (std::chrono::steady_clock::now() - start < std::chrono::seconds(1)) 
-    {
+    while (std::chrono::steady_clock::now() - start < std::chrono::seconds(1)) {
         executor_->spin_some();  
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
+
     EXPECT_EQ(thrust_node_->get_voltageLow(), true);
-     std::this_thread::sleep_for(std::chrono::milliseconds(800));
-    pwm_array stop_pwm = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500};
-    EXPECT_EQ(thrust_node_->get_thruster_pwm(), stop_pwm);
+    std::this_thread::sleep_for(std::chrono::milliseconds(800));
+    EXPECT_EQ(thrust_node_->get_thruster_pwm(), stop_set);
 
 }
 
@@ -357,8 +356,7 @@ TEST_F(ThrustControlNodeTest, PWM_Limit_Callback_Test)
     ASSERT_EQ(thrust_node_->get_pwm_limit().at(1), pwm_limit[1]);
 }
 
-TEST_F(ThrustControlNodeTest, PWM_Limit_Callback_Test_2)
-{
+TEST_F(ThrustControlNodeTest, PWM_Limit_Callback_Test_2) {
     int pwm_limit[2] = {1400, 1600};
     auto pwm_limit_msg = std_msgs::msg::Int32MultiArray();
     pwm_limit_msg.data = {pwm_limit[0], pwm_limit[1]};
@@ -377,19 +375,17 @@ TEST_F(ThrustControlNodeTest, PWM_Limit_Callback_Test_2)
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
 
-    EXPECT_TRUE(pwm_received_) << "No PWM data received on sent_pwm_topic";
+    ASSERT_TRUE(pwm_received_) << "No PWM data received on sent_pwm_topic";
 
-    if (pwm_received_) {
-        for (int i = 0; i < 8; i++) {
-            EXPECT_EQ(received_pwm_data_.pwm_signals[i], expected_pwm.pwm_signals[i]);
-        }
+    for (int i = 0; i < 8; i++) {
+        EXPECT_EQ(expected_pwm.pwm_signals[i], thrust_node_->get_thruster_pwm().pwm_signals[i]);
     }
 }
+
 
 TEST_F(ThrustControlNodeTest, TimedCommandExpiresCorrectly)
 {
     pwm_array pwm_data = {1400, 1450, 1500, 1550, 1600, 1350, 1650, 1700};
-    pwm_array stop_pwm = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500};
     auto pwm_msg = pwm_utils::create_pwm_msg(pwm_data, true, 1, true);
     pwm_cmd_publisher_->publish(pwm_msg);
 
@@ -408,7 +404,7 @@ TEST_F(ThrustControlNodeTest, TimedCommandExpiresCorrectly)
         executor_->spin_some();
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
-    EXPECT_EQ(thrust_node_->get_thruster_pwm(), stop_pwm) << "Stop pwm data is not correct";
+    EXPECT_EQ(thrust_node_->get_thruster_pwm(), stop_set) << "Stop pwm data is not correct";
 }
 TEST_F(ThrustControlNodeTest, TimerCallbackExecutes) {
     // Reset the flag

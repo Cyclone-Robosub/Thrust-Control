@@ -17,22 +17,21 @@ protected:
     ThrustControlSupervisorTest() : logger(rclcpp::get_logger("test_logger")) {}
     std::ofstream nullOut = std::ofstream("/dev/null");
     std::unique_ptr<Command_Interpreter_RPi5> interpreter;
+    rclcpp::Logger logger;
     
-    void SetUp() override 
-    {
-        if (!rclcpp::ok()) {  rclcpp::init(0, nullptr);}
-        auto interpreter = make_command_interpreter_ptr(
+    void SetUp() override {
+        if (!rclcpp::ok()) { rclcpp::init(0, nullptr); }
+        interpreter = make_command_interpreter_ptr(
                 nullOut, 
                 nullOut, 
                 std::cerr);
+        interpreter->setAllPwmLimits(1100, 1900);
    }
 
-    void TearDown() override 
-    {
+    void TearDown() override {
         if (rclcpp::ok()) { rclcpp::shutdown(); }
     }
 
-    rclcpp::Logger logger;
 };
 
 
@@ -43,9 +42,6 @@ TEST_F(ThrustControlSupervisorTest, CanBeInitialized) {
                 nullOut, 
                 nullOut, 
                 std::cerr);
-
-   
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, nullOut);
     
     // Act - this tests if we can initialize the supervisor without exceptions
     ASSERT_NO_THROW({
@@ -57,9 +53,7 @@ TEST_F(ThrustControlSupervisorTest, CanBeInitialized) {
 }
 
 
-TEST_F(ThrustControlSupervisorTest, StepSupervisorPidNoError) {
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
-    
+TEST_F(ThrustControlSupervisorTest, StepSupervisorPidNoError) {    
     thrust_control::ThrustControlSupervisor supervisor(
             logger, 
             std::move(interpreter),
@@ -86,8 +80,6 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorPidNoError) {
 }
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorPidWithError) {
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
-
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
@@ -114,8 +106,6 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorPidWithError) {
 }   
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorCustomFeedForward) {
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
-
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
@@ -137,8 +127,6 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorCustomFeedForward) {
 
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorMultiStep) {
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
-
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
@@ -175,8 +163,6 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorMultiStep) {
 }
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorUntimedOverrideUntimed) {
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
-
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
@@ -207,8 +193,6 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorUntimedOverrideUntimed) {
 }
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorUntimedOverrideTimed) {
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
-
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
@@ -240,8 +224,6 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorUntimedOverrideTimed) {
 
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideTimed) {
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
-
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
@@ -272,8 +254,6 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideTimed) {
 }
 
 TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideUntimed) {
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
-
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
@@ -306,9 +286,7 @@ TEST_F(ThrustControlSupervisorTest, StepSupervisorTimedOverrideUntimed) {
 
 
 // Test overloaded push_to_pwm_queue function with untimed command, non-override
-TEST_F(ThrustControlSupervisorTest, PushToQueueUntimedNonOverride) {
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
-    
+TEST_F(ThrustControlSupervisorTest, PushToQueueUntimedNonOverride) {    
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
@@ -332,9 +310,7 @@ TEST_F(ThrustControlSupervisorTest, PushToQueueUntimedNonOverride) {
 }
 
 // Test overloaded push_to_pwm_queue function with untimed command, override
-TEST_F(ThrustControlSupervisorTest, PushToQueueUntimedOverride) {
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
-    
+TEST_F(ThrustControlSupervisorTest, PushToQueueUntimedOverride) {    
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
@@ -356,9 +332,7 @@ TEST_F(ThrustControlSupervisorTest, PushToQueueUntimedOverride) {
 }
 
 // Test overloaded push_to_pwm_queue function with timed command, non-override
-TEST_F(ThrustControlSupervisorTest, PushToQueueTimedNonOverride) {
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
-    
+TEST_F(ThrustControlSupervisorTest, PushToQueueTimedNonOverride) {    
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
@@ -379,9 +353,7 @@ TEST_F(ThrustControlSupervisorTest, PushToQueueTimedNonOverride) {
 }
 
 // Test overloaded push_to_pwm_queue function with timed command, override
-TEST_F(ThrustControlSupervisorTest, PushToQueueTimedOverride) {
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
-    
+TEST_F(ThrustControlSupervisorTest, PushToQueueTimedOverride) {    
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
@@ -405,9 +377,7 @@ TEST_F(ThrustControlSupervisorTest, PushToQueueTimedOverride) {
 }
 
 // Test multiple commands with overloaded function
-TEST_F(ThrustControlSupervisorTest, PushToQueueMultipleCommands) {
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
-    
+TEST_F(ThrustControlSupervisorTest, PushToQueueMultipleCommands) {    
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
@@ -433,9 +403,7 @@ TEST_F(ThrustControlSupervisorTest, PushToQueueMultipleCommands) {
 }
 
 // Test that duration parameter is properly handled for untimed commands
-TEST_F(ThrustControlSupervisorTest, PushToQueueUntimedIgnoresDuration) {
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
-    
+TEST_F(ThrustControlSupervisorTest, PushToQueueUntimedIgnoresDuration) {    
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
@@ -456,9 +424,7 @@ TEST_F(ThrustControlSupervisorTest, PushToQueueUntimedIgnoresDuration) {
 }
 
 // Test override clears command queue
-TEST_F(ThrustControlSupervisorTest, PushToQueueOverrideClearsQueue) {
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
-    
+TEST_F(ThrustControlSupervisorTest, PushToQueueOverrideClearsQueue) {    
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
@@ -490,9 +456,7 @@ TEST_F(ThrustControlSupervisorTest, PushToQueueOverrideClearsQueue) {
 }
 
 // test that timed commands expire
-TEST_F(ThrustControlSupervisorTest, TimedCommandsExpire) {
-    auto interpreter = make_command_interpreter_ptr(nullOut, nullOut, std::cerr);
-    
+TEST_F(ThrustControlSupervisorTest, TimedCommandsExpire) {   
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
@@ -522,26 +486,22 @@ TEST_F(ThrustControlSupervisorTest, TimedCommandsExpire) {
 }
 
 TEST_F(ThrustControlSupervisorTest, LimitCommand) {
-
+    Position position;
+    Position waypoint;
     thrust_control::ThrustControlSupervisor supervisor(
         logger, 
         std::move(interpreter),
         thrust_control::CommandQueue());
-
     pwm_array pwm = {1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800};
     pwm_array expected_pwm = {1400, 1400, 1400, 1400, 1500, 1600, 1600, 1600};
     std::unique_ptr<SupervisorCommand> command = std::make_unique<Untimed_Command>(pwm, false);
     supervisor.set_pwm_limit(1400, 1600);
-    supervisor.limit_command(command);
+    supervisor.push_to_pwm_queue(pwm, 0.0f, false, true);
+    supervisor.step(FeedForward, position, waypoint);
 
 
     // ugly assert block fived better terminal output
-    EXPECT_EQ(command->getPwms().pwm_signals[0], expected_pwm.pwm_signals[0]);
-    EXPECT_EQ(command->getPwms().pwm_signals[1], expected_pwm.pwm_signals[1]);
-    EXPECT_EQ(command->getPwms().pwm_signals[2], expected_pwm.pwm_signals[2]);
-    EXPECT_EQ(command->getPwms().pwm_signals[3], expected_pwm.pwm_signals[3]);
-    EXPECT_EQ(command->getPwms().pwm_signals[4], expected_pwm.pwm_signals[4]);
-    EXPECT_EQ(command->getPwms().pwm_signals[5], expected_pwm.pwm_signals[5]);
-    EXPECT_EQ(command->getPwms().pwm_signals[6], expected_pwm.pwm_signals[6]);
-    EXPECT_EQ(command->getPwms().pwm_signals[7], expected_pwm.pwm_signals[7]);
+    for (int i = 0; i < 8; i++) {
+        EXPECT_EQ(supervisor.get_current_pwm().pwm_signals[i], expected_pwm.pwm_signals[i]);
+    }
 }

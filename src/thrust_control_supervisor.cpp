@@ -16,6 +16,15 @@ ThrustControlSupervisor::ThrustControlSupervisor(
   current_command->start();
 }
 
+pwm_array ThrustControlSupervisor::get_current_pwm() {
+  std::vector<int> pwms_from_interpreter = _interpreter->readPins();
+  pwm_array pwms;
+  for (int i = 0; i < 8; i++) {
+    pwms.pwm_signals[i] = pwms_from_interpreter[i];
+  }
+  return pwms;
+}
+
 void ThrustControlSupervisor::push_to_pwm_queue(std::unique_ptr<SupervisorCommand> new_command)
 {
   if (new_command->isOverride()) {
@@ -38,23 +47,6 @@ void ThrustControlSupervisor::push_to_pwm_queue(pwm_array pwm, float duration, b
     push_to_pwm_queue(std::move(untimed_command));
   }
 }
-void ThrustControlSupervisor::limit_command(
-  std::unique_ptr<SupervisorCommand>& command)
-{
-  pwm_array pwms = command->getPwms();
-  for (int i = 0; i < 8; i++)
-  {
-    if (pwms.pwm_signals[i] < pwm_limit_[0])
-    {
-      pwms.pwm_signals[i] = pwm_limit_[0];
-    }
-    if (pwms.pwm_signals[i] > pwm_limit_[1])
-    {
-      pwms.pwm_signals[i] = pwm_limit_[1];
-    }
-  }
-  command->setPwms(pwms);
-}
 
 void ThrustControlSupervisor::step(
   ControlMode control_mode,
@@ -69,27 +61,22 @@ void ThrustControlSupervisor::step(
 	this->process_pwm_command();
 }
 
-void ThrustControlSupervisor::process_pwm_command()
-{
-  if(isLowVoltageReading){
-    pwm_array stop_pwm = {1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500};
-    current_command = std::make_unique<Untimed_Command>(stop_pwm);
-  }else{
+void ThrustControlSupervisor::process_pwm_command() {
+  if(isLowVoltageReading){ // override to stop set to prevent robot damage
+    current_command = std::make_unique<Untimed_Command>(stop_set);
+    push_to_pwm_queue(stop_set, 0.0f, false, true);
+  } 
   if (this->_control_mode == FeedForward) { this->feed_forward_pwm(); }
   if (this->_control_mode == PID){ this->pid_pwm(); }
-  }
 }  
 
-void ThrustControlSupervisor::feed_forward_pwm()  
-{
+void ThrustControlSupervisor::feed_forward_pwm() {
   _auto_flag = false;
-  if (current_command->isFinished())
-  {
+  if (current_command->isFinished()) {
     current_command = command_queue.get_command_from_queue(
             std::move(current_command));
   }
   current_command->start();
-  limit_command(current_command);
   _interpreter->untimed_execute(current_command->getPwms());
 }
 
@@ -126,7 +113,6 @@ void ThrustControlSupervisor::pid_pwm()
         _controller->setExternalInputs(&extU);
     }
     step_controller();
-    limit_command(current_command);
     _interpreter->untimed_execute(current_command->getPwms());
 }
 
