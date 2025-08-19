@@ -33,7 +33,7 @@ public:
 	
   explicit ThrustControlSupervisor(
           rclcpp::Logger logger,
-          std::unique_ptr<Command_Interpreter_RPi5>,
+          std::unique_ptr<Command_Interpreter_RPi5> interpreter,
           CommandQueue command_queue);
   
   void push_to_pwm_queue(std::unique_ptr<SupervisorCommand> new_command);
@@ -44,15 +44,15 @@ public:
 	  Position position,
 	  Position waypoint);
   
-  pwm_array get_current_pwm(){ return current_command->getPwms();}
+  pwm_array get_current_pwm();
+  pwm_array get_current_command_pwm() { return current_command->getPwms(); }
   ControlMode get_control_mode() { return _control_mode;}
   CommandQueue get_command_queue() { return command_queue;}
   Position get_current_position() { return _current_position;} // x, y, z, roll, pitch, yaw
   Position get_waypoint() { return _waypoint;}
   bool isLowVoltageReading = false;
-  void set_pwm_limit(int min, int max) { pwm_limit_[0] = min; pwm_limit_[1] = max;}
+  void set_pwm_limit(int min, int max) { _interpreter->setAllPwmLimits(min, max); }
 
-  void limit_command(std::unique_ptr<SupervisorCommand>& command);
 private:
   
   void process_pwm_command();
@@ -80,7 +80,6 @@ private:
   Position _current_position;
   Position _waypoint;
 
-  int pwm_limit_[2] = {1100, 1900};
 };
 
 }  // namespace thrust_control
